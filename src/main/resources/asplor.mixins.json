@@ -5,8 +5,7 @@
   "mixins": [
     "AsplorMixin",
     "LavaFluidMixin",
-    "WindmillBearingBlockEntityMixin",
-    "BlockEntityMixin",
+    "disablePortal.NetherPortalMixin",
     "moltenMetal.EntityMixin",
     "moltenMetal.LivingEntityMixin"
   ],
