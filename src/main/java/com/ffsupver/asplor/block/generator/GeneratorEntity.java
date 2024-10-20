@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.generator;
 
+import com.ffsupver.asplor.sound.ModSounds;
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.utility.Lang;
@@ -8,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
@@ -92,6 +94,13 @@ public class GeneratorEntity extends KineticBlockEntity {
     @Override
     public void tickAudio() {
         super.tickAudio();
+        if (Math.abs(getSpeed()) > 0){
+            float pitch = MathHelper.clamp((Math.abs(getSpeed()) / 256f) + .45f, .85f, 1f);
+            if (world != null && world.getRandom().nextFloat() > 0.99f) {
+                world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, ModSounds.ELECTRICITY_WORK,
+                        SoundCategory.BLOCKS,0.2f,pitch,true);
+            }
+        }
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.ffsupver.asplor.block.SmartEnergyStorage;
 import com.ffsupver.asplor.recipe.ElectrolyzerRecipe;
 import com.ffsupver.asplor.recipe.FluidInventory;
 import com.ffsupver.asplor.recipe.ModRecipes;
+import com.ffsupver.asplor.sound.ModSounds;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.simibubi.create.content.equipment.goggles.IHaveGoggleInformation;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
@@ -27,9 +28,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
@@ -74,15 +77,27 @@ public class ElectrolyzerEntity extends SmartBlockEntity implements SidedStorage
     @Override
     public void tick() {
         super.tick();
+
         updateOutputTank();
         if (getPart() == Electrolyzer.ElectrolyzerPart.LOWER ){
             if (this.coolDown <= 0){
                 this.coolDown = COOL_DOWN;
                 if (hasOutputTank && hasEnergy() && getCurrentRecipe().isPresent() && canInsert()){
                     craft();
+                    playSound();
                 }
             }else {
                 coolDown--;
+            }
+        }
+    }
+
+    private void playSound(){
+        if (world.isClient()){
+            float pitch = MathHelper.clamp(0.5f+ .45f, .85f, 1f);
+            if (world != null) {
+                world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, ModSounds.ELECTRICITY_WORK,
+                        SoundCategory.BLOCKS,0.2f,pitch,false);
             }
         }
     }

@@ -2,6 +2,7 @@ package com.ffsupver.asplor.block.motor;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.block.SmartEnergyStorage;
+import com.ffsupver.asplor.sound.ModSounds;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.jozufozu.flywheel.util.transform.TransformStack;
 import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
@@ -16,9 +17,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
@@ -64,6 +67,18 @@ public class MotorEntity extends GeneratingKineticBlockEntity {
         super.initialize();
         if (!hasSource() || getGeneratedSpeed() > getTheoreticalSpeed())
             updateGeneratedRotation();
+    }
+
+    @Override
+    public void tickAudio() {
+        super.tickAudio();
+        if (Math.abs(getSpeed()) > 0){
+            float pitch = MathHelper.clamp((Math.abs(getSpeed()) / 256f) + .45f, .85f, 1f);
+            if (world != null && world.getRandom().nextFloat() > 0.99f) {
+                world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, ModSounds.ELECTRICITY_WORK,
+                        SoundCategory.BLOCKS,0.2f,pitch,true);
+            }
+        }
     }
 
     @Override
