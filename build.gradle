@@ -99,17 +99,15 @@ dependencies {
 
 	//AE2
 	modCompileOnly "appeng:appliedenergistics2-fabric:${ae2_version}"
-	modRuntimeOnly(files("libs/appliedenergistics2-fabric-15.2.12.jar"))
+	modRuntimeOnly(files("build-dependencies/appliedenergistics2-fabric-15.2.12.jar"))
 
 	//模组菜单
-	modRuntimeOnly files("libs/modmenu-7.2.2.jar")
+	modRuntimeOnly files("build-dependencies/modmenu-7.2.2.jar")
 
 	// Ad Astra - Required
-	modImplementation files("build-dependencies/botarium-fabric-1.20.1-2.3.1.jar")  //？
-	modImplementation files("build-dependencies/ad_astra-fabric-1.20.1-1.15.18.jar")  //？
+	modImplementation files("build-dependencies/botarium-fabric-1.20.1-2.3.1.jar")
+	modImplementation files("build-dependencies/ad_astra-fabric-1.20.1-1.15.18.jar")
 	modImplementation ("teamreborn:energy:2.2.0") { exclude(group: "net.fabricmc.fabric-api") }
-//	modImplementation ("earth.terrarium.botarium:botarium-fabric-${minecraft_version}:${botarium_version}")  { transitive = false }
-//	modImplementation "earth.terrarium.adastra:ad_astra-fabric-${minecraft_version}:${adAstra_version}"
 	modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-${minecraft_version}:${resourcefullib_version}"
 	modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-${minecraft_version}:${resourcefulconfig_version}"
 
