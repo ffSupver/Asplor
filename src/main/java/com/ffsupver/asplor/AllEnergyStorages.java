@@ -1,9 +1,7 @@
 package com.ffsupver.asplor;
 
-import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.EnergyStorage;

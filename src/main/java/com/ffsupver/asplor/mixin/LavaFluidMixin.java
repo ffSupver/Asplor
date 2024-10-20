@@ -1,6 +1,5 @@
 package com.ffsupver.asplor.mixin;
 
-import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

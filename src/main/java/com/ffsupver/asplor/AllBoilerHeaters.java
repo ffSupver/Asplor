@@ -1,12 +1,10 @@
 package com.ffsupver.asplor;
 
-import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurner;
 import com.simibubi.create.content.fluids.tank.BoilerHeaters;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class AllBoilerHeaters {
     public static BoilerHeaters.Heater LIQUID_BLAZE_BURNER = new BoilerHeaters.Heater() {

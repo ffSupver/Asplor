@@ -1,6 +1,5 @@
 package com.ffsupver.asplor;
 
-import com.ffsupver.asplor.Asplor;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.registry.RegistryKey;
