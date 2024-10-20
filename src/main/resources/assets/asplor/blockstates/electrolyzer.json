@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "part=lower": {
+      "model": "asplor:block/electrolyzer/electrolyzer_lower"
+    },
+    "part=middle": {
+      "model": "asplor:block/electrolyzer/electrolyzer_middle"
+    },
+    "part=upper": {
+      "model": "asplor:block/electrolyzer/electrolyzer_upper"
+    }
+  }
+}

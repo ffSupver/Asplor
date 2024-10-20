@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/battery/inner_side",
+    "north": "asplor:block/battery/edge_side_left",
+    "east": "asplor:block/battery/edge_side_right",
+    "particle": "asplor:block/battery/single_side",
+    "west": "asplor:block/battery/edge_side_right",
+    "up": "asplor:block/battery/inner_top",
+    "south": "asplor:block/battery/edge_side_left"
+  }
+}

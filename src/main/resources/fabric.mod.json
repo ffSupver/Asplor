@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "asplor",
+	"version": "${version}",
+	"name": "asplor",
+	"description": "This is an mod for asplor!",
+	"authors": [
+		"ffSupver"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "MIT",
+	"icon": "assets/asplor/asplor.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ffsupver.asplor.Asplor"
+		],
+		"client": [
+			"com.ffsupver.asplor.AsplorClient"
+		],
+		"fabric-datagen": [
+			"com.ffsupver.asplor.AsplorDataGenerator"
+		],
+		"rei_client": [
+          "com.ffsupver.asplor.compat.rei.AsplorREIClient"
+		]
+	},
+	"mixins": [
+		"asplor.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.3",
+		"fabric-key-binding-api-v1": "*",
+		"minecraft": "~1.20.1",
+		"java": ">=20",
+		"fabric-api": "*",
+		"flywheel": ">=0.6.10-2",
+		"create": "*",
+		"ae2": ">=15.2.12",
+		"ad_astra": ">=1.15.18"
+	},
+	"suggests": {
+	}
+}

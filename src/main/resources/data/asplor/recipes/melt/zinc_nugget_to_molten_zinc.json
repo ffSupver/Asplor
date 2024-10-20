@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:zinc_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_zinc",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

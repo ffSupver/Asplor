@@ -1,0 +1,17 @@
+{
+  "type": "asplor:electrolyzer",
+  "ingredient": {
+    "fluid": "asplor:salt_water",
+    "amount": 9000
+  },
+  "outputs": [
+    {
+      "fluid": "asplor:chlorine",
+      "amount": 9000
+    },
+    {
+      "fluid": "ad_astra:hydrogen",
+      "amount": 9000
+    }
+  ]
+}

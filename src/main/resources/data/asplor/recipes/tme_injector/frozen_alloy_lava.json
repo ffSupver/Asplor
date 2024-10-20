@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:alloy_lava"
+  },
+  "ingredients": [
+    {
+      "item": "asplor:frozen_core"
+    }
+  ],
+  "output": {
+    "item": "asplor:unstable_rock"
+  }
+}

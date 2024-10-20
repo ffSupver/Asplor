@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "asplor:block/mechanical_pump/upper"
+    },
+    "half=lower": {
+      "model": "asplor:block/mechanical_pump/lower"
+    }
+  }
+}

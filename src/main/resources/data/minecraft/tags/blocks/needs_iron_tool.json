@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:alloy_block",
+    "asplor:alloy_chest",
+    "asplor:divider",
+    "asplor:liquid_blaze_burner",
+    "asplor:generator",
+    "asplor:battery",
+    "asplor:energy_output",
+    "asplor:time_injector",
+    "asplor:space_teleporter",
+    "asplor:motor",
+    "asplor:unpacking_table",
+    "asplor:mechanical_pump",
+    "asplor:melting_furnace",
+    "asplor:electrolyzer"
+  ]
+}

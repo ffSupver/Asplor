@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_copper",
+    "amount": 81000
+  },
+  "process_time": 800,
+  "heat_type": "normal"
+}

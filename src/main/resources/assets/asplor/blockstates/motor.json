@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "asplor:block/motor/motor",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "asplor:block/motor/motor",
+      "x": 270
+    },
+    "facing=east": {
+      "model": "asplor:block/motor/motor",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "asplor:block/motor/motor"
+    },
+    "facing=south": {
+      "model": "asplor:block/motor/motor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "asplor:block/motor/motor",
+      "y": 270
+    }
+  }
+}

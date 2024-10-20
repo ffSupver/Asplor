@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:molten_gold"
+  },
+  "ingredients": [
+    {
+      "item": "asplor:frozen_core"
+    }
+  ],
+  "output": {
+    "item": "minecraft:gold_block"
+  }
+}

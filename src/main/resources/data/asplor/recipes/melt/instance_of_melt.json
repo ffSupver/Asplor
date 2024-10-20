@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:player_head"
+    }
+  ],
+  "output": {
+    "fluid": "minecraft:water",
+    "amount": 81000
+  },
+  "process_time": 80,
+  "heat_type": "super"
+}

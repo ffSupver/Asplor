@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_iron",
+    "amount": 81000
+  },
+  "process_time": 800,
+  "heat_type": "normal"
+}

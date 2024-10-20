@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:molten_zinc"
+  },
+  "ingredients": [
+    {
+      "item": "asplor:frozen_core"
+    }
+  ],
+  "output": {
+    "item": "create:zinc_block"
+  }
+}

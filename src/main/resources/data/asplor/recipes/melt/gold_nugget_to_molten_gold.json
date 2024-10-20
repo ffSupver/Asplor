@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_gold",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

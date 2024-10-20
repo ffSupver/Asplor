@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/alloy_chest/alloy_chest_bottom",
+    "side": "asplor:block/alloy_chest/alloy_chest_side",
+    "top": "asplor:block/alloy_chest/alloy_chest_top_open"
+  }
+}

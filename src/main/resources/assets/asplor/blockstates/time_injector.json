@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asplor:block/time_injector/time_injector"
+    }
+  }
+}

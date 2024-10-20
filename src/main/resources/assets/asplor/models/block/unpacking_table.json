@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/unpacking_table/bottom",
+    "east": "asplor:block/unpacking_table/side",
+    "north": "asplor:block/unpacking_table/side",
+    "particle": "asplor:block/unpacking_table/side",
+    "south": "asplor:block/unpacking_table/side",
+    "up": "asplor:block/unpacking_table/top",
+    "west": "asplor:block/unpacking_table/side"
+  }
+}

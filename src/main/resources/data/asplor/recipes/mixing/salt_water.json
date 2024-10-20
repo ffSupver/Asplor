@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 9000,
+      "fluid": "minecraft:water"
+    },
+    {
+      "item": "asplor:salt"
+    }
+  ],
+  "results": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:salt_water"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "item.asplor.alloy_ingot": "Alloy Ingot",
+  "item.asplor.charged_alloy_ingot": "Charged Alloy Ingot",
+  "item.asplor.uncompleted_alloy_chest": "uncompleted Alloy Chest",
+  "item.asplor.refined_oil_bucket": "Refined Oil Bucket",
+  "item.asplor.glue_bucket": "Glue Bucket",
+  "item.asplor.space_teleporter_anchor": "Space Teleporter Anchor",
+  "item.asplor.packer": "Packer",
+  "item.asplor.primary_mechanism": "Primary Mechanism",
+  "item.asplor.mechanical_press_head": "Mechanical Press Head",
+  "item.asplor.molten_iron_bucket": "Molten Iron Bucket",
+  "item.asplor.molten_gold_bucket": "Molten Gold Bucket",
+  "item.asplor.molten_copper_bucket": "Molten Copper Bucket",
+  "item.asplor.molten_zinc_bucket": "Molten Zinc Bucket",
+  "item.asplor.molten_brass_bucket": "Molten Brass Bucket",
+  "item.asplor.salt_water_bucket": "Salt Water Bucket",
+  "item.asplor.salt": "Salt",
+  "item.asplor.chlorine_bucket": "Chlorine Bucket",
+  "item.asplor.zinc_copper_battery": "Zinc Copper Battery",
+  "item.asplor.molten_alloy_bucket": "Molten Alloy Bucket",
+  "item.asplor.alloy_lava_bucket": "Alloy Lava Bucket",
+
+
+
+  "block.asplor.alloy_block": "Alloy Block",
+  "block.asplor.alloy_chest": "Alloy Chest",
+  "block.asplor.divider": "Divider",
+  "block.asplor.alloy_mechanical_press": "Alloy Mechanical Press",
+  "block.asplor.liquid_blaze_burner": "Liquid Blaze Burner",
+  "block.asplor.generator": "Generator",
+  "block.asplor.battery": "Battery",
+  "block.asplor.assembler": "Assembler",
+  "block.asplor.refined_oil": "Refined Oil",
+  "block.asplor.energy_output": "Energy Output",
+  "block.asplor.andesite_machine": "Andesite Machine",
+  "block.asplor.glue": "Glue",
+  "block.asplor.time_injector": "Time Injector",
+  "block.asplor.space_teleporter": "Space Teleporter",
+  "block.asplor.motor": "motor",
+  "block.asplor.unpacking_table": "Unpacking Table",
+  "block.asplor.mechanical_pump": "Mechanical Pump",
+  "block.asplor.molten_iron": "Molten Iron",
+  "block.asplor.melting_furnace": "Melting Furnace",
+  "block.asplor.molten_gold": "Molten Gold",
+  "block.asplor.molten_copper": "Molten Copper",
+  "block.asplor.molten_zinc": "Molten Zinc",
+  "block.asplor.molten_brass": "Molten Brass",
+  "block.asplor.frozen_core": "Frozen Core",
+  "block.asplor.electrolyzer": "Electrolyzer",
+  "block.asplor.salt_water": "Salt Water",
+  "block.asplor.chlorine": "Chlorine",
+  "block.asplor.unstable_rock": "Unstable Rock",
+  "block.asplor.molten_alloy": "Molten Alloy",
+  "block.asplor.alloy_lava": "Alloy Lava",
+  "block.asplor.windmill_bearing": "Windmill Bearing",
+
+
+
+
+
+  "death.attack.molten": "%1$s tried to become Terminator 1000",
+  "death.attack.molten.player": "%1$s was knocked into liquid metal by %2$s, but didn't quite become Terminator 1000",
+
+
+
+
+  "recipe.asplor.divider": "Divider",
+  "recipe.asplor.alloy_pressing": "Alloy Pressing",
+  "create.recipe.assembly.alloy_pressing": "Process in Alloy Press",
+  "recipe.asplor.liquid_blaze_burner": "for liquid blaze burner to burn",
+  "recipe.asplor.liquid_blaze_burner_description": "every %s mB can burn %s ticks",
+  "recipe.asplor.liquid_blaze_burner_burn_type_normal":"normal burning",
+  "recipe.asplor.liquid_blaze_burner_burn_type_super": "super burning",
+  "recipe.asplor.assembler": "Assembler",
+  "recipe.asplor.time_injector": "Time Injector",
+  "recipe.asplor.melt": "Melting",
+  "recipe.asplor.electrolyze": "Electrolyze",
+
+
+
+
+
+
+  "itemGroup.asplor_machines": "Asplor Machines",
+  "itemGroup.asplor_ingredients": "Asplor Ingredients",
+
+  "subtitles.block.alloy_chest.open": "Alloy chest opens",
+  "subtitles.block.alloy_chest.close": "Alloy chest closes",
+  "subtitles.block.divider.cut": "Divider cuts",
+  "subtitles.entity.villager.work_assembler": "Assembler works",
+
+  "description.asplor.goggle": "With goggles",
+  "description.asplor.chest": "With chest",
+  "description.asplor.alloy_chest": "With alloy chest",
+  "description.asplor.anchor": "At %s (%s,%s,%s)",
+
+
+
+  "category.asplor.key": "Asplor",
+  "key.asplor.open_backpack": "Open Backpack",
+
+  "entity.asplor.alloy_chest": "alloy chest",
+  "entity.minecraft.villager.assembler": "Assembler",
+
+  "gui.asplor.backpack": "backpack",
+
+  "asplor.ponder.time_injector.header": "How to use time injector",
+  "asplor.ponder.time_injector.text_1": "Time injector can turn liquid into blocks",
+  "asplor.ponder.time_injector.text_2": "Place the base blocks below it",
+  "asplor.ponder.time_injector.text_3": "Place liquid above the base blocks",
+  "asplor.ponder.time_injector.text_4": "Power the time injector",
+  "asplor.ponder.time_injector.text_5": "The liquid will become blocks",
+  "asplor.ponder.packer.header": "Packing",
+  "asplor.ponder.packer.text_1": "Packer can pack alloy chests",
+  "asplor.ponder.packer.text_2": "Packed alloy chests will unpack on unpacking table",
+  "asplor.ponder.teleport.header": "How to use space teleporter",
+  "asplor.ponder.teleport.text_1": "Select the target",
+  "asplor.ponder.teleport.text_2": "Set target of space teleporter",
+  "asplor.ponder.teleport.text_3": "Space teleporter will launch things above",
+  "asplor.ponder.teleport.text_4": "which land on the target soon",
+  "asplor.ponder.melting_furnace.header": "How to use melting furnace",
+  "asplor.ponder.melting_furnace.text_1": "Melting furnace can melt the metal into liquid",
+  "asplor.ponder.melting_furnace.text_2": "Melting furnace needs to be heated",
+  "asplor.ponder.melting_furnace.text_3": "Add items",
+  "asplor.ponder.melting_furnace.text_4": "Melting furnace is working",
+  "asplor.ponder.melting_furnace.text_5": "Output liquid will be in the near by fluid tank",
+  "asplor.ponder.melting_furnace_heat.header": "Heat type of melting furnace",
+  "asplor.ponder.melting_furnace_heat.text_1": "Some recipes only need normal heating",
+  "asplor.ponder.melting_furnace_heat.text_2": "Some recipes require super heating",
+  "asplor.ponder.melting_furnace_heat.text_3": "For the recipes need normal heating,",
+  "asplor.ponder.melting_furnace_heat.text_4": "super heating doubles the working speed of melting furnace",
+
+
+
+
+
+
+
+
+
+  "create.tooltip.energyGenerated": "Energy :",
+  "create.generic.unit.energy": "E per tick",
+  "create.gui.goggles.battery": "Battery Info:",
+  "create.gui.goggles.battery.energy_stored": "Energy Stored :",
+  "create.gui.goggles.asplor.space_teleporter.info": "Space Teleporter Info :",
+  "create.gui.goggles.asplor.space_teleporter.destination": "At %s (%s,%s,%s)",
+  "create.gui.goggles.asplor.space_teleporter.can_not_teleport": "No destination",
+  "create.kinetics.motor.rotation_speed": "Set Motor Speed in RPM",
+  "create.gui.goggles.pump_stats": "Pump Stats:",
+  "create.tooltip.water_per_tick": "Water Provided:",
+  "create.generic.unit.mb_per_tick": "mB per tick"
+}

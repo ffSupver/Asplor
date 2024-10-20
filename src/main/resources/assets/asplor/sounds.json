@@ -1,0 +1,72 @@
+{
+  "alloy_block_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "asplor:alloy_block_break"
+    ]
+  },
+  "alloy_block_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "asplor:alloy_block_step"
+    ]
+  },
+  "alloy_block_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "asplor:alloy_block_place"
+    ]
+  },
+  "alloy_block_hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "asplor:alloy_block_hit"
+    ]
+  },
+  "alloy_block_fall": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "asplor:alloy_block_fall"
+    ]
+  },
+  "alloy_chest_open": {
+    "subtitle": "subtitles.block.alloy_chest.open",
+    "sounds": [
+      "asplor:alloy_chest_open"
+    ]
+  },
+  "alloy_chest_close": {
+    "subtitle": "subtitles.block.alloy_chest.close",
+    "sounds": [
+      "asplor:alloy_chest_close"
+    ]
+  },
+  "divider_cut": {
+    "subtitle": "subtitles.block.divider.cut",
+    "sounds": [
+      "asplor:divider/cut1",
+      "asplor:divider/cut2",
+      "asplor:divider/cut3",
+      "asplor:divider/cut4"
+    ]
+  },
+  "assembler_work": {
+    "subtitle": "subtitles.entity.villager.work_assembler",
+    "sounds": [
+      "asplor:assembler_work/1",
+      "asplor:assembler_work/2",
+      "asplor:assembler_work/3",
+      "asplor:assembler_work/4",
+      "asplor:assembler_work/5",
+      "asplor:assembler_work/6",
+      "asplor:assembler_work/7",
+      "asplor:assembler_work/8"
+    ]
+  },
+  "electricity_work": {
+    "subtitle": "subtitles.block.electricity_work",
+    "sounds": [
+      "asplor:electricity_work"
+    ]
+  }
+}

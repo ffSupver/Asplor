@@ -1,0 +1,15 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_iron",
+    "amount": 9000,
+    "description": "amount = 81 * mB"
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

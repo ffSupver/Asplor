@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:molten_iron",
+    "asplor:flowing_molten_iron",
+    "asplor:molten_gold",
+    "asplor:flowing_molten_gold",
+    "asplor:molten_copper",
+    "asplor:flowing_molten_copper",
+    "asplor:molten_zinc",
+    "asplor:flowing_molten_zinc",
+    "asplor:molten_brass",
+    "asplor:flowing_molten_brass",
+    "asplor:molten_alloy",
+    "asplor:flowing_molten_alloy"
+  ]
+}

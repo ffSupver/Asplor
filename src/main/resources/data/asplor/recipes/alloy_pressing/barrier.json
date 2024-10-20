@@ -1,0 +1,14 @@
+{
+  "type": "asplor:alloy_pressing",
+  "ingredients": [
+    {
+      "item": "minecraft:bedrock"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:barrier",
+      "count": 2
+    }
+  ]
+}

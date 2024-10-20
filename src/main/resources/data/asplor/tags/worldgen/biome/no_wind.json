@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "ad_astra:lunar_wastelands",
+      "required": false
+    },
+    {
+      "id": "ad_astra:orbit",
+      "required": false
+    },
+    {
+      "id": "ad_astra:mercury_deltas",
+      "required": false
+    },
+    "minecraft:the_end",
+    "minecraft:end_highlands",
+    "minecraft:end_midlands",
+    "minecraft:small_end_islands",
+    "minecraft:end_barrens"
+  ]
+}

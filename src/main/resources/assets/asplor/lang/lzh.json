@@ -1,0 +1,144 @@
+{
+  "item.asplor.alloy_ingot": "合金锭",
+  "item.asplor.charged_alloy_ingot": "充能合金锭",
+  "item.asplor.uncompleted_alloy_chest": "未完成的合金箱子",
+  "item.asplor.refined_oil_bucket": "精炼油桶",
+  "item.asplor.glue_bucket": "凝胶桶",
+  "item.asplor.space_teleporter_anchor": "傳送錨點錨",
+  "item.asplor.packer": "打包器",
+  "item.asplor.primary_mechanism": "初级构件",
+  "item.asplor.mechanical_press_head": "辊压机头",
+  "item.asplor.molten_iron_bucket": "熔融铁桶",
+  "item.asplor.molten_gold_bucket": "熔融金桶",
+  "item.asplor.molten_copper_bucket": "熔融铜桶",
+  "item.asplor.molten_zinc_bucket": "熔融锌桶",
+  "item.asplor.molten_brass_bucket": "熔融黄铜桶",
+  "item.asplor.salt_water_bucket": "盐水桶",
+  "item.asplor.salt": "盐",
+  "item.asplor.chlorine_bucket": "氯气桶",
+  "item.asplor.zinc_copper_battery": "锌铜电池",
+  "item.asplor.molten_alloy_bucket": "熔融合金桶",
+  "item.asplor.alloy_lava_bucket": "金石漿桶",
+
+
+  "block.asplor.alloy_block": "合金块",
+  "block.asplor.alloy_chest": "合金箱子",
+  "block.asplor.divider": "分割机",
+  "block.asplor.alloy_mechanical_press": "合金辊压机",
+  "block.asplor.liquid_blaze_burner": "液体烈焰人燃烧室",
+  "block.asplor.generator": "发电机",
+  "block.asplor.battery": "电池",
+  "block.asplor.assembler": "装配台",
+  "block.asplor.refined_oil": "精炼油",
+  "block.asplor.energy_output": "能量输出器",
+  "block.asplor.andesite_machine": "安山机器",
+  "block.asplor.glue": "凝胶",
+  "block.asplor.time_injector": "注时器",
+  "block.asplor.space_teleporter": "傳送錨點",
+  "block.asplor.motor": "电动机",
+  "block.asplor.unpacking_table": "解包台",
+  "block.asplor.mechanical_pump": "动力抽水器",
+  "block.asplor.molten_iron": "熔融铁",
+  "block.asplor.melting_furnace": "紅溫器",
+  "block.asplor.molten_gold": "熔融金",
+  "block.asplor.molten_copper": "熔融铜",
+  "block.asplor.molten_zinc": "熔融锌",
+  "block.asplor.molten_brass": "熔融黄铜",
+  "block.asplor.frozen_core": "墜入寒淵",
+  "block.asplor.electrolyzer": "电解器",
+  "block.asplor.salt_water": "盐水",
+  "block.asplor.chlorine": "氯气",
+  "block.asplor.unstable_rock": "變岩",
+  "block.asplor.molten_alloy": "熔融合金",
+  "block.asplor.alloy_lava": "金石漿",
+  "block.asplor.windmill_bearing":"風車軸承",
+
+
+  "death.attack.molten": "%1$s 试图成为T-1000",
+  "death.attack.molten.player": "%1$s 被 %2$s 推进了液态金属，但没能成为T-1000",
+
+
+
+
+
+
+
+  "recipe.asplor.divider": "分割",
+  "recipe.asplor.alloy_pressing": "合金辊压",
+  "create.recipe.assembly.alloy_pressing": "进行合金辊压",
+  "recipe.asplor.liquid_blaze_burner": "供液体烈焰人燃烧室燃烧",
+  "recipe.asplor.liquid_blaze_burner_description": "每 %s mB 可以燃烧 %s 刻",
+  "recipe.asplor.liquid_blaze_burner_burn_type_normal":"普通加热",
+  "recipe.asplor.liquid_blaze_burner_burn_type_super": "超级加热",
+  "recipe.asplor.assembler": "装配",
+  "recipe.asplor.time_injector": "注时",
+  "recipe.asplor.melt": "紅溫",
+
+
+
+
+
+  "itemGroup.asplor_machines": "屎山:机器",
+  "itemGroup.asplor_ingredients": "屎山:材料",
+
+  "subtitles.block.alloy_chest.open": "合金箱子: 打开",
+  "subtitles.block.alloy_chest.close": "合金箱子: 关闭",
+  "subtitles.block.divider.cut": "切割机: 切割",
+  "subtitles.entity.villager.work_assembler": "装配大师: 装配",
+
+  "description.asplor.goggle": "带有工程师护目镜",
+  "description.asplor.chest": "带有箱子",
+  "description.asplor.alloy_chest": "带有合金箱子",
+  "description.asplor.anchor": "位于 %s (%s,%s,%s)",
+
+  "category.asplor.key": "屎山",
+  "key.asplor.open_backpack": "打开背包",
+
+  "entity.asplor.alloy_chest": "合金箱子",
+  "entity.minecraft.villager.assembler": "装配大师",
+
+  "gui.asplor.backpack": "背包",
+
+  "asplor.ponder.time_injector.header": "怎么使用注时器",
+  "asplor.ponder.time_injector.text_1": "注时器可以把液体变成方块",
+  "asplor.ponder.time_injector.text_2": "在底下放方块",
+  "asplor.ponder.time_injector.text_3": "在方块上面放对应的液体",
+  "asplor.ponder.time_injector.text_4": "给注时器通电",
+  "asplor.ponder.time_injector.text_5": "稍等片刻，马上就好了",
+  "asplor.ponder.packer.header": "打包",
+  "asplor.ponder.packer.text_1": "打包器可以把合金箱子打包起来",
+  "asplor.ponder.packer.text_2": "打包过的合金箱子会在解包台上自动解包",
+  "asplor.ponder.teleport.header": "如何使用傳送錨點",
+  "asplor.ponder.teleport.text_1": "选择要传送的目标",
+  "asplor.ponder.teleport.text_2": "设置傳送錨點的目标",
+  "asplor.ponder.teleport.text_3": "裝逼?讓你飛起來!",
+  "asplor.ponder.teleport.text_4": "鷄湯來咯",
+  "asplor.ponder.melting_furnace.header": "如何使用紅溫器",
+  "asplor.ponder.melting_furnace.text_1": "紅溫器可以讓物品紅溫",
+  "asplor.ponder.melting_furnace.text_2": "紅溫器需要被紅溫",
+  "asplor.ponder.melting_furnace.text_3": "加入物品",
+  "asplor.ponder.melting_furnace.text_4": "紅溫了",
+  "asplor.ponder.melting_furnace.text_5": "紅溫后漏液于近罐",
+  "asplor.ponder.melting_furnace_heat.header": "紅溫器的紅溫类型",
+  "asplor.ponder.melting_furnace_heat.text_1": "某些配方只需要普通紅溫",
+  "asplor.ponder.melting_furnace_heat.text_2": "某些配方需要超级紅溫",
+  "asplor.ponder.melting_furnace_heat.text_3": "对于那些只需要普通紅溫的配方,",
+  "asplor.ponder.melting_furnace_heat.text_4": "超级紅溫可以让紅溫器以二倍速紅溫",
+
+
+
+
+
+  "create.tooltip.energyGenerated": "能量 :",
+  "create.generic.unit.energy": "E 每刻",
+  "create.gui.goggles.battery": "电池信息:",
+  "create.gui.goggles.battery.energy_stored": "储存的能量 :",
+  "create.gui.goggles.asplor.space_teleporter.info": "傳送錨點信息:",
+  "create.gui.goggles.asplor.space_teleporter.destination": "位于 %s (%s,%s,%s)",
+  "create.gui.goggles.asplor.space_teleporter.can_not_teleport": "没有目的地",
+  "create.kinetics.motor.rotation_speed": "设置电动机 RPM",
+  "create.gui.goggles.pump_stats": "抽水器状态:",
+  "create.tooltip.water_per_tick": "抽水量:",
+  "create.generic.unit.mb_per_tick": "mB每刻"
+
+}

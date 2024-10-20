@@ -1,0 +1,10 @@
+{
+  "type": "asplor:liquid_blaze_burner",
+  "fluid": {
+    "fluid": "minecraft:lava"
+
+  },
+  "amount": 1,
+  "output": 20,
+  "heat_type": "normal"
+}

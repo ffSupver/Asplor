@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "asplor:block/unstable_rock/unstable_rock_0"
+    },
+    "stage=1": {
+      "model": "asplor:block/unstable_rock/unstable_rock_1"
+    },
+    "stage=2": {
+      "model": "asplor:block/unstable_rock/unstable_rock_2"
+    },
+    "stage=3": {
+      "model": "asplor:block/unstable_rock/unstable_rock_3"
+    }
+  }
+}

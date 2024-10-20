@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:zinc_ingot"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_zinc",
+    "amount": 9000
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

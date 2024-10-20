@@ -1,0 +1,17 @@
+{
+  "type": "asplor:electrolyzer",
+  "ingredient": {
+    "fluid": "minecraft:water",
+    "amount": 9000
+  },
+  "outputs": [
+    {
+      "fluid": "ad_astra:oxygen",
+      "amount": 9000
+    },
+    {
+      "fluid": "ad_astra:hydrogen",
+      "amount": 18000
+    }
+  ]
+}

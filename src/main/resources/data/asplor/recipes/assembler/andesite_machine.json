@@ -1,0 +1,15 @@
+{
+  "type": "asplor:assembler",
+  "ingredients": [
+    {
+      "item": "create:andesite_casing"
+    },
+    {
+      "item": "asplor:primary_mechanism"
+    }
+  ],
+  "output": {
+    "item": "asplor:andesite_machine",
+    "count": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:copper_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_copper",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

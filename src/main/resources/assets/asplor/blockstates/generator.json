@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "asplor:block/generator/generator",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "asplor:block/generator/generator",
+      "x": 270
+    },
+    "facing=east": {
+      "model": "asplor:block/generator/generator",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "asplor:block/generator/generator"
+    },
+    "facing=south": {
+      "model": "asplor:block/generator/generator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "asplor:block/generator/generator",
+      "y": 270
+    }
+  }
+}

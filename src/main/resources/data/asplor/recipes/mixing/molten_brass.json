@@ -1,0 +1,20 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:molten_zinc"
+    },
+    {
+      "amount": 9000,
+      "fluid": "asplor:molten_copper"
+    }
+  ],
+  "results": [
+    {
+      "amount": 18000,
+      "fluid": "asplor:molten_brass"
+    }
+  ]
+}

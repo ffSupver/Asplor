@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:command_block"
+    },
+    {
+      "amount": 81000,
+      "fluid": "minecraft:water"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:player_head",
+      "nbt": {"SkullOwner": "laos_NbF5"}
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "variants": {
+    "shape=inner": {
+      "model": "asplor:block/battery/inner"
+    },
+    "shape=edge_e,top=false,bottom=false": {
+      "model": "asplor:block/battery/inner"
+    },
+    "shape=edge_s,top=false,bottom=false": {
+      "model": "asplor:block/battery/inner"
+    },
+    "shape=edge_w,top=false,bottom=false": {
+      "model": "asplor:block/battery/inner"
+    },
+    "shape=edge_n,top=false,bottom=false": {
+      "model": "asplor:block/battery/inner"
+    },
+    "shape=edge_e,top=false,bottom=true": {
+      "model": "asplor:block/battery/edge_east_bottom"
+    },
+    "shape=edge_s,top=false,bottom=true": {
+      "model": "asplor:block/battery/edge_south_bottom"
+    },
+    "shape=edge_w,top=false,bottom=true": {
+      "model": "asplor:block/battery/edge_west_bottom"
+    },
+    "shape=edge_n,top=false,bottom=true": {
+      "model": "asplor:block/battery/edge_north_bottom"
+    },
+    "shape=edge_e,top=true,bottom=false": {
+      "model": "asplor:block/battery/edge_east_top"
+    },
+    "shape=edge_s,top=true,bottom=false": {
+      "model": "asplor:block/battery/edge_south_top"
+    },
+    "shape=edge_w,top=true,bottom=false": {
+      "model": "asplor:block/battery/edge_west_top"
+    },
+    "shape=edge_n,top=true,bottom=false": {
+      "model": "asplor:block/battery/edge_north_top"
+    },
+    "shape=edge_e,top=true,bottom=true": {
+      "model": "asplor:block/battery/edge_east_single"
+    },
+    "shape=edge_s,top=true,bottom=true": {
+      "model": "asplor:block/battery/edge_south_single"
+    },
+    "shape=edge_w,top=true,bottom=true": {
+      "model": "asplor:block/battery/edge_west_single"
+    },
+    "shape=edge_n,top=true,bottom=true": {
+      "model": "asplor:block/battery/edge_north_single"
+    },
+    "shape=corner_es,top=false,bottom=false": {
+      "model": "asplor:block/battery/vertical_edge_es"
+    },
+    "shape=corner_sw,top=false,bottom=false": {
+      "model": "asplor:block/battery/vertical_edge_sw"
+    },
+    "shape=corner_wn,top=false,bottom=false": {
+      "model": "asplor:block/battery/vertical_edge_es"
+    },
+    "shape=corner_ne,top=false,bottom=false": {
+      "model": "asplor:block/battery/vertical_edge_sw"
+    },
+    "shape=corner_es,top=true,bottom=false": {
+      "model": "asplor:block/battery/corner_top_es"
+    },
+    "shape=corner_sw,top=true,bottom=false": {
+      "model": "asplor:block/battery/corner_top_sw"
+    },
+    "shape=corner_wn,top=true,bottom=false": {
+      "model": "asplor:block/battery/corner_top_wn"
+    },
+    "shape=corner_ne,top=true,bottom=false": {
+      "model": "asplor:block/battery/corner_top_ne"
+    },
+    "shape=corner_es,top=false,bottom=true": {
+      "model": "asplor:block/battery/corner_bottom_es"
+    },
+    "shape=corner_sw,top=false,bottom=true": {
+      "model": "asplor:block/battery/corner_bottom_sw"
+    },
+    "shape=corner_wn,top=false,bottom=true": {
+      "model": "asplor:block/battery/corner_bottom_wn"
+    },
+    "shape=corner_ne,top=false,bottom=true": {
+      "model": "asplor:block/battery/corner_bottom_ne"
+    },
+    "shape=corner_es,top=true,bottom=true": {
+      "model": "asplor:block/battery/corner_single_es"
+    },
+    "shape=corner_sw,top=true,bottom=true": {
+      "model": "asplor:block/battery/corner_single_sw"
+    },
+    "shape=corner_wn,top=true,bottom=true": {
+      "model": "asplor:block/battery/corner_single_wn"
+    },
+    "shape=corner_ne,top=true,bottom=true": {
+      "model": "asplor:block/battery/corner_single_ne"
+    },
+    "shape=single,bottom=true,top=true": {
+      "model": "asplor:block/battery/single"
+    },
+    "shape=single,bottom=false,top=true": {
+      "model": "asplor:block/battery/single_top"
+    },
+    "shape=single,bottom=true,top=false": {
+      "model": "asplor:block/battery/single_bottom"
+    },
+    "shape=single,bottom=false,top=false": {
+      "model": "asplor:block/battery/single_middle"
+    }
+  }
+}

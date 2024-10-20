@@ -1,0 +1,84 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:copper_sheet"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item":"asplor:zinc_copper_battery",
+      "nbt": {"internalCurrentPower":2500.0}
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:copper_sheet"
+        },
+        [
+          {
+            "item": "minecraft:redstone"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create:copper_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create:copper_sheet"
+        },
+        {
+          "amount": 9000,
+          "fluid": "asplor:chlorine"
+        }
+      ],
+      "results": [
+        {
+          "item": "create:copper_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:copper_sheet"
+        },
+        [
+          {
+            "item": "create:zinc_ingot"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create:copper_sheet"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create:copper_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "create:copper_sheet"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create:copper_sheet"
+  }
+}

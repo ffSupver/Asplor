@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_gold"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_gold",
+    "amount": 12000
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/mechanical_pump/lower_bottom",
+    "top": "asplor:block/mechanical_pump/lower_top",
+    "side": "asplor:block/mechanical_pump/lower_side"
+  }
+}

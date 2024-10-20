@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:refined_oil",
+    "asplor:flowing_refined_oil",
+    "asplor:glue",
+    "asplor:flowing_glue",
+    "asplor:salt_water",
+    "asplor:flowing_salt_water"
+  ]
+}

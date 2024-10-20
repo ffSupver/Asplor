@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_copper"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_copper",
+    "amount": 12000
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

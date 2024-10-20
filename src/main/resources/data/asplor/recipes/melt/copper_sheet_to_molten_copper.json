@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:copper_sheet"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_copper",
+    "amount": 9000
+  },
+  "process_time": 80,
+  "heat_type": "normal"
+}

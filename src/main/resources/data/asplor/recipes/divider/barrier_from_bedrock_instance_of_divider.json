@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "minecraft:bedrock"
+    }
+  ],
+  "output": {
+    "item": "minecraft:barrier",
+    "count": 9
+  }
+}

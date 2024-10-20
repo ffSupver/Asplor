@@ -1,0 +1,47 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:chest"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "asplor:alloy_chest"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_alloy_chest"
+        },
+        {
+          "item": "asplor:alloy_ingot"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_alloy_chest"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_alloy_chest"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:uncompleted_alloy_chest"
+  }
+}

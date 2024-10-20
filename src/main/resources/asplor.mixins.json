@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "com.ffsupver.asplor.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AsplorMixin",
+    "LavaFluidMixin",
+    "WindmillBearingBlockEntityMixin",
+    "BlockEntityMixin",
+    "moltenMetal.EntityMixin",
+    "moltenMetal.LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "moltenMetal.CameraMixin"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "create:brass_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_brass",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

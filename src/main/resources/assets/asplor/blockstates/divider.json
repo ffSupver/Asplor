@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "casing=false": {
+      "model": "asplor:block/divider/divider"
+    },
+    "casing=true": {
+      "model": "asplor:block/divider/divider_casing"
+    }
+
+  }
+}

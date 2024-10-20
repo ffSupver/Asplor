@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "asplor:block/unstable_rock/unstable_rock_0"
+  }
+}

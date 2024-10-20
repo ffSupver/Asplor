@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:battery",
+    "asplor:time_injector",
+    "asplor:space_teleporter",
+    "asplor:motor",
+    "asplor:electrolyzer"
+  ]
+}

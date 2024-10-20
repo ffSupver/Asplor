@@ -1,0 +1,10 @@
+{
+  "type": "asplor:liquid_blaze_burner",
+  "fluid": {
+    "fluid": "asplor:refined_oil"
+
+  },
+  "amount": 1,
+  "output": 10,
+  "heat_type": "super"
+}

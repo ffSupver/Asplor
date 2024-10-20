@@ -1,0 +1,66 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:andesite_casing"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item":"asplor:andesite_machine"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:andesite_casing"
+        },
+        [
+          {
+            "item": "asplor:primary_mechanism"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create:andesite_casing"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create:andesite_casing"
+        },
+        {
+          "amount": 162,
+          "fluid": "asplor:glue",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "create:andesite_casing"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create:andesite_casing"
+        }
+      ],
+      "results": [
+        {
+          "item": "create:andesite_casing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create:andesite_casing"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:glue"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:clay"
+    }
+  ],
+  "output": {
+    "item": "minecraft:slime_block"
+  }
+}
