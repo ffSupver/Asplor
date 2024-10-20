@@ -15,6 +15,7 @@
     "asplor:mechanical_pump",
     "asplor:melting_furnace",
     "asplor:electrolyzer",
-    "asplor:unstable_rock"
+    "asplor:unstable_rock",
+    "asplor:windmill_bearing"
   ]
 }

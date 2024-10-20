@@ -8,8 +8,8 @@
 		"ffSupver"
 	],
 	"contact": {
-		"homepage": "",
-		"sources": ""
+		"homepage": "Coming soon",
+		"sources": "https://github.com/ffSupver/Asplor"
 	},
 	"license": "MIT",
 	"icon": "assets/asplor/asplor.png",
@@ -40,6 +40,7 @@
 		"flywheel": ">=0.6.10-2",
 		"create": "*",
 		"ae2": ">=15.2.12",
+		"botarium": "*",
 		"ad_astra": ">=1.15.18"
 	},
 	"suggests": {

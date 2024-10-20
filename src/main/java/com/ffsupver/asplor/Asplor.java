@@ -17,6 +17,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.registry.RegistryKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,8 @@ public class Asplor implements ModInitializer {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(Asplor.MOD_ID);
+
+
 
 	//添加应力描述
 	static {
@@ -47,7 +50,6 @@ public class Asplor implements ModInitializer {
 		ModSounds.registerModSounds();
 		ModEntities.register();
 
-
 		AllBlocks.register();
 		AllBlockEntityTypes.register();
 		AllRecipeTypes.register();
@@ -58,19 +60,20 @@ public class Asplor implements ModInitializer {
 
 		if (!Create.REGISTRATE.isRegistered(RegistryKeys.ITEM)) {
 			Create.REGISTRATE.addRegisterCallback(RegistryKeys.ITEM, Asplor::registerAfterCreateItems);
-		}else {
+		} else {
 			registerAfterCreateItems();
 		}
-
 
 
 		GoggleDisplays.register();
 
 		ModPackets.registerC2SPack();
-}
-private static void registerAfterCreateItems(){
-	ModVillagers.registerVillagers();
-	ModTraders.registerTraders();
-	Asplor.LOGGER.info(" create items loaded :" +Create.REGISTRATE.isRegistered(RegistryKeys.ITEM));
-}
+	}
+
+	private static void registerAfterCreateItems() {
+		ModVillagers.registerVillagers();
+		ModTraders.registerTraders();
+		Asplor.LOGGER.info(" create items loaded :" + Create.REGISTRATE.isRegistered(RegistryKeys.ITEM));
+	}
+
 }

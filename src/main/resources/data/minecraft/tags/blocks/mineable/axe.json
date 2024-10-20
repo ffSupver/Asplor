@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "asplor:assembler"
+    "asplor:assembler",
+    "asplor:windmill_bearing"
   ]
 }

@@ -40,6 +40,7 @@ public class ModItemGroups {
                                 entries.add(FROZEN_CORE);
                                 entries.add(UNSTABLE_ROCK);
                                 entries.add(SALT);
+                                entries.add(SUSPICIOUS_MARS_SAND);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "dusted=0": {
+      "model": "asplor:block/suspicious_mars_sand/suspicious_mars_sand_0"
+    },
+    "dusted=1": {
+      "model": "asplor:block/suspicious_mars_sand/suspicious_mars_sand_1"
+    },
+    "dusted=2": {
+      "model": "asplor:block/suspicious_mars_sand/suspicious_mars_sand_2"
+    },
+    "dusted=3": {
+      "model": "asplor:block/suspicious_mars_sand/suspicious_mars_sand_3"
+    }
+  }
+}

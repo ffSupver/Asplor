@@ -52,6 +52,8 @@
   "block.asplor.molten_alloy": "熔融合金",
   "block.asplor.alloy_lava": "金石漿",
   "block.asplor.windmill_bearing":"風車軸承",
+  "block.asplor.suspicious_mars_sand": "可疑的火星沙",
+  "block.asplor.mars_sand": "火星沙",
 
 
   "death.attack.molten": "%1$s 试图成为T-1000",

@@ -10,8 +10,8 @@ import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.ponder.PonderRegistrationHelper;
 import com.simibubi.create.infrastructure.ponder.AllPonderTags;
+import com.simibubi.create.infrastructure.ponder.scenes.BearingScenes;
 import com.simibubi.create.infrastructure.ponder.scenes.ProcessingScenes;
-import com.tterrag.registrate.util.entry.ItemProviderEntry;
 
 public class PonderIndex {
     static final PonderRegistrationHelper HELPER = new PonderRegistrationHelper(Asplor.MOD_ID);
@@ -32,5 +32,10 @@ public class PonderIndex {
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)
                 .addStoryBoard("mechanical_press/pressing", ProcessingScenes::pressing)
                 .addStoryBoard("mechanical_press/compacting", ProcessingScenes::compacting);
+        CREATE_HELPER.forComponents(AllBlocks.WINDMILL_BEARING)
+                .addStoryBoard("windmill_bearing/source", BearingScenes::windmillsAsSource, AllPonderTags.KINETIC_SOURCES)
+                .addStoryBoard("windmill_bearing/structure", BearingScenes::windmillsAnyStructure,
+                        AllPonderTags.MOVEMENT_ANCHOR);
+
     }
 }

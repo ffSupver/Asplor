@@ -34,10 +34,7 @@ import com.simibubi.create.foundation.utility.Couple;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FluidBlock;
-import net.minecraft.block.MapColor;
+import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.fluid.FlowableFluid;
@@ -46,6 +43,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -197,6 +195,11 @@ public class AllBlocks {
     public static final Block CHLORINE = registerFluidBlock("chlorine",ModFluids.CHLORINE,null);
     public static final Block UNSTABLE_ROCK = registerBlock("unstable_rock",new UnstableRock(FabricBlockSettings.copy(Blocks.STONE)));
     public static final Block ALLOY_LAVA = registerFluidBlock("alloy_lava",ModFluids.ALLOY_LAVA,p->p.mapColor(MapColor.RED));
+    public static final Block MARS_SAND = registerBlock("mars_sand",new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).mapColor(MapColor.TERRACOTTA_RED)));
+    public static Block SUSPICIOUS_MARS_SAND = registerBlock("suspicious_mars_sand",new BrushableBlock(MARS_SAND,FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE));
+
+
+
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
