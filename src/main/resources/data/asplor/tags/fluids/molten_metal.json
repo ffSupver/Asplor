@@ -12,6 +12,10 @@
     "asplor:molten_brass",
     "asplor:flowing_molten_brass",
     "asplor:molten_alloy",
-    "asplor:flowing_molten_alloy"
+    "asplor:flowing_molten_alloy",
+    "asplor:molten_desh",
+    "asplor:flowing_molten_desh",
+    "asplor:impure_molten_desh",
+    "asplor:flowing_impure_molten_desh"
   ]
 }

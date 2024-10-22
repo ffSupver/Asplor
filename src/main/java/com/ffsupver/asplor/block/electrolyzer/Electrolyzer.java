@@ -3,6 +3,7 @@ package com.ffsupver.asplor.block.electrolyzer;
 import com.ffsupver.asplor.AllBlockEntityTypes;
 import com.ffsupver.asplor.AllBlocks;
 import com.simibubi.create.content.contraptions.BlockMovementChecks;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -27,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Electrolyzer extends Block implements IBE<ElectrolyzerEntity> {
+public class Electrolyzer extends Block implements IBE<ElectrolyzerEntity> , IWrenchable {
     public static EnumProperty<ElectrolyzerPart> PART = EnumProperty.of("part",ElectrolyzerPart.class);
     public static final IntProperty LIGHT_LEVEL = IntProperty.of("light_level", 0, 15);
 

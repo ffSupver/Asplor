@@ -19,6 +19,8 @@
   "item.asplor.zinc_copper_battery": "Zinc Copper Battery",
   "item.asplor.molten_alloy_bucket": "Molten Alloy Bucket",
   "item.asplor.alloy_lava_bucket": "Alloy Lava Bucket",
+  "item.asplor.molten_desh_bucket": "Molten Desh Bucket",
+  "item.asplor.impure_molten_desh_bucket": "Impure Molten Desh Bucket",
 
 
 
@@ -55,12 +57,14 @@
   "block.asplor.windmill_bearing": "Windmill Bearing",
   "block.asplor.suspicious_mars_sand": "Suspicious Mars Sand",
   "block.asplor.mars_sand": "Mars Sand",
+  "block.asplor.molten_desh": "Molten Desh",
+  "block.asplor.impure_molten_desh": "Impure Molten Desh",
 
 
 
 
 
-  "death.attack.molten": "%1$s tried to become Terminator 1000",
+  "death.attack.molten": "%1$s jumped into liquid metal , but failed to become Terminator 1000",
   "death.attack.molten.player": "%1$s was knocked into liquid metal by %2$s, but didn't quite become Terminator 1000",
 
 

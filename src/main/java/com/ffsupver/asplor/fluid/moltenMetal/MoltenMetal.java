@@ -121,4 +121,25 @@ public abstract class MoltenMetal extends FlowableFluid {
 
         super.flow(world, pos, state, direction, fluidState);
     }
+
+    protected void flowIntoWater(WorldAccess world, BlockPos pos, BlockState state, Direction direction, FluidState fluidState,BlockState blockStateInWaterCommon,BlockState blockStateInWater){
+        if (direction == Direction.DOWN) {
+            FluidState fluidState2 = world.getFluidState(pos);
+            boolean isWater = fluidState2.isIn(FluidTags.WATER)&&(!(fluidState2.isIn(ModTags.Fluids.REFINED_OIL)||fluidState2.isIn(ModTags.Fluids.REFINED_OIL)));
+            if (this.isIn(ModTags.Fluids.MOLTEN_METAL)&&isWater) {
+                if (state.getBlock() instanceof FluidBlock) {
+                    world.setBlockState(pos,
+                            world.getRandom().nextFloat() > 0.995 ? blockStateInWater : blockStateInWaterCommon,
+                            3);
+                }
+                this.playExtinguishEvent(world, pos);
+                return;
+
+            }
+        }
+
+        super.flow(world, pos, state, direction, fluidState);
+    }
 }
+
+

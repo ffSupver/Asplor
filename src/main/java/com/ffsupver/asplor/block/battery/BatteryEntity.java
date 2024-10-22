@@ -9,7 +9,6 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.blockEntity.IMultiBlockEntityContainer;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import com.simibubi.create.foundation.utility.Lang;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 import io.github.fabricators_of_create.porting_lib.transfer.TransferUtil;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
@@ -20,7 +19,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import team.reborn.energy.api.EnergyStorage;
@@ -88,6 +86,9 @@ public class BatteryEntity extends SmartBlockEntity implements IMultiBlockEntity
         super.tick();
         if (world.getTime()%20==0){
             updateBlockStateForConnectivity();
+        }
+        if(updateConnectivity){
+            updateConnectivity();
         }
         if (world.isClient){
 //            System.out.println(energyStorage.getAmount()+" "+energyAmount);

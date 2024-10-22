@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:raw_desh_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:impure_molten_desh",
+    "amount": 81000
+  },
+  "process_time": 9600,
+  "heat_type": "super"
+}

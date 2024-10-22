@@ -1,0 +1,20 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 3000,
+      "fluid": "asplor:molten_alloy"
+    },
+    {
+      "amount": 81000,
+      "fluid": "asplor:impure_molten_desh"
+    }
+  ],
+  "results": [
+    {
+      "amount": 81000,
+      "fluid": "asplor:molten_desh"
+    }
+  ]
+}

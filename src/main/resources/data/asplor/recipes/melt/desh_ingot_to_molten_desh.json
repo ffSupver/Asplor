@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:desh_ingot"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_desh",
+    "amount": 9000
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

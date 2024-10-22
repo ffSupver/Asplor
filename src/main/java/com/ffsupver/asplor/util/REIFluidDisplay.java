@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 
 public class REIFluidDisplay {
@@ -71,8 +70,6 @@ public class REIFluidDisplay {
                 }
 
                 FluidUnit unit = AllConfigs.client().fluidUnitType.get();
-
-                System.out.println(fluidAmounts.containsKey(fluid)?fluidAmounts.get(fluid) : amounts.get(0));
 
                 String amount = FluidTextUtil.getUnicodeMillibuckets(fluidAmounts.containsKey(fluid)? fluidAmounts.get(fluid) : amounts.get(0), unit, AllConfigs.client().simplifyFluidUnit.get());
                 Text text = Text.literal(String.valueOf(amount)).append(Lang.translateDirect(unit.getTranslationKey())).formatted(Formatting.GOLD);

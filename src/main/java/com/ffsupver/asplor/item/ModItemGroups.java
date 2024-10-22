@@ -1,7 +1,6 @@
 package com.ffsupver.asplor.item;
 
 import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.item.item.BatteryItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -34,6 +33,8 @@ public class ModItemGroups {
                                 entries.add(MOLTEN_ZINC_BUCKET);
                                 entries.add(MOLTEN_BRASS_BUCKET);
                                 entries.add(MOLTEN_ALLOY_BUCKET);
+                                entries.add(MOLTEN_DESH_BUCKET);
+                                entries.add(IMPURE_MOLTEN_DESH_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(PRIMARY_MECHANISM);
                                 entries.add(MECHANICAL_PRESS_HEAD);

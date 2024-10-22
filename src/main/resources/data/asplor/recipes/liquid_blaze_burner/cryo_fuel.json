@@ -1,10 +1,10 @@
 {
   "type": "asplor:liquid_blaze_burner",
   "fluid": {
-    "fluid": "asplor:refined_oil"
+    "fluid": "ad_astra:cryo_fuel"
 
   },
   "amount": 1,
-  "output": 2,
+  "output": 20,
   "heat_type": "super"
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "asplor:block/molten_iron"
+      "model": "asplor:block/molten_metal"
     }
   }
 }

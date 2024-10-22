@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:desh_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_desh",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

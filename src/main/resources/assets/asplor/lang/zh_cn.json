@@ -19,6 +19,8 @@
   "item.asplor.zinc_copper_battery": "锌铜电池",
   "item.asplor.molten_alloy_bucket": "熔融合金桶",
   "item.asplor.alloy_lava_bucket": "合金岩浆桶",
+  "item.asplor.molten_desh_bucket": "熔融戴斯桶",
+  "item.asplor.impure_molten_desh_bucket": "不纯的熔融戴斯桶",
 
 
 
@@ -55,10 +57,12 @@
   "block.asplor.windmill_bearing":"风车轴承",
   "block.asplor.suspicious_mars_sand": "可疑的火星沙",
   "block.asplor.mars_sand": "火星沙",
+  "block.asplor.molten_desh": "熔融戴斯",
+  "block.asplor.impure_molten_desh": "不纯的熔融戴斯",
 
 
 
-  "death.attack.molten": "%1$s 试图成为T-1000",
+  "death.attack.molten": "%1$s 跳进了液态金属，但没能成为T-1000",
   "death.attack.molten.player": "%1$s 被 %2$s 推进了液态金属，但没能成为T-1000",
 
 

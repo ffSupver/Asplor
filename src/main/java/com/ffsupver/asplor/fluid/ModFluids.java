@@ -39,6 +39,10 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_MOLTEN_BRASS = registerFluid("flowing_molten_brass",new MoltenBrass.Flowing());
     public static final FlowableFluid MOLTEN_ALLOY = registerFluid("molten_alloy",new MoltenAlloy.Still());
     public static final FlowableFluid FLOWING_MOLTEN_ALLOY = registerFluid("flowing_molten_alloy",new MoltenAlloy.Flowing());
+    public static final FlowableFluid MOLTEN_DESH = registerFluid("molten_desh",new MoltenDesh.Still());
+    public static final FlowableFluid FLOWING_MOLTEN_DESH = registerFluid("flowing_molten_desh",new MoltenDesh.Flowing());
+    public static final FlowableFluid IMPURE_MOLTEN_DESH = registerFluid("impure_molten_desh",new ImpureMoltenDesh.Still());
+    public static final FlowableFluid FLOWING_IMPURE_MOLTEN_DESH = registerFluid("flowing_impure_molten_desh",new ImpureMoltenDesh.Flowing());
 
 
 
@@ -57,6 +61,8 @@ public class ModFluids {
         registerMoltenMetalRender(MOLTEN_ZINC,FLOWING_MOLTEN_ZINC,0xA9B823);
         registerMoltenMetalRender(MOLTEN_BRASS,FLOWING_MOLTEN_BRASS,0xFFB925);
         registerMoltenMetalRender(MOLTEN_ALLOY,FLOWING_MOLTEN_ALLOY,0xD3D5EB);
+        registerMoltenMetalRender(MOLTEN_DESH,FLOWING_MOLTEN_DESH,0xE8660F);
+        registerMoltenMetalRender(IMPURE_MOLTEN_DESH,FLOWING_IMPURE_MOLTEN_DESH,0xD44B07);
 
 
 
