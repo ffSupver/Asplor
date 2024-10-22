@@ -1,0 +1,11 @@
+{
+  "type": "asplor:the_nether",
+  "generator": {
+    "type": "noise",
+    "settings": "asplor:the_nether",
+    "biome_source": {
+      "type":"multi_noise",
+      "preset": "nether"
+    }
+  }
+}

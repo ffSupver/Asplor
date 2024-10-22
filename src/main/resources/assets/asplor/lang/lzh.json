@@ -130,6 +130,10 @@
 
 
 
+  "planet.asplor.the_nether": "冥",
+  "planet.asplor.the_nether_id": "近冥",
+
+
 
   "create.tooltip.energyGenerated": "能量 :",
   "create.generic.unit.energy": "E 每刻",
