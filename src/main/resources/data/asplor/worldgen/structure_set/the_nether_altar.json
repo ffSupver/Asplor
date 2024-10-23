@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:the_nether_altar",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1460175884,
+    "spacing": 16,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}
