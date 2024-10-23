@@ -32,7 +32,7 @@ public class Electrolyzer extends Block implements IBE<ElectrolyzerEntity> , IWr
     public static EnumProperty<ElectrolyzerPart> PART = EnumProperty.of("part",ElectrolyzerPart.class);
     public static final IntProperty LIGHT_LEVEL = IntProperty.of("light_level", 0, 15);
 
-    private VoxelShape outlineShape = VoxelShapes.union(VoxelShapes.cuboid(0,0,0,16/16f,14/16f,16/16f),
+    private final VoxelShape outlineShape = VoxelShapes.union(VoxelShapes.cuboid(0,0,0,16/16f,14/16f,16/16f),
             VoxelShapes.cuboid(11/16f,14/16f,11/16f,15/16f,17/16f,15/16f),
             VoxelShapes.cuboid(6/16f,14/16f,6/16f,10/16f,17/16f,10/16f),
             VoxelShapes.cuboid(0,17/16f,0,16/16f,31/16f,16/16f),

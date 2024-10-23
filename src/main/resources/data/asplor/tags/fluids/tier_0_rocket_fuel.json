@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#ad_astra:oil",
+    "asplor:refined_oil",
+    "#ad_astra:fuel"
+  ]
+}

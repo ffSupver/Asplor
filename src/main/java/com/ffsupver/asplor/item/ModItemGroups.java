@@ -64,9 +64,12 @@ public class ModItemGroups {
                             entries.add(TIME_INJECTOR);
                             entries.add(SPACE_TELEPORTER);
                             entries.add(SPACE_TELEPORTER_ANCHOR);
+                            entries.add(THE_NETHER_RETURNER);
+                            entries.add(LOCATOR);
                             entries.add(MECHANICAL_PUMP);
                             entries.add(MELTING_FURNACE);
                             entries.add(ELECTROLYZER);
+                            entries.add(TIER_0_ROCKET);
                         }).build());
 
     }

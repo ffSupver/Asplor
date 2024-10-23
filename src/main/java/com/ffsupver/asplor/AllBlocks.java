@@ -17,6 +17,7 @@ import com.ffsupver.asplor.block.mechanicalPump.MechanicalPump;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnace;
 import com.ffsupver.asplor.block.motor.Motor;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporter;
+import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturner;
 import com.ffsupver.asplor.block.timeInjector.TimeInjector;
 import com.ffsupver.asplor.block.windmill.WindmillBearingBlock;
 import com.ffsupver.asplor.fluid.ModFluids;
@@ -117,7 +118,7 @@ public class AllBlocks {
     public static final BlockEntry<SpaceTeleporter> SPACE_TELEPORTER =
             REGISTRATE.block("space_teleporter",SpaceTeleporter::new)
                     .initialProperties(SharedProperties::stone)
-                    .properties(p->p.nonOpaque())
+                    .properties(p->p.nonOpaque().requiresTool())
                     .item(BlockItem::new)
                     .build()
                     .register();
@@ -168,6 +169,13 @@ public class AllBlocks {
                     .transform(BlockStressDefaults.setCapacity(512.0))
                     .transform(BlockStressDefaults.setGeneratorSpeed(WindmillBearingBlock::getSpeedRange))
                     .tag(AllTags.AllBlockTags.SAFE_NBT.tag)
+                    .register();
+
+    public static final BlockEntry<TheNetherReturner> THE_NETHER_RETURNER =
+            REGISTRATE.block("the_nether_returner", TheNetherReturner::new)
+                    .properties(p -> p.mapColor(MapColor.YELLOW).pistonBehavior(PistonBehavior.IGNORE).strength(-1,18000))
+                    .item(BlockItem::new)
+                    .build()
                     .register();
 
     //注册普通方块

@@ -23,14 +23,13 @@ import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
+import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturnerEntity;
 import com.ffsupver.asplor.block.timeInjector.TimeInjectorEntity;
 import com.ffsupver.asplor.block.timeInjector.TimeInjectorRenderer;
-import com.ffsupver.asplor.block.windmill.WindmillBearingBlock;
 import com.ffsupver.asplor.block.windmill.WindmillBearingBlockEntity;
 import com.simibubi.create.content.contraptions.bearing.BearingInstance;
 import com.simibubi.create.content.contraptions.bearing.BearingRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
-import com.tterrag.registrate.util.entry.BlockEntry;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -115,6 +114,11 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .instance(() -> BearingInstance::new)
             .validBlocks(AllBlocks.WINDMILL_BEARING)
 		    .renderer(() -> BearingRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<TheNetherReturnerEntity> THE_NETHER_RETURNER_ENTITY = REGISTRATE
+            .blockEntity("the_nether_returner", TheNetherReturnerEntity::new)
+            .validBlocks(THE_NETHER_RETURNER)
             .register();
 
 
