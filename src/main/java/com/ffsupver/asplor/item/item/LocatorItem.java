@@ -35,15 +35,16 @@ public class LocatorItem extends Item {
                 );
             }
 
-            BlockPos targetPos = context.getBlockPos();
+            BlockPos targetPos = context.getBlockPos().up();
             NbtCompound targetPosNbt = new NbtCompound();
             targetPosNbt.putInt("x",targetPos.getX());
-            targetPosNbt.putInt("y",targetPos.getY() + 1);
+            targetPosNbt.putInt("y",targetPos.getY());
             targetPosNbt.putInt("z",targetPos.getZ());
 
             originNbt.put(LOCATION_DATA_KEY,targetPosNbt);
             itemStack.setNbt(originNbt);
             context.getPlayer().setStackInHand(context.getHand(),itemStack);
+
 
             //加入描述
             RenderUtil.addDescription(
@@ -51,7 +52,7 @@ public class LocatorItem extends Item {
                     Text.translatable("description.asplor.location",targetPos.getX(),targetPos.getY(),targetPos.getZ()).formatted(Formatting.AQUA),
                     Text.translatable("description.asplor.location",originBlockPos.getX(),originBlockPos.getY(),originBlockPos.getZ()).formatted(Formatting.AQUA)
             );
-
+            return ActionResult.SUCCESS;
         }
         return super.useOnBlock(context);
     }

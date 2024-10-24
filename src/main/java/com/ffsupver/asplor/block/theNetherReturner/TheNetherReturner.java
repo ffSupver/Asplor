@@ -69,7 +69,9 @@ public class TheNetherReturner extends Block implements IBE<TheNetherReturnerEnt
                             theNetherReturnerEntity.setHasTarget(true);
                             theNetherReturnerEntity.setTargetPos(location);
                         }
-                        handItemStack.setCount(handItemStack.getCount()-1);
+                        if(!player.isCreative()){
+                            handItemStack.setCount(handItemStack.getCount() - 1);
+                        }
                         player.setStackInHand(hand,handItemStack);
                         theNetherReturnerEntity.setActive(true);
                         return ActionResult.SUCCESS;

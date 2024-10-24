@@ -26,10 +26,15 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
     private boolean active;
     private boolean hasTarget;
     private BlockPos targetPos;
+
+    //render
+    private int rotation;
+
     public TheNetherReturnerEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         this.active = false;
         this.hasTarget = false;
+        this.rotation = 0;
     }
 
     @Override
@@ -42,6 +47,11 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         if (!active){
             return;
         }
+
+        if (world.isClient()){
+            rotation = rotation > 360 ? 0 : rotation + 1;
+        }
+
 
        List<Entity> entitiesToReturn = world.getOtherEntities(null, new Box(pos.getX(), pos.getY()+1, pos.getZ(), pos.getX() + 1, pos.getY()+2, pos.getZ() + 1), (entity -> true));
 
@@ -68,6 +78,10 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
             }
         }
 
+    }
+
+    public int getRotation() {
+        return rotation;
     }
 
     public void setHasTarget(boolean hasTarget) {

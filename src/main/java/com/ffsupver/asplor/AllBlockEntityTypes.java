@@ -24,6 +24,7 @@ import com.ffsupver.asplor.block.motor.MotorInstance;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
 import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturnerEntity;
+import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturnerRenderer;
 import com.ffsupver.asplor.block.timeInjector.TimeInjectorEntity;
 import com.ffsupver.asplor.block.timeInjector.TimeInjectorRenderer;
 import com.ffsupver.asplor.block.windmill.WindmillBearingBlockEntity;
@@ -119,6 +120,7 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
     public static final BlockEntityEntry<TheNetherReturnerEntity> THE_NETHER_RETURNER_ENTITY = REGISTRATE
             .blockEntity("the_nether_returner", TheNetherReturnerEntity::new)
             .validBlocks(THE_NETHER_RETURNER)
+            .renderer(()-> TheNetherReturnerRenderer::new)
             .register();
 
 
