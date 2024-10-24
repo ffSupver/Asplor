@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "asplor:flint_block"
+    }
+  ],
+  "output": {
+    "item": "minecraft:iron_nugget",
+    "count": 2
+  }
+}

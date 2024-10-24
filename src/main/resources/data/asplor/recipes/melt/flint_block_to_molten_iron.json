@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "asplor:flint_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_iron",
+    "amount": 9000
+  },
+  "process_time": 800,
+  "heat_type": "normal"
+}

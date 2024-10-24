@@ -19,10 +19,11 @@ public class ModItemGroups {
                         .icon(()->new ItemStack(ALLOY_INGOT))
                             .entries((displayContext, entries) -> {
                                 entries.add(ALLOY_INGOT);
+                                entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
+                                entries.add(SALT);
                                 entries.add(ZINC_COPPER_BATTERY);
-                                entries.add(ALLOY_BLOCK);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(GLUE_BUCKET);
                                 entries.add(SALT_WATER_BUCKET);
@@ -41,8 +42,8 @@ public class ModItemGroups {
                                 entries.add(MECHANICAL_PRESS_HEAD);
                                 entries.add(FROZEN_CORE);
                                 entries.add(UNSTABLE_ROCK);
-                                entries.add(SALT);
                                 entries.add(SUSPICIOUS_MARS_SAND);
+                                entries.add(FLINT_BLOCK);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

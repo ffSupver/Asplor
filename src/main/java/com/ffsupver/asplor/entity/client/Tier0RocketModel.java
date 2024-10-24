@@ -58,10 +58,10 @@ public class Tier0RocketModel extends EntityModel<Entity> {
 
 		ModelPartData top3_r1 = top.addChild("top3_r1", ModelPartBuilder.create().uv(32, 56).cuboid(0.0F, -9.0F, -7.5F, 0.0F, 14.0F, 16.0F, new Dilation(0.0F)), ModelTransform.of(11.0F, 0.0F, 0.0F, 0.0F, 0.0F, -0.5236F));
 
-		ModelPartData fin = main.addChild("fin", ModelPartBuilder.create().uv(64, 82).cuboid(-2.0F, -15.0F, -2.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
-				.uv(0, 86).cuboid(-15.0F, -15.0F, -15.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
-				.uv(16, 86).cuboid(11.0F, -15.0F, -15.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
-				.uv(80, 82).cuboid(-2.0F, -15.0F, -28.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 13.0F));
+		ModelPartData fin = main.addChild("fin", ModelPartBuilder.create().uv(64, 82).cuboid(-2.0F, -14.0F, -2.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
+				.uv(0, 86).cuboid(-15.0F, -14.0F, -15.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
+				.uv(16, 86).cuboid(11.0F, -14.0F, -15.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F))
+				.uv(80, 82).cuboid(-2.0F, -14.0F, -28.0F, 4.0F, 15.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 13.0F));
 
 		ModelPartData connect1_r1 = fin.addChild("connect1_r1", ModelPartBuilder.create().uv(32, 86).cuboid(0.0F, -9.0F, -2.5F, 1.0F, 10.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(-0.5F, -6.0F, -1.0F, 0.7854F, 0.0F, 0.0F));
 

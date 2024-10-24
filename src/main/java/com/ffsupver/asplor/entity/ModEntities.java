@@ -23,7 +23,7 @@ public class ModEntities {
 
     public static final EntityType<Rocket> TIER_0_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"tier_0_rocket"),
             FabricEntityTypeBuilder.<Rocket>create(SpawnGroup.MISC,(entityType,world)->new Rocket(entityType,world,new Rocket.RocketProperties(0, ModItems.TIER_0_ROCKET,0.8F, ModTags.Fluids.TIER_0_ROCKET_FUEL)))
-                    .dimensions(EntityDimensions.fixed(1.1F, 3.875F))
+                    .dimensions(EntityDimensions.fixed(1.0F, 3.875F))
                     .build());
 
 
