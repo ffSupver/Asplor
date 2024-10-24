@@ -1,0 +1,137 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:ender_pearl"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "item":"asplor:locator"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        [
+          {
+            "item": "create:copper_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        [
+          {
+            "item": "asplor:zinc_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        [
+          {
+            "item": "create:iron_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        [
+          {
+            "item": "create:golden_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        {
+          "amount": 9000,
+          "fluid": "asplor:chlorine"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        },
+        [
+          {
+            "item": "ae2:ender_dust"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:ender_pearl"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:ender_pearl"
+  }
+}

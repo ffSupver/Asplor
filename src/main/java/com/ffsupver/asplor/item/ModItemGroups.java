@@ -20,6 +20,7 @@ public class ModItemGroups {
                             .entries((displayContext, entries) -> {
                                 entries.add(ALLOY_INGOT);
                                 entries.add(CHARGED_ALLOY_INGOT);
+                                entries.add(ZINC_SHEET);
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(REFINED_OIL_BUCKET);

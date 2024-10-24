@@ -19,16 +19,15 @@ public class TheNetherReturnerRenderer extends SafeBlockEntityRenderer<TheNether
     protected void renderSafe(TheNetherReturnerEntity be, float partialTicks, MatrixStack ms, VertexConsumerProvider bufferSource, int light, int overlay) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
 
-
+        ms.push();
+        ms.translate(.5f, .5f, .5f);
+        ms.translate(0f, 1.0f, 0f);
+        float scale = 1.5f;
+        ms.scale(scale,scale,scale);
+        ms.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(be.getRotation()));
         if (be.getActive()) {
-            ms.push();
-            ms.translate(.5f, .5f, .5f);
-            ms.translate(0f, 1.0f, 0f);
-            float scale = 1.5f;
-            ms.scale(scale,scale,scale);
-            ms.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(be.getRotation()));
             itemRenderer.renderItem(ModItems.LOCATOR.getDefaultStack(), ModelTransformationMode.GROUND, light, OverlayTexture.DEFAULT_UV, ms, bufferSource, be.getWorld(), 0);
-            ms.pop();
         }
+        ms.pop();
     }
 }

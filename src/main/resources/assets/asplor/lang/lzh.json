@@ -22,6 +22,8 @@
   "item.asplor.molten_desh_bucket": "熔融戴斯桶",
   "item.asplor.impure_molten_desh_bucket": "不纯的熔融戴斯桶",
   "item.asplor.tier_0_rocket": "基础火箭",
+  "item.asplor.locator": "位匙",
+  "item.asplor.zinc_sheet": "锌板",
 
 
 
@@ -61,7 +63,6 @@
   "block.asplor.molten_desh": "熔融戴斯",
   "block.asplor.impure_molten_desh": "不纯的熔融戴斯",
   "block.asplor.the_nether_returner": "生門",
-  "item.asplor.locator": "位匙",
 
 
 

@@ -41,7 +41,7 @@ public class Asplor implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Loading Asplor! ");
 		ModItems.registerModItems();
 		ModItemGroups.registerModItemGroups();
 		ModRecipes.registerRecipes();

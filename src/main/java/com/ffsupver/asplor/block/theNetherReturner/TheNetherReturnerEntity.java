@@ -1,6 +1,7 @@
 package com.ffsupver.asplor.block.theNetherReturner;
 
 import com.ffsupver.asplor.Asplor;
+import com.ffsupver.asplor.util.RenderUtil;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.fabricmc.fabric.impl.dimension.FabricDimensionInternals;
@@ -75,6 +76,7 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
                     active = false;
                     hasTarget = false;
                 }
+                sendData();
             }
         }
 
@@ -134,6 +136,10 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
+    }
 
+    @Override
+    public Box getRenderBoundingBox() {
+        return RenderUtil.createRenderBoundingBox(pos,3.0);
     }
 }

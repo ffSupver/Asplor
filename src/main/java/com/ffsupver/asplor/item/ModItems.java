@@ -58,6 +58,7 @@ public class ModItems {
     public static final Item MECHANICAL_PRESS_HEAD = registerItems("mechanical_press_head",new Item(new FabricItemSettings()));
     public static final Item TIER_0_ROCKET = registerItems("tier_0_rocket",new RocketItem(()-> ModEntities.TIER_0_ROCKET,new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item LOCATOR = registerItems("locator",new LocatorItem(new FabricItemSettings().maxCount(1)));
+    public static final Item ZINC_SHEET = registerItems("zinc_sheet",new Item(new FabricItemSettings()));
 
 
     public static void registerRocketItemRender(){
