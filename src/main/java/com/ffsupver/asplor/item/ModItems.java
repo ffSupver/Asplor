@@ -4,10 +4,7 @@ import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
-import com.ffsupver.asplor.item.item.BatteryItem;
-import com.ffsupver.asplor.item.item.LocatorItem;
-import com.ffsupver.asplor.item.item.PlaceableBucketItem;
-import com.ffsupver.asplor.item.item.SpaceTeleporterAnchor;
+import com.ffsupver.asplor.item.item.*;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import earth.terrarium.adastra.common.items.vehicles.RocketItem;
@@ -59,7 +56,8 @@ public class ModItems {
     public static final Item TIER_0_ROCKET = registerItems("tier_0_rocket",new RocketItem(()-> ModEntities.TIER_0_ROCKET,new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item LOCATOR = registerItems("locator",new LocatorItem(new FabricItemSettings().maxCount(1)));
     public static final Item ZINC_SHEET = registerItems("zinc_sheet",new Item(new FabricItemSettings()));
-
+    public static final Item GUIDE_BOOK = registerItems("guide_book",new GuideBookItem(new FabricItemSettings().maxCount(1)));
+    public static final Item MYSTERIOUS_PAPER = registerItems("mysterious_paper",new MysteriousPageItem(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

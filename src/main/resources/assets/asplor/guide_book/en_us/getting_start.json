@@ -1,0 +1,10 @@
+{
+  "texts": [
+    "{\"text\":\"Can't seem to synthesize \",\"color\":\"black\"}",
+    "{\"translate\":\"item.create.super_glue\",\"color\":\"gold\"}",
+    "{\"text\":\"? It seems that some villagers are selling it , try to \",\"color\":\"black\"}",
+    "{\"translate\":\"block.asplor.assembler\",\"color\":\"gold\"}",
+    "{\"text\":\" for them .\",\"color\":\"black\"}"
+  ],
+  "picture": "getting_start.png"
+}

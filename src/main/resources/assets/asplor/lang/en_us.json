@@ -24,6 +24,8 @@
   "item.asplor.tier_0_rocket": "Base Rocket",
   "item.asplor.locator": "Locator",
   "item.asplor.zinc_sheet": "Zinc Sheet",
+  "item.asplor.guide_book": "Mysterious Notebook",
+  "item.asplor.mysterious_paper": "Mysterious Paper",
 
 
 
@@ -105,6 +107,12 @@
   "description.asplor.alloy_chest": "With alloy chest",
   "description.asplor.anchor": "At %s (%s,%s,%s)",
   "description.asplor.location": "At (%s,%s,%s)",
+
+
+
+
+  "guide_book.asplor.earth.iron": "Iron",
+  "guide_book.asplor.earth.nether_portal": "Nether Portal",
 
 
 

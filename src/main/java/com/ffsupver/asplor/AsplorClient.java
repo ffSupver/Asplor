@@ -34,8 +34,8 @@ public class AsplorClient implements ClientModInitializer {
 
         AllPartialModels.init();
         AllKeys.register();
-        ModPackets.registerS2CPack();
         PonderIndex.register();
+        ModPackets.registerS2CPack();
     }
 
 }

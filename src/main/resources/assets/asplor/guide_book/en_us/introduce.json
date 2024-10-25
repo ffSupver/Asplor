@@ -1,0 +1,10 @@
+{
+  "texts": [
+    "{\"text\":\"This book will be one of the few guides you can use to collect \",\"color\":\"black\"}",
+    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
+    "{\"text\":\" to perfect it ! \",\"color\":\"black\"}",
+    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
+    "{\"text\":\" can be found in chests or somewhere unexpected .\",\"color\":\"black\"}"
+  ],
+  "picture": "introduce.png"
+}

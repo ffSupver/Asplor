@@ -1,0 +1,10 @@
+{
+  "texts": [
+    "{\"text\":\"似乎无法合成\",\"color\":\"black\"}",
+    "{\"translate\":\"item.create.super_glue\",\"color\":\"gold\"}",
+    "{\"text\":\"？好像有村民在出售，试试给它们\",\"color\":\"black\"}",
+    "{\"translate\":\"block.asplor.assembler\",\"color\":\"gold\"}",
+    "{\"text\":\"。\",\"color\":\"black\"}"
+  ],
+  "picture": "getting_start.png"
+}

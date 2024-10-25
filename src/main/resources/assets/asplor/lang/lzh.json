@@ -24,6 +24,8 @@
   "item.asplor.tier_0_rocket": "基础火箭",
   "item.asplor.locator": "位匙",
   "item.asplor.zinc_sheet": "锌板",
+  "item.asplor.guide_book": "秘記之卷",
+  "item.asplor.mysterious_paper": "秘記之頁",
 
 
 
@@ -104,6 +106,12 @@
   "description.asplor.alloy_chest": "带有合金箱子",
   "description.asplor.anchor": "于 %s (%s,%s,%s)",
   "description.asplor.location": "于 (%s,%s,%s)",
+
+
+
+
+  "guide_book.asplor.earth.iron": "铁",
+  "guide_book.asplor.earth.nether_portal": "地府往門",
 
 
 

@@ -18,6 +18,7 @@ public class ModItemGroups {
                 FabricItemGroup.builder().displayName(Text.translatable("itemGroup.asplor_ingredients"))
                         .icon(()->new ItemStack(ALLOY_INGOT))
                             .entries((displayContext, entries) -> {
+                                entries.add(GUIDE_BOOK);
                                 entries.add(ALLOY_INGOT);
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);

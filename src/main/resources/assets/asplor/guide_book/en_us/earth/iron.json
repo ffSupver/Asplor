@@ -1,0 +1,10 @@
+{
+  "texts": [
+    "{\"text\":\"By dividing \",\"color\":\"black\"}",
+    "{\"translate\":\"block.asplor.flint_block\",\"color\":\"black\"}",
+    "{\"text\":\" , you can get some \",\"color\":\"black\"}",
+    "{\"translate\":\"item.minecraft.iron_nugget\",\"color\":\"black\"}",
+    "{\"text\":\" . There may be more efficient way to get iron in future .\",\"color\":\"black\"}"
+  ],
+  "picture": "earth/iron.png"
+}

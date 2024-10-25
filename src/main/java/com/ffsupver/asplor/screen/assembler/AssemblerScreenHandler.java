@@ -2,10 +2,10 @@ package com.ffsupver.asplor.screen.assembler;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.item.ModItems;
+import com.ffsupver.asplor.item.item.GuideBookItem;
 import com.ffsupver.asplor.recipe.AssemblerRecipe;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
-import com.ffsupver.asplor.screen.backpack.BackpackBaseHandler;
 import com.simibubi.create.AllItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,7 +30,6 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import static com.ffsupver.asplor.screen.backpack.BackpackBaseHandler.backpackDataKey;
@@ -91,6 +90,7 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
         ItemStack inputStack3 = this.input.getStack(2);
         boolean isAddingGoggles = inputStack1.getItem() instanceof ArmorItem &&((ArmorItem) inputStack1.getItem()).getType().equals(ArmorItem.Type.HELMET)&&inputStack2.isOf(AllItems.GOGGLES.asItem());
         boolean isAddingChest = inputStack1.getItem() instanceof ArmorItem && ((ArmorItem) inputStack1.getItem()).getType().equals(ArmorItem.Type.CHESTPLATE)&&(inputStack2.isOf(Items.CHEST)||inputStack2.isOf(AllBlocks.ALLOY_CHEST.asItem()));
+        boolean isAddingMysteriousPages = inputStack1.isOf(ModItems.GUIDE_BOOK) && inputStack2.isOf(ModItems.MYSTERIOUS_PAPER) && GuideBookItem.canAdd(inputStack1,inputStack2);
         if(inputStack3.isOf(AllItems.SUPER_GLUE.asItem())){
             if (isAddingGoggles) {
                 ItemStack outputStack = inputStack1.copy();
@@ -158,6 +158,22 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
                     }
                 }
 
+            }else if (isAddingMysteriousPages){
+                ItemStack outputStack = inputStack1.copy();
+                NbtCompound outputStackNbt = outputStack.getOrCreateNbt();
+                NbtCompound pageNbt = inputStack2.getOrCreateNbt();
+                NbtList outputChapterList;
+                if (outputStackNbt.contains(GuideBookItem.GUIDE_BOOK_DATA_KEY,9)){
+                     outputChapterList = outputStackNbt.getList(GuideBookItem.GUIDE_BOOK_DATA_KEY, 8);
+                }else {
+                    outputChapterList = new NbtList();
+                }
+                outputChapterList.add(NbtString.of(pageNbt.getString("chapter")));
+                outputStackNbt.put(GuideBookItem.GUIDE_BOOK_DATA_KEY,outputChapterList);
+                outputStack.setNbt(outputStackNbt);
+
+
+                this.output.setStack(0,outputStack);
             }else if (getCurrentRecipe(input).isPresent()) {
                 currenRecipe = getCurrentRecipe(input).get();
                 ItemStack outputStack = currenRecipe.getOutput(null).copy();
