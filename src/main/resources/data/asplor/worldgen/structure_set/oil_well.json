@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:oil_well",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1460902884,
+    "spacing": 32,
+    "separation": 16,
+    "type": "minecraft:random_spread"
+  }
+}

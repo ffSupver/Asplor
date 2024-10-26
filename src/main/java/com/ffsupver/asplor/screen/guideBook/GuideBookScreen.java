@@ -17,18 +17,18 @@ import net.minecraft.client.gui.screen.ingame.BookScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.PageTurnWidget;
 import net.minecraft.client.realms.util.JsonUtils;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.Registries;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.screen.ScreenTexts;
-import net.minecraft.text.OrderedText;
-import net.minecraft.text.StringVisitable;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
+import net.minecraft.text.*;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
@@ -37,6 +37,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GuideBookScreen extends Screen {
     private int pageIndex;
@@ -84,6 +86,7 @@ public class GuideBookScreen extends Screen {
 
         ArrayList<String> texts = new ArrayList<>();
         ArrayList<Identifier> pictures = new ArrayList<>();
+        ArrayList<Integer> picturesOffsetY = new ArrayList<>();
 
         for (String filePathShort : fileIdentifiers) {
             Identifier fileIdentifier = new Identifier(Asplor.MOD_ID,"guide_book/"+client.getLanguageManager().getLanguage()+"/"+filePathShort+".json");
@@ -95,15 +98,18 @@ public class GuideBookScreen extends Screen {
             if (getResource.isPresent()) {
                 texts.add(readTextFromJson(getResource));
                 pictures.add(new Identifier(Asplor.MOD_ID,"textures/guide_book/"+readPicturesFromJson(getResource)));
+                picturesOffsetY.add(readPicturesOffsetYFromJson(getResource));
             }else if (getDefaultResource.isPresent()){
                 texts.add(readTextFromJson(getDefaultResource));
                 pictures.add(new Identifier(Asplor.MOD_ID,"textures/guide_book/"+readPicturesFromJson(getDefaultResource)));
+                picturesOffsetY.add(readPicturesOffsetYFromJson(getDefaultResource));
             }
         }
 
         return new Contents() {
             private final List<String> pages = texts;
             private final List<Identifier> pagePictures = pictures;
+            private final List<Integer> pagePictureOffsetY = picturesOffsetY;
             @Override
             public int getPageCount() {
                 return pages.size();
@@ -111,7 +117,11 @@ public class GuideBookScreen extends Screen {
 
             @Override
             public Identifier getPicture(int index) {
-                return pictures.get(index);
+                return pagePictures.get(index);
+            }
+            @Override
+            public int getPictureOffsetY(int index) {
+                return pagePictureOffsetY.get(index);
             }
 
             @Override
@@ -165,15 +175,46 @@ public class GuideBookScreen extends Screen {
             InputStream inputStream = resource.getInputStream();
             String jsonContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
             JsonObject jsonObject = JsonParser.parseString(jsonContent).getAsJsonObject();
-            JsonArray textsArray = jsonObject.getAsJsonArray("texts");
 
-            // 将 JSON 中的 texts 数组转换为 Text 对象并连接起来
             Text finalText = Text.empty();
-            for (JsonElement textElement : textsArray) {
-                String textJson = textElement.getAsString();
-                Text text = Text.Serializer.fromJson(textJson);  // 将 JSON 字符串转换为 Text 对象
-                finalText = finalText.copy().append(text);  // 将 Text 逐个连接
+            String text = JsonUtils.getString("text",jsonObject);
+
+
+            // 定义正则表达式来匹配 <xxx> 格式的字符串
+            Pattern pattern = Pattern.compile("<(.*?)>");
+            Matcher matcher = pattern.matcher(text);
+
+            int lastIndex = 0;
+            while (matcher.find()) {
+                // 添加普通文本部分（即尖括号之前的文本）
+                if (matcher.start() > lastIndex) {
+                   finalText = finalText.copy().append(Text.literal(text.substring(lastIndex, matcher.start())));
+                }
+
+                // 获取尖括号内容并将其转换为可翻译文本
+                String translatableKey = matcher.group(1);
+                Text itemText = Text.translatable(translatableKey).formatted(Formatting.AQUA);
+                String[] itemId = translatableKey.split("\\.");
+                if (itemId.length>=3){
+                    Item itemToShow = Registries.ITEM.get(new Identifier(itemId[1], itemId[2]));
+                    if (!itemToShow.equals(Items.AIR)){
+                        itemText = itemText.copy().setStyle(Style.EMPTY.withFormatting(Formatting.GOLD).withHoverEvent(
+                                new HoverEvent(HoverEvent.Action.SHOW_ITEM,new HoverEvent.ItemStackContent(itemToShow.getDefaultStack()))
+                        ));
+                    }
+                }
+                finalText = finalText.copy().append(itemText);
+
+                // 更新 lastIndex 以继续处理文本的剩余部分
+                lastIndex = matcher.end();
             }
+
+            // 添加最后一段普通文本
+            if (lastIndex < text.length()) {
+                finalText = finalText.copy().append(Text.literal(text.substring(lastIndex)));
+            }
+
+
 
             return Text.Serializer.toJson(finalText);
         } catch (IOException e) {
@@ -197,6 +238,20 @@ public class GuideBookScreen extends Screen {
             e.printStackTrace();
         }
         return "default.png";
+    }
+
+    private int readPicturesOffsetYFromJson(Optional<Resource> getResource){
+        Resource resource = getResource.get();
+        try {
+            InputStream inputStream = resource.getInputStream();
+            String jsonContent = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            JsonObject jsonObject = JsonParser.parseString(jsonContent).getAsJsonObject();
+            return JsonUtils.getIntOr("offset_y",jsonObject,0);
+        } catch (IOException e) {
+            Asplor.LOGGER.info(e.getLocalizedMessage()+getResource);
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
@@ -268,7 +323,7 @@ public class GuideBookScreen extends Screen {
         this.renderBackground(context);
         int i = (this.width - 255) / 2;
         context.drawTexture(GUIDE_BOOK_TEXTURE, i, 2, 0, 0, 255, 192);
-        context.drawTexture(this.contents.getPicture(pageIndex),i,115,0,0,255,255);
+        context.drawTexture(this.contents.getPicture(pageIndex),i,115 + this.contents.getPictureOffsetY(pageIndex),0,0,255,255);
         if (this.cachedPageIndex != this.pageIndex) {
             StringVisitable stringVisitable = this.contents.getPage(this.pageIndex);
             this.cachedPage = this.textRenderer.wrapLines(stringVisitable, 188);
@@ -334,6 +389,8 @@ public class GuideBookScreen extends Screen {
         StringVisitable getPageUnchecked(int index);
 
         Identifier getPicture(int index);
+        int getPictureOffsetY(int index);
+
 
         default StringVisitable getPage(int index) {
             return index >= 0 && index < this.getPageCount() ? this.getPageUnchecked(index) : StringVisitable.EMPTY;

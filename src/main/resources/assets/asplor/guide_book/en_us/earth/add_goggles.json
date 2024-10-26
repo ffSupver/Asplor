@@ -1,0 +1,5 @@
+{
+  "text": "Gluing <item.create.goggles> to the helmet on <block.asplor.assembler> will give you the helmet with the <item.create.goggles>.",
+  "picture": "earth/add_goggles.png",
+  "offset_y": -50
+}

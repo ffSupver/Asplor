@@ -1,8 +1,5 @@
 {
-  "texts": [
-    "{\"text\":\"Lighting a fire in the middle of the frame of the \",\"color\":\"black\"}",
-    "{\"translate\":\"block.minecraft.obsidian\",\"color\":\"black\"}",
-    "{\"text\":\" is very dangerous .\",\"color\":\"black\"}"
-  ],
-  "picture": "earth/nether_portal.png"
+  "text": "Lighting a fire in the middle of the door frame of the <block.minecraft.obsidian> is very dangerous.",
+  "picture": "earth/nether_portal.png",
+  "offset_y": -50
 }

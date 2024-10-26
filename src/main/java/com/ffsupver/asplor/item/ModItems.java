@@ -44,6 +44,8 @@ public class ModItems {
     public static final Item ALLOY_LAVA_BUCKET = registerBucketItem("alloy_lava_bucket",ModFluids.ALLOY_LAVA);
     public static final Item MOLTEN_DESH_BUCKET = registerBucketItem("molten_desh_bucket",ModFluids.MOLTEN_DESH);
     public static final Item IMPURE_MOLTEN_DESH_BUCKET = registerBucketItem("impure_molten_desh_bucket",ModFluids.IMPURE_MOLTEN_DESH);
+    public static final Item HYDROCHLORIC_ACID_BUCKET = registerBucketItem("hydrochloric_acid_bucket",ModFluids.HYDROCHLORIC_ACID);
+    public static final Item CONCENTRATED_OIL_BUCKET = registerBucketItem("concentrated_oil_bucket",ModFluids.CONCENTRATED_OIL);
 
 
 
@@ -58,6 +60,7 @@ public class ModItems {
     public static final Item ZINC_SHEET = registerItems("zinc_sheet",new Item(new FabricItemSettings()));
     public static final Item GUIDE_BOOK = registerItems("guide_book",new GuideBookItem(new FabricItemSettings().maxCount(1)));
     public static final Item MYSTERIOUS_PAPER = registerItems("mysterious_paper",new MysteriousPageItem(new FabricItemSettings()));
+    public static final Item CARBON_POWDER = registerItems("carbon_powder",new Item(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

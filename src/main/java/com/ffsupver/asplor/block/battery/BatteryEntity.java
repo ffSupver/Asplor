@@ -1,5 +1,7 @@
 package com.ffsupver.asplor.block.battery;
 
+import com.ffsupver.asplor.AllBlocks;
+import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.block.EnergyConnectiveHandler;
 import com.ffsupver.asplor.block.IMultiBlockEntityContainerEnergy;
 import com.ffsupver.asplor.block.SmartEnergyStorage;
@@ -96,7 +98,35 @@ public class BatteryEntity extends SmartBlockEntity implements IMultiBlockEntity
         if (energyAmount!=null) {
             energyAmount.tickChaser();
         }
+        if (!world.isClient()){
+            transferEnergyToNeighbors();
+        }
         sendData();
+    }
+
+    private void transferEnergyToNeighbors() {
+        for (Direction direction : Direction.values()) {
+            if (canTransferEnergy(direction)) {
+                BlockPos neighborPos = pos.offset(direction);
+                BlockState neighborBlockState = world.getBlockState(neighborPos);
+                if (neighborBlockState.isIn(ModTags.Blocks.NEED_ENERGY) && !neighborBlockState.isOf(AllBlocks.BATTERY.get())){
+                    EnergyStorage neighborStorage = EnergyStorage.SIDED.find(world, neighborPos, direction.getOpposite());
+
+                    if (neighborStorage != null && getExposeStorage().getAmount() > 0) {
+                        // 计算要传输的能量量
+                        long extractableEnergy = Math.min(getExposeStorage().getAmount(), MAX_TRANSFER);
+                        try (Transaction t = Transaction.openOuter()) {
+                            long acceptedEnergy = neighborStorage.insert(extractableEnergy, t);
+                            // 从当前能量存储中减少传输的能量
+                            this.getExposeStorage().extract(acceptedEnergy, t);
+                            markDirty();
+                            t.commit();
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -174,7 +204,7 @@ public class BatteryEntity extends SmartBlockEntity implements IMultiBlockEntity
 
         world.setBlockState(pos,getCachedState().with(BOTTOM,!EnergyConnectiveHandler.isConnected(world,pos,downPos)));
         world.setBlockState(pos,getCachedState().with(TOP,!EnergyConnectiveHandler.isConnected(world,pos,upPos)));
-        if ((getControllerBE()).getWidth()==1){
+        if (getControllerBE() != null && getControllerBE().getWidth() == 1){
            world.setBlockState(pos,getCachedState().with(SHAPE,shape.SINGLE));
         }else {
 

@@ -5,6 +5,13 @@
     "asplor:time_injector",
     "asplor:space_teleporter",
     "asplor:motor",
-    "asplor:electrolyzer"
+    "asplor:electrolyzer",
+    "ad_astra:etrionic_blast_furnace",
+    "ad_astra:fuel_refinery",
+    "ad_astra:oxygen_loader",
+    "ad_astra:oxygen_distributor",
+    "ad_astra:gravity_normalizer",
+    "ad_astra:energizer",
+    "ad_astra:cryo_freezer"
   ]
 }

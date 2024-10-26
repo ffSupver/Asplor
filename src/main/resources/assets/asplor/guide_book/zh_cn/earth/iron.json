@@ -1,10 +1,5 @@
 {
-  "texts": [
-    "{\"text\":\"通过切割\",\"color\":\"black\"}",
-    "{\"translate\":\"block.asplor.flint_block\",\"color\":\"black\"}",
-    "{\"text\":\"可以得到少量\",\"color\":\"black\"}",
-    "{\"translate\":\"item.minecraft.iron_nugget\",\"color\":\"black\"}",
-    "{\"text\":\"。未来或许有更高效的方法获取铁\",\"color\":\"black\"}"
-  ],
-  "picture": "earth/iron.png"
+  "text": "通过切割<block.asplor.flint_block>可以得到少量<item.minecraft.iron_nugget>。未来或许有更高效的方法获取铁。",
+  "picture": "earth/iron.png",
+  "offset_y": -50
 }

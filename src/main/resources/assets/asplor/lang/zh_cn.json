@@ -26,6 +26,9 @@
   "item.asplor.zinc_sheet": "锌板",
   "item.asplor.guide_book": "神秘的笔记",
   "item.asplor.mysterious_paper": "神秘的书页",
+  "item.asplor.carbon_powder": "碳粉",
+  "item.asplor.hydrochloric_acid_bucket": "盐酸桶",
+  "item.asplor.concentrated_oil_bucket": "浓缩油桶",
 
 
 
@@ -66,6 +69,8 @@
   "block.asplor.impure_molten_desh": "不纯的熔融戴斯",
   "block.asplor.the_nether_returner": "下界返回器",
   "block.asplor.flint_block": "燧石块",
+  "block.asplor.hydrochloric_acid": "盐酸",
+  "block.asplor.concentrated_oil": "浓缩油",
 
 
 
@@ -112,6 +117,12 @@
 
   "guide_book.asplor.earth.iron": "铁",
   "guide_book.asplor.earth.nether_portal": "下界传送门",
+  "guide_book.asplor.earth.locator": "定位器",
+  "guide_book.asplor.earth.base_rocket": "火箭-0",
+  "guide_book.asplor.earth.add_goggles": "添加工程师护目镜",
+  "guide_book.asplor.earth.add_chest": "添加箱子",
+  "guide_book.asplor.earth.oil": "原油",
+  "guide_book.asplor.earth.electricity": "电气时代",
 
 
 

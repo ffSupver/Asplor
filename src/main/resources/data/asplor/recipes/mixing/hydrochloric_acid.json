@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:chlorine"
+    },
+    {
+      "amount": 9000,
+      "fluid": "ad_astra:hydrogen"
+    }
+  ],
+  "results": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:hydrochloric_acid"
+    }
+  ]
+}

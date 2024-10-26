@@ -1,10 +1,5 @@
 {
-  "texts": [
-    "{\"text\":\"这本书将会是你为数不多的指引，收集\",\"color\":\"black\"}",
-    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
-    "{\"text\":\"来完善它!\",\"color\":\"black\"}",
-    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
-    "{\"text\":\"会出现在箱子或一些意想不到的地方。\",\"color\":\"black\"}"
-  ],
-  "picture": "introduce.png"
+  "text": "这本书将会是你为数不多的指引，收集<item.asplor.mysterious_paper>来完善它!<item.asplor.mysterious_paper>会出现在箱子里或一些意想不到的地方。",
+  "picture": "introduce.png",
+  "offset_y": -30
 }

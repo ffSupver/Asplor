@@ -24,11 +24,14 @@ public class ModItemGroups {
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
                                 entries.add(SALT);
+                                entries.add(CARBON_POWDER);
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(REFINED_OIL_BUCKET);
+                                entries.add(CONCENTRATED_OIL_BUCKET);
                                 entries.add(GLUE_BUCKET);
                                 entries.add(SALT_WATER_BUCKET);
                                 entries.add(CHLORINE_BUCKET);
+                                entries.add(HYDROCHLORIC_ACID_BUCKET);
                                 entries.add(ALLOY_LAVA_BUCKET);
                                 entries.add(MOLTEN_IRON_BUCKET);
                                 entries.add(MOLTEN_GOLD_BUCKET);

@@ -4,7 +4,11 @@
 # against bad commits.
 
 name: build
-on: [pull_request, push]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:  # 支持手动触发
+
 
 jobs:
   build:
@@ -15,6 +19,7 @@ jobs:
           21,    # Current Java LTS
         ]
     runs-on: ubuntu-22.04
+    if: contains(github.event.head_commit.message, 'Release') || github.event_name == 'workflow_dispatch' #仅在提交信息包含Release时构建或手动构建
     steps:
       - name: checkout repository
         uses: actions/checkout@v4

@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "output": {
+    "item": "asplor:carbon_powder",
+    "count": 1
+  }
+}

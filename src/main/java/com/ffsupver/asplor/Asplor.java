@@ -57,6 +57,8 @@ public class Asplor implements ModInitializer {
 		AllEnergyStorages.registerEnergyStorages();
 		AllBoilerHeaters.register();
 
+		ModLootTables.register();
+
 		if (!Create.REGISTRATE.isRegistered(RegistryKeys.ITEM)) {
 			Create.REGISTRATE.addRegisterCallback(RegistryKeys.ITEM, Asplor::registerAfterCreateItems);
 		} else {

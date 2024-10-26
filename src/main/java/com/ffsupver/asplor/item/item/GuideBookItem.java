@@ -59,7 +59,8 @@ public class GuideBookItem extends Item {
                 String chapter = element.asString();
                 allChapterData.forEach(chapterData -> {
                     if (chapterData.getName().equals(chapter)){
-                        tooltip.add(Text.Serializer.fromJson(chapterData.getDescription()));
+                        Text head = Text.literal("-");
+                        tooltip.add(head.copy().append(Text.Serializer.fromJson(chapterData.getDescription())));
                     }
                 });
             }

@@ -1,28 +1,15 @@
 package com.ffsupver.asplor.item.item;
 
 import appeng.api.config.Actionable;
-import appeng.core.localization.Tooltips;
 import appeng.items.tools.powered.powersink.AEBasePoweredItem;
-import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.item.ModItems;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import team.reborn.energy.api.EnergyStorage;
-
-import java.util.List;
 
 import static com.ffsupver.asplor.util.MathUtil.fromAEtoE;
 import static com.ffsupver.asplor.util.MathUtil.fromEtoAE;
@@ -74,7 +61,7 @@ public class BatteryItem extends AEBasePoweredItem {
 
     @Override
     public double getChargeRate(ItemStack itemStack) {
-        return 250;
+        return 0;
     }
 
 }

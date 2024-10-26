@@ -1,0 +1,5 @@
+{
+  "text": "<item.asplor.tier_0_rocket>是最基础的火箭,它做工简陋，看起来随时都会散架，但它是你前往<planet.asplor.the_nether>的必需品。它甚至无法带你安全返回<planet.minecraft.overworld>。至于怎么回来，在废弃的传送门附近可能会有些线索……",
+  "picture": "earth/base_rocket.png",
+  "offset_y": -30
+}

@@ -26,6 +26,9 @@
   "item.asplor.zinc_sheet": "Zinc Sheet",
   "item.asplor.guide_book": "Mysterious Notebook",
   "item.asplor.mysterious_paper": "Mysterious Paper",
+  "item.asplor.carbon_powder": "Carbon Powder",
+  "item.asplor.hydrochloric_acid_bucket": "Hydrochloric Acid Bucket",
+  "item.asplor.concentrated_oil_bucket": "Concentrated Oil Bucket",
 
 
 
@@ -66,6 +69,8 @@
   "block.asplor.impure_molten_desh": "Impure Molten Desh",
   "block.asplor.the_nether_returner": "The Nether Returner",
   "block.asplor.flint_block": "Flint Block",
+  "block.asplor.hydrochloric_acid": "Hydrochloric Acid",
+  "block.asplor.concentrated_oil": "Concentrated Oil",
 
 
 
@@ -113,6 +118,12 @@
 
   "guide_book.asplor.earth.iron": "Iron",
   "guide_book.asplor.earth.nether_portal": "Nether Portal",
+  "guide_book.asplor.earth.locator": "Locator",
+  "guide_book.asplor.earth.base_rocket": "Rocket-0",
+  "guide_book.asplor.earth.add_goggles": "Adding Goggles",
+  "guide_book.asplor.earth.add_chest": "Adding Chest",
+  "guide_book.asplor.earth.oil": "Oil",
+  "guide_book.asplor.earth.electricity": "Electric Age",
 
 
 

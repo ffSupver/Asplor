@@ -1,10 +1,5 @@
 {
-  "texts": [
-    "{\"text\":\"This book will be one of the few guides you can use to collect \",\"color\":\"black\"}",
-    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
-    "{\"text\":\" to perfect it ! \",\"color\":\"black\"}",
-    "{\"translate\":\"item.asplor.mysterious_paper\",\"color\":\"gold\"}",
-    "{\"text\":\" can be found in chests or somewhere unexpected .\",\"color\":\"black\"}"
-  ],
-  "picture": "introduce.png"
+  "text": "This book will be one of the few guides you can use to collect <item.asplor.mysterious_paper> to perfect it ! <item.asplor.mysterious_paper> can be found in chests or somewhere unexpected .",
+  "picture": "introduce.png",
+  "offset_y": -30
 }

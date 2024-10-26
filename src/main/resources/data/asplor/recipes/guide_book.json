@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "asplor:mysterious_paper"
+    },
+    {
+      "item": "asplor:mysterious_paper"
+    },
+    {
+      "item": "asplor:mysterious_paper"
+    },
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:guide_book"
+  }
+}

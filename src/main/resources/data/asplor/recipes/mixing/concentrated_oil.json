@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "amount": 9000,
+      "fluid": "ad_astra:oil"
+    },
+    {
+      "amount": 9000,
+      "fluid": "ad_astra:hydrogen"
+    },
+    {
+      "item": "asplor:carbon_powder"
+    }
+  ],
+  "results": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:concentrated_oil"
+    }
+  ]
+}

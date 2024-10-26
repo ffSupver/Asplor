@@ -209,8 +209,8 @@ public class AllBlocks {
     public static final Block IMPURE_MOLTEN_DESH = registerMoltenMetalFluidBlock("impure_molten_desh",ModFluids.IMPURE_MOLTEN_DESH,null);
 
     public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).strength(1.5F, 2.0F).requiresTool()));
-
-
+    public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,null);
+    public static final Block CONCENTRATED_OIL = registerFluidBlock("concentrated_oil",ModFluids.CONCENTRATED_OIL,null);
 
 
 

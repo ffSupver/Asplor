@@ -23,6 +23,8 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_CHLORINE = registerFluid("flowing_chlorine",new Chlorine.Flowing());
     public static final FlowableFluid ALLOY_LAVA = registerFluid("alloy_lava",new AlloyLava.Still());
     public static final FlowableFluid FLOWING_ALLOY_LAVA = registerFluid("flowing_alloy_lava",new AlloyLava.Flowing());
+    public static final FlowableFluid HYDROCHLORIC_ACID = registerFluid("hydrochloric_acid",new HydrochloricAcidFluid.Still());
+    public static final FlowableFluid FLOWING_HYDROCHLORIC_ACID = registerFluid("flowing_hydrochloric_acid",new HydrochloricAcidFluid.Flowing());
 
     //Molten Metal
 
@@ -43,7 +45,8 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_MOLTEN_DESH = registerFluid("flowing_molten_desh",new MoltenDesh.Flowing());
     public static final FlowableFluid IMPURE_MOLTEN_DESH = registerFluid("impure_molten_desh",new ImpureMoltenDesh.Still());
     public static final FlowableFluid FLOWING_IMPURE_MOLTEN_DESH = registerFluid("flowing_impure_molten_desh",new ImpureMoltenDesh.Flowing());
-
+    public static final FlowableFluid CONCENTRATED_OIL = registerFluid("concentrated_oil",new ConcentratedOilFluid.Still());
+    public static final FlowableFluid FLOWING_CONCENTRATED_OIL = registerFluid("flowing_concentrated_oil",new ConcentratedOilFluid.Flowing());
 
 
     public static void register(){
@@ -54,6 +57,9 @@ public class ModFluids {
         registerRender(SALT_WATER,FLOWING_SALT_WATER,Identifier.of("minecraft","block/water_still"),0x5096E9);
         registerRender(CHLORINE,FLOWING_CHLORINE,Identifier.of("minecraft","block/water_still"),0xA4C947);
         registerRender(ALLOY_LAVA,FLOWING_ALLOY_LAVA,Identifier.of(Asplor.MOD_ID,"block/lava_still"),0xD3D5EB);
+        registerRender(HYDROCHLORIC_ACID,FLOWING_HYDROCHLORIC_ACID,Identifier.of("minecraft","block/water_still"),0xB3FBFF);
+        registerRender(CONCENTRATED_OIL,FLOWING_CONCENTRATED_OIL,Identifier.of("minecraft","block/water_still"),0x101701);
+
 
         registerMoltenMetalRender(MOLTEN_IRON,FLOWING_MOLTEN_IRON,0xFF442B);
         registerMoltenMetalRender(MOLTEN_GOLD,FLOWING_MOLTEN_GOLD,0xFFD648);

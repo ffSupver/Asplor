@@ -6,6 +6,10 @@
     "asplor:glue",
     "asplor:flowing_glue",
     "asplor:salt_water",
-    "asplor:flowing_salt_water"
+    "asplor:flowing_salt_water",
+    "asplor:hydrochloric_acid",
+    "asplor:flowing_hydrochloric_acid",
+    "asplor:concentrated_oil",
+    "asplor:flowing_concentrated_oil"
   ]
 }

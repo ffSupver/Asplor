@@ -1,0 +1,5 @@
+{
+  "text": "Gluing <block.minecraft.chest> to the chestplate on <block.asplor.assembler> will give you the chestplate with the <block.minecraft.chest>.",
+  "picture": "earth/add_chest.png",
+  "offset_y": -50
+}

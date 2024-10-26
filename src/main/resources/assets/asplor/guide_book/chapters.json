@@ -11,14 +11,44 @@
       "description": "{\"translate\":\"item.asplor.guide_book\",\"color\":\"white\"}"
     },
     {
-      "name": "earth/iron",
+      "name": "earth/add_chest",
+      "order": 4,
+      "description": "{\"translate\":\"guide_book.asplor.earth.add_chest\",\"color\":\"white\"}"
+    },
+    {
+      "name": "earth/add_goggles",
       "order": 5,
+      "description": "{\"translate\":\"guide_book.asplor.earth.add_goggles\",\"color\":\"white\"}"
+    },
+    {
+      "name": "earth/iron",
+      "order": 6,
       "description": "{\"translate\":\"guide_book.asplor.earth.iron\",\"color\":\"white\"}"
     },
     {
+      "name": "earth/electricity",
+      "order": 10,
+      "description": "{\"translate\":\"guide_book.asplor.earth.electricity\",\"color\":\"white\"}"
+    },
+    {
+      "name": "earth/oil",
+      "order": 18,
+      "description": "{\"translate\":\"guide_book.asplor.earth.oil\",\"color\":\"white\"}"
+    },
+    {
       "name": "earth/nether_portal",
-      "order": 6,
+      "order": 19,
       "description": "{\"translate\":\"guide_book.asplor.earth.nether_portal\",\"color\":\"white\"}"
+    },
+    {
+      "name": "earth/base_rocket",
+      "order": 20,
+      "description": "{\"translate\":\"guide_book.asplor.earth.base_rocket\",\"color\":\"white\"}"
+    },
+    {
+      "name": "earth/locator",
+      "order": 21,
+      "description": "{\"translate\":\"guide_book.asplor.earth.locator\",\"color\":\"white\"}"
     }
   ]
 }
