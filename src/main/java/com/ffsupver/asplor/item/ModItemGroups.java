@@ -23,6 +23,7 @@ public class ModItemGroups {
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
+                                entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
                                 entries.add(ZINC_COPPER_BATTERY);

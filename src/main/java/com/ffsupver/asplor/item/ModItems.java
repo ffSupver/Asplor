@@ -61,6 +61,7 @@ public class ModItems {
     public static final Item GUIDE_BOOK = registerItems("guide_book",new GuideBookItem(new FabricItemSettings().maxCount(1)));
     public static final Item MYSTERIOUS_PAPER = registerItems("mysterious_paper",new MysteriousPageItem(new FabricItemSettings()));
     public static final Item CARBON_POWDER = registerItems("carbon_powder",new Item(new FabricItemSettings()));
+    public static final Item TIER_0_ROCKET_SHELL = registerItems("tier_0_rocket_shell",new Item(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

@@ -1,0 +1,112 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:tier_0_rocket_shell"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "asplor:tier_0_rocket"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
+          "item": "ad_astra:rocket_nose_cone"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
+          "item": "ad_astra:steel_tank"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
+          "item": "ad_astra:steel_engine"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
+          "item": "ad_astra:rocket_fin"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:tier_0_rocket_shell"
+  }
+}
