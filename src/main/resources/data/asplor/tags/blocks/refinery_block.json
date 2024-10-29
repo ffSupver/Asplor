@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:refinery_controller",
+    "asplor:refinery_output",
+    "asplor:refinery_input",
+    "asplor:refinery_bricks",
+    "asplor:refinery_glass"
+  ]
+}

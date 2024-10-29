@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/refinery/refinery_bricks",
+    "side": "asplor:block/refinery/refinery_controller",
+    "top": "asplor:block/refinery/refinery_bricks"
+  }
+}

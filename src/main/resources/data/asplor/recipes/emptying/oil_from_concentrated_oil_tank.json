@@ -2,15 +2,15 @@
   "type": "create:emptying",
   "ingredients": [
     {
-      "item": "asplor:concentrated_oil_bucket"
+      "item": "asplor:concentrated_oil_tank"
     }
   ],
   "results": [
     {
-      "item": "minecraft:bucket"
+      "item": "asplor:empty_tank"
     },
     {
-      "amount": 121500,
+      "amount": 12000,
       "fluid": "ad_astra:oil"
     }
   ]

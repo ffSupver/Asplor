@@ -36,7 +36,6 @@ public class AlloyChest extends BlockWithEntity implements BlockEntityProvider {
         super(settings);
         this.setDefaultState(((BlockState) this.stateManager.getDefaultState()).with(FACING, Direction.NORTH).with(OPEN,false));
     }
-
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {

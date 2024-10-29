@@ -16,6 +16,9 @@ import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerItem;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPump;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnace;
 import com.ffsupver.asplor.block.motor.Motor;
+import com.ffsupver.asplor.block.refinery.RefineryController;
+import com.ffsupver.asplor.block.refinery.RefineryInput;
+import com.ffsupver.asplor.block.refinery.RefineryOutput;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporter;
 import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturner;
 import com.ffsupver.asplor.block.timeInjector.TimeInjector;
@@ -33,6 +36,7 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.simibubi.create.foundation.utility.Couple;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -57,6 +61,9 @@ import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
 public class AllBlocks {
+    private static final Function<AbstractBlock.Settings,AbstractBlock.Settings> REFINERY_SETTING = settings -> settings.strength(4,16).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.DEEPSLATE_BRICKS).allowsSpawning(Blocks::never);
+
+
     public static final BlockEntry<Divider> DIVIDER =
             REGISTRATE.block("divider", Divider::new)
             .properties(p -> p.mapColor(MapColor.IRON_GRAY).nonOpaque().strength(4f,4f).nonOpaque().sounds(BlockSoundGroup.WOOD))
@@ -177,6 +184,27 @@ public class AllBlocks {
                     .item(BlockItem::new)
                     .build()
                     .register();
+    public static final BlockEntry<RefineryController> REFINERY_CONTROLLER =
+            REGISTRATE.block("refinery_controller", RefineryController::new)
+                    .properties(p -> REFINERY_SETTING.apply(p).pistonBehavior(PistonBehavior.IGNORE))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<RefineryOutput> REFINERY_OUTPUT =
+            REGISTRATE.block("refinery_output", RefineryOutput::new)
+                    .properties(p -> REFINERY_SETTING.apply(p).pistonBehavior(PistonBehavior.IGNORE))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<RefineryInput> REFINERY_INPUT =
+            REGISTRATE.block("refinery_input", RefineryInput::new)
+                    .properties(p -> REFINERY_SETTING.apply(p).pistonBehavior(PistonBehavior.IGNORE))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+
+
+
 
     //注册普通方块
     public  static final Block ALLOY_BLOCK=registerBlock("alloy_block",new Block(FabricBlockSettings.create().strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
@@ -211,7 +239,8 @@ public class AllBlocks {
     public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).strength(1.5F, 2.0F).requiresTool()));
     public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,null);
     public static final Block CONCENTRATED_OIL = registerFluidBlock("concentrated_oil",ModFluids.CONCENTRATED_OIL,null);
-
+    public static final Block REFINERY_BRICKS = registerBlock("refinery_bricks",new Block(REFINERY_SETTING.apply(FabricBlockSettings.create())));
+    public static final Block REFINERY_GLASS = registerBlock("refinery_glass",new GlassBlock(REFINERY_SETTING.apply(FabricBlockSettings.create()).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
@@ -239,4 +268,8 @@ public class AllBlocks {
 
 
     public static void register(){}
+
+    public static void registerRenderLayer(){
+        BlockRenderLayerMap.INSTANCE.putBlock(REFINERY_GLASS,RenderLayer.getCutoutMipped());
+    }
 }

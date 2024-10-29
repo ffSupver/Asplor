@@ -12,6 +12,7 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> NEED_ENERGY = createTag("need_energy");
         public static final TagKey<Block> LET_STORAGE_ENTITY_BE_BLOCK = createTag("let_storage_entity_to_be_block");
+        public static final TagKey<Block> REFINERY_BLOCK = createTag("refinery_block");
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK,new Identifier(Asplor.MOD_ID,name));
         }
@@ -36,6 +37,8 @@ public class ModTags {
     public static class Biomes{
         public static TagKey<Biome> MOON = tag("moon");
         public static TagKey<Biome> NO_WIND = tag("no_wind");
+        public static TagKey<Biome> HAS_LAUNCH_CENTER = tag("has_launch_center");
+
         private static TagKey<Biome> tag(String name) {
             return TagKey.of(RegistryKeys.BIOME,new Identifier(Asplor.MOD_ID,name));
         }

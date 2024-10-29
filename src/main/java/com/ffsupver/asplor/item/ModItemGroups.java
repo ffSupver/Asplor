@@ -26,6 +26,8 @@ public class ModItemGroups {
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
+                                entries.add(EMPTY_TANK);
+                                entries.add(CONCENTRATED_OIL_TANK);
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
@@ -77,6 +79,11 @@ public class ModItemGroups {
                             entries.add(MELTING_FURNACE);
                             entries.add(ELECTROLYZER);
                             entries.add(TIER_0_ROCKET);
+                            entries.add(REFINERY_CONTROLLER);
+                            entries.add(REFINERY_INPUT);
+                            entries.add(REFINERY_OUTPUT);
+                            entries.add(REFINERY_BRICKS);
+                            entries.add(REFINERY_GLASS);
                         }).build());
 
     }

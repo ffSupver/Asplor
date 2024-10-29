@@ -13,7 +13,6 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
-import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
@@ -42,6 +41,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.registerRecipeFiller(TimeInjectorRecipe.class,ModRecipes.TIME_INJECTOR_RECIPETYPE, TimeInjectorDisplay::new);
         registry.registerRecipeFiller(MeltRecipe.class,ModRecipes.MELT_RECIPETYPE, MeltingFurnaceDisplay::new);
         registry.registerRecipeFiller(ElectrolyzerRecipe.class,ModRecipes.ELECTROLYZER_RECIPETYPE,ElectrolyzeDisplay::new);
+        registry.registerRecipeFiller(RefineryRecipe.class,ModRecipes.REFINERY_RECIPETYPE,RefineryDisplay::new);
     }
 
     @Override
@@ -53,6 +53,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.add(new TimeInjectorCategory());
         registry.add(new MeltingFurnaceCategory());
         registry.add(new ElectrolyzeCategory());
+        registry.add(new RefineryCategory());
 
         registry.addWorkstations(DividerCategory.DIVIDER, EntryStacks.of(AllBlocks.DIVIDER));
         registry.addWorkstations(CategoryIdentifier.of(Create.ID,"pressing"),EntryStacks.of(AllBlocks.ALLOY_MECHANICAL_PRESS));
@@ -63,6 +64,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.addWorkstations(TimeInjectorCategory.TIME_INJECTOR, EntryStacks.of(AllBlocks.TIME_INJECTOR));
         registry.addWorkstations(MeltingFurnaceCategory.MELT, EntryStacks.of(AllBlocks.MELTING_FURNACE));
         registry.addWorkstations(ElectrolyzeCategory.ELECTROLYZE,EntryStacks.of(AllBlocks.ELECTROLYZER));
+        registry.addWorkstations(RefineryCategory.REFINERY,EntryStacks.of(AllBlocks.REFINERY_CONTROLLER));
 
 
 

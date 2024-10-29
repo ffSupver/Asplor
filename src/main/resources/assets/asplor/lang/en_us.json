@@ -30,6 +30,10 @@
   "item.asplor.hydrochloric_acid_bucket": "Hydrochloric Acid Bucket",
   "item.asplor.concentrated_oil_bucket": "Concentrated Oil Bucket",
   "item.asplor.tier_0_rocket_shell": "Base Rocket Shell",
+  "item.asplor.empty_tank": "Empty Tank",
+  "item.asplor.concentrated_oil_tank": "Concentrated Oil Tank",
+
+
 
 
 
@@ -72,6 +76,11 @@
   "block.asplor.flint_block": "Flint Block",
   "block.asplor.hydrochloric_acid": "Hydrochloric Acid",
   "block.asplor.concentrated_oil": "Concentrated Oil",
+  "block.asplor.refinery_bricks": "Refinery Bricks",
+  "block.asplor.refinery_input": "Refinery Input",
+  "block.asplor.refinery_output": "Refinery Output",
+  "block.asplor.refinery_controller": "Refinery Controller",
+  "block.asplor.refinery_glass": "Refinery Glass",
 
 
 
@@ -94,6 +103,7 @@
   "recipe.asplor.time_injector": "Time Injector",
   "recipe.asplor.melt": "Melting",
   "recipe.asplor.electrolyze": "Electrolyze",
+  "recipe.asplor.refinery": "Refinery",
 
 
 
@@ -183,5 +193,10 @@
   "create.kinetics.motor.rotation_speed": "Set Motor Speed in RPM",
   "create.gui.goggles.pump_stats": "Pump Stats:",
   "create.tooltip.water_per_tick": "Water Provided:",
-  "create.generic.unit.mb_per_tick": "mB per tick"
+  "create.generic.unit.mb_per_tick": "mB per tick",
+  "create.gui.goggles.refinery_stats": "Refinery :",
+  "create.tooltip.refinery.ready": "Ready",
+  "create.tooltip.refinery.no_input": "No Input",
+  "create.tooltip.refinery.no_output": "No Output",
+  "create.tooltip.refinery.incomplete": "Incomplete"
 }

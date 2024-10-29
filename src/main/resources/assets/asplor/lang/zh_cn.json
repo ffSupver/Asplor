@@ -30,6 +30,10 @@
   "item.asplor.hydrochloric_acid_bucket": "盐酸桶",
   "item.asplor.concentrated_oil_bucket": "浓缩油桶",
   "item.asplor.tier_0_rocket_shell": "基础火箭外壳",
+  "item.asplor.empty_tank": "空罐",
+  "item.asplor.concentrated_oil_tank": "浓缩油罐",
+
+
 
 
 
@@ -72,7 +76,11 @@
   "block.asplor.flint_block": "燧石块",
   "block.asplor.hydrochloric_acid": "盐酸",
   "block.asplor.concentrated_oil": "浓缩油",
-
+  "block.asplor.refinery_bricks": "精炼厂砖块",
+  "block.asplor.refinery_input": "精炼厂输入口",
+  "block.asplor.refinery_output": "精炼厂输出口",
+  "block.asplor.refinery_controller": "精炼厂控制器",
+  "block.asplor.refinery_glass": "精炼厂玻璃",
 
 
 
@@ -95,6 +103,8 @@
   "recipe.asplor.assembler": "装配",
   "recipe.asplor.time_injector": "注时",
   "recipe.asplor.melt": "熔化",
+  "recipe.asplor.electrolyze": "电解",
+  "recipe.asplor.refinery": "精炼",
 
 
 
@@ -183,7 +193,11 @@
   "create.gui.goggles.pump_stats": "抽水器状态:",
   "create.tooltip.water_per_tick": "抽水量:",
   "create.generic.unit.mb_per_tick": "mB每刻",
-
+  "create.gui.goggles.refinery_stats": "精炼厂 :",
+  "create.tooltip.refinery.ready": "就绪",
+  "create.tooltip.refinery.no_input": "缺少输入",
+  "create.tooltip.refinery.no_output": "缺少输出",
+  "create.tooltip.refinery.incomplete": "不完整",
 
 
   "kubejs_fix": {

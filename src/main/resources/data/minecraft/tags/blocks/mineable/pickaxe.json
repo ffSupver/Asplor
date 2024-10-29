@@ -17,6 +17,7 @@
     "asplor:melting_furnace",
     "asplor:electrolyzer",
     "asplor:unstable_rock",
-    "asplor:windmill_bearing"
+    "asplor:windmill_bearing",
+    "#asplor:refinery_block"
   ]
 }

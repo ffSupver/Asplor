@@ -1,0 +1,18 @@
+{
+  "type":"asplor:refinery",
+  "input": {
+    "fluid": "asplor:concentrated_oil",
+    "amount": 9000
+  },
+  "outputs": [
+    {
+      "fluid": "minecraft:lava",
+      "amount": 9000
+    },
+    {
+      "fluid": "asplor:refined_oil",
+      "amount": 1000
+    }
+  ]
+}
+

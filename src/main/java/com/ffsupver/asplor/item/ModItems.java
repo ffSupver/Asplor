@@ -62,6 +62,8 @@ public class ModItems {
     public static final Item MYSTERIOUS_PAPER = registerItems("mysterious_paper",new MysteriousPageItem(new FabricItemSettings()));
     public static final Item CARBON_POWDER = registerItems("carbon_powder",new Item(new FabricItemSettings()));
     public static final Item TIER_0_ROCKET_SHELL = registerItems("tier_0_rocket_shell",new Item(new FabricItemSettings()));
+    public static final Item EMPTY_TANK = registerItems("empty_tank",new Item(new FabricItemSettings().maxCount(16)));
+    public static final Item CONCENTRATED_OIL_TANK = registerItems("concentrated_oil_tank",new Item(new FabricItemSettings().maxCount(1)));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

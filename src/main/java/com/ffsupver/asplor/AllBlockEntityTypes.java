@@ -21,6 +21,10 @@ import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceEntity;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceRenderer;
 import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
+import com.ffsupver.asplor.block.refinery.RefineryControllerEntity;
+import com.ffsupver.asplor.block.refinery.RefineryControllerRenderer;
+import com.ffsupver.asplor.block.refinery.RefineryInputEntity;
+import com.ffsupver.asplor.block.refinery.RefineryOutputEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
 import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturnerEntity;
@@ -121,6 +125,19 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("the_nether_returner", TheNetherReturnerEntity::new)
             .validBlocks(THE_NETHER_RETURNER)
             .renderer(()-> TheNetherReturnerRenderer::new)
+            .register();
+    public static final BlockEntityEntry<RefineryControllerEntity> REFINERY_CONTROLLER_ENTITY = REGISTRATE
+            .blockEntity("refinery_controller", RefineryControllerEntity::new)
+            .validBlocks(REFINERY_CONTROLLER)
+            .renderer(()-> RefineryControllerRenderer::new)
+            .register();
+    public static final BlockEntityEntry<RefineryOutputEntity> REFINERY_OUTPUT_ENTITY = REGISTRATE
+            .blockEntity("refinery_output", RefineryOutputEntity::new)
+            .validBlocks(REFINERY_OUTPUT)
+            .register();
+    public static final BlockEntityEntry<RefineryInputEntity> REFINERY_INPUT_ENTITY = REGISTRATE
+            .blockEntity("refinery_input", RefineryInputEntity::new)
+            .validBlocks(REFINERY_INPUT)
             .register();
 
 

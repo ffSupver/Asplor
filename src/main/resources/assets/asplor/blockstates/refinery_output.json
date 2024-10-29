@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asplor:block/refinery/refinery_output"
+    }
+  }
+}

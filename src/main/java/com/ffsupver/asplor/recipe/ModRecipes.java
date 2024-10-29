@@ -3,7 +3,6 @@ package com.ffsupver.asplor.recipe;
 import com.ffsupver.asplor.Asplor;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -37,6 +36,10 @@ public class ModRecipes {
             Registry.register(Registries.RECIPE_TYPE,
                     new Identifier(Asplor.MOD_ID,ElectrolyzerRecipe.Type.ID),
                     ElectrolyzerRecipe.Type.INSTANCE);
+    public static final RecipeType<RefineryRecipe> REFINERY_RECIPETYPE =
+            Registry.register(Registries.RECIPE_TYPE,
+                    new Identifier(Asplor.MOD_ID,RefineryRecipe.Type.ID),
+                    RefineryRecipe.Type.INSTANCE);
 
 private static <T extends Inventory> RecipeType<Recipe<T>>  registerRecipeType(String name,RecipeType<Recipe<T>> recipeType){
     return Registry.register(Registries.RECIPE_TYPE,new Identifier(Asplor.MOD_ID,name),recipeType);
@@ -54,6 +57,8 @@ public static void registerRecipes(){
             MeltRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,ElectrolyzerRecipe.Serializer.ID),
             ElectrolyzerRecipe.Serializer.INSTANCE);
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,RefineryRecipe.Serializer.ID),
+            RefineryRecipe.Serializer.INSTANCE);
 }
 
 private static <T extends Inventory> void  registerRecipeSerializer(BaseRecipeSerializer<Recipe<T>> recipeRecipeSerializer){

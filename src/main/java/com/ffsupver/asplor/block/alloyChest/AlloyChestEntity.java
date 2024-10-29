@@ -5,6 +5,7 @@ import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.screen.alloyChest.AlloyChestScreenHandler;
 import com.ffsupver.asplor.sound.ModSounds;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,6 +15,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextParameterSet;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
@@ -24,9 +29,11 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -38,6 +45,9 @@ public class AlloyChestEntity extends BlockEntity implements ExtendedScreenHandl
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(SIZE,ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private final ViewerCountManager stateManager;
+    @Nullable
+    protected Identifier lootTableId;
+    protected long lootTableSeed;
 
     public AlloyChestEntity( BlockPos pos, BlockState state) {
         super(AllBlockEntityTypes.ALLOY_CHEST_BLOCK_ENTITY,pos,state);
@@ -88,7 +98,25 @@ public class AlloyChestEntity extends BlockEntity implements ExtendedScreenHandl
 
     @Override
     public DefaultedList<ItemStack> getItems() {
+        checkLootInteraction(null);
         return inventory;
+    }
+    public void checkLootInteraction(@Nullable PlayerEntity player) {
+        if (this.lootTableId != null && this.world.getServer() != null) {
+            LootTable lootTable = this.world.getServer().getLootManager().getLootTable(this.lootTableId);
+            if (player instanceof ServerPlayerEntity) {
+                Criteria.PLAYER_GENERATES_CONTAINER_LOOT.trigger((ServerPlayerEntity)player, this.lootTableId);
+            }
+
+            this.lootTableId = null;
+            LootContextParameterSet.Builder builder = (new LootContextParameterSet.Builder((ServerWorld)this.world)).add(LootContextParameters.ORIGIN, Vec3d.ofCenter(this.pos));
+            if (player != null) {
+                builder.luck(player.getLuck()).add(LootContextParameters.THIS_ENTITY, player);
+            }
+
+            lootTable.supplyInventory(this, builder.build(LootContextTypes.CHEST), this.lootTableSeed);
+        }
+
     }
 
     @Override
@@ -113,16 +141,44 @@ public class AlloyChestEntity extends BlockEntity implements ExtendedScreenHandl
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        Inventories.writeNbt(nbt,inventory);
+        if (!serializeLootTable(nbt)) {
+            Inventories.writeNbt(nbt, inventory);
+        }
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        Inventories.readNbt(nbt,inventory);
+        if (!deserializeLootTable(nbt)) {
+            Inventories.readNbt(nbt, inventory);
+        }
+    }
+
+    protected boolean deserializeLootTable(NbtCompound nbt) {
+        if (nbt.contains("LootTable", 8)) {
+            this.lootTableId = new Identifier(nbt.getString("LootTable"));
+            this.lootTableSeed = nbt.getLong("LootTableSeed");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected boolean serializeLootTable(NbtCompound nbt) {
+        if (this.lootTableId == null) {
+            return false;
+        } else {
+            nbt.putString("LootTable", this.lootTableId.toString());
+            if (this.lootTableSeed != 0L) {
+                nbt.putLong("LootTableSeed", this.lootTableSeed);
+            }
+
+            return true;
+        }
     }
 
     public ActionResult turnIntoEntity(){
+        checkLootInteraction(null);
         if (!world.isClient()) {
             com.ffsupver.asplor.entity.custom.AlloyChestEntity alloyChestEntity = ModEntities.ALLOY_CHEST.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
             for (int i =0;i<this.inventory.size();i++){
@@ -143,6 +199,7 @@ public class AlloyChestEntity extends BlockEntity implements ExtendedScreenHandl
 
     @Override
     public void onOpen(PlayerEntity player) {
+        checkLootInteraction(player);
         if(!this.removed&&!player.isSpectator()){
             this.stateManager.openContainer(player,this.getWorld(),this.getPos(),this.getCachedState());
         }

@@ -17,7 +17,7 @@ public class AsplorClient implements ClientModInitializer {
     public void onInitializeClient() {
 
 
-
+        AllBlocks.registerRenderLayer();
 
         ModScreenHandlers.registerModScreens();
 

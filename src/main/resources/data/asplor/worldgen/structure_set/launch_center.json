@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:launch_center",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1410012384,
+    "spacing": 96,
+    "separation": 32,
+    "type": "minecraft:random_spread"
+  }
+}
