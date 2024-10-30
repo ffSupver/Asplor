@@ -32,7 +32,8 @@
   "item.asplor.tier_0_rocket_shell": "基础火箭外壳",
   "item.asplor.empty_tank": "空罐",
   "item.asplor.concentrated_oil_tank": "濃縮油罐",
-
+  "item.asplor.heavy_oil_bucket": "重油桶",
+  "item.asplor.light_oil_bucket": "轻油桶",
 
 
 
@@ -80,6 +81,9 @@
   "block.asplor.refinery_output": "精炼厂输出口",
   "block.asplor.refinery_controller": "精炼厂控制器",
   "block.asplor.refinery_glass": "精炼厂玻璃",
+  "block.asplor.heavy_oil": "重油",
+  "block.asplor.light_oil": "轻油",
+
 
 
 
@@ -173,7 +177,21 @@
   "asplor.ponder.melting_furnace_heat.text_2": "某些配方需要超级紅溫",
   "asplor.ponder.melting_furnace_heat.text_3": "对于那些只需要普通紅溫的配方,",
   "asplor.ponder.melting_furnace_heat.text_4": "超级紅溫可以让紅溫器以二倍速紅溫",
-
+  "asplor.ponder.refinery.build.header": "如何建造精炼厂",
+  "asplor.ponder.refinery.build.text_1": "精炼厂必须由这些方块组成",
+  "asplor.ponder.refinery.build.text_2": "精炼厂是一个中空的长方体",
+  "asplor.ponder.refinery.build.text_3": "每个精炼厂只能有一个控制器",
+  "asplor.ponder.refinery.build.text_4": "精炼厂要有输入",
+  "asplor.ponder.refinery.build.text_5": "和输出",
+  "asplor.ponder.refinery.build.text_6":"输出必须高于精炼厂高度的一半",
+  "asplor.ponder.refinery.output_count.header": "精炼厂的输出数量",
+  "asplor.ponder.refinery.output_count.text_1": "对于那些只有一种输出的配方,结果会从最高的输出口输出",
+  "asplor.ponder.refinery.output_count.text_2": "当一个输出口满了,会从相同高度的其他输出口输出",
+  "asplor.ponder.refinery.output_count.text_3": "对于那些有多种输出的配方,",
+  "asplor.ponder.refinery.output_count.text_4": "第一种输出会从最高的输出口输出,",
+  "asplor.ponder.refinery.output_count.text_5": "第二种会从第二高的输出口输出,",
+  "asplor.ponder.refinery.output_count.text_6": "如果还有更多种输出以此类推",
+  "asplor.ponder.refinery.output_count.text_7": "只有输出层数达到配方输出种类时精炼厂才会工作",
 
 
 

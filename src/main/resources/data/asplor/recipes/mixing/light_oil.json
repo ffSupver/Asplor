@@ -1,0 +1,20 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:heavy_oil"
+    },
+    {
+      "amount": 9000,
+      "fluid": "ad_astra:hydrogen"
+    }
+  ],
+  "results": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:light_oil"
+    }
+  ]
+}

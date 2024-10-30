@@ -47,6 +47,10 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_IMPURE_MOLTEN_DESH = registerFluid("flowing_impure_molten_desh",new ImpureMoltenDesh.Flowing());
     public static final FlowableFluid CONCENTRATED_OIL = registerFluid("concentrated_oil",new ConcentratedOilFluid.Still());
     public static final FlowableFluid FLOWING_CONCENTRATED_OIL = registerFluid("flowing_concentrated_oil",new ConcentratedOilFluid.Flowing());
+    public static final FlowableFluid HEAVY_OIL = registerFluid("heavy_oil",new HeavyOilFluid.Still());
+    public static final FlowableFluid FLOWING_HEAVY_OIL = registerFluid("flowing_heavy_oil",new HeavyOilFluid.Flowing());
+    public static final FlowableFluid LIGHT_OIL = registerFluid("light_oil",new LightOilFluid.Still());
+    public static final FlowableFluid FLOWING_LIGHT_OIL = registerFluid("flowing_light_oil",new LightOilFluid.Flowing());
 
 
     public static void register(){
@@ -59,6 +63,12 @@ public class ModFluids {
         registerRender(ALLOY_LAVA,FLOWING_ALLOY_LAVA,Identifier.of(Asplor.MOD_ID,"block/lava_still"),0xD3D5EB);
         registerRender(HYDROCHLORIC_ACID,FLOWING_HYDROCHLORIC_ACID,Identifier.of("minecraft","block/water_still"),0xB3FBFF);
         registerRender(CONCENTRATED_OIL,FLOWING_CONCENTRATED_OIL,Identifier.of("minecraft","block/water_still"),0x101701);
+        registerRender(HEAVY_OIL, FLOWING_HEAVY_OIL, Identifier.of("minecraft", "block/water_still"), 0x6E2D07);
+        registerRender(LIGHT_OIL,FLOWING_LIGHT_OIL,Identifier.of("minecraft","block/water_still"),0xF5B110);
+
+
+//        6E2D07 F5B110
+
 
 
         registerMoltenMetalRender(MOLTEN_IRON,FLOWING_MOLTEN_IRON,0xFF442B);

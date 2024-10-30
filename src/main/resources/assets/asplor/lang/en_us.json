@@ -32,6 +32,9 @@
   "item.asplor.tier_0_rocket_shell": "Base Rocket Shell",
   "item.asplor.empty_tank": "Empty Tank",
   "item.asplor.concentrated_oil_tank": "Concentrated Oil Tank",
+  "item.asplor.heavy_oil_bucket": "Heavy Oil Bucket",
+  "item.asplor.light_oil_bucket": "Light Oil Bucket",
+
 
 
 
@@ -81,6 +84,8 @@
   "block.asplor.refinery_output": "Refinery Output",
   "block.asplor.refinery_controller": "Refinery Controller",
   "block.asplor.refinery_glass": "Refinery Glass",
+  "block.asplor.heavy_oil": "Heavy Oil",
+  "block.asplor.light_oil": "Light Oil",
 
 
 
@@ -173,7 +178,21 @@
   "asplor.ponder.melting_furnace_heat.text_2": "Some recipes require super heating",
   "asplor.ponder.melting_furnace_heat.text_3": "For the recipes need normal heating,",
   "asplor.ponder.melting_furnace_heat.text_4": "super heating doubles the working speed of melting furnace",
-
+  "asplor.ponder.refinery.build.header": "How to build a refinery",
+  "asplor.ponder.refinery.build.text_1": "Refinery must be made up of these blocks.",
+  "asplor.ponder.refinery.build.text_2": "Refinery is a cuboid and must be empty inside.",
+  "asplor.ponder.refinery.build.text_3": "Refinery has one and only one controller.",
+  "asplor.ponder.refinery.build.text_4": "Refinery should have inputs ...",
+  "asplor.ponder.refinery.build.text_5": "and outputs.",
+  "asplor.ponder.refinery.build.text_6":"The output must be more than half the height of the refinery",
+  "asplor.ponder.refinery.output_count.header": "Outputs 0f the refinery",
+  "asplor.ponder.refinery.output_count.text_1": "For recipes that have only one output, the output will be output from the topmost output",
+  "asplor.ponder.refinery.output_count.text_2": "When the output is full, it will output to another output of the same height",
+  "asplor.ponder.refinery.output_count.text_3": "For recipes that have more than one output,",
+  "asplor.ponder.refinery.output_count.text_4": "the first output comes to the highest output,",
+  "asplor.ponder.refinery.output_count.text_5": "the second output comes to the second highest output,",
+  "asplor.ponder.refinery.output_count.text_6": "and so on if there are more outputs",
+  "asplor.ponder.refinery.output_count.text_7": "The refinery will only work if the number of output layers reaches the recipe outputs",
 
 
 

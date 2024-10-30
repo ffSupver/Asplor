@@ -46,6 +46,8 @@ public class ModItems {
     public static final Item IMPURE_MOLTEN_DESH_BUCKET = registerBucketItem("impure_molten_desh_bucket",ModFluids.IMPURE_MOLTEN_DESH);
     public static final Item HYDROCHLORIC_ACID_BUCKET = registerBucketItem("hydrochloric_acid_bucket",ModFluids.HYDROCHLORIC_ACID);
     public static final Item CONCENTRATED_OIL_BUCKET = registerBucketItem("concentrated_oil_bucket",ModFluids.CONCENTRATED_OIL);
+    public  static final Item HEAVY_OIL_BUCKET = registerBucketItem("heavy_oil_bucket",ModFluids.HEAVY_OIL);
+    public  static final Item LIGHT_OIL_BUCKET = registerBucketItem("light_oil_bucket",ModFluids.LIGHT_OIL);
 
 
 

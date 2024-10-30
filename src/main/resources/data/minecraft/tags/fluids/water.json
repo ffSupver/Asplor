@@ -10,6 +10,10 @@
     "asplor:hydrochloric_acid",
     "asplor:flowing_hydrochloric_acid",
     "asplor:concentrated_oil",
-    "asplor:flowing_concentrated_oil"
+    "asplor:flowing_concentrated_oil",
+    "asplor:heavy_oil",
+    "asplor:flowing_heavy_oil",
+    "asplor:light_oil",
+    "asplor:flowing_light_oil"
   ]
 }

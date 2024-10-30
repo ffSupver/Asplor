@@ -2,10 +2,7 @@ package com.ffsupver.asplor.compat.create.ponder;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.compat.create.ponder.scenes.MeltingFurnaceScenes;
-import com.ffsupver.asplor.compat.create.ponder.scenes.PackerScenes;
-import com.ffsupver.asplor.compat.create.ponder.scenes.SpaceTeleporterScenes;
-import com.ffsupver.asplor.compat.create.ponder.scenes.TimeInjectorScenes;
+import com.ffsupver.asplor.compat.create.ponder.scenes.*;
 import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.ponder.PonderRegistrationHelper;
@@ -27,6 +24,9 @@ public class PonderIndex {
         HELPER.forComponents(AllBlocks.MELTING_FURNACE)
                 .addStoryBoard("melting_furnace/melting_furnace", MeltingFurnaceScenes::meltFurnace)
                 .addStoryBoard("melting_furnace/heat_level", MeltingFurnaceScenes::heatLevel);
+        HELPER.forComponents(AllBlocks.REFINERY_CONTROLLER,AllBlocks.REFINERY_OUTPUT,AllBlocks.REFINERY_INPUT)
+                .addStoryBoard("refinery/build", RefineryScenes::build)
+                .addStoryBoard("refinery/output_count", RefineryScenes::outputCount);
 
 
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)

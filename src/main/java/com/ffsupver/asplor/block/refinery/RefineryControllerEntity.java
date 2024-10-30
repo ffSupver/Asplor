@@ -112,6 +112,7 @@ public class RefineryControllerEntity extends SmartBlockEntity implements SidedS
 
 
         if (isComplete && hasRecipe() && hasHeat()){
+            updateBlockState(true);
             if (world.isClient()){
                 spawnParticle();
             }
@@ -122,9 +123,14 @@ public class RefineryControllerEntity extends SmartBlockEntity implements SidedS
                 process -= getProcessTimeDecreasePerTick();
             }
         }else {
+            updateBlockState(false);
             process = maxProcess;
         }
 
+    }
+
+    private void updateBlockState(boolean active){
+        world.setBlockState(pos,getCachedState().with(RefineryController.ACTIVE,active));
     }
 
     private int getProcessTimeDecreasePerTick(){

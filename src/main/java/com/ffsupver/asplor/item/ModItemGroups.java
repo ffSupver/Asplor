@@ -31,6 +31,8 @@ public class ModItemGroups {
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
+                                entries.add(HEAVY_OIL_BUCKET);
+                                entries.add(LIGHT_OIL_BUCKET);
                                 entries.add(GLUE_BUCKET);
                                 entries.add(SALT_WATER_BUCKET);
                                 entries.add(CHLORINE_BUCKET);

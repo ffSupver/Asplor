@@ -241,6 +241,8 @@ public class AllBlocks {
     public static final Block CONCENTRATED_OIL = registerFluidBlock("concentrated_oil",ModFluids.CONCENTRATED_OIL,null);
     public static final Block REFINERY_BRICKS = registerBlock("refinery_bricks",new Block(REFINERY_SETTING.apply(FabricBlockSettings.create())));
     public static final Block REFINERY_GLASS = registerBlock("refinery_glass",new GlassBlock(REFINERY_SETTING.apply(FabricBlockSettings.create()).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+    public static final Block HEAVY_OIL = registerFluidBlock("heavy_oil",ModFluids.HEAVY_OIL,null);
+    public static final Block LIGHT_OIL = registerFluidBlock("light_oil",ModFluids.LIGHT_OIL,null);
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){

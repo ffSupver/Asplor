@@ -13,6 +13,7 @@ import me.shedaniel.rei.api.client.gui.widgets.Tooltip;
 import me.shedaniel.rei.api.client.gui.widgets.Widget;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
@@ -36,14 +37,14 @@ public class REIFluidDisplay {
     public static void addFluidTooltip(List<Widget> fluidStacks, List<FluidIngredient> inputs,
                                        List<FluidStack> outputs, int index1) {
         List<Long> amounts = new ArrayList<>();
-        Map<FluidStack,Long> fluidAmounts=new HashMap<>();
+        Map<Fluid,Long> fluidAmounts=new HashMap<>();
         inputs.forEach(f -> {
             amounts.add(f.getRequiredAmount());
-            fluidAmounts.put(f.getMatchingFluidStacks().get(0),f.getRequiredAmount());
+            fluidAmounts.put(f.getMatchingFluidStacks().get(0).getFluid(),f.getRequiredAmount());
         });
         outputs.forEach(f -> {
             amounts.add(f.getAmount());
-            fluidAmounts.put(f,f.getAmount());
+            fluidAmounts.put(f.getFluid(),f.getAmount());
         });
 
 
@@ -70,8 +71,7 @@ public class REIFluidDisplay {
                 }
 
                 FluidUnit unit = AllConfigs.client().fluidUnitType.get();
-
-                String amount = FluidTextUtil.getUnicodeMillibuckets(fluidAmounts.containsKey(fluid)? fluidAmounts.get(fluid) : amounts.get(0), unit, AllConfigs.client().simplifyFluidUnit.get());
+                String amount = FluidTextUtil.getUnicodeMillibuckets(fluidAmounts.containsKey(fluid.getFluid())? fluidAmounts.get(fluid.getFluid()) : amounts.get(0), unit, AllConfigs.client().simplifyFluidUnit.get());
                 Text text = Text.literal(String.valueOf(amount)).append(Lang.translateDirect(unit.getTranslationKey())).formatted(Formatting.GOLD);
                 if (tooltip.entries().isEmpty())
                     tooltip.entries().add(0, Tooltip.entry(text));

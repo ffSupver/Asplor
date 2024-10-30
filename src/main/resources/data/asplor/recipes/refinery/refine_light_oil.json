@@ -1,0 +1,14 @@
+{
+  "type":"asplor:refinery",
+  "input": {
+    "fluid": "asplor:light_oil",
+    "amount": 9000
+  },
+  "outputs": [
+    {
+      "fluid": "ad_astra:fuel",
+      "amount": 6000
+    }
+  ]
+}
+

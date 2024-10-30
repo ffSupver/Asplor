@@ -1,0 +1,19 @@
+{
+  "type":"asplor:refinery",
+  "description": "first is lowest",
+  "input": {
+    "fluid": "asplor:concentrated_oil",
+    "amount": 9000
+  },
+  "outputs": [
+    {
+      "fluid": "asplor:heavy_oil",
+      "amount": 1000
+    },
+    {
+      "fluid": "asplor:refined_oil",
+      "amount": 6000
+    }
+  ]
+}
+

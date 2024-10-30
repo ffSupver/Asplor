@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "active=false": {
       "model": "asplor:block/refinery/refinery_controller"
+    },
+    "active=true": {
+      "model": "asplor:block/refinery/refinery_controller_active"
     }
   }
 }
