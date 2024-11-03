@@ -211,6 +211,10 @@
   "asplor.ponder.refinery.output_count.text_5": "第二种会从第二高的输出口输出,",
   "asplor.ponder.refinery.output_count.text_6": "如果还有更多种输出以此类推",
   "asplor.ponder.refinery.output_count.text_7": "只有输出层数达到配方输出种类时精炼厂才会工作",
+  "asplor.ponder.smart_mechanical_arm.use.header": "如何使用智能动力臂",
+  "asplor.ponder.smart_mechanical_arm.use.text_1": "手持智能动力臂右键工具架或置物台来添加它们,只有最后被选择的置物台会被保留",
+  "asplor.ponder.smart_mechanical_arm.use.text_2": "超出范围的会被移除",
+  "asplor.ponder.smart_mechanical_arm.use.text_3": "智能动力臂需要应力",
 
 
   "planet.asplor.the_nether": "幽冥星",

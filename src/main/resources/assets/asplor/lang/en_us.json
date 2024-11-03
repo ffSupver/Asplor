@@ -214,6 +214,10 @@
   "asplor.ponder.refinery.output_count.text_5": "the second output comes to the second highest output,",
   "asplor.ponder.refinery.output_count.text_6": "and so on if there are more outputs",
   "asplor.ponder.refinery.output_count.text_7": "The refinery will only work if the number of output layers reaches the recipe outputs",
+  "asplor.ponder.smart_mechanical_arm.use.header": "How to use smart mechanical arm",
+  "asplor.ponder.smart_mechanical_arm.use.text_1": "Right-click on the tool gear or depot with smart mechanical arm to add it, only the last selected depot will be retained",
+  "asplor.ponder.smart_mechanical_arm.use.text_2": "Targets out of range will be remove",
+  "asplor.ponder.smart_mechanical_arm.use.text_3": "Smart mechanical arm need speed to work",
 
 
 

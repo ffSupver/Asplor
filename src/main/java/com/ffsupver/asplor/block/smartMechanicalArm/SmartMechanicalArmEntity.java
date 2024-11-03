@@ -47,7 +47,7 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
         this.usage = 0;
         this.process = PROCESS_TIME;
         this.getToolProcess = GET_TOOL_TIME;
-        this.armData = new ArmData(new Vec3d(0,1,-2),0,60,-120);
+        this.armData = new ArmData(new Vec3d(0,1,-2),0,65,-115);
         this.toolPosList = new ArrayList<>();
         this.toolType = ToolTypes.EMPTY;
     }
@@ -288,6 +288,7 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
             this.firstRotationDegree=firstRotationDegree;
             this.secondRotationDegree=secondRotationDegree;
             this.headPos = headPos;
+            updateArm();
         }
 
         public void moveTo(BlockPos destinationPos,double distant){
