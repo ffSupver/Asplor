@@ -113,7 +113,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> ingredients =DefaultedList.ofSize(1);
-        ingredients.set(0,input);
+        ingredients.add(input);
         return ingredients;
     }
 

@@ -42,6 +42,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.registerRecipeFiller(MeltRecipe.class,ModRecipes.MELT_RECIPETYPE, MeltingFurnaceDisplay::new);
         registry.registerRecipeFiller(ElectrolyzerRecipe.class,ModRecipes.ELECTROLYZER_RECIPETYPE,ElectrolyzeDisplay::new);
         registry.registerRecipeFiller(RefineryRecipe.class,ModRecipes.REFINERY_RECIPETYPE,RefineryDisplay::new);
+        registry.registerRecipeFiller(SmartProcessingRecipe.class,ModRecipes.SMART_PROCESSING_RECIPETYPE,SmartProcessingDisplay::new);
     }
 
     @Override
@@ -54,6 +55,8 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.add(new MeltingFurnaceCategory());
         registry.add(new ElectrolyzeCategory());
         registry.add(new RefineryCategory());
+        registry.add(new SmartProcessingCategory());
+
 
         registry.addWorkstations(DividerCategory.DIVIDER, EntryStacks.of(AllBlocks.DIVIDER));
         registry.addWorkstations(CategoryIdentifier.of(Create.ID,"pressing"),EntryStacks.of(AllBlocks.ALLOY_MECHANICAL_PRESS));
@@ -65,6 +68,8 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.addWorkstations(MeltingFurnaceCategory.MELT, EntryStacks.of(AllBlocks.MELTING_FURNACE));
         registry.addWorkstations(ElectrolyzeCategory.ELECTROLYZE,EntryStacks.of(AllBlocks.ELECTROLYZER));
         registry.addWorkstations(RefineryCategory.REFINERY,EntryStacks.of(AllBlocks.REFINERY_CONTROLLER));
+        registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.SMART_MECHANICAL_ARM));
+        registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.TOOL_GEAR));
 
 
 
