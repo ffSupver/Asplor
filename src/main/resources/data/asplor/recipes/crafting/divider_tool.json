@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "C": {
+      "item": "create:shaft"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "D":{
+      "item": "create:iron_sheet"
+    }
+  },
+  "pattern": [
+    " C ",
+    "AIA",
+    "D D"
+  ],
+  "result": {
+    "item": "asplor:divider_tool"
+  },
+  "show_notification": true
+}

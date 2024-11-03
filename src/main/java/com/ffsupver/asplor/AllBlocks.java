@@ -19,6 +19,9 @@ import com.ffsupver.asplor.block.motor.Motor;
 import com.ffsupver.asplor.block.refinery.RefineryController;
 import com.ffsupver.asplor.block.refinery.RefineryInput;
 import com.ffsupver.asplor.block.refinery.RefineryOutput;
+import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArm;
+import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArmItem;
+import com.ffsupver.asplor.block.smartMechanicalArm.ToolGear;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporter;
 import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturner;
 import com.ffsupver.asplor.block.timeInjector.TimeInjector;
@@ -202,6 +205,22 @@ public class AllBlocks {
                     .item(BlockItem::new)
                     .build()
                     .register();
+    public static final BlockEntry<SmartMechanicalArm> SMART_MECHANICAL_ARM =
+            REGISTRATE.block("smart_mechanical_arm", SmartMechanicalArm::new)
+                    .properties(p -> p.requiresTool().mapColor(MapColor.ORANGE).sounds(BlockSoundGroup.METAL).strength(3.0f,8.0f))
+                    .transform(BlockStressDefaults.setImpact(8.0))
+                    .item(SmartMechanicalArmItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<ToolGear> TOOL_GEAR =
+            REGISTRATE.block("tool_gear",ToolGear::new)
+                    .properties(p -> p.requiresTool().mapColor(MapColor.ORANGE).sounds(BlockSoundGroup.METAL).strength(3.0f,8.0f))
+                    .addLayer(()->RenderLayer::getCutoutMipped)
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+
+
 
 
 

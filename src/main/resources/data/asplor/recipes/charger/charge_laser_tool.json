@@ -1,0 +1,9 @@
+{
+  "type": "ae2:charger",
+  "ingredient": {
+    "item": "asplor:used_laser_tool"
+  },
+  "result": {
+    "item": "asplor:laser_tool"
+  }
+}

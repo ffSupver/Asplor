@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "C": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    " A ",
+    " A ",
+    "CCC"
+  ],
+  "result": {
+    "item": "asplor:mechanical_press_head"
+  },
+  "show_notification": true
+}

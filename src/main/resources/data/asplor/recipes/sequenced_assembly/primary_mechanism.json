@@ -1,0 +1,81 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "minecraft:wooden_slabs"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "asplor:primary_mechanism"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        },
+        {
+          "item": "create:andesite_alloy"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        },
+        {
+          "item": "create:shaft"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        },
+        {
+          "item": "create:cogwheel"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_primary_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:uncompleted_primary_mechanism"
+  }
+}

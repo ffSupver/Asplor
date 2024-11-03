@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:shaft"
+    },
+    "B": {
+      "item": "create:andesite_alloy"
+    },
+    "C": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "D":{
+      "item": "create:cogwheel"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "DBD",
+    "CCC"
+  ],
+  "result": {
+    "item": "asplor:primary_mechanism"
+  },
+  "show_notification": true
+}

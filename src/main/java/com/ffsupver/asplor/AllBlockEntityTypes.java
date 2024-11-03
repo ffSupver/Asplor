@@ -25,6 +25,7 @@ import com.ffsupver.asplor.block.refinery.RefineryControllerEntity;
 import com.ffsupver.asplor.block.refinery.RefineryControllerRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryInputEntity;
 import com.ffsupver.asplor.block.refinery.RefineryOutputEntity;
+import com.ffsupver.asplor.block.smartMechanicalArm.*;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
 import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturnerEntity;
@@ -138,6 +139,17 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
     public static final BlockEntityEntry<RefineryInputEntity> REFINERY_INPUT_ENTITY = REGISTRATE
             .blockEntity("refinery_input", RefineryInputEntity::new)
             .validBlocks(REFINERY_INPUT)
+            .register();
+    public static final BlockEntityEntry<SmartMechanicalArmEntity> SMART_MECHANICAL_ARM_ENTITY = REGISTRATE
+            .blockEntity("smart_mechanical_arm", SmartMechanicalArmEntity::new)
+            .instance(() -> SmartMechanicalArmInstance::new)
+            .renderer(()-> SmartMechanicalArmRenderer::new)
+            .validBlocks(SMART_MECHANICAL_ARM)
+            .register();
+    public static final BlockEntityEntry<ToolGearEntity> TOOL_GEAR_ENTITY = REGISTRATE
+            .blockEntity("tool_gear",ToolGearEntity::new)
+            .validBlocks(TOOL_GEAR)
+            .renderer(()-> ToolGearRenderer::new)
             .register();
 
 

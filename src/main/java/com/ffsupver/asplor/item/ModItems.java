@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.item;
 
+import com.ffsupver.asplor.AllPartialModels;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
@@ -66,6 +67,16 @@ public class ModItems {
     public static final Item TIER_0_ROCKET_SHELL = registerItems("tier_0_rocket_shell",new Item(new FabricItemSettings()));
     public static final Item EMPTY_TANK = registerItems("empty_tank",new Item(new FabricItemSettings().maxCount(16)));
     public static final Item CONCENTRATED_OIL_TANK = registerItems("concentrated_oil_tank",new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item DRILL = registerItems("drill",new Item(new FabricItemSettings()));
+    public static final Item SAW = registerItems("saw",new Item(new FabricItemSettings()));
+    public static final Item DIVIDER_TOOL = registerItems("divider_tool",new Item(new FabricItemSettings()));
+    public static final Item WINDMILL_HEAD = registerItems("windmill_head",new Item(new FabricItemSettings()));
+    public static final Item UNCOMPLETED_PRIMARY_MECHANISM = registerItems("uncompleted_primary_mechanism",new Item(new FabricItemSettings()));
+    public static final Item DRILL_TOOL = registerItems("drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"drill"),256));
+    public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
+    public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
+
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
@@ -81,7 +92,7 @@ public class ModItems {
         return registerItems(name,new BucketItem(fluid,setting==null?baseSetting:setting.apply(baseSetting)));
     }
 
-    private static Item registerItems(String name,Item item){
+    private static <T extends Item> T registerItems(String name,T item){
         return Registry.register(Registries.ITEM,new Identifier(Asplor.MOD_ID,name),item);
     }
     public static void registerModItems(){

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asplor:block/smart_mechanical_arm/smart_mechanical_arm"
+    }
+  }
+}

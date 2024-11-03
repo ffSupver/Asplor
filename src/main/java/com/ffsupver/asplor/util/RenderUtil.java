@@ -1,5 +1,14 @@
 package com.ffsupver.asplor.util;
 
+import com.jozufozu.flywheel.core.PartialModel;
+import com.simibubi.create.foundation.render.CachedBufferer;
+import com.simibubi.create.foundation.render.SuperByteBuffer;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.render.LightmapTextureManager;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
@@ -32,5 +41,16 @@ public class RenderUtil {
         displayNBT.put("Lore", loreList);
         nbt.put("display", displayNBT);
         return nbt;
+    }
+
+    public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model){
+        VertexConsumer solid = bufferSource.getBuffer(RenderLayer.getSolid());
+        SuperByteBuffer modelBuffer = CachedBufferer.partial(model,be.getCachedState());
+        draw(modelBuffer,ms,solid);
+    }
+
+    public static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc) {
+        buffer.light(LightmapTextureManager.MAX_LIGHT_COORDINATE)
+                .renderInto(ms, vc);
     }
 }

@@ -18,6 +18,7 @@ public class ModLootTables {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
             addMysteryPaper(id,table);
         });
+
     }
     private static void addMysteryPaper(Identifier id, FabricLootSupplierBuilder table){
         ArrayList<Identifier> lootTablesToAddIron = new ArrayList<>();

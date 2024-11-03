@@ -1,5 +1,6 @@
 package com.ffsupver.asplor;
 
+import com.ffsupver.asplor.block.smartMechanicalArm.ToolTypes;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItemGroups;
 import com.ffsupver.asplor.item.ModItems;
@@ -69,6 +70,7 @@ public class Asplor implements ModInitializer {
 		GoggleDisplays.register();
 
 		ModPackets.registerC2SPack();
+		ToolTypes.register();
 	}
 
 	private static void registerAfterCreateItems() {

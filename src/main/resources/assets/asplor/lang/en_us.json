@@ -34,6 +34,15 @@
   "item.asplor.concentrated_oil_tank": "Concentrated Oil Tank",
   "item.asplor.heavy_oil_bucket": "Heavy Oil Bucket",
   "item.asplor.light_oil_bucket": "Light Oil Bucket",
+  "item.asplor.drill": "Drill",
+  "item.asplor.saw": "Saw",
+  "item.asplor.divider_tool": "Divider Tool",
+  "item.asplor.windmill_head": "Windmill Head",
+  "item.asplor.uncompleted_primary_mechanism": "Uncompleted Primary Mechanism",
+  "item.asplor.drill_tool": "Drill Tool",
+  "item.asplor.used_drill_tool": "Used Drill Tool",
+  "item.asplor.laser_tool": "Laser Tool",
+  "item.asplor.used_laser_tool": "Used Laser Tool",
 
 
 
@@ -86,6 +95,8 @@
   "block.asplor.refinery_glass": "Refinery Glass",
   "block.asplor.heavy_oil": "Heavy Oil",
   "block.asplor.light_oil": "Light Oil",
+  "block.asplor.smart_mechanical_arm": "Smart Mechanical Arm",
+  "block.asplor.tool_gear": "Tool Gear",
 
 
 
@@ -128,7 +139,16 @@
   "description.asplor.alloy_chest": "With alloy chest",
   "description.asplor.anchor": "At %s (%s,%s,%s)",
   "description.asplor.location": "At (%s,%s,%s)",
+  "description.asplor.smart_mechanical_arm.target": "Target ",
+  "description.asplor.smart_mechanical_arm.tools": "Tool Gear ",
+  "description.asplor.tool_item.usage": "Can use %s/%s",
+  "description.asplor.smart_processing.next": "Next :",
 
+
+
+
+  "tool_type.asplor.drill": "drill process",
+  "tool_type.asplor.laser": "laser process",
 
 
 

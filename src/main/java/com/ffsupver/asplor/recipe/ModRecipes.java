@@ -41,6 +41,11 @@ public class ModRecipes {
                     new Identifier(Asplor.MOD_ID,RefineryRecipe.Type.ID),
                     RefineryRecipe.Type.INSTANCE);
 
+    public static final RecipeType<SmartProcessingRecipe> SMART_PROCESSING_RECIPETYPE =
+            Registry.register(Registries.RECIPE_TYPE,
+                    new Identifier(Asplor.MOD_ID,SmartProcessingRecipe.Type.ID),
+                    SmartProcessingRecipe.Type.INSTANCE);
+
 private static <T extends Inventory> RecipeType<Recipe<T>>  registerRecipeType(String name,RecipeType<Recipe<T>> recipeType){
     return Registry.register(Registries.RECIPE_TYPE,new Identifier(Asplor.MOD_ID,name),recipeType);
 }
@@ -59,6 +64,8 @@ public static void registerRecipes(){
             ElectrolyzerRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,RefineryRecipe.Serializer.ID),
             RefineryRecipe.Serializer.INSTANCE);
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,SmartProcessingRecipe.Serializer.ID),
+            SmartProcessingRecipe.Serializer.INSTANCE);
 }
 
 private static <T extends Inventory> void  registerRecipeSerializer(BaseRecipeSerializer<Recipe<T>> recipeRecipeSerializer){

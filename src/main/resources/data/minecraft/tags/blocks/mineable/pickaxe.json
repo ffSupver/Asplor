@@ -18,6 +18,8 @@
     "asplor:electrolyzer",
     "asplor:unstable_rock",
     "asplor:windmill_bearing",
-    "#asplor:refinery_block"
+    "#asplor:refinery_block",
+    "asplor:smart_mechanical_arm",
+    "asplor:tool_gear"
   ]
 }

@@ -15,6 +15,13 @@ public class AllPartialModels {
     public static final PartialModel MOTOR_ROTATING_MODEL = create("block/motor/motor_rotating_model");
     public static final PartialModel TIME_INJECTOR_INNER_RING = create("block/time_injector/inner_ring");
     public static final PartialModel SPACE_TELEPORTER_INNER = create("block/space_teleporter/inner");
+    public static final PartialModel SMART_MECHANICAL_ARM_HEAD = create("block/smart_mechanical_arm/head");
+    public static final PartialModel SMART_MECHANICAL_ARM_BASE = create("block/smart_mechanical_arm/base");
+    public static final PartialModel SMART_MECHANICAL_ARM_FIRST_ARM = create("block/smart_mechanical_arm/first_arm");
+    public static final PartialModel SMART_MECHANICAL_ARM_SECOND_ARM = create("block/smart_mechanical_arm/second_arm");
+    public static final PartialModel DRILL_TOOL = create("block/smart_mechanical_arm/tools/drill");
+    public static final PartialModel LASER_TOOL = create("block/smart_mechanical_arm/tools/laser");
+    public static final PartialModel LASER_TOOL_WORK = create("block/smart_mechanical_arm/tools/laser_work");
 
 
 

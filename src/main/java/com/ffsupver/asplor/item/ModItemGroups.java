@@ -49,6 +49,10 @@ public class ModItemGroups {
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(PRIMARY_MECHANISM);
                                 entries.add(MECHANICAL_PRESS_HEAD);
+                                entries.add(DRILL);
+                                entries.add(SAW);
+                                entries.add(DIVIDER_TOOL);
+                                entries.add(WINDMILL_HEAD);
                                 entries.add(FROZEN_CORE);
                                 entries.add(UNSTABLE_ROCK);
                                 entries.add(SUSPICIOUS_MARS_SAND);
@@ -86,6 +90,10 @@ public class ModItemGroups {
                             entries.add(REFINERY_OUTPUT);
                             entries.add(REFINERY_BRICKS);
                             entries.add(REFINERY_GLASS);
+                            entries.add(SMART_MECHANICAL_ARM);
+                            entries.add(TOOL_GEAR);
+                            entries.add(DRILL_TOOL);
+                            entries.add(LASER_TOOL);
                         }).build());
 
     }

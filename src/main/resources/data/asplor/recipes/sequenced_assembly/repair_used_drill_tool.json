@@ -1,0 +1,47 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:used_drill_tool"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item": "asplor:drill_tool"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "asplor:used_drill_tool"
+        },
+        {
+          "amount": 1000,
+          "fluid": "asplor:molten_alloy"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:used_drill_tool"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:used_drill_tool"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:drill_tool"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:used_drill_tool"
+  }
+}

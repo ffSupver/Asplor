@@ -1,0 +1,17 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:alloy_ingot"
+  },
+  "output": {
+    "item": "asplor:salt"
+  },
+  "process_item": {
+    "item": "minecraft:iron_ingot"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:laser",
+    "asplor:drill"
+  ]
+}
