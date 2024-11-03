@@ -26,6 +26,7 @@ public class PonderIndex {
                 .addStoryBoard("melting_furnace/heat_level", MeltingFurnaceScenes::heatLevel);
         HELPER.forComponents(AllBlocks.REFINERY_CONTROLLER,AllBlocks.REFINERY_OUTPUT,AllBlocks.REFINERY_INPUT)
                 .addStoryBoard("refinery/build", RefineryScenes::build)
+                .addStoryBoard("refinery/use", RefineryScenes::use)
                 .addStoryBoard("refinery/output_count", RefineryScenes::outputCount);
         HELPER.forComponents(AllBlocks.SMART_MECHANICAL_ARM,AllBlocks.TOOL_GEAR)
                         .addStoryBoard("smart_mechanical_arm/smart_mechanical_arm",SmartMechanicalArmScenes::use);

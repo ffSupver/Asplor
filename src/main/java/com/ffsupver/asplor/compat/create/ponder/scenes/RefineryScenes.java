@@ -1,7 +1,9 @@
 package com.ffsupver.asplor.compat.create.ponder.scenes;
 
+import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 public class RefineryScenes {
@@ -71,6 +73,35 @@ public class RefineryScenes {
 
         scene.idle(40);
 
+
+        scene.markAsFinished();
+    }
+
+    public static void use(SceneBuilder scene, SceneBuildingUtil util){
+        scene.title("refinery.use", "xxx");
+        scene.configureBasePlate(0, 0, 7);
+        scene.scaleSceneView(1.0f);
+
+        scene.world.showSection(util.select.layer(0), Direction.UP);
+        scene.world.showSection(util.select.fromTo(2,1,2,4,5,4),Direction.DOWN);
+
+        BlockPos blazePos = util.grid.at(3,1,3);
+        scene.world.modifyBlock(blazePos,state -> state.with(BlazeBurnerBlock.HEAT_LEVEL, BlazeBurnerBlock.HeatLevel.KINDLED),false);
+
+        scene.idle(5);
+
+        scene.overlay.showText(20)
+                .text("need heat")
+                .pointAt(util.vector.blockSurface(blazePos, Direction.DOWN));
+
+        scene.idle(30);
+
+        scene.world.modifyBlock(blazePos,state -> state.with(BlazeBurnerBlock.HEAT_LEVEL, BlazeBurnerBlock.HeatLevel.SEETHING),false);
+        scene.overlay.showText(20)
+                .text("size")
+                .pointAt(util.vector.blockSurface(blazePos, Direction.DOWN));
+
+        scene.idle(30);
 
         scene.markAsFinished();
     }
