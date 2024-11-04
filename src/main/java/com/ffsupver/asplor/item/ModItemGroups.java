@@ -94,6 +94,8 @@ public class ModItemGroups {
                             entries.add(TOOL_GEAR);
                             entries.add(DRILL_TOOL);
                             entries.add(LASER_TOOL);
+                            entries.add(SINGLE_ITEM_CELL_4K);
+                            entries.add(SINGLE_ITEM_CELL_8K);
                         }).build());
 
     }

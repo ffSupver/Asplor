@@ -6,6 +6,7 @@ import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.item.*;
+import com.ffsupver.asplor.item.item.singleItemCell.SingleItemCellItem;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import earth.terrarium.adastra.common.items.vehicles.RocketItem;
@@ -76,6 +77,8 @@ public class ModItems {
     public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
     public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
     public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item SINGLE_ITEM_CELL_4K = registerItems("single_item_cell_4k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),4));
+    public static final Item SINGLE_ITEM_CELL_8K = registerItems("single_item_cell_8k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),8));
 
 
     public static void registerRocketItemRender(){

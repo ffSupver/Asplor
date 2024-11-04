@@ -4,6 +4,7 @@ import com.ffsupver.asplor.block.smartMechanicalArm.ToolTypes;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItemGroups;
 import com.ffsupver.asplor.item.ModItems;
+import com.ffsupver.asplor.item.item.singleItemCell.ICellHandlerRegister;
 import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
@@ -71,6 +72,7 @@ public class Asplor implements ModInitializer {
 
 		ModPackets.registerC2SPack();
 		ToolTypes.register();
+		ICellHandlerRegister.register();
 	}
 
 	private static void registerAfterCreateItems() {
