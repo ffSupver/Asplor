@@ -77,8 +77,11 @@ public class ModItems {
     public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
     public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
     public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
-    public static final Item SINGLE_ITEM_CELL_4K = registerItems("single_item_cell_4k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),4));
-    public static final Item SINGLE_ITEM_CELL_8K = registerItems("single_item_cell_8k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),8));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_4K = registerItems("single_item_storage_cell_4k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),4));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_16K = registerItems("single_item_storage_cell_16k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),16));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_64K = registerItems("single_item_storage_cell_64k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),64));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_256K = registerItems("single_item_storage_cell_256k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),256));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_1M = registerItems("single_item_storage_cell_1m",new SingleItemCellItem(new FabricItemSettings().maxCount(1),1024));
 
 
     public static void registerRocketItemRender(){

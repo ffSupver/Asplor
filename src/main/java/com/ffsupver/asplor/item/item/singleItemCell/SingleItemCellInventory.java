@@ -82,11 +82,9 @@ public class SingleItemCellInventory implements StorageCell {
     public CellState getStatus() {
         if (this.count <= 0){
             return CellState.EMPTY;
-        }
-        double state = 1f/this.count ;
-        if (state > 0.00001){
+        }else if (count <= maxCount/8){
             return CellState.NOT_EMPTY;
-        }else if (state > 0.000000001){
+        }else if (count <= maxCount/8*7){
             return CellState.TYPES_FULL;
         }else{
             return CellState.FULL;
@@ -121,7 +119,6 @@ public class SingleItemCellInventory implements StorageCell {
 
     @Override
     public long insert(AEKey what, long amount, Actionable mode, IActionSource source) {
-        System.out.println("insert "+what+" "+amount+" "+mode+" "+source+" fit "+storageItem);
         if ( what instanceof AEItemKey whatItem && !whatItem.hasTag()){
             boolean isEmpty = this.storageItem.equals(Items.AIR) &&  whatItem.getItem().getMaxCount() > 1;
             boolean sameItem = this.storageItem.equals(whatItem.getItem());
@@ -158,8 +155,6 @@ public class SingleItemCellInventory implements StorageCell {
 
     @Override
     public long extract(AEKey what, long amount, Actionable mode, IActionSource source) {
-        System.out.println("extract "+what+" "+amount+" "+mode+" "+source+" is air "
-                +this.storageItem.equals(Items.AIR)+" ");
         if (what instanceof AEItemKey whatItem && (this.storageItem.equals(Items.AIR) || this.storageItem.equals(whatItem.getItem())) && !whatItem.hasTag()){
             if (whatItem.getItem().equals(this.storageItem)){
                 long result = Math.min(amount, count);

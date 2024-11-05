@@ -43,6 +43,11 @@
   "item.asplor.used_drill_tool": "用过的钻头工具",
   "item.asplor.laser_tool": "激光工具",
   "item.asplor.used_laser_tool": "用过的激光工具",
+  "item.asplor.single_item_storage_cell_4k":"4K ME单物品存储原件",
+  "item.asplor.single_item_storage_cell_16k":"16K ME单物品存储原件",
+  "item.asplor.single_item_storage_cell_64k":"64K ME单物品存储原件",
+  "item.asplor.single_item_storage_cell_256k":"256K ME单物品存储原件",
+  "item.asplor.single_item_storage_cell_1m":"1M ME单物品存储原件",
 
 
 

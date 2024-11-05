@@ -43,7 +43,11 @@
   "item.asplor.used_drill_tool": "Used Drill Tool",
   "item.asplor.laser_tool": "Laser Tool",
   "item.asplor.used_laser_tool": "Used Laser Tool",
-
+  "item.asplor.single_item_storage_cell_4k":"4K ME Single Item Storage Cell",
+  "item.asplor.single_item_storage_cell_16k":"16K ME Single Item Storage Cell",
+  "item.asplor.single_item_storage_cell_64k":"64K ME Single Item Storage Cell",
+  "item.asplor.single_item_storage_cell_256k":"256K ME Single Item Storage Cell",
+  "item.asplor.single_item_storage_cell_1m":"1M ME Single Item Storage Cell",
 
 
 
