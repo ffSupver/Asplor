@@ -1,0 +1,52 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "asplor:block/smart_mechanical_arm/tools/empty_dropper",
+		"particle": "asplor:block/smart_mechanical_arm/tools/empty_dropper"
+	},
+	"elements": [
+		{
+			"name": "base",
+			"from": [6, 4, 6],
+			"to": [10, 8, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 6, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 4], "texture": "#0"},
+				"west": {"uv": [4, 4, 8, 8], "texture": "#0"},
+				"up": {"uv": [4, 12, 0, 8], "texture": "#0"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#0"}
+			}
+		},
+		{
+			"name": "dropper_low",
+			"from": [7, 3, 7],
+			"to": [9, 4, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 2, 7]},
+			"faces": {
+				"north": {"uv": [6, 8, 8, 9], "texture": "#0"},
+				"east": {"uv": [8, 6, 10, 7], "texture": "#0"},
+				"south": {"uv": [8, 7, 10, 8], "texture": "#0"},
+				"west": {"uv": [8, 8, 10, 9], "texture": "#0"},
+				"up": {"uv": [6, 10, 4, 8], "texture": "#0"},
+				"down": {"uv": [10, 4, 8, 6], "texture": "#0"}
+			}
+		},
+		{
+			"name": "dropper_head",
+			"from": [7.5, 2, 7.5],
+			"to": [8.5, 3, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 1, 7]},
+			"faces": {
+				"north": {"uv": [6, 9, 7, 10], "texture": "#0"},
+				"east": {"uv": [7, 9, 8, 10], "texture": "#0"},
+				"south": {"uv": [8, 9, 9, 10], "texture": "#0"},
+				"west": {"uv": [9, 9, 10, 10], "texture": "#0"},
+				"up": {"uv": [5, 11, 4, 10], "texture": "#0"},
+				"down": {"uv": [11, 4, 10, 5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {}
+}

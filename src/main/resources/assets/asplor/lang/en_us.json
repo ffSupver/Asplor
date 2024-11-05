@@ -48,6 +48,10 @@
   "item.asplor.single_item_storage_cell_64k":"64K ME Single Item Storage Cell",
   "item.asplor.single_item_storage_cell_256k":"256K ME Single Item Storage Cell",
   "item.asplor.single_item_storage_cell_1m":"1M ME Single Item Storage Cell",
+  "item.asplor.empty_dropper": "Empty Dropper",
+  "item.asplor.molten_gold_dropper": "Molten Gold Dropper",
+  "item.asplor.glue_dropper": "Glue Dropper",
+  "item.asplor.single_item_storage_cell_housing": "ME Single Item Cell Housing",
 
 
 
@@ -154,6 +158,8 @@
 
   "tool_type.asplor.drill": "drill process",
   "tool_type.asplor.laser": "laser process",
+  "tool_type.asplor.molten_gold_dropper": "inject molten gold",
+  "tool_type.asplor.glue_dropper": "inject glue",
 
 
 

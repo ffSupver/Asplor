@@ -1,0 +1,16 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:charged_alloy_ingot"
+  },
+  "output": {
+    "item": "asplor:carbon_powder"
+  },
+  "process_item": {
+    "item": "minecraft:diamond"
+  },
+  "tool_types": [
+    "asplor:molten_gold_dropper",
+    "asplor:glue_dropper"
+  ]
+}

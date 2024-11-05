@@ -125,15 +125,9 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
         }
 
         @Override
-        public long extract(ItemVariant resource, long maxAmount, TransactionContext transaction) {
-            sendData();
-            return super.extract(resource, maxAmount, transaction);
-        }
-
-        @Override
         protected void onContentsChanged(int slot) {
-            sendData();
             super.onContentsChanged(slot);
+            sendData();
         }
     }
 }

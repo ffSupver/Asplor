@@ -22,6 +22,11 @@ public class AllPartialModels {
     public static final PartialModel DRILL_TOOL = create("block/smart_mechanical_arm/tools/drill");
     public static final PartialModel LASER_TOOL = create("block/smart_mechanical_arm/tools/laser");
     public static final PartialModel LASER_TOOL_WORK = create("block/smart_mechanical_arm/tools/laser_work");
+    public static final PartialModel EMPTY_DROPPER = create("block/smart_mechanical_arm/tools/empty_dropper");
+    public static final PartialModel MOLTEN_GOLD_DROPPER = create("block/smart_mechanical_arm/tools/molten_gold_dropper");
+    public static final PartialModel MOLTEN_GOLD_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_gold_dropper_work");
+    public static final PartialModel GLUE_DROPPER = create("block/smart_mechanical_arm/tools/glue_dropper");
+    public static final PartialModel GLUE_DROPPER_WORK = create("block/smart_mechanical_arm/tools/glue_dropper_work");
 
 
 

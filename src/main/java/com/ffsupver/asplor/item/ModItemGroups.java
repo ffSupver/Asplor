@@ -94,6 +94,10 @@ public class ModItemGroups {
                             entries.add(TOOL_GEAR);
                             entries.add(DRILL_TOOL);
                             entries.add(LASER_TOOL);
+                            entries.add(EMPTY_DROPPER);
+                            entries.add(MOLTEN_GOLD_DROPPER);
+                            entries.add(GLUE_DROPPER);
+                            entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_4K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_16K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_64K);

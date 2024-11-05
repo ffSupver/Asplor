@@ -18,7 +18,7 @@ public class ToolItem extends Item {
     public static final String USAGE_DATA_KEY = "usage";
 
     public ToolItem(Settings settings, PartialModel toolModel, PartialModel toolWorkModel, Identifier toolTypeId, int maxUsage) {
-        super(settings);
+        super(settings.maxCount(1));
         this.toolModel = toolModel;
         this.toolWorkModel = toolWorkModel;
         this.toolTypeId = toolTypeId;

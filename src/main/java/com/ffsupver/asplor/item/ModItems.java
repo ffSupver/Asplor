@@ -73,16 +73,19 @@ public class ModItems {
     public static final Item DIVIDER_TOOL = registerItems("divider_tool",new Item(new FabricItemSettings()));
     public static final Item WINDMILL_HEAD = registerItems("windmill_head",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_PRIMARY_MECHANISM = registerItems("uncompleted_primary_mechanism",new Item(new FabricItemSettings()));
-    public static final Item DRILL_TOOL = registerItems("drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"drill"),256));
-    public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
-    public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
-    public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings().maxCount(1), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item DRILL_TOOL = registerItems("drill_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"drill"),256));
+    public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
+    public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_4K = registerItems("single_item_storage_cell_4k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),4));
     public static final Item SINGLE_ITEM_STORAGE_CELL_16K = registerItems("single_item_storage_cell_16k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),16));
     public static final Item SINGLE_ITEM_STORAGE_CELL_64K = registerItems("single_item_storage_cell_64k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),64));
     public static final Item SINGLE_ITEM_STORAGE_CELL_256K = registerItems("single_item_storage_cell_256k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),256));
     public static final Item SINGLE_ITEM_STORAGE_CELL_1M = registerItems("single_item_storage_cell_1m",new SingleItemCellItem(new FabricItemSettings().maxCount(1),1024));
-
+    public static final Item EMPTY_DROPPER = registerItems("empty_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.EMPTY_DROPPER,AllPartialModels.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item MOLTEN_GOLD_DROPPER = registerItems("molten_gold_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_GOLD_DROPPER,AllPartialModels.MOLTEN_GOLD_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_gold_dropper"),1));
+    public static final Item GLUE_DROPPER = registerItems("glue_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"glue_dropper"),4));
+    public static final Item SINGLE_ITEM_STORAGE_CELL_HOUSING = registerItems("single_item_storage_cell_housing",new Item(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

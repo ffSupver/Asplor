@@ -48,7 +48,10 @@
   "item.asplor.single_item_storage_cell_64k":"64K ME单物品存储原件",
   "item.asplor.single_item_storage_cell_256k":"256K ME单物品存储原件",
   "item.asplor.single_item_storage_cell_1m":"1M ME单物品存储原件",
-
+  "item.asplor.empty_dropper": "空滴液器",
+  "item.asplor.molten_gold_dropper": "熔融金滴液器",
+  "item.asplor.glue_dropper": "凝胶滴液器",
+  "item.asplor.single_item_storage_cell_housing": "ME单物品元件外壳",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -151,7 +154,8 @@
 
   "tool_type.asplor.drill": "钻头处理",
   "tool_type.asplor.laser": "激光处理",
-
+  "tool_type.asplor.molten_gold_dropper": "注入熔融金",
+  "tool_type.asplor.glue_dropper": "注入凝胶",
 
 
   "guide_book.asplor.earth.iron": "铁",
