@@ -26,6 +26,7 @@ public class ModItemGroups {
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
+                                entries.add(KELP_PUREE);
                                 entries.add(EMPTY_TANK);
                                 entries.add(CONCENTRATED_OIL_TANK);
                                 entries.add(ZINC_COPPER_BATTERY);

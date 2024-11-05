@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item":  "create:iron_sheet"
+    },
+    {
+      "amount": 18000,
+      "fluid": "asplor:glue"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:super_glue"
+    }
+  ]
+}

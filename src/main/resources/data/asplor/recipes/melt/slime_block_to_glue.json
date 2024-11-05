@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:glue",
+    "amount": 81000
+  },
+  "process_time": 100,
+  "heat_type": "normal"
+}

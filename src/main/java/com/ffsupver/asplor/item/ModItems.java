@@ -86,7 +86,7 @@ public class ModItems {
     public static final Item MOLTEN_GOLD_DROPPER = registerItems("molten_gold_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_GOLD_DROPPER,AllPartialModels.MOLTEN_GOLD_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_gold_dropper"),1));
     public static final Item GLUE_DROPPER = registerItems("glue_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"glue_dropper"),4));
     public static final Item SINGLE_ITEM_STORAGE_CELL_HOUSING = registerItems("single_item_storage_cell_housing",new Item(new FabricItemSettings()));
-
+    public static final Item KELP_PUREE = registerItems("kelp_puree",new Item(new FabricItemSettings()));
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
     }

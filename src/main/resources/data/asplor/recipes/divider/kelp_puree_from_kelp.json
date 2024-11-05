@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "minecraft:kelp"
+    }
+  ],
+  "output": {
+    "item": "asplor:kelp_puree",
+    "count": 1
+  }
+}
