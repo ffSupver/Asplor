@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "asplor:alloy_ingot"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_alloy",
+    "amount": 9000
+  },
+  "process_time": 100,
+  "heat_type": "super"
+}

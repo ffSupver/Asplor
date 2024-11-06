@@ -20,6 +20,7 @@ public class ModItemGroups {
                             .entries((displayContext, entries) -> {
                                 entries.add(GUIDE_BOOK);
                                 entries.add(ALLOY_INGOT);
+                                entries.add(ALLOY_NUGGET);
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
@@ -58,6 +59,10 @@ public class ModItemGroups {
                                 entries.add(UNSTABLE_ROCK);
                                 entries.add(SUSPICIOUS_MARS_SAND);
                                 entries.add(FLINT_BLOCK);
+                                entries.add(ALLOY_HELMET);
+                                entries.add(ALLOY_CHESTPLATE);
+                                entries.add(ALLOY_LEGGINGS);
+                                entries.add(ALLOY_BOOTS);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

@@ -6,6 +6,7 @@ import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.item.*;
+import com.ffsupver.asplor.item.item.ToolItem;
 import com.ffsupver.asplor.item.item.singleItemCell.SingleItemCellItem;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -13,9 +14,7 @@ import earth.terrarium.adastra.common.items.vehicles.RocketItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.impl.client.rendering.BuiltinItemRendererRegistryImpl;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.BucketItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -87,6 +86,12 @@ public class ModItems {
     public static final Item GLUE_DROPPER = registerItems("glue_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"glue_dropper"),4));
     public static final Item SINGLE_ITEM_STORAGE_CELL_HOUSING = registerItems("single_item_storage_cell_housing",new Item(new FabricItemSettings()));
     public static final Item KELP_PUREE = registerItems("kelp_puree",new Item(new FabricItemSettings()));
+    public static final Item ALLOY_NUGGET = registerItems("alloy_nugget",new Item(new FabricItemSettings()));
+    public static final Item ALLOY_HELMET = registerItems("alloy_helmet",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.HELMET,new FabricItemSettings().maxCount(1).maxDamage(384)));
+    public static final Item ALLOY_CHESTPLATE = registerItems("alloy_chestplate",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().maxCount(1).maxDamage(560)));
+    public static final Item ALLOY_LEGGINGS = registerItems("alloy_leggings",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.LEGGINGS,new FabricItemSettings().maxCount(1).maxDamage(525)));
+    public static final Item ALLOY_BOOTS = registerItems("alloy_boots",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.BOOTS,new FabricItemSettings().maxCount(1).maxDamage(455)));
+
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
     }
