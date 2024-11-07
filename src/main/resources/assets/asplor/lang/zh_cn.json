@@ -58,6 +58,9 @@
   "item.asplor.alloy_chestplate": "合金胸甲",
   "item.asplor.alloy_leggings": "合金护腿",
   "item.asplor.alloy_boots": "合金靴子",
+  "item.asplor.crude_printed_calculation_processor": "粗制运算电路板",
+  "item.asplor.crude_printed_engineering_processor": "粗制工程电路板",
+  "item.asplor.crude_printed_logic_processor": "粗制逻辑电路板",
 
 
   "block.asplor.alloy_block": "合金块",

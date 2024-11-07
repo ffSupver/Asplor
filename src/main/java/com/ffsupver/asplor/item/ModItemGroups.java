@@ -63,6 +63,9 @@ public class ModItemGroups {
                                 entries.add(ALLOY_CHESTPLATE);
                                 entries.add(ALLOY_LEGGINGS);
                                 entries.add(ALLOY_BOOTS);
+                                entries.add(CRUDE_PRINTED_CALCULATION_PROCESSOR);
+                                entries.add(CRUDE_PRINTED_ENGINEERING_PROCESSOR);
+                                entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

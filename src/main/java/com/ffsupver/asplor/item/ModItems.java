@@ -91,6 +91,9 @@ public class ModItems {
     public static final Item ALLOY_CHESTPLATE = registerItems("alloy_chestplate",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().maxCount(1).maxDamage(560)));
     public static final Item ALLOY_LEGGINGS = registerItems("alloy_leggings",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.LEGGINGS,new FabricItemSettings().maxCount(1).maxDamage(525)));
     public static final Item ALLOY_BOOTS = registerItems("alloy_boots",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.BOOTS,new FabricItemSettings().maxCount(1).maxDamage(455)));
+    public static final Item CRUDE_PRINTED_CALCULATION_PROCESSOR = registerItems("crude_printed_calculation_processor",new Item(new FabricItemSettings()));
+    public static final Item CRUDE_PRINTED_ENGINEERING_PROCESSOR = registerItems("crude_printed_engineering_processor",new Item(new FabricItemSettings()));
+    public static final Item CRUDE_PRINTED_LOGIC_PROCESSOR = registerItems("crude_printed_logic_processor",new Item(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
