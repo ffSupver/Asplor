@@ -29,6 +29,8 @@ public class AllPartialModels {
     public static final PartialModel GLUE_DROPPER_WORK = create("block/smart_mechanical_arm/tools/glue_dropper_work");
     public static final PartialModel MOLTEN_ALLOY_DROPPER = create("block/smart_mechanical_arm/tools/molten_alloy_dropper");
     public static final PartialModel MOLTEN_ALLOY_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_alloy_dropper_work");
+    public static final PartialModel MOLTEN_BRASS_DROPPER = create("block/smart_mechanical_arm/tools/molten_brass_dropper");
+    public static final PartialModel MOLTEN_BRASS_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_brass_dropper_work");
 
 
 private static PartialModel create(String path){

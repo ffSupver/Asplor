@@ -62,6 +62,7 @@
   "item.asplor.crude_printed_engineering_processor": "Crude Printed Engineering Circuit",
   "item.asplor.crude_printed_logic_processor": "Crude Printed Logic Circuit",
   "item.asplor.molten_alloy_dropper": "Molten Alloy Dropper",
+  "item.asplor.molten_brass_dropper": "Molten Brass Dropper",
 
 
 
@@ -171,6 +172,7 @@
   "tool_type.asplor.molten_gold_dropper": "inject molten gold",
   "tool_type.asplor.glue_dropper": "inject glue",
   "tool_type.asplor.molten_alloy_dropper": "inject molten alloy",
+  "tool_type.asplor.molten_brass_dropper": "inject molten brass",
 
 
 

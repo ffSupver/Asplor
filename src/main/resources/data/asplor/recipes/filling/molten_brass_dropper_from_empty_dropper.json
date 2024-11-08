@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item":  "asplor:empty_dropper"
+    },
+    {
+      "amount": 9000,
+      "fluid": "asplor:molten_brass"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:molten_brass_dropper"
+    }
+  ]
+}

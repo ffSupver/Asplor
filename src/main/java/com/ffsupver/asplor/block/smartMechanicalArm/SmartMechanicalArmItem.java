@@ -6,6 +6,7 @@ import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -30,41 +31,49 @@ public class SmartMechanicalArmItem extends BlockItem {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         ItemStack itemStack = context.getStack();
         NbtCompound itemStackNbt = itemStack.getOrCreateNbt();
-        if (blockEntity != null){
-            if (blockEntity instanceof DepotBlockEntity){
-                itemStackNbt.put("target", NbtUtil.writeBlockPosToNbt(pos));
-                BlockPos oldBlockPos = new BlockPos(0,0,0);
-                if (itemStackNbt.contains("target",10)){
-                    oldBlockPos = NbtUtil.readBlockPosFromNbt(itemStackNbt.getCompound("target"));
+        PlayerEntity player = context.getPlayer();
+        if (player != null && !player.isSneaking()) {
+            if (blockEntity != null) {
+                if (blockEntity instanceof DepotBlockEntity) {
+                    itemStackNbt.put("target", NbtUtil.writeBlockPosToNbt(pos));
+                    BlockPos oldBlockPos = new BlockPos(0, 0, 0);
+                    if (itemStackNbt.contains("target", 10)) {
+                        oldBlockPos = NbtUtil.readBlockPosFromNbt(itemStackNbt.getCompound("target"));
+                    }
+                    RenderUtil.addDescription(
+                            itemStackNbt,
+                            Text.translatable("description.asplor.smart_mechanical_arm.target").append(Text.translatable("description.asplor.location", pos.getX(), pos.getY(), pos.getZ())),
+                            Text.translatable("description.asplor.smart_mechanical_arm.target").append(Text.translatable("description.asplor.location", oldBlockPos.getX(), oldBlockPos.getY(), oldBlockPos.getZ()))
+                    );
+                    itemStack.setNbt(itemStackNbt);
+                    player.setStackInHand(context.getHand(), itemStack);
+                    return ActionResult.SUCCESS;
                 }
-                RenderUtil.addDescription(
-                        itemStackNbt,
-                        Text.translatable("description.asplor.smart_mechanical_arm.target").append(Text.translatable("description.asplor.location",pos.getX(),pos.getY(),pos.getZ())),
-                        Text.translatable("description.asplor.smart_mechanical_arm.target").append(Text.translatable("description.asplor.location",oldBlockPos.getX(),oldBlockPos.getY(),oldBlockPos.getZ()))
-                        );
-                itemStack.setNbt(itemStackNbt);
-                context.getPlayer().setStackInHand(context.getHand(),itemStack);
-                return ActionResult.SUCCESS;
-            }
-            if (blockEntity instanceof ToolGearEntity){
-                NbtList toolList = new NbtList();
-                if (itemStackNbt.contains("tools",9)){
-                    toolList = itemStackNbt.getList("tools",10);
+                if (blockEntity instanceof ToolGearEntity) {
+                    NbtList toolList = new NbtList();
+                    if (itemStackNbt.contains("tools", 9)) {
+                        toolList = itemStackNbt.getList("tools", 10);
 
+                    }
+                    RenderUtil.addDescription(itemStackNbt,
+                            Text.translatable("description.asplor.smart_mechanical_arm.tools").append(Text.translatable("description.asplor.location", pos.getX(), pos.getY(), pos.getZ())),
+                            Text.translatable("description.asplor.smart_mechanical_arm.tools").append(Text.translatable("description.asplor.location", pos.getX(), pos.getY(), pos.getZ()))
+                    );
+                    NbtCompound toolPosNbt = NbtUtil.writeBlockPosToNbt(pos);
+                    if (!toolList.contains(toolPosNbt)) {
+                        toolList.add(toolPosNbt);
+                    }
+                    itemStackNbt.put("tools", toolList);
+                    itemStack.setNbt(itemStackNbt);
+                    player.setStackInHand(context.getHand(), itemStack);
+                    return ActionResult.SUCCESS;
                 }
-                RenderUtil.addDescription(itemStackNbt,
-                        Text.translatable("description.asplor.smart_mechanical_arm.tools").append(Text.translatable("description.asplor.location",pos.getX(),pos.getY(),pos.getZ())),
-                        Text.translatable("description.asplor.smart_mechanical_arm.tools").append(Text.translatable("description.asplor.location",pos.getX(),pos.getY(),pos.getZ()))
-                );
-                NbtCompound toolPosNbt = NbtUtil.writeBlockPosToNbt(pos);
-                if (!toolList.contains(toolPosNbt)){
-                    toolList.add(toolPosNbt);
-                }
-                itemStackNbt.put("tools",toolList);
-                itemStack.setNbt(itemStackNbt);
-                context.getPlayer().setStackInHand(context.getHand(),itemStack);
-                return ActionResult.SUCCESS;
             }
+        }else {
+            NbtCompound emptyNbt = new NbtCompound();
+            itemStack.setNbt(emptyNbt);
+            player.setStackInHand(context.getHand(),itemStack);
+            return ActionResult.SUCCESS;
         }
         return super.useOnBlock(context);
     }

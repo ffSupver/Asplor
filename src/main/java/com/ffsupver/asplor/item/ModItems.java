@@ -95,6 +95,7 @@ public class ModItems {
     public static final Item CRUDE_PRINTED_ENGINEERING_PROCESSOR = registerItems("crude_printed_engineering_processor",new Item(new FabricItemSettings()));
     public static final Item CRUDE_PRINTED_LOGIC_PROCESSOR = registerItems("crude_printed_logic_processor",new Item(new FabricItemSettings()));
     public static final Item MOLTEN_ALLOY_DROPPER = registerItems("molten_alloy_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_alloy_dropper"),2));
+    public static final Item MOLTEN_BRASS_DROPPER = registerItems("molten_brass_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_brass_dropper"),3));
 
 
 

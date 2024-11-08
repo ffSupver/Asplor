@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.smartMechanicalArm;
 
+import com.ffsupver.asplor.item.item.ToolItem;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.recipe.SmartProcessingRecipe;
 import com.ffsupver.asplor.util.NbtUtil;
@@ -259,8 +260,11 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
     @Override
     public void destroy() {
         super.destroy();
-        ItemStack toolToDrop = toolType.getToolItem().getDefaultStack();
-        Block.dropStack(world,pos,toolToDrop);
+        if (toolType.getToolItem() instanceof ToolItem toolItem){
+            ItemStack toolToDrop = toolType.getToolItem().getDefaultStack();
+            toolToDrop = toolItem.setUse(toolToDrop,usage);
+            Block.dropStack(world,pos,toolToDrop);
+        }
     }
 
     public PartialModel getToolModel(boolean isWorking){

@@ -62,6 +62,7 @@
   "item.asplor.crude_printed_engineering_processor": "粗制工程电路板",
   "item.asplor.crude_printed_logic_processor": "粗制逻辑电路板",
   "item.asplor.molten_alloy_dropper": "熔融合金滴液器",
+  "item.asplor.molten_brass_dropper": "熔融黄铜滴液器",
 
 
 
@@ -168,6 +169,7 @@
   "tool_type.asplor.molten_gold_dropper": "注入熔融金",
   "tool_type.asplor.glue_dropper": "注入凝胶",
   "tool_type.asplor.molten_alloy_dropper": "注入熔融合金",
+  "tool_type.asplor.molten_brass_dropper": "注入熔融黄铜",
 
 
   "guide_book.asplor.earth.iron": "铁",

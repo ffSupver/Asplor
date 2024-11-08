@@ -16,6 +16,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -53,7 +54,7 @@ public class ToolGear extends Block implements IBE<ToolGearEntity> {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof ToolGearEntity toolGearEntity) {
                    ItemStackHandler itemStackHandler = (ItemStackHandler) toolGearEntity.getItemStorage(hit.getSide());
-                    if (itemStackHandler != null) {
+                    if (itemStackHandler != null && hit.getSide().equals(Direction.UP)) {
                         if (player.getStackInHand(hand).isEmpty() && !itemStackHandler.empty()){
                             ItemStack getStack = ItemStack.EMPTY;
                             for (int i = 0;i < itemStackHandler.getSlotCount();i++){

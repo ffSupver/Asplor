@@ -12,6 +12,6 @@
   "tool_types": [
     "asplor:drill",
     "asplor:laser",
-    "asplor:drill"
+    "asplor:molten_brass_dropper"
   ]
 }

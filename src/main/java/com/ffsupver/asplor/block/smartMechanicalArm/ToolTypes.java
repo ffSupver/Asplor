@@ -16,6 +16,7 @@ public class ToolTypes {
     public static ToolType MOLTEN_GOLD_DROPPER;
     public static ToolType GLUE_DROPPER;
     public static ToolType MOLTEN_ALLOY_DROPPER;
+    public static ToolType MOLTEN_BRASS_DROPPER;
     public static ToolType registerToolType(ToolType toolType){
         TOOL_TYPES.put(toolType.getId(),toolType);
         return toolType;
@@ -26,6 +27,7 @@ public class ToolTypes {
         MOLTEN_GOLD_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_GOLD_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_gold_dropper")));
         GLUE_DROPPER = registerToolType(new ToolType(ModItems.GLUE_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"glue_dropper")));
         MOLTEN_ALLOY_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_ALLOY_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_alloy_dropper")));
+        MOLTEN_BRASS_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_BRASS_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_brass_dropper")));
 
     }
 }
