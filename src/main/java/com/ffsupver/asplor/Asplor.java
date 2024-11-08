@@ -19,7 +19,11 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,6 +77,9 @@ public class Asplor implements ModInitializer {
 		ModPackets.registerC2SPack();
 		ToolTypes.register();
 		ICellHandlerRegister.register();
+
+		Registry.register(Registries.PAINTING_VARIANT,new Identifier(MOD_ID,"icon"),new PaintingVariant(64,64));
+
 	}
 
 	private static void registerAfterCreateItems() {

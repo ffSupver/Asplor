@@ -1,5 +1,5 @@
 {
-  "text": "把<item.asplor.carbon_powder>、<block.ad_astra.oil>和<block.ad_astra.hydrogen>混合可以产生更多的<block.ad_astra.oil>。<block.ad_astra.oil>可以作为<item.asplor.tier_0_rocket>的燃料。",
+  "text": "把<item.asplor.carbon_powder>、<block.ad_astra.oil>和<block.ad_astra.hydrogen>混合可以产生更多的<block.ad_astra.oil>。<block.ad_astra.oil>可以作为<item.asplor.tier_0_rocket>的燃料。在REI里看看<item.asplor.concentrated_oil_tank>!",
   "picture": "earth/oil.png",
   "offset_y": -40
 }

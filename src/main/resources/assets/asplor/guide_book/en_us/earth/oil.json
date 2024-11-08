@@ -1,5 +1,5 @@
 {
-  "text": "Mix <item.asplor.carbon_powder>, <block.ad_astra.oil> and <block.ad_astra.hydrogen> to make more <block.ad_astra.oil>. <block.ad_astra.oil>is the fuel of <item.asplor.tier_0_rocket>.",
+  "text": "Mix <item.asplor.carbon_powder>, <block.ad_astra.oil> and <block.ad_astra.hydrogen> to make more <block.ad_astra.oil>. <block.ad_astra.oil>is the fuel of <item.asplor.tier_0_rocket>. Check <item.asplor.concentrated_oil_tank> in REI!",
   "picture": "earth/oil.png",
   "offset_y": -40
 }
