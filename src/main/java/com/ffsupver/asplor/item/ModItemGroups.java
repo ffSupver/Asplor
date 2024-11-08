@@ -30,6 +30,7 @@ public class ModItemGroups {
                                 entries.add(KELP_PUREE);
                                 entries.add(EMPTY_TANK);
                                 entries.add(CONCENTRATED_OIL_TANK);
+                                entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
@@ -105,8 +106,8 @@ public class ModItemGroups {
                             entries.add(LASER_TOOL);
                             entries.add(EMPTY_DROPPER);
                             entries.add(MOLTEN_GOLD_DROPPER);
+                            entries.add(MOLTEN_ALLOY_DROPPER);
                             entries.add(GLUE_DROPPER);
-                            entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_4K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_16K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_64K);

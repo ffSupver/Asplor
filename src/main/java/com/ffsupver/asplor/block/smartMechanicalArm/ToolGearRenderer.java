@@ -34,7 +34,7 @@ public class ToolGearRenderer extends SafeBlockEntityRenderer<ToolGearEntity> {
         ms.push();
         ms.translate(-3/16f,8/16f,-3/16f);
         for (PartialModel model : models){
-            renderModel(be,ms,bufferSource,model);
+            renderModel(be,ms,bufferSource,model,light);
             switch (offsetDirection){
                 case 0 -> ms.translate(offset, 0, 0);
                 case 1 -> ms.translate(0,0,offset);

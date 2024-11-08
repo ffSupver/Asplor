@@ -1,12 +1,17 @@
 package com.ffsupver.asplor.compat.create.ponder.scenes;
 
 import com.ffsupver.asplor.AllBlocks;
+import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
+import com.simibubi.create.content.logistics.depot.DepotBehaviour;
+import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
 import com.simibubi.create.foundation.ponder.PonderPalette;
 import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.utility.Pointing;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 
@@ -29,12 +34,13 @@ public class SmartMechanicalArmScenes {
         Box targetBlockBB = com.simibubi.create.AllBlocks.DEPOT.getDefaultState()
                 .getOutlineShape(null, null)
                 .getBoundingBox();
-        scene.overlay.chaseBoundingBoxOutline(PonderPalette.GREEN, util.grid.at(3,1,3), targetBlockBB.offset(util.grid.at(3,1,3)), 15);
-        scene.overlay.showControls(new InputWindowElement(util.vector.topOf(util.grid.at(3,1,3)), Pointing.DOWN).rightClick()
+        BlockPos depotPos = util.grid.at(3,1,3);
+        scene.overlay.chaseBoundingBoxOutline(PonderPalette.GREEN, depotPos, targetBlockBB.offset(depotPos), 15);
+        scene.overlay.showControls(new InputWindowElement(util.vector.topOf(depotPos), Pointing.DOWN).rightClick()
                 .withItem(smartMechanicalArmStack), 10);
         scene.overlay.showText(30)
                 .text("select")
-                .pointAt(util.vector.topOf(util.grid.at(3,1,3)));
+                .pointAt(util.vector.topOf(depotPos));
         scene.idle(25);
         scene.overlay.chaseBoundingBoxOutline(PonderPalette.GREEN, util.grid.at(4,1,7), targetBlockBB.offset(util.grid.at(4,1,7)), 15);
         scene.idle(25);
@@ -50,6 +56,17 @@ public class SmartMechanicalArmScenes {
         scene.overlay.showText(30)
                 .text("out of range")
                 .pointAt(util.vector.topOf(util.grid.at(8,1,2)));
+
+        scene.idle(40);
+
+        ItemStack insertStack = new ItemStack(Items.DANDELION,1);
+        scene.world.modifyBlockEntity(depotPos, DepotBlockEntity.class,
+                depotBlockEntity ->
+                        depotBlockEntity.getBehaviour(DepotBehaviour.TYPE).setHeldItem(new TransportedItemStack(insertStack)));
+
+        scene.overlay.showText(30)
+                .text("only one item")
+                .pointAt(util.vector.topOf(depotPos));
 
         scene.idle(40);
 

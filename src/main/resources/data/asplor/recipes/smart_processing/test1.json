@@ -11,6 +11,7 @@
   },
   "tool_types": [
     "asplor:molten_gold_dropper",
-    "asplor:glue_dropper"
+    "asplor:glue_dropper",
+    "asplor:molten_alloy_dropper"
   ]
 }

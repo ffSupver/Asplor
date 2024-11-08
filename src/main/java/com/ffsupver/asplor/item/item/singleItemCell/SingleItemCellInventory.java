@@ -24,18 +24,20 @@ public class SingleItemCellInventory implements StorageCell {
     private Item configItem;
     private final ConfigInventory configInventory;
     private final long maxCount;
-    public SingleItemCellInventory(ItemStack item, ISaveProvider container) {
+    private final double idleDrain;
+    public SingleItemCellInventory(ItemStack item, ISaveProvider container, double idleDrain) {
         this.container = container;
         this.item = item;
         this.configInventory = ((SingleItemCellItem) item.getItem()).getConfigInventory(item);
+        this.idleDrain = idleDrain;
         this.configItem = Items.AIR;
         this.maxCount = ((SingleItemCellItem) item.getItem()).getMaxStorageCount();
         readStorageFromItemStack(item);
     }
 
     public static SingleItemCellInventory createCellInventory(ItemStack item, ISaveProvider container){
-        if (item.getItem() instanceof SingleItemCellItem){
-            return new SingleItemCellInventory(item,container);
+        if (item.getItem() instanceof SingleItemCellItem singleItemCellItem){
+            return new SingleItemCellInventory(item,container,singleItemCellItem.getIdleDrain());
         }
         return null;
     }
@@ -71,6 +73,8 @@ public class SingleItemCellInventory implements StorageCell {
                 this.count = 0L;
             }
         }
+
+        saveChanges();
     }
 
 
@@ -93,7 +97,7 @@ public class SingleItemCellInventory implements StorageCell {
 
     @Override
     public double getIdleDrain() {
-        return 20;
+        return idleDrain;
     }
 
     @Override
@@ -110,6 +114,16 @@ public class SingleItemCellInventory implements StorageCell {
             }
             this.isPersisted = true;
         }
+    }
+
+    protected void saveChanges() {
+        this.isPersisted = false;
+        if (this.container != null) {
+            this.container.saveChanges();
+        } else {
+            this.persist();
+        }
+
     }
 
     @Override
@@ -131,7 +145,7 @@ public class SingleItemCellInventory implements StorageCell {
                     long newCount = this.count + amount;
                     this.count = Math.min(newCount, maxCount);
                 }
-                this.isPersisted = false;
+                saveChanges();
             }
 
 
@@ -161,10 +175,10 @@ public class SingleItemCellInventory implements StorageCell {
                 if (mode == Actionable.MODULATE){
                     if (amount < count) {
                         this.count -= amount;
-                        this.isPersisted = false;
+                        saveChanges();
                     } else {
                         this.count = 0L;
-                        this.isPersisted = false;
+                        saveChanges();
                     }
                 }
                 return result;

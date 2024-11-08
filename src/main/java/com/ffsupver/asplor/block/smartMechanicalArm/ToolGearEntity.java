@@ -9,7 +9,6 @@ import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandle
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
@@ -63,13 +62,20 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
         }else {
             return false;
         }
-        long droppedCount;
-        try(Transaction t = Transaction.openOuter()) {
-            droppedCount = this.itemStackHandler.insert(ItemVariant.of(droppedTool),droppedTool.getCount(),t);
-            sendData();
-            t.commit();
+        boolean dropped = false;
+//        try(Transaction t = Transaction.openOuter()) {
+//            droppedCount = this.itemStackHandler.insert(ItemVariant.of(droppedTool),droppedTool.getCount(),t);
+//            t.commit();
+//        }
+        for (int i = 0 ; i < itemStackHandler.getSlots().size(); i++){
+            if (itemStackHandler.getStackInSlot(i).isOf(Items.AIR)){
+                itemStackHandler.setStackInSlot(i,droppedTool);
+                dropped = true;
+                sendData();
+                break;
+            }
         }
-        return droppedCount > 0;
+        return dropped;
     }
 
     public ArrayList<ToolType> getTools(){
@@ -94,7 +100,7 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
              if(itemStack.getItem() instanceof ToolItem toolItem && ToolType.getById(toolItem.getToolTypeId()).equals(toolType)){
                 int usage = toolItem.getUse(itemStack);
                  itemStack.setCount(itemStack.getCount() -1);
-                sendData();
+                 sendData();
                 return Math.max(usage,0);
             }
         }
@@ -118,7 +124,6 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
         @Override
         public long insert(ItemVariant resource, long maxAmount, TransactionContext transaction) {
             if (resource.getItem() instanceof ToolItem){
-                sendData();
                 return super.insert(resource, maxAmount, transaction);
             }
             return 0L;

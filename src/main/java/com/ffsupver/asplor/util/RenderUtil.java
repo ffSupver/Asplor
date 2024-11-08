@@ -43,14 +43,27 @@ public class RenderUtil {
         return nbt;
     }
 
+
     public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model){
-        VertexConsumer solid = bufferSource.getBuffer(RenderLayer.getSolid());
-        SuperByteBuffer modelBuffer = CachedBufferer.partial(model,be.getCachedState());
-        draw(modelBuffer,ms,solid);
+        renderModel(be, ms, bufferSource, model,LightmapTextureManager.MAX_LIGHT_COORDINATE);
     }
 
-    public static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc) {
-        buffer.light(LightmapTextureManager.MAX_LIGHT_COORDINATE)
+    public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int worldLight,boolean solid){
+        if (solid){
+            renderModel(be, ms, bufferSource, model,LightmapTextureManager.MAX_LIGHT_COORDINATE - (15 - worldLight )*16);
+        }else {
+            renderModel(be, ms, bufferSource, model,LightmapTextureManager.MAX_LIGHT_COORDINATE);
+        }
+    }
+
+    public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int light){
+        VertexConsumer solid = bufferSource.getBuffer(RenderLayer.getSolid());
+        SuperByteBuffer modelBuffer = CachedBufferer.partial(model,be.getCachedState());
+        draw(modelBuffer,ms,solid,light);
+    }
+
+    public static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc,int light) {
+        buffer.light(light)
                 .renderInto(ms, vc);
     }
 }

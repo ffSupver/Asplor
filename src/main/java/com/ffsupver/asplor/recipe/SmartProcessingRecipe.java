@@ -82,6 +82,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(1).getRecipeText()),
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(1).getRecipeText()));
                 output.setNbt(outputNbt);
+                System.out.println("1 "+output);
                 return output;
             }else {
                 return getOutput(null);
@@ -94,8 +95,10 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                 RenderUtil.addDescription(itemStackNbt,
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(index+1).getRecipeText()),
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(index).getRecipeText()));
+                System.out.println("2 "+itemStack);
                 return itemStack;
             }else {
+                System.out.println("3 "+getOutput(null));
                 return getOutput(null);
             }
         }

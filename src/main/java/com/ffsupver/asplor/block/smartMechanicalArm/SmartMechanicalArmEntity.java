@@ -12,6 +12,7 @@ import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.content.logistics.depot.DepotBehaviour;
 import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -83,8 +84,9 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
                 if (armData.isAt(targetPos) || process < PROCESS_TIME) {
                     this.armData.process();
                     if (process <= 0) {
-                        process = PROCESS_TIME;
-                        craft();
+                        if (craft()){
+                            process = PROCESS_TIME;
+                        }
 
                     } else {
                         process -= 1;
@@ -196,16 +198,23 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
         return null;
     }
 
-    private void craft(){
+    private boolean craft(){
         SmartProcessingRecipe recipe = getCurrentRecipe().get();
         DepotBlockEntity depotBlockEntity = getTargetEntity();
-        ItemStack output = recipe.process(getTargetItemStack());
+        ItemStack originalItem = depotBlockEntity.getHeldItem();
+        ItemStack output = recipe.process(getTargetItemStack()).copy();
         DepotBehaviour behaviour = depotBlockEntity.getBehaviour(DepotBehaviour.TYPE);
         try(Transaction t = Transaction.openOuter()){
             behaviour.setHeldItem(new TransportedItemStack(output));
             t.commit();
         }
-        this.usage -= 1;
+        System.out.println("craft "+originalItem+" out "+output+" now "+depotBlockEntity.getHeldItem()+" "+depotBlockEntity.getHeldItem().equals(originalItem));
+        if (depotBlockEntity.getHeldItem().equals(originalItem)){
+            return false;
+        }else {
+            this.usage -= 1;
+            return true;
+        }
     }
 
     private boolean hasTarget(){
@@ -245,6 +254,13 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
         compound.put("tool_type",toolType.writeToNbt());
         compound.putInt("usage",usage);
         super.write(compound, clientPacket);
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        ItemStack toolToDrop = toolType.getToolItem().getDefaultStack();
+        Block.dropStack(world,pos,toolToDrop);
     }
 
     public PartialModel getToolModel(boolean isWorking){
@@ -312,7 +328,15 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
         }
 
         public boolean isAt(BlockPos destinationPos){
-            return pos.toCenterPos().add(headPos).isInRange(destinationPos.toCenterPos().offset(Direction.UP,1),0.05);
+            boolean sameY = destinationPos.getY() == pos.getY();
+            int maxQBXFDistance = Math.max(
+                    Math.abs(destinationPos.getX()-pos.getX()),
+                    Math.abs(destinationPos.getZ()-pos.getZ()));
+            boolean nextToArm = sameY && maxQBXFDistance == 1;
+            Vec3d worldPos = pos.toCenterPos().add(headPos);
+            Vec3d desPos = destinationPos.toCenterPos().offset(Direction.UP,1);
+            return worldPos.isInRange(desPos,0.05) ||
+                    (nextToArm && worldPos.isInRange(desPos,0.57));
         }
 
         public void process(){

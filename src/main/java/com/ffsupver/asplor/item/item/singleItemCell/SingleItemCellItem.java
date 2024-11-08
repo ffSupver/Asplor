@@ -22,9 +22,15 @@ import java.util.List;
 
 public class SingleItemCellItem extends AEBaseItem implements ICellWorkbenchItem {
     private final long maxStorageCount;
-    public SingleItemCellItem(Settings properties, long maxCountK) {
+    private final double idleDrain;
+    public SingleItemCellItem(Settings properties, long maxCountK, double idleDrain) {
         super(properties);
         this.maxStorageCount = maxCountK * 1024;
+        this.idleDrain = idleDrain;
+    }
+
+    public double getIdleDrain() {
+        return idleDrain;
     }
 
     public long getMaxStorageCount() {

@@ -61,6 +61,7 @@
   "item.asplor.crude_printed_calculation_processor": "Crude Printed Calculation Circuit",
   "item.asplor.crude_printed_engineering_processor": "Crude Printed Engineering Circuit",
   "item.asplor.crude_printed_logic_processor": "Crude Printed Logic Circuit",
+  "item.asplor.molten_alloy_dropper": "Molten Alloy Dropper",
 
 
 
@@ -169,6 +170,7 @@
   "tool_type.asplor.laser": "laser process",
   "tool_type.asplor.molten_gold_dropper": "inject molten gold",
   "tool_type.asplor.glue_dropper": "inject glue",
+  "tool_type.asplor.molten_alloy_dropper": "inject molten alloy",
 
 
 
@@ -239,7 +241,8 @@
   "asplor.ponder.smart_mechanical_arm.use.header": "How to use smart mechanical arm",
   "asplor.ponder.smart_mechanical_arm.use.text_1": "Right-click on the tool gear or depot with smart mechanical arm to add it, only the last selected depot will be retained",
   "asplor.ponder.smart_mechanical_arm.use.text_2": "Targets out of range will be remove",
-  "asplor.ponder.smart_mechanical_arm.use.text_3": "Smart mechanical arm need speed to work",
+  "asplor.ponder.smart_mechanical_arm.use.text_3": "Smart mechanical arm works when there is only one item on target depot",
+  "asplor.ponder.smart_mechanical_arm.use.text_4": "Smart mechanical arm need speed to work",
 
 
 
