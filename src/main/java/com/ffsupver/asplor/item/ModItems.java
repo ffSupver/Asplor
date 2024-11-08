@@ -5,8 +5,8 @@ import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
-import com.ffsupver.asplor.item.item.*;
 import com.ffsupver.asplor.item.item.ToolItem;
+import com.ffsupver.asplor.item.item.*;
 import com.ffsupver.asplor.item.item.singleItemCell.SingleItemCellItem;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -87,16 +87,20 @@ public class ModItems {
     public static final Item SINGLE_ITEM_STORAGE_CELL_HOUSING = registerItems("single_item_storage_cell_housing",new Item(new FabricItemSettings()));
     public static final Item KELP_PUREE = registerItems("kelp_puree",new Item(new FabricItemSettings()));
     public static final Item ALLOY_NUGGET = registerItems("alloy_nugget",new Item(new FabricItemSettings()));
-    public static final Item ALLOY_HELMET = registerItems("alloy_helmet",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.HELMET,new FabricItemSettings().maxCount(1).maxDamage(384)));
-    public static final Item ALLOY_CHESTPLATE = registerItems("alloy_chestplate",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().maxCount(1).maxDamage(560)));
-    public static final Item ALLOY_LEGGINGS = registerItems("alloy_leggings",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.LEGGINGS,new FabricItemSettings().maxCount(1).maxDamage(525)));
-    public static final Item ALLOY_BOOTS = registerItems("alloy_boots",new ArmorItem(AlloyMaterial.MATERIAL, ArmorItem.Type.BOOTS,new FabricItemSettings().maxCount(1).maxDamage(455)));
+    public static final Item ALLOY_HELMET = registerItems("alloy_helmet",new ArmorItem(AlloyMaterial.Armor.MATERIAL, ArmorItem.Type.HELMET,new FabricItemSettings().maxCount(1).maxDamage(384)));
+    public static final Item ALLOY_CHESTPLATE = registerItems("alloy_chestplate",new ArmorItem(AlloyMaterial.Armor.MATERIAL, ArmorItem.Type.CHESTPLATE,new FabricItemSettings().maxCount(1).maxDamage(560)));
+    public static final Item ALLOY_LEGGINGS = registerItems("alloy_leggings",new ArmorItem(AlloyMaterial.Armor.MATERIAL, ArmorItem.Type.LEGGINGS,new FabricItemSettings().maxCount(1).maxDamage(525)));
+    public static final Item ALLOY_BOOTS = registerItems("alloy_boots",new ArmorItem(AlloyMaterial.Armor.MATERIAL, ArmorItem.Type.BOOTS,new FabricItemSettings().maxCount(1).maxDamage(455)));
     public static final Item CRUDE_PRINTED_CALCULATION_PROCESSOR = registerItems("crude_printed_calculation_processor",new Item(new FabricItemSettings()));
     public static final Item CRUDE_PRINTED_ENGINEERING_PROCESSOR = registerItems("crude_printed_engineering_processor",new Item(new FabricItemSettings()));
     public static final Item CRUDE_PRINTED_LOGIC_PROCESSOR = registerItems("crude_printed_logic_processor",new Item(new FabricItemSettings()));
     public static final Item MOLTEN_ALLOY_DROPPER = registerItems("molten_alloy_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_alloy_dropper"),2));
     public static final Item MOLTEN_BRASS_DROPPER = registerItems("molten_brass_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_brass_dropper"),3));
-
+    public static final Item ALLOY_SWORD = registerItems("alloy_sword",new SwordItem(AlloyMaterial.Tool.MATERIAL,3,-2.4F,new FabricItemSettings()));
+    public static final Item ALLOY_SHOVEL = registerItems("alloy_shovel",new ShovelItem(AlloyMaterial.Tool.MATERIAL,1.5F,-3.0F,new FabricItemSettings()));
+    public static final Item ALLOY_PICKAXE = registerItems("alloy_pickaxe",new PickaxeItem(AlloyMaterial.Tool.MATERIAL,1,-2.8F,new FabricItemSettings()));
+    public static final Item ALLOY_AXE = registerItems("alloy_axe",new AxeItem(AlloyMaterial.Tool.MATERIAL,5.0F,-3.0F,new FabricItemSettings()));
+    public static final Item ALLOY_HOE = registerItems("alloy_hoe",new HoeItem(AlloyMaterial.Tool.MATERIAL,-4,0.0F,new FabricItemSettings()));
 
 
     public static void registerRocketItemRender(){

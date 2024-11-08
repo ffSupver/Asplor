@@ -64,6 +64,11 @@ public class ModItemGroups {
                                 entries.add(ALLOY_CHESTPLATE);
                                 entries.add(ALLOY_LEGGINGS);
                                 entries.add(ALLOY_BOOTS);
+                                entries.add(ALLOY_SWORD);
+                                entries.add(ALLOY_SHOVEL);
+                                entries.add(ALLOY_PICKAXE);
+                                entries.add(ALLOY_AXE);
+                                entries.add(ALLOY_HOE);
                                 entries.add(CRUDE_PRINTED_CALCULATION_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_ENGINEERING_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);

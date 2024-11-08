@@ -70,7 +70,7 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
 
 
                     if (entity instanceof LivingEntity) {
-                        ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 2400));
+                        ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 600));
                     }
                     FabricDimensionInternals.changeDimension(entity, overworld, teleportTarget);
                     active = false;
