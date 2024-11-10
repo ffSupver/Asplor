@@ -119,6 +119,7 @@
   "block.asplor.light_oil": "轻油",
   "block.asplor.smart_mechanical_arm": "智能动力臂",
   "block.asplor.tool_gear": "工具架",
+  "block.asplor.chunk_loader": "区块加载器",
 
 
 
@@ -250,6 +251,9 @@
   "asplor.ponder.smart_mechanical_arm.use.text_2": "超出范围的会被移除",
   "asplor.ponder.smart_mechanical_arm.use.text_3": "目标置物台上只有一个物品时智能动力臂才会工作",
   "asplor.ponder.smart_mechanical_arm.use.text_4": "智能动力臂需要应力",
+  "asplor.ponder.chunk_loader.header": "如何使用区块加载器",
+  "asplor.ponder.chunk_loader.text_1": "向区块加载器加入钟来激活它，每个钟可以让这个区块加载4分钟",
+  "asplor.ponder.chunk_loader.text_2": "加载的区块里植物会正常生长",
 
 
   "planet.asplor.the_nether": "冥",

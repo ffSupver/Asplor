@@ -5,6 +5,8 @@ import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressEnti
 import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressInstance;
 import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressRenderer;
 import com.ffsupver.asplor.block.battery.BatteryEntity;
+import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderEntity;
+import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderRenderer;
 import com.ffsupver.asplor.block.divider.DividerEntity;
 import com.ffsupver.asplor.block.divider.DividerInstance;
 import com.ffsupver.asplor.block.divider.DividerRenderer;
@@ -152,6 +154,11 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .renderer(()-> ToolGearRenderer::new)
             .register();
 
+    public static final BlockEntityEntry<ChunkLoaderEntity> CHUNK_LOADER_ENTITY = REGISTRATE
+            .blockEntity("chunk_loader",ChunkLoaderEntity::new)
+            .validBlocks(CHUNK_LOADER)
+            .renderer(()-> ChunkLoaderRenderer::new)
+            .register();
 
     //注册普通方块实体
     public static final BlockEntityType<AlloyChestEntity> ALLOY_CHEST_BLOCK_ENTITY=

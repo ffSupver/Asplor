@@ -20,6 +20,7 @@
     "asplor:windmill_bearing",
     "#asplor:refinery_block",
     "asplor:smart_mechanical_arm",
-    "asplor:tool_gear"
+    "asplor:tool_gear",
+    "asplor:chunk_loader"
   ]
 }

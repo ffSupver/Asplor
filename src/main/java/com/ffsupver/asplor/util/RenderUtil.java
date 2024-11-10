@@ -15,6 +15,8 @@ import net.minecraft.nbt.NbtString;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.world.LightType;
+import net.minecraft.world.World;
 
 
 public class RenderUtil {
@@ -50,10 +52,18 @@ public class RenderUtil {
 
     public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int worldLight,boolean solid){
         if (solid){
-            renderModel(be, ms, bufferSource, model,LightmapTextureManager.MAX_LIGHT_COORDINATE - (15 - worldLight )*16);
+            renderModel(be, ms, bufferSource, model,getTextureLight(worldLight));
         }else {
             renderModel(be, ms, bufferSource, model,LightmapTextureManager.MAX_LIGHT_COORDINATE);
         }
+    }
+
+    public static int getBlockLight(World world,BlockPos pos){
+        return world.getLightLevel(LightType.BLOCK,pos);
+    }
+
+    public static int getTextureLight(int blockLight){
+        return LightmapTextureManager.MAX_LIGHT_COORDINATE - (15 - blockLight )*16;
     }
 
     public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int light){

@@ -30,6 +30,8 @@ public class PonderIndex {
                 .addStoryBoard("refinery/output_count", RefineryScenes::outputCount);
         HELPER.forComponents(AllBlocks.SMART_MECHANICAL_ARM,AllBlocks.TOOL_GEAR)
                         .addStoryBoard("smart_mechanical_arm/smart_mechanical_arm",SmartMechanicalArmScenes::use);
+        HELPER.forComponents(AllBlocks.CHUNK_LOADER)
+                .addStoryBoard("chunk_loader/chunk_loader",ChunkLoaderScenes::chunkLoader);
 
 
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)

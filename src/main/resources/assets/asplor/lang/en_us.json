@@ -121,6 +121,7 @@
   "block.asplor.light_oil": "Light Oil",
   "block.asplor.smart_mechanical_arm": "Smart Mechanical Arm",
   "block.asplor.tool_gear": "Tool Gear",
+  "block.asplor.chunk_loader": "Chunk Loader",
 
 
 
@@ -250,6 +251,9 @@
   "asplor.ponder.smart_mechanical_arm.use.text_2": "Targets out of range will be remove",
   "asplor.ponder.smart_mechanical_arm.use.text_3": "Smart mechanical arm works when there is only one item on target depot",
   "asplor.ponder.smart_mechanical_arm.use.text_4": "Smart mechanical arm need speed to work",
+  "asplor.ponder.chunk_loader.header": "How to chunk loader",
+  "asplor.ponder.chunk_loader.text_1": "Adding clock to active chunk loader, each clock provide four minutes loading.",
+  "asplor.ponder.chunk_loader.text_2": "Crops grow when loaded.",
 
 
 

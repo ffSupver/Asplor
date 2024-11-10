@@ -1,5 +1,6 @@
 package com.ffsupver.asplor;
 
+import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderServer;
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolTypes;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItemGroups;
@@ -77,6 +78,8 @@ public class Asplor implements ModInitializer {
 		ModPackets.registerC2SPack();
 		ToolTypes.register();
 		ICellHandlerRegister.register();
+
+		ChunkLoaderServer.registerLoadChunkFunction();
 
 		Registry.register(Registries.PAINTING_VARIANT,new Identifier(MOD_ID,"icon"),new PaintingVariant(64,64));
 

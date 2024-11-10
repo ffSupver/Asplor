@@ -17,6 +17,7 @@
     "asplor:melting_furnace",
     "asplor:electrolyzer",
     "asplor:smart_mechanical_arm",
-    "asplor:tool_gear"
+    "asplor:tool_gear",
+    "asplor:chunk_loader"
   ]
 }

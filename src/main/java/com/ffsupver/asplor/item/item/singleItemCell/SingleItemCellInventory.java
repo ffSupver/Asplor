@@ -51,6 +51,14 @@ public class SingleItemCellInventory implements StorageCell {
         StorageCell.super.getAvailableStacks(out);
     }
 
+    @Override
+    public boolean isPreferredStorageFor(AEKey what, IActionSource source) {
+        if (what instanceof AEItemKey aeItemKey){
+            return aeItemKey.getItem().equals(this.storageItem);
+        }
+        return false;
+    }
+
     private void readStorageFromItemStack(ItemStack item){
 
         NbtCompound itemNbt = item.getOrCreateNbt();
