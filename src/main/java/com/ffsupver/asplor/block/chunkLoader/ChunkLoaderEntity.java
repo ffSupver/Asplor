@@ -1,12 +1,12 @@
 package com.ffsupver.asplor.block.chunkLoader;
 
+import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -72,8 +72,9 @@ public class ChunkLoaderEntity extends SmartBlockEntity {
     public ActionResult onUse(PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!player.isSneaking()){
             ItemStack handItemStack = player.getStackInHand(hand);
-            if (handItemStack.isOf(Items.CLOCK)){
-                addTick(4800);
+            if (handItemStack.isOf(ModItems.INFUSION_CLOCK)){
+                int damageRemain = handItemStack.getMaxDamage() - handItemStack.getDamage();
+                addTick(4800*damageRemain / handItemStack.getMaxDamage());
                 if (!player.isCreative()){
                     handItemStack.setCount(handItemStack.getCount() - 1);
                     player.setStackInHand(hand, handItemStack);

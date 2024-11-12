@@ -120,6 +120,7 @@ public class ModItemGroups {
                             entries.add(SINGLE_ITEM_STORAGE_CELL_256K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_1M);
                             entries.add(CHUNK_LOADER);
+                            entries.add(INFUSION_CLOCK);
                         }).build());
 
     }

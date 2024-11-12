@@ -101,6 +101,7 @@ public class ModItems {
     public static final Item ALLOY_PICKAXE = registerItems("alloy_pickaxe",new PickaxeItem(AlloyMaterial.Tool.MATERIAL,1,-2.8F,new FabricItemSettings()));
     public static final Item ALLOY_AXE = registerItems("alloy_axe",new AxeItem(AlloyMaterial.Tool.MATERIAL,5.0F,-3.0F,new FabricItemSettings()));
     public static final Item ALLOY_HOE = registerItems("alloy_hoe",new HoeItem(AlloyMaterial.Tool.MATERIAL,-4,0.0F,new FabricItemSettings()));
+    public static final Item INFUSION_CLOCK = registerItems("infusion_clock",new InfusionClockItem(new FabricItemSettings()));
 
 
     public static void registerRocketItemRender(){

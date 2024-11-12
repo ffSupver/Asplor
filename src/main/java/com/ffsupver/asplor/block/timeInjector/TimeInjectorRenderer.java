@@ -1,6 +1,7 @@
 package com.ffsupver.asplor.block.timeInjector;
 
 import com.ffsupver.asplor.AllPartialModels;
+import com.ffsupver.asplor.item.ModItems;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
@@ -14,11 +15,9 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
-import net.minecraft.util.math.Vec3d;
 
 import java.util.Map;
 import java.util.Objects;
@@ -29,8 +28,8 @@ public class TimeInjectorRenderer extends SafeBlockEntityRenderer<TimeInjectorEn
 
     @Override
     protected void renderSafe(TimeInjectorEntity be, float partialTicks, MatrixStack ms, VertexConsumerProvider bufferSource, int light, int overlay) {
-        ItemStack clock = new ItemStack(Items.CLOCK,1);
-        ItemStack enchantedClock = new ItemStack(Items.CLOCK,1);
+        ItemStack clock = new ItemStack(ModItems.INFUSION_CLOCK,1);
+        ItemStack enchantedClock = new ItemStack(ModItems.INFUSION_CLOCK,1);
         EnchantmentHelper.set(Map.of(Enchantments.UNBREAKING,3) ,enchantedClock);
         int clockCount = 4;
         if (be.getProcessTime()==be.getRenderProcess()){

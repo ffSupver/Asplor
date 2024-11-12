@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.chunkLoader;
 
+import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -8,7 +9,6 @@ import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.RotationAxis;
 
 import static com.ffsupver.asplor.util.RenderUtil.getBlockLight;
@@ -21,7 +21,7 @@ public class ChunkLoaderRenderer extends SafeBlockEntityRenderer<ChunkLoaderEnti
     @Override
     protected void renderSafe(ChunkLoaderEntity be, float partialTicks, MatrixStack ms, VertexConsumerProvider bufferSource, int light, int overlay) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
-        ItemStack itemStack = new ItemStack(Items.CLOCK,1);
+        ItemStack itemStack = new ItemStack(ModItems.INFUSION_CLOCK,1);
         int tickRemain = be.getTicksRemain();
         int maxTick = ChunkLoaderEntity.MAX_TICK;
 

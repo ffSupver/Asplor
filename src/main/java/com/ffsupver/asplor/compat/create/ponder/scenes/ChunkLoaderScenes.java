@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.compat.create.ponder.scenes;
 
+import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.content.kinetics.deployer.DeployerBlockEntity;
 import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
@@ -8,7 +9,6 @@ import com.simibubi.create.foundation.utility.Pointing;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.math.Direction;
 
 public class ChunkLoaderScenes {
@@ -23,7 +23,7 @@ public class ChunkLoaderScenes {
 
         scene.idle(5);
 
-        ItemStack clockItem = Items.CLOCK.getDefaultStack();
+        ItemStack clockItem = ModItems.INFUSION_CLOCK.getDefaultStack();
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(util.grid.at(3,1,2)), Pointing.DOWN).rightClick()
                 .withItem(clockItem), 20);
 
