@@ -102,7 +102,10 @@ public class ModItems {
     public static final Item ALLOY_AXE = registerItems("alloy_axe",new AxeItem(AlloyMaterial.Tool.MATERIAL,5.0F,-3.0F,new FabricItemSettings()));
     public static final Item ALLOY_HOE = registerItems("alloy_hoe",new HoeItem(AlloyMaterial.Tool.MATERIAL,-4,0.0F,new FabricItemSettings()));
     public static final Item INFUSION_CLOCK = registerItems("infusion_clock",new InfusionClockItem(new FabricItemSettings()));
-
+    public static final Item IRON_MECHANISM = registerItems("iron_mechanism",new Item(new FabricItemSettings()));
+    public static final Item UNCOMPLETED_IRON_MECHANISM = registerItems("uncompleted_iron_mechanism",new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item COPPER_WIRE = registerItems("copper_wire",new Item(new FabricItemSettings()));
+    public static final Item MAGNETIC_ROTOR = registerItems("magnetic_rotor",new Item(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

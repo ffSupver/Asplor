@@ -69,6 +69,10 @@
   "item.asplor.alloy_axe": "Alloy Axe",
   "item.asplor.alloy_hoe": "Alloy Hoe",
   "item.asplor.infusion_clock": "Infusion Clock",
+  "item.asplor.iron_mechanism": "Iron Mechanism",
+  "item.asplor.uncompleted_iron_mechanism": "Uncompleted Iron Mechanism",
+  "item.asplor.copper_wire": "Copper Wire",
+  "item.asplor.magnetic_rotor": "Magnetic Rotor",
 
 
 
@@ -200,6 +204,7 @@
   "entity.asplor.alloy_chest": "alloy chest",
   "entity.minecraft.villager.assembler": "Assembler",
   "entity.asplor.tier_0_rocket": "Base Rocket",
+  "entity.asplor.structure.launch_center": "Engineer",
 
 
   "gui.asplor.backpack": "backpack",

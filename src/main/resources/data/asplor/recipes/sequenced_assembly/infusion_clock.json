@@ -1,0 +1,48 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:clock"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "item":"asplor:infusion_clock"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:clock"
+        },
+        [
+          {
+            "item": "minecraft:amethyst_shard"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:clock"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create:golden_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:infusion_clock"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:clock"
+  }
+}

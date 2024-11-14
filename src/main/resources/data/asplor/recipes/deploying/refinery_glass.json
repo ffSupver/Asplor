@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "asplor:refinery_bricks"
+    },
+    {
+      "tag": "c:glass_blocks"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:refinery_glass"
+    }
+  ]
+}

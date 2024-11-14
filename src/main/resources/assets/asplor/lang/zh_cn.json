@@ -69,6 +69,10 @@
   "item.asplor.alloy_axe": "合金斧",
   "item.asplor.alloy_hoe": "合金锄",
   "item.asplor.infusion_clock": "注魔时钟",
+  "item.asplor.iron_mechanism": "铁构件",
+  "item.asplor.uncompleted_iron_mechanism": "未完成的铁构件",
+  "item.asplor.copper_wire": "铜线",
+  "item.asplor.magnetic_rotor": "磁转子",
 
 
 
@@ -196,6 +200,7 @@
   "entity.asplor.alloy_chest": "合金箱子",
   "entity.minecraft.villager.assembler": "装配大师",
   "entity.asplor.tier_0_rocket": "基础火箭",
+  "entity.asplor.structure.launch_center": "工程师",
 
 
 

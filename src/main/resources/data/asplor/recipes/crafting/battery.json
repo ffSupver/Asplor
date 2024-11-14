@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:kelp_puree"
+    },
+    "B": {
+      "item": "asplor:carbon_powder"
+    },
+    "C": {
+      "item": "minecraft:coal_block"
+    },
+    "D":{
+      "item": "create:zinc_block"
+    },
+    "F": {
+      "item": "asplor:iron_mechanism"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "ABA",
+    "CFC"
+  ],
+  "result": {
+    "item": "asplor:battery"
+  },
+  "show_notification": true
+}

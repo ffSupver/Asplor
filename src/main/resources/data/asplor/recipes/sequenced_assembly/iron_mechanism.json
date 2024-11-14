@@ -1,0 +1,64 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:iron_block"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "item": "asplor:iron_mechanism"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        },
+        {
+          "item": "create:iron_sheet"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        },
+        {
+          "item": "asplor:primary_mechanism"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_iron_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:uncompleted_iron_mechanism"
+  }
+}

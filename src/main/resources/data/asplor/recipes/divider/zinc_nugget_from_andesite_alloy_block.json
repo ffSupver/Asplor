@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "create:andesite_alloy_block"
+    }
+  ],
+  "output": {
+    "item": "create:zinc_nugget",
+    "count": 2
+  }
+}

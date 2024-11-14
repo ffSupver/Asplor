@@ -51,6 +51,23 @@
           "item": "asplor:tier_0_rocket_shell"
         },
         {
+          "item": "asplor:iron_mechanism"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        },
+        {
           "item": "ad_astra:steel_tank"
         }
       ],

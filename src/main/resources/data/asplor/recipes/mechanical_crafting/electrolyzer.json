@@ -1,0 +1,35 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "asplor:battery"
+    },
+    "B": {
+      "item": "asplor:alloy_ingot"
+    },
+    "C": {
+      "item": "asplor:carbon_powder"
+    },
+    "D":{
+      "item": "create:fluid_tank"
+    },
+    "E": {
+      "item": "asplor:alloy_block"
+    },
+    "F": {
+      "item": "asplor:iron_mechanism"
+    }
+  },
+  "pattern": [
+    "EAE",
+    "BDB",
+    "EFE",
+    "CDC",
+    "EAE"
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:electrolyzer"
+  }
+}

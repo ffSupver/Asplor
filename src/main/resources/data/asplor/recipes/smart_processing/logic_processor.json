@@ -1,17 +1,18 @@
 {
   "type":"asplor:smart_processing",
   "ingredient": {
-    "item": "asplor:charged_alloy_ingot"
+    "item": "asplor:crude_printed_logic_processor"
   },
   "output": {
-    "item": "asplor:carbon_powder"
+    "item": "ae2:logic_processor"
   },
   "process_item": {
-    "item": "minecraft:diamond"
+    "item": "asplor:crude_printed_logic_processor"
   },
   "tool_types": [
+    "asplor:drill",
     "asplor:molten_gold_dropper",
     "asplor:glue_dropper",
-    "asplor:molten_alloy_dropper"
+    "asplor:laser"
   ]
 }

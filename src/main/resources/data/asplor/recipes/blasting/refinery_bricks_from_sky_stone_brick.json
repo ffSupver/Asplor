@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "ae2:sky_stone_brick"
+  },
+  "result": "asplor:refinery_bricks"
+}

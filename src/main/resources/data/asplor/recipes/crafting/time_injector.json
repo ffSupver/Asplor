@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:infusion_clock"
+    },
+    "B": {
+      "item": "create:zinc_block"
+    },
+    "C": {
+      "item": "create:andesite_alloy_block"
+    },
+    "D":{
+      "item": "create:iron_sheet"
+    },
+    "E":{
+      "item": "asplor:battery"
+    },
+    "F":{
+      "item": "asplor:iron_mechanism"
+    }
+  },
+  "pattern": [
+    "BFB",
+    "DAD",
+    "CEC"
+  ],
+  "result": {
+    "item": "asplor:time_injector"
+  },
+  "show_notification": true
+}

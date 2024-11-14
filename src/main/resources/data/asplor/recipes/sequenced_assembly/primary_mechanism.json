@@ -62,7 +62,7 @@
       ]
     },
     {
-      "type": "asplor:alloy_pressing",
+      "type": "create:pressing",
       "ingredients": [
         {
           "item": "asplor:uncompleted_primary_mechanism"

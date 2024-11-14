@@ -1,0 +1,18 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:crude_printed_calculation_processor"
+  },
+  "output": {
+    "item": "ae2:calculation_processor"
+  },
+  "process_item": {
+    "item": "asplor:crude_printed_calculation_processor"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:glue_dropper",
+    "asplor:laser"
+  ]
+}

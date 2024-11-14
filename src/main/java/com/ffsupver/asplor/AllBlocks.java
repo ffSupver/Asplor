@@ -6,6 +6,7 @@ import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
 import com.ffsupver.asplor.block.blocks.Assembler;
 import com.ffsupver.asplor.block.blocks.FrozenCore;
+import com.ffsupver.asplor.block.blocks.MoltenMetalBlock;
 import com.ffsupver.asplor.block.blocks.UnstableRock;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoader;
 import com.ffsupver.asplor.block.divider.Divider;
@@ -261,7 +262,7 @@ public class AllBlocks {
     public static final Block SALT_WATER = registerFluidBlock("salt_water",ModFluids.SALT_WATER,null);
     public static final Block CHLORINE = registerFluidBlock("chlorine",ModFluids.CHLORINE,null);
     public static final Block UNSTABLE_ROCK = registerBlock("unstable_rock",new UnstableRock(FabricBlockSettings.copy(Blocks.STONE)));
-    public static final Block ALLOY_LAVA = registerFluidBlock("alloy_lava",ModFluids.ALLOY_LAVA,p->p.mapColor(MapColor.RED));
+    public static final Block ALLOY_LAVA = registerFluidBlock("alloy_lava",ModFluids.ALLOY_LAVA,p->p.mapColor(MapColor.RED).luminance(15));
     public static final Block MARS_SAND = registerBlock("mars_sand",new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).mapColor(MapColor.TERRACOTTA_RED)));
     public static Block SUSPICIOUS_MARS_SAND = registerBlock("suspicious_mars_sand",new BrushableBlock(MARS_SAND,FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE));
     public static final Block MOLTEN_DESH = registerMoltenMetalFluidBlock("molten_desh",ModFluids.MOLTEN_DESH,null);
@@ -277,12 +278,8 @@ public class AllBlocks {
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
-
-        return registerFluidBlock(name,fluid,(settings)-> {
-                    FabricBlockSettings baseSetting = settings.luminance(15).mapColor(MapColor.RED);
-                   return setting == null ? baseSetting : setting.apply(baseSetting);
-                }
-        );
+        FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);
+        return Registry.register(Registries.BLOCK,new Identifier(Asplor.MOD_ID,name),new MoltenMetalBlock(fluid,setting == null ? baseSetting : setting.apply(baseSetting)));
     }
 
     private static Block registerFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){

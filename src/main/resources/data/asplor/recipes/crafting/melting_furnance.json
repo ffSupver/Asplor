@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:alloy_block"
+    },
+    "B": {
+      "item": "asplor:alloy_ingot"
+    }
+  },
+  "pattern": [
+    " B ",
+    "A A",
+    "AAA"
+  ],
+  "result": {
+    "item": "asplor:melting_furnace"
+  },
+  "show_notification": true
+}

@@ -1,25 +1,27 @@
 package com.ffsupver.asplor.block.spaceTeleporter;
 
 import com.ffsupver.asplor.AllPartialModels;
-import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.block.timeInjector.TimeInjectorEntity;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.*;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
+
+import static com.ffsupver.asplor.util.RenderUtil.getBlockLight;
+import static com.ffsupver.asplor.util.RenderUtil.getTextureLight;
 
 @Environment(EnvType.CLIENT)
 public class SpaceTeleporterRenderer extends SafeBlockEntityRenderer<SpaceTeleporterEntity> {
@@ -87,13 +89,13 @@ public class SpaceTeleporterRenderer extends SafeBlockEntityRenderer<SpaceTelepo
                 .scale(innerRingScale)
                 .translate(-.5f, -.475f, -.5f);
 
-        draw(modelBuffer,ms,solid);
+        draw(modelBuffer,ms,solid,getTextureLight(getBlockLight(be.getWorld(),be.getPos())));
 
         ms.pop();
     }
 
-    private static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc) {
-        buffer.light(LightmapTextureManager.MAX_LIGHT_COORDINATE)
+    private static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc,int light) {
+        buffer.light(light)
                 .renderInto(ms, vc);
     }
     @Override

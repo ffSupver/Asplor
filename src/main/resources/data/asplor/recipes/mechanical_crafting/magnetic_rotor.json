@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "B": {
+      "item": "asplor:charged_alloy_ingot"
+    },
+    "D":{
+      "item": "create:shaft"
+    },
+    "F": {
+      "item": "asplor:iron_mechanism"
+    }
+  },
+  "pattern": [
+    " BBB ",
+    "BFAFB",
+    "BADAB",
+    "BFAFB",
+    " BBB "
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:magnetic_rotor"
+  }
+}

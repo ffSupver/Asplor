@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:refinery_bricks"
+    },
+    "B": {
+      "item": "asplor:refinery_input"
+    },
+    "C": {
+      "item": "asplor:refinery_output"
+    },
+    "D":{
+      "item": "asplor:alloy_block"
+    },
+    "E":{
+      "item": "create:fluid_tank"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "BEC",
+    "ADA"
+  ],
+  "result": {
+    "item": "asplor:refinery_controller"
+  },
+  "show_notification": true
+}

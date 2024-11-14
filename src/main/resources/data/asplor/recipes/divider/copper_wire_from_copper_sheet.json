@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "create:copper_sheet"
+    }
+  ],
+  "output": {
+    "item": "asplor:copper_wire",
+    "count": 1
+  }
+}

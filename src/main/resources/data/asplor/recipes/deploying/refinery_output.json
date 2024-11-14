@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "asplor:refinery_bricks"
+    },
+    {
+      "item": "asplor:alloy_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:refinery_output"
+    }
+  ]
+}

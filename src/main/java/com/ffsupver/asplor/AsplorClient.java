@@ -7,6 +7,7 @@ import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
+import com.simibubi.create.compat.Mods;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -22,6 +23,7 @@ public class AsplorClient implements ClientModInitializer {
         ModScreenHandlers.registerModScreens();
 
         ModFluids.registerRenders();
+        Mods.SODIUM.executeIfInstalled(()-> ModFluids::registerRenders);
 
         ModModelLayers.register();
 

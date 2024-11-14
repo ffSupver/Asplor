@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": true,
+  "key": {
+    "A": {
+      "item": "asplor:alloy_ingot"
+    },
+    "B": {
+      "item": "asplor:magnetic_rotor"
+    },
+    "C": {
+      "item": "asplor:copper_wire"
+    },
+    "F": {
+      "item": "asplor:battery"
+    }
+  },
+  "pattern": [
+    "FCCCF",
+    "CACAC",
+    "CCBCC",
+    "CACAC",
+    "FCCCF"
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:motor"
+  }
+}

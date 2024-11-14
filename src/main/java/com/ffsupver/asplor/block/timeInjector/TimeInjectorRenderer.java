@@ -7,7 +7,10 @@ import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRender
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.*;
+import net.minecraft.client.render.OverlayTexture;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
@@ -21,6 +24,9 @@ import net.minecraft.util.math.RotationAxis;
 
 import java.util.Map;
 import java.util.Objects;
+
+import static com.ffsupver.asplor.util.RenderUtil.getBlockLight;
+import static com.ffsupver.asplor.util.RenderUtil.getTextureLight;
 
 public class TimeInjectorRenderer extends SafeBlockEntityRenderer<TimeInjectorEntity> {
     public TimeInjectorRenderer(BlockEntityRendererFactory.Context context) {
@@ -122,7 +128,7 @@ public class TimeInjectorRenderer extends SafeBlockEntityRenderer<TimeInjectorEn
             .scale(innerRingScale)
             .translate(-.5f, -.475f, -.5f);
 
-        draw(modelBuffer,ms,solid);
+        draw(modelBuffer,ms,solid,getTextureLight(getBlockLight(be.getWorld(),be.getPos())));
 
         ms.pop();
     }
@@ -143,8 +149,8 @@ public class TimeInjectorRenderer extends SafeBlockEntityRenderer<TimeInjectorEn
         itemRenderer.renderItem(itemStack, ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, ms, bufferSource, be.getWorld(), 0);
     }
 
-    private static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc) {
-        buffer.light(LightmapTextureManager.MAX_LIGHT_COORDINATE)
+    private static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc,int light) {
+        buffer.light(light)
                 .renderInto(ms, vc);
     }
 

@@ -1,0 +1,84 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:redstone"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item":"minecraft:clock"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:redstone"
+        },
+        [
+          {
+            "item": "create:golden_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:redstone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:redstone"
+        },
+        [
+          {
+            "item": "create:golden_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:redstone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:redstone"
+        },
+        [
+          {
+            "item": "create:golden_sheet"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "minecraft:redstone"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create:golden_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:clock"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:redstone"
+  }
+}

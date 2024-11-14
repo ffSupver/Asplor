@@ -67,9 +67,6 @@ public class ModFluids {
         registerRender(LIGHT_OIL,FLOWING_LIGHT_OIL,Identifier.of("minecraft","block/water_still"),0xF5B110);
 
 
-//        6E2D07 F5B110
-
-
 
         registerMoltenMetalRender(MOLTEN_IRON,FLOWING_MOLTEN_IRON,0xFF442B);
         registerMoltenMetalRender(MOLTEN_GOLD,FLOWING_MOLTEN_GOLD,0xFFD648);
@@ -83,10 +80,15 @@ public class ModFluids {
 
 
     }
-    private static void registerRender(FlowableFluid still,FlowableFluid flowing,Identifier path,int color){
-        FluidRenderHandlerRegistry.INSTANCE.register(still,flowing,new SimpleFluidRenderHandler(path,path,color));
+    private static void registerRender(FlowableFluid still,FlowableFluid flowing,Identifier path,int colorRGB){
+            registerSignalRenderer(still,flowing,path,colorRGB);
+    }
+
+    private static void registerSignalRenderer(FlowableFluid still, FlowableFluid flowing, Identifier path, int color){
+        FluidRenderHandlerRegistry.INSTANCE.register(still,flowing,new SimpleFluidRenderHandler(path,path,path,color));
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),still,flowing);
     }
+
     private static <T extends Fluid> T registerFluid(String id, T value) {
         return (T) Registry.register(Registries.FLUID, new Identifier(Asplor.MOD_ID,id), value);
     }

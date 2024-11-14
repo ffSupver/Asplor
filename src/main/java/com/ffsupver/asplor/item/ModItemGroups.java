@@ -24,6 +24,7 @@ public class ModItemGroups {
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
+                                entries.add(COPPER_WIRE);
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
@@ -51,11 +52,13 @@ public class ModItemGroups {
                                 entries.add(IMPURE_MOLTEN_DESH_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(PRIMARY_MECHANISM);
+                                entries.add(IRON_MECHANISM);
                                 entries.add(MECHANICAL_PRESS_HEAD);
                                 entries.add(DRILL);
                                 entries.add(SAW);
                                 entries.add(DIVIDER_TOOL);
                                 entries.add(WINDMILL_HEAD);
+                                entries.add(MAGNETIC_ROTOR);
                                 entries.add(FROZEN_CORE);
                                 entries.add(UNSTABLE_ROCK);
                                 entries.add(SUSPICIOUS_MARS_SAND);

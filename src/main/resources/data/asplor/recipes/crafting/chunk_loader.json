@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:infusion_clock"
+    },
+    "B": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "minecraft:gold_block"
+    },
+    "D":{
+      "item": "create:golden_sheet"
+    }
+  },
+  "pattern": [
+    " A ",
+    "DBD",
+    "CDC"
+  ],
+  "result": {
+    "item": "asplor:chunk_loader"
+  },
+  "show_notification": true
+}
