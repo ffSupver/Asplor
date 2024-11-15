@@ -1,3 +1,6 @@
 {
-  "parent": "asplor:block/refinery/refinery_glass"
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "asplor:block/refinery/refinery_glass_item"
+  }
 }

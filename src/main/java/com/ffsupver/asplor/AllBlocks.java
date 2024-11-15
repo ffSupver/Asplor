@@ -1,5 +1,6 @@
 package com.ffsupver.asplor;
 
+import com.ffsupver.asplor.block.ConnectModel;
 import com.ffsupver.asplor.block.alloyChest.AlloyChest;
 import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
@@ -31,6 +32,7 @@ import com.ffsupver.asplor.block.windmill.WindmillBearingBlock;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.sound.ModSounds;
 import com.simibubi.create.AllTags;
+import com.simibubi.create.CreateClient;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
 import com.simibubi.create.content.processing.AssemblyOperatorBlockItem;
@@ -299,7 +301,10 @@ public class AllBlocks {
 
     public static void register(){}
 
-    public static void registerRenderLayer(){
+    public static void registerRender(){
         BlockRenderLayerMap.INSTANCE.putBlock(REFINERY_GLASS,RenderLayer.getCutoutMipped());
+
+
+        CreateClient.MODEL_SWAPPER.getCustomBlockModels().register(Registries.BLOCK.getId(REFINERY_GLASS), ConnectModel::new);
     }
 }

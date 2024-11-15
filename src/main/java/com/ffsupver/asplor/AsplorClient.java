@@ -8,17 +8,19 @@ import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.simibubi.create.compat.Mods;
+import com.simibubi.create.foundation.utility.ModelSwapper;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class AsplorClient implements ClientModInitializer {
-//    public static final SuperByteBufferCache BUFFER_CACHE = new SuperByteBufferCache();
-
+public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
     @Override
     public void onInitializeClient() {
 
+//        MODEL_SWAPPER.registerListeners();
 
-        AllBlocks.registerRenderLayer();
+
+        AllBlocks.registerRender();
 
         ModScreenHandlers.registerModScreens();
 
