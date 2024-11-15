@@ -6,10 +6,8 @@ import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.BakedModel;
-import net.minecraft.client.render.model.BakedQuad;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.screen.PlayerScreenHandler;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -17,8 +15,6 @@ import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import org.joml.Vector2f;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Supplier;
 
 public class ConnectModel extends ForwardingBakedModel {
@@ -29,16 +25,11 @@ public class ConnectModel extends ForwardingBakedModel {
     @Override
     public void emitBlockQuads(BlockRenderView blockView, BlockState state, BlockPos pos, Supplier<Random> randomSupplier, RenderContext context) {
         MinecraftClient client =MinecraftClient.getInstance();
-        // 获取原版的方块模型
-        BakedModel originalModel = client.getBlockRenderManager().getModels().getModel(state);
 
         SpriteFinder spriteFinder = SpriteFinder.get(client.getBakedModelManager().getAtlas(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE));
-        List<BakedQuad> quads = originalModel.getQuads(state, null, randomSupplier.get());
 
 
 
-        Identifier id = new Identifier( "block/iron_block");
-        System.out.println(" emit  "+pos+"   "+state);
         context.pushTransform(quad -> {
             Direction direction = quad.nominalFace();
 
@@ -68,7 +59,6 @@ public class ConnectModel extends ForwardingBakedModel {
             quad.uv(1, new Vector2f(uMin, vMin)); // 左上
             quad.uv(2, new Vector2f(uMax, vMin)); // 右上
             quad.uv(3, new Vector2f(uMax, vMax)); // 右下
-            System.out.println(direction+"  "+pos+"   "+state+" uv "+uMin+" "+uMax+" v "+vMin+" "+vMax+" c "+connectState+" "+ Arrays.toString(offset));
 
 
             return true;
@@ -82,7 +72,6 @@ public class ConnectModel extends ForwardingBakedModel {
     }
 
     private boolean isConnected(BlockView blockView, BlockState blockState, BlockPos blockPos, Direction direction){
-//        return blockView.getBlockState(blockPos.offset(direction)).getBlock().equals(blockState.getBlock());
         return isSameBlock(blockView,blockState,blockPos.offset(direction));
     }
 
@@ -94,20 +83,20 @@ public class ConnectModel extends ForwardingBakedModel {
         Direction[] result = new Direction[4];
         switch (direction){
             case UP -> {
-                result[0] = Direction.NORTH;
-                result[1] = Direction.SOUTH;
-                result[2] = Direction.WEST;
-                result[3] = Direction.EAST;
-            }
-            case DOWN -> {
                 result[0] = Direction.SOUTH;
                 result[1] = Direction.NORTH;
                 result[2] = Direction.WEST;
                 result[3] = Direction.EAST;
             }
+            case DOWN -> {
+                result[0] = Direction.NORTH;
+                result[1] = Direction.SOUTH;
+                result[2] = Direction.WEST;
+                result[3] = Direction.EAST;
+            }
             default -> {
-                result[0] = Direction.UP;
-                result[1] = Direction.DOWN;
+                result[0] = Direction.DOWN;
+                result[1] = Direction.UP;
             }
         }
         switch (direction){
