@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "asplor:alloy_block"
+      "item": "asplor:alloy_nugget"
     },
     "B": {
       "item": "asplor:alloy_ingot"
@@ -13,12 +13,12 @@
     }
   },
   "pattern": [
-    " B ",
-    "A A",
-    "ACA"
+    "BBB",
+    "BCB",
+    " A "
   ],
   "result": {
-    "item": "asplor:melting_furnace"
+    "item": "asplor:empty_dropper"
   },
   "show_notification": true
 }

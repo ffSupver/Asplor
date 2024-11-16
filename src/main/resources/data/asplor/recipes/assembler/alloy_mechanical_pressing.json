@@ -1,0 +1,15 @@
+{
+  "type": "asplor:assembler",
+  "ingredients": [
+    {
+      "item": "asplor:alloy_machine"
+    },
+    {
+      "item": "create:mechanical_press"
+    }
+  ],
+  "output": {
+    "item": "asplor:alloy_mechanical_press",
+    "count": 1
+  }
+}

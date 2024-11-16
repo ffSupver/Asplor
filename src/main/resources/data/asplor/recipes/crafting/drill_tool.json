@@ -2,9 +2,6 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "asplor:alloy_block"
-    },
     "B": {
       "item": "asplor:alloy_ingot"
     },
@@ -13,12 +10,12 @@
     }
   },
   "pattern": [
-    " B ",
-    "A A",
-    "ACA"
+    "BCB",
+    "BCB",
+    " B "
   ],
   "result": {
-    "item": "asplor:melting_furnace"
+    "item": "asplor:drill_tool"
   },
   "show_notification": true
 }

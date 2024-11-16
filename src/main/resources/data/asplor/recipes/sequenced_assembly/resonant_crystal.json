@@ -1,0 +1,47 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "ae2:fluix_dust"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "asplor:resonant_crystal"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ae2:fluix_dust"
+        },
+        {
+          "item": "create:polished_rose_quartz"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ae2:fluix_dust"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ae2:fluix_dust"
+        }
+      ],
+      "results": [
+        {
+          "item": "ae2:fluix_dust"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "ae2:fluix_dust"
+  }
+}

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "asplor:assembler",
-    "asplor:windmill_bearing"
+    "asplor:windmill_bearing",
+    "asplor:alloy_casing",
+    "asplor:alloy_machine"
   ]
 }

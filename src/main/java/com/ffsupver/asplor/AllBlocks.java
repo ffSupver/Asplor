@@ -277,6 +277,9 @@ public class AllBlocks {
     public static final Block REFINERY_GLASS = registerBlock("refinery_glass",new GlassBlock(REFINERY_SETTING.apply(FabricBlockSettings.create()).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never).sounds(BlockSoundGroup.GLASS).nonOpaque()));
     public static final Block HEAVY_OIL = registerFluidBlock("heavy_oil",ModFluids.HEAVY_OIL,null);
     public static final Block LIGHT_OIL = registerFluidBlock("light_oil",ModFluids.LIGHT_OIL,null);
+    public static final Block AllOY_CASING = registerBlock("alloy_casing",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block AllOY_MACHINE = registerBlock("alloy_machine",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
+
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
@@ -305,6 +308,14 @@ public class AllBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(REFINERY_GLASS,RenderLayer.getCutoutMipped());
 
 
+        registerConnectTexture(AllOY_CASING,"alloy");
+
+
         CreateClient.MODEL_SWAPPER.getCustomBlockModels().register(Registries.BLOCK.getId(REFINERY_GLASS), ConnectModel::new);
+        CreateClient.MODEL_SWAPPER.getCustomBlockModels().register(Registries.BLOCK.getId(AllOY_CASING), ConnectModel::new);
+    }
+
+    private static void registerConnectTexture(Block block,String name){
+        ConnectModel.registerConnectBlocks(block,new Identifier(Asplor.MOD_ID,name));
     }
 }

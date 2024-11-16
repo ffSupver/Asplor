@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "asplor:alloy_block"
+      "item": "asplor:resonant_crystal"
     },
     "B": {
-      "item": "asplor:alloy_ingot"
+      "item": "asplor:charged_alloy_ingot"
     },
     "C": {
       "item": "asplor:alloy_mechanism"
     }
   },
   "pattern": [
-    " B ",
-    "A A",
-    "ACA"
+    "CBC",
+    "BAB",
+    " A "
   ],
   "result": {
-    "item": "asplor:melting_furnace"
+    "item": "asplor:laser_tool"
   },
   "show_notification": true
 }

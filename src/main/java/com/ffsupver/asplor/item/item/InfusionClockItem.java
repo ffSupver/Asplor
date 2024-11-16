@@ -26,7 +26,7 @@ import static net.minecraft.block.BuddingAmethystBlock.canGrowIn;
 
 public class InfusionClockItem extends Item {
     public InfusionClockItem(Settings settings) {
-        super(settings.maxCount(1).maxDamage(64));
+        super(settings.maxCount(1).maxDamage(16));
     }
 
     @Override

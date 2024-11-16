@@ -73,6 +73,9 @@
   "item.asplor.uncompleted_iron_mechanism": "未完成的铁构件",
   "item.asplor.copper_wire": "铜线",
   "item.asplor.magnetic_rotor": "磁转子",
+  "item.asplor.alloy_mechanism": "合金构件",
+  "item.asplor.uncompleted_alloy_mechanism": "未完成的合金构件",
+  "item.asplor.resonant_crystal": "谐振晶体",
 
 
 
@@ -125,6 +128,8 @@
   "block.asplor.smart_mechanical_arm": "智能动力臂",
   "block.asplor.tool_gear": "工具架",
   "block.asplor.chunk_loader": "区块加载器",
+  "block.asplor.alloy_casing": "合金机壳",
+  "block.asplor.alloy_machine": "合金机器",
 
 
 

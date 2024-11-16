@@ -6,19 +6,22 @@
       "item": "asplor:alloy_block"
     },
     "B": {
-      "item": "asplor:alloy_ingot"
+      "item": "asplor:andesite_machine"
     },
     "C": {
       "item": "asplor:alloy_mechanism"
+    },
+    "D": {
+      "item": "asplor:alloy_casing"
     }
   },
   "pattern": [
-    " B ",
-    "A A",
-    "ACA"
+    "CAC",
+    "ADA",
+    "BBB"
   ],
   "result": {
-    "item": "asplor:melting_furnace"
+    "item": "asplor:alloy_machine"
   },
   "show_notification": true
 }

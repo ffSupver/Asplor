@@ -1,0 +1,64 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:alloy_block"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "item": "asplor:alloy_mechanism"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        },
+        {
+          "item": "asplor:alloy_ingot"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        },
+        {
+          "item": "asplor:iron_mechanism"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_alloy_mechanism"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:uncompleted_alloy_mechanism"
+  }
+}

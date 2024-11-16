@@ -21,6 +21,8 @@
     "#asplor:refinery_block",
     "asplor:smart_mechanical_arm",
     "asplor:tool_gear",
-    "asplor:chunk_loader"
+    "asplor:chunk_loader",
+    "asplor:alloy_casing",
+    "asplor:alloy_machine"
   ]
 }

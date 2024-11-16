@@ -73,6 +73,9 @@
   "item.asplor.uncompleted_iron_mechanism": "Uncompleted Iron Mechanism",
   "item.asplor.copper_wire": "Copper Wire",
   "item.asplor.magnetic_rotor": "Magnetic Rotor",
+  "item.asplor.alloy_mechanism": "Alloy Mechanism",
+  "item.asplor.uncompleted_alloy_mechanism": "Uncompleted Alloy Mechanism",
+  "item.asplor.resonant_crystal": "Resonant Crystal",
 
 
 
@@ -127,6 +130,8 @@
   "block.asplor.smart_mechanical_arm": "Smart Mechanical Arm",
   "block.asplor.tool_gear": "Tool Gear",
   "block.asplor.chunk_loader": "Chunk Loader",
+  "block.asplor.alloy_casing": "Alloy Casing",
+  "block.asplor.alloy_machine": "Alloy Machine",
 
 
 

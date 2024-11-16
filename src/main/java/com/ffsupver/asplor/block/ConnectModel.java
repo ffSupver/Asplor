@@ -3,11 +3,13 @@ package com.ffsupver.asplor.block;
 import net.fabricmc.fabric.api.renderer.v1.model.ForwardingBakedModel;
 import net.fabricmc.fabric.api.renderer.v1.model.SpriteFinder;
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.texture.Sprite;
 import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -15,9 +17,15 @@ import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import org.joml.Vector2f;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class ConnectModel extends ForwardingBakedModel {
+    private static final Map<Block,Identifier> CONNECT_BLOCKS = new HashMap<>();
+    public static void registerConnectBlocks(Block block,Identifier id){
+        CONNECT_BLOCKS.put(block,id);
+    }
     public ConnectModel(BakedModel bakedModel) {
         this.wrapped = bakedModel;
     }
@@ -55,10 +63,10 @@ public class ConnectModel extends ForwardingBakedModel {
             uMax = uMin + u;
             vMax = vMin + v;
 
-            quad.uv(0, new Vector2f(uMin, vMax)); // 左下
-            quad.uv(1, new Vector2f(uMin, vMin)); // 左上
-            quad.uv(2, new Vector2f(uMax, vMin)); // 右上
-            quad.uv(3, new Vector2f(uMax, vMax)); // 右下
+            quad.uv(0, new Vector2f(uMin, vMin)); // 左下
+            quad.uv(1, new Vector2f(uMin, vMax)); // 左上
+            quad.uv(2, new Vector2f(uMax, vMax)); // 右上
+            quad.uv(3, new Vector2f(uMax, vMin)); // 右下
 
 
             return true;
@@ -76,7 +84,12 @@ public class ConnectModel extends ForwardingBakedModel {
     }
 
     private boolean isSameBlock(BlockView blockView,BlockState blockState,BlockPos posToTest){
-        return blockView.getBlockState(posToTest).getBlock().equals(blockState.getBlock());
+        Block targetBlock = blockView.getBlockState(posToTest).getBlock();
+        Block originBlock = blockState.getBlock();
+        if (CONNECT_BLOCKS.containsKey(targetBlock) && CONNECT_BLOCKS.containsKey(originBlock)){
+            return CONNECT_BLOCKS.get(targetBlock).equals(CONNECT_BLOCKS.get(originBlock));
+        }
+        return targetBlock.equals(originBlock);
     }
 
     private Direction[] getAdjacentDirections(Direction direction) {

@@ -25,6 +25,7 @@ public class ModItemGroups {
                                 entries.add(CHARGED_ALLOY_INGOT);
                                 entries.add(ZINC_SHEET);
                                 entries.add(COPPER_WIRE);
+                                entries.add(RESONANT_CRYSTAL);
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
@@ -51,8 +52,11 @@ public class ModItemGroups {
                                 entries.add(MOLTEN_DESH_BUCKET);
                                 entries.add(IMPURE_MOLTEN_DESH_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
+                                entries.add(AllOY_CASING);
+                                entries.add(AllOY_MACHINE);
                                 entries.add(PRIMARY_MECHANISM);
                                 entries.add(IRON_MECHANISM);
+                                entries.add(ALLOY_MECHANISM);
                                 entries.add(MECHANICAL_PRESS_HEAD);
                                 entries.add(DRILL);
                                 entries.add(SAW);
