@@ -7,7 +7,7 @@
   "results": [
     {
       "item":"asplor:zinc_copper_battery",
-      "nbt": {"internalCurrentPower":2500.0}
+      "nbt": {"internalCurrentPower":25000.0}
     }
   ],
   "sequence": [

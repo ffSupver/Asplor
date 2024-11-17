@@ -2,6 +2,7 @@ package com.ffsupver.asplor.item.item;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.decorative.solid.BuddingCertusQuartzBlock;
+import com.ffsupver.asplor.block.blocks.UnstableRock;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -70,6 +71,12 @@ public class InfusionClockItem extends Item {
         if (blockState.getBlock() instanceof BuddingCertusQuartzBlock && growCertusQuartz(blockPos,world)){
             decreaseItem(context);
             return ActionResult.SUCCESS;
+        }
+        if (blockState.getBlock() instanceof UnstableRock unstableRock){
+            if (unstableRock.turn(world,blockPos,blockState)){
+                decreaseItem(context);
+                return ActionResult.SUCCESS;
+            }
         }
         return super.useOnBlock(context);
     }

@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "asplor:alloy_block"
+      "item": "ad_astra:steel_block"
     },
     "B": {
-      "item": "asplor:alloy_ingot"
+      "item": "ad_astra:steel_ingot"
     },
     "C": {
-      "item": "asplor:alloy_mechanism"
+      "item": "asplor:iron_mechanism"
     }
   },
   "pattern": [

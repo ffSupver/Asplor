@@ -15,7 +15,7 @@ import static com.ffsupver.asplor.util.MathUtil.fromAEtoE;
 import static com.ffsupver.asplor.util.MathUtil.fromEtoAE;
 
 public class BatteryItem extends AEBasePoweredItem {
-    private static final Double CAPACITY = 2500.0;
+    private static final Double CAPACITY = 25000.0;
 
     public BatteryItem(Settings settings) {
         super(()->CAPACITY,settings);

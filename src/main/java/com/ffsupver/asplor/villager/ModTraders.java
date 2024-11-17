@@ -35,8 +35,8 @@ public class ModTraders {
                 AllItems.SUPER_GLUE.asStack(),
                 1,8,0.05f);
         registerTrader(ModVillagers.ASSEMBLER,4,
-                AllItems.ZINC_INGOT.asItem(), 4,8,
-                new ItemStack(Items.EMERALD,2),
+                Items.EMERALD, 4,8,
+                new ItemStack(AllItems.ZINC_INGOT.asItem(),4),
                 16,8,0.05f);
         registerTrader(ModVillagers.ASSEMBLER,4,
                 Items.EMERALD,33,64,
@@ -51,7 +51,6 @@ public class ModTraders {
                 AllItems.WRENCH.asStack(),
                 1,16,0.05f);
     }
-//    EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(Enchantments.UNBREAKING,10))
 
     private static void registerTrader(VillagerProfession villagerProfession, int level,
                                        Item buyItem, int minBuyItemCount,int maxBuyItemCount,

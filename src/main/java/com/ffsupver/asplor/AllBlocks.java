@@ -309,6 +309,7 @@ public class AllBlocks {
 
 
         registerConnectTexture(AllOY_CASING,"alloy");
+        registerConnectTexture(REFINERY_GLASS,"refinery");
 
 
         CreateClient.MODEL_SWAPPER.getCustomBlockModels().register(Registries.BLOCK.getId(REFINERY_GLASS), ConnectModel::new);

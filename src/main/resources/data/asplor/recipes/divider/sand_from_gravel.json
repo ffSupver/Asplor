@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "output": {
+    "item": "minecraft:sand",
+    "count": 1
+  }
+}

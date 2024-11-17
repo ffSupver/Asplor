@@ -30,6 +30,7 @@ public class ModItemGroups {
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
                                 entries.add(KELP_PUREE);
+                                entries.add(DIAMOND_SHARD);
                                 entries.add(EMPTY_TANK);
                                 entries.add(CONCENTRATED_OIL_TANK);
                                 entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);

@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_sword"
+    }
+  ],
+  "output": {
+    "item": "asplor:diamond_shard",
+    "count": 1
+  }
+}

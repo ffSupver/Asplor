@@ -1,39 +1,21 @@
 package com.ffsupver.asplor.block.divider;
 
-import com.simibubi.create.AllItems;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
-import com.simibubi.create.content.kinetics.base.GeneratingKineticBlockEntity;
 import com.simibubi.create.content.kinetics.base.KineticBlock;
-import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.block.IBE;
-import com.simibubi.create.foundation.utility.Iterate;
-import io.github.fabricators_of_create.porting_lib.transfer.TransferUtil;
-import io.github.fabricators_of_create.porting_lib.transfer.item.ItemHandlerHelper;
 import io.github.fabricators_of_create.porting_lib.transfer.item.ItemStackHandler;
-import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
-import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -60,7 +42,7 @@ public class Divider extends KineticBlock implements IBE<DividerEntity> , IWrenc
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView worldIn, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(0,0,0,16,16,16);
+        return Block.createCuboidShape(1,2,1,15,16,15);
     }
 
     @Override
@@ -118,39 +100,7 @@ public class Divider extends KineticBlock implements IBE<DividerEntity> , IWrenc
         return ActionResult.SUCCESS;
     }
 
-    @Override
-    public void onEntityLand(BlockView worldIn, Entity entityIn) {
-        super.onEntityLand(worldIn, entityIn);
-//
-//        if (entityIn.getWorld().isClient)
-//            return;
-//        if (!(entityIn instanceof ItemEntity))
-//            return;
-//        if (!entityIn.isAlive())
-//            return;
-//
-//        DividerEntity millstone = null;
-//        for (BlockPos pos : Iterate.hereAndBelow(entityIn.getBlockPos()))
-//            if (millstone == null)
-//                millstone = getBlockEntity(worldIn, pos);
-//
-//        if (millstone == null)
-//            return;
-//
-//        ItemEntity itemEntity = (ItemEntity) entityIn;
-//        Storage<ItemVariant> handler = millstone.getItemStorage(null);
-//        if (handler == null)
-//            return;
-//
-//        try (Transaction t = TransferUtil.getTransaction()) {
-//            ItemStack inEntity = itemEntity.getStack();
-//            long inserted = handler.insert(ItemVariant.of(inEntity), inEntity.getCount(), t);
-//            if (inserted == inEntity.getCount())
-//                itemEntity.discard();
-//            else itemEntity.setStack(ItemHandlerHelper.copyStackWithSize(inEntity, (int) (inEntity.getCount() - inserted)));
-//            t.commit();
-//        }
-    }
+
 
     @Override
     public Direction.Axis getRotationAxis(BlockState state) {

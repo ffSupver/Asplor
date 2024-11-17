@@ -3,16 +3,14 @@
   "heatRequirement": "superheated",
   "ingredients": [
     {
-      "amount": 36000,
+      "amount": 9000,
       "fluid": "asplor:molten_brass"
     },
     {
-      "amount": 18000,
-      "fluid": "asplor:molten_gold"
+      "item": "minecraft:iron_ingot"
     },
     {
-      "amount": 18000,
-      "fluid": "asplor:molten_iron"
+      "item": "minecraft:gold_ingot"
     },
     {
       "amount": 9000,
@@ -21,7 +19,7 @@
   ],
   "results": [
     {
-      "amount": 18000,
+      "amount": 9000,
       "fluid": "asplor:molten_alloy"
     }
   ]
