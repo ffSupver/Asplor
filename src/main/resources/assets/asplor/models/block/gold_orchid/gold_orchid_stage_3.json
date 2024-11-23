@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "asplor:block/gold_orchid/gold_orchid_stage_3"
+  }
+}

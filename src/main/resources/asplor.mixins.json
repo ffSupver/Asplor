@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AsplorMixin",
+    "CrossbowItemMixin",
     "LavaFluidMixin",
     "disablePortal.NetherPortalMixin",
     "moltenMetal.EntityMixin",

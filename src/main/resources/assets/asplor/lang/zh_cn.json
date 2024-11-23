@@ -77,7 +77,10 @@
   "item.asplor.uncompleted_alloy_mechanism": "未完成的合金构件",
   "item.asplor.resonant_crystal": "谐振晶体",
   "item.asplor.diamond_shard": "钻石碎片",
-
+  "item.asplor.gold_orchid_seed": "化金兰种子",
+  "item.asplor.gold_orchid_stamen": "化金兰花蕊",
+  "item.asplor.large_map": "大地图",
+  "item.asplor.empty_large_map": "空的大地图",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -131,6 +134,10 @@
   "block.asplor.chunk_loader": "区块加载器",
   "block.asplor.alloy_casing": "合金机壳",
   "block.asplor.alloy_machine": "合金机器",
+
+
+
+  "enchantment.asplor.strength": "强力",
 
 
 
@@ -203,6 +210,13 @@
 
   "category.asplor.key": "屎山",
   "key.asplor.open_backpack": "打开背包",
+  "key.asplor.large_map.move_up": "地图:上移",
+  "key.asplor.large_map.move_down": "地图:下移",
+  "key.asplor.large_map.move_left": "地图:左移",
+  "key.asplor.large_map.move_right": "地图:右移",
+  "key.asplor.large_map.zoom_in": "地图:放大",
+  "key.asplor.large_map.zoom_out": "地图:缩小",
+
 
   "entity.asplor.alloy_chest": "合金箱子",
   "entity.minecraft.villager.assembler": "装配大师",

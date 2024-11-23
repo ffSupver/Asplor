@@ -2,6 +2,7 @@ package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderServer;
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolTypes;
+import com.ffsupver.asplor.enchantment.ModEnchantments;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItemGroups;
 import com.ffsupver.asplor.item.ModItems;
@@ -65,6 +66,7 @@ public class Asplor implements ModInitializer {
 		AllBoilerHeaters.register();
 
 		ModLootTables.register();
+		ModEnchantments.register();
 
 		if (!Create.REGISTRATE.isRegistered(RegistryKeys.ITEM)) {
 			Create.REGISTRATE.addRegisterCallback(RegistryKeys.ITEM, Asplor::registerAfterCreateItems);

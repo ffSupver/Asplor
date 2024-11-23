@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.item;
 
+import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.AllPartialModels;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
@@ -7,6 +8,8 @@ import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.item.ToolItem;
 import com.ffsupver.asplor.item.item.*;
+import com.ffsupver.asplor.item.item.largeMap.EmptyLargeMapItem;
+import com.ffsupver.asplor.item.item.largeMap.LargeMapItem;
 import com.ffsupver.asplor.item.item.singleItemCell.SingleItemCellItem;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
 import com.tterrag.registrate.util.entry.ItemEntry;
@@ -110,6 +113,10 @@ public class ModItems {
     public static final Item UNCOMPLETED_ALLOY_MECHANISM = registerItems("uncompleted_alloy_mechanism",new Item(new FabricItemSettings().maxCount(1)));
     public static final Item RESONANT_CRYSTAL = registerItems("resonant_crystal",new Item(new FabricItemSettings()));
     public static final Item DIAMOND_SHARD = registerItems("diamond_shard",new Item(new FabricItemSettings()));
+    public static final Item GOLD_ORCHID_STAMEN = registerItems("gold_orchid_stamen",new Item(new FabricItemSettings()));
+    public static final Item GOLD_ORCHID_SEED = registerItems("gold_orchid_seed",new AliasedBlockItem(AllBlocks.GOLD_ORCHID,new FabricItemSettings()));
+    public static final Item LARGE_MAP = registerItems("large_map",new LargeMapItem(new FabricItemSettings()));
+    public static final Item EMPTY_LARGE_MAP = registerItems("empty_large_map",new EmptyLargeMapItem(new FabricItemSettings()));
 
     public static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

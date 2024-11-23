@@ -54,8 +54,8 @@ public static void registerRecipes(){
             DividerRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,LiquidBlazeBurnerRecipe.Serializer.ID),
             LiquidBlazeBurnerRecipe.Serializer.INSTANCE);
-    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,AssemblerRecipe.Serialzer.ID),
-            AssemblerRecipe.Serialzer.INSTANCE);
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID, AssemblerRecipe.Serializer.ID),
+            AssemblerRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,TimeInjectorRecipe.Serializer.ID),
             TimeInjectorRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,MeltRecipe.Serializer.ID),

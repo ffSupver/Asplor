@@ -42,14 +42,13 @@ public class InfusionClockItem extends Item {
         BlockState blockState =context.getWorld().getBlockState(blockPos);
         World world = context.getWorld();
         if (blockState.getBlock() instanceof Fertilizable fertilizable){
-                if (fertilizable.isFertilizable(world, blockPos, blockState, world.isClient)) {
                     if (world instanceof ServerWorld) {
                         if (fertilizable.canGrow(world, world.random, blockPos, blockState)) {
                             fertilizable.grow((ServerWorld)world, world.random, blockPos, blockState);
+                            decreaseItem(context);
                         }
-                        decreaseItem(context);
                     }
-                }
+
             return ActionResult.SUCCESS;
         }
         if (blockState.getBlock() instanceof SugarCaneBlock && growSugarCane(world,blockPos,blockState)){

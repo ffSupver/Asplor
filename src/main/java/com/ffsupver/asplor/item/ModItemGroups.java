@@ -19,6 +19,9 @@ public class ModItemGroups {
                         .icon(()->new ItemStack(ALLOY_INGOT))
                             .entries((displayContext, entries) -> {
                                 entries.add(GUIDE_BOOK);
+                                entries.add(EMPTY_LARGE_MAP);
+                                entries.add(GOLD_ORCHID_SEED);
+                                entries.add(GOLD_ORCHID_STAMEN);
                                 entries.add(ALLOY_INGOT);
                                 entries.add(ALLOY_NUGGET);
                                 entries.add(ALLOY_BLOCK);

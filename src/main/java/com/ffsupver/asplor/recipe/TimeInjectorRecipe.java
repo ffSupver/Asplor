@@ -101,7 +101,7 @@ public class TimeInjectorRecipe implements Recipe<FluidInventory> {
 
         @Override
         public TimeInjectorRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(1,Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(),Ingredient.EMPTY);
             for (int i= 0;i<inputs.size();i++){
                 inputs.set(i,Ingredient.fromPacket(buf));
             }

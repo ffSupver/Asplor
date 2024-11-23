@@ -48,13 +48,11 @@ public class GuideBookItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        NbtCompound stackNbt = stack.getOrCreateNbt();
-
         ArrayList<ChapterData> allChapterData = readChapterData();
 
 
-        if (stackNbt.contains(GUIDE_BOOK_DATA_KEY,9)){
-            NbtList chapters = stackNbt.getList(GUIDE_BOOK_DATA_KEY,8);
+        NbtList chapters = getChaptersFromNbt(stack);
+        if (chapters != null){
             for (NbtElement element : chapters){
                 String chapter = element.asString();
                 allChapterData.forEach(chapterData -> {
@@ -107,6 +105,15 @@ public class GuideBookItem extends Item {
             return true;
         }
         return false;
+    }
+
+    private static NbtList getChaptersFromNbt(ItemStack book){
+        NbtCompound stackNbt = book.getOrCreateNbt();
+
+        if (stackNbt.contains(GUIDE_BOOK_DATA_KEY,9)) {
+            return stackNbt.getList(GUIDE_BOOK_DATA_KEY, 8);
+        }
+        return null;
     }
 
 

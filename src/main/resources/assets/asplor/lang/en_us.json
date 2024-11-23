@@ -77,6 +77,10 @@
   "item.asplor.uncompleted_alloy_mechanism": "Uncompleted Alloy Mechanism",
   "item.asplor.resonant_crystal": "Resonant Crystal",
   "item.asplor.diamond_shard": "Diamond Shard",
+  "item.asplor.gold_orchid_seed": "Gold Orchid Seed",
+  "item.asplor.gold_orchid_stamen": "Gold Orchid Stamen",
+  "item.asplor.large_map": "Large Map",
+  "item.asplor.empty_large_map": "Empty Large Map",
 
 
 
@@ -135,6 +139,8 @@
   "block.asplor.alloy_machine": "Alloy Machine",
 
 
+
+  "enchantment.asplor.strength": "Strength",
 
 
 
@@ -206,6 +212,12 @@
 
   "category.asplor.key": "Asplor",
   "key.asplor.open_backpack": "Open Backpack",
+  "key.asplor.large_map.move_up": "Map: Move Up",
+  "key.asplor.large_map.move_down": "Map: Move Down",
+  "key.asplor.large_map.move_left": "Map: Move Left",
+  "key.asplor.large_map.move_right": "Map: Move Right",
+  "key.asplor.large_map.zoom_in": "Map: Zoom In",
+  "key.asplor.large_map.zoom_out": "Map: Zoom Out",
 
   "entity.asplor.alloy_chest": "alloy chest",
   "entity.minecraft.villager.assembler": "Assembler",

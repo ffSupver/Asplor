@@ -5,10 +5,7 @@ import com.ffsupver.asplor.block.alloyChest.AlloyChest;
 import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
-import com.ffsupver.asplor.block.blocks.Assembler;
-import com.ffsupver.asplor.block.blocks.FrozenCore;
-import com.ffsupver.asplor.block.blocks.MoltenMetalBlock;
-import com.ffsupver.asplor.block.blocks.UnstableRock;
+import com.ffsupver.asplor.block.blocks.*;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoader;
 import com.ffsupver.asplor.block.divider.Divider;
 import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
@@ -220,7 +217,7 @@ public class AllBlocks {
                     .register();
     public static final BlockEntry<ToolGear> TOOL_GEAR =
             REGISTRATE.block("tool_gear",ToolGear::new)
-                    .properties(p -> p.requiresTool().mapColor(MapColor.ORANGE).sounds(BlockSoundGroup.METAL).strength(3.0f,8.0f))
+                    .properties(p -> p.requiresTool().mapColor(MapColor.GRAY).sounds(BlockSoundGroup.METAL).strength(3.0f,8.0f))
                     .addLayer(()->RenderLayer::getCutoutMipped)
                     .item(BlockItem::new)
                     .build()
@@ -279,8 +276,7 @@ public class AllBlocks {
     public static final Block LIGHT_OIL = registerFluidBlock("light_oil",ModFluids.LIGHT_OIL,null);
     public static final Block AllOY_CASING = registerBlock("alloy_casing",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block AllOY_MACHINE = registerBlock("alloy_machine",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
-
-
+    public static final Block GOLD_ORCHID = registerBlock("gold_orchid",new GoldOrchidBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);
@@ -292,12 +288,19 @@ public class AllBlocks {
         return Registry.register(Registries.BLOCK,new Identifier(Asplor.MOD_ID,name),new FluidBlock(fluid,setting == null ? blockSettings : setting.apply(blockSettings)));
     }
     private static Block registerBlock(String name, Block block){
-        registerBlockItem(name,block);
+        return registerBlock(name,block,name,new BlockItem(block,new FabricItemSettings()));
+    }
+    private static Block registerBlock(String name, Block block,String itemName, Item blockItem){
+        registerBlockItem(itemName,blockItem);
+        return registerBlockWithoutItem(name,block);
+    }
+
+    private static Block registerBlockWithoutItem(String name,Block block){
         return Registry.register(Registries.BLOCK,new Identifier(Asplor.MOD_ID,name),block);
     }
-    private static Item registerBlockItem(String name, Block block){
+    private static Item registerBlockItem(String name,Item blockItem){
         return Registry.register(Registries.ITEM,new Identifier(Asplor.MOD_ID,name),
-                new BlockItem(block,new FabricItemSettings()));
+                blockItem);
     }
 
 
@@ -305,7 +308,8 @@ public class AllBlocks {
     public static void register(){}
 
     public static void registerRender(){
-        BlockRenderLayerMap.INSTANCE.putBlock(REFINERY_GLASS,RenderLayer.getCutoutMipped());
+        registerRenderLayer(REFINERY_GLASS,RenderLayer.getCutoutMipped());
+        registerRenderLayer(GOLD_ORCHID,RenderLayer.getCutoutMipped());
 
 
         registerConnectTexture(AllOY_CASING,"alloy");
@@ -318,5 +322,9 @@ public class AllBlocks {
 
     private static void registerConnectTexture(Block block,String name){
         ConnectModel.registerConnectBlocks(block,new Identifier(Asplor.MOD_ID,name));
+    }
+
+    private static void registerRenderLayer(Block block,RenderLayer renderLayer){
+        BlockRenderLayerMap.INSTANCE.putBlock(block,renderLayer);
     }
 }

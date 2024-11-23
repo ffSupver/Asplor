@@ -66,7 +66,7 @@ public class AssemblerRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Serialzer.INSTANCE;
+        return Serializer.INSTANCE;
     }
 
     @Override
@@ -79,8 +79,8 @@ public class AssemblerRecipe implements Recipe<SimpleInventory> {
         public static final String ID = "assembler";
     }
 
-    public static class Serialzer implements RecipeSerializer<AssemblerRecipe>{
-        public static final Serialzer INSTANCE=new Serialzer();
+    public static class Serializer implements RecipeSerializer<AssemblerRecipe>{
+        public static final Serializer INSTANCE=new Serializer();
         public static final String ID="assembler";
         @Override
         public AssemblerRecipe read(Identifier id, JsonObject json) {
@@ -96,7 +96,7 @@ public class AssemblerRecipe implements Recipe<SimpleInventory> {
 
         @Override
         public AssemblerRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(2,Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(),Ingredient.EMPTY);
             for (int i= 0;i<inputs.size();i++){
                 inputs.set(i,Ingredient.fromPacket(buf));
             }
