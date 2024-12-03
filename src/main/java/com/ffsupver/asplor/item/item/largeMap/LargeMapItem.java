@@ -5,6 +5,9 @@ import com.ffsupver.asplor.networking.packet.large_map.OpenLargeMapS2CPacket;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.content.trains.station.StationBlockEntity;
+import earth.terrarium.adastra.common.blocks.LaunchPadBlock;
+import earth.terrarium.adastra.common.blocks.properties.LaunchPadPartProperty;
+import earth.terrarium.adastra.common.registry.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.entity.BannerBlockEntity;
@@ -33,6 +36,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.ffsupver.asplor.ModTags.Blocks.LARGE_MAP_ITEM_INTERACT_BLOCK;
 import static com.ffsupver.asplor.ModTags.Blocks.LARGE_MAP_MARK_BLOCK;
 import static com.ffsupver.asplor.ModTags.EntityTypes.CAN_MARK_ON_MAP;
 
@@ -121,6 +125,7 @@ public class LargeMapItem extends NetworkSyncedItem {
             } else if (blockEntity instanceof StationBlockEntity stationBlockEntity) {
                 Text stationName = stationBlockEntity.getStation() == null ? null : Text.literal(stationBlockEntity.getStation().name);
                 largeMapState.addOrRemoveStaticIcon(pos, LargeMapState.MapIcon.STATION,stationName);
+                return ActionResult.SUCCESS;
             } else if (state.isOf(AllBlocks.TRACK.get())) {
                 List<Entity> entities = world.getOtherEntities(null, new Box(pos.getX() - 3, pos.getY(), pos.getZ() - 3, pos.getX() + 3, pos.getY() + 5, pos.getZ() + 3),
                         entity -> entity instanceof CarriageContraptionEntity);
@@ -129,7 +134,14 @@ public class LargeMapItem extends NetworkSyncedItem {
                         largeMapState.AddOrRemoveEntity(entity);
                     }
                 }
+                return ActionResult.SUCCESS;
+            } else if (state.isOf(ModBlocks.LAUNCH_PAD.get()) && state.get(LaunchPadBlock.PART).equals(LaunchPadPartProperty.CENTER)) {
+                largeMapState.addOrRemoveStaticIcon(pos, LargeMapState.MapIcon.LAUNCH_PAD,null);
+                return ActionResult.SUCCESS;
             }
+        }
+        if (world.isClient() && state.isIn(LARGE_MAP_ITEM_INTERACT_BLOCK)){
+            return ActionResult.SUCCESS;
         }
         return super.useOnBlock(context);
     }

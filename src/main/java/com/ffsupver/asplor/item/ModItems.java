@@ -12,8 +12,11 @@ import com.ffsupver.asplor.item.item.largeMap.EmptyLargeMapItem;
 import com.ffsupver.asplor.item.item.largeMap.LargeMapItem;
 import com.ffsupver.asplor.item.item.singleItemCell.SingleItemCellItem;
 import com.ffsupver.asplor.item.renderer.RocketItemRenderer;
+import com.jozufozu.flywheel.core.PartialModel;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import earth.terrarium.adastra.common.items.vehicles.RocketItem;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.impl.client.rendering.BuiltinItemRendererRegistryImpl;
 import net.minecraft.fluid.Fluid;
@@ -75,18 +78,18 @@ public class ModItems {
     public static final Item DIVIDER_TOOL = registerItems("divider_tool",new Item(new FabricItemSettings()));
     public static final Item WINDMILL_HEAD = registerItems("windmill_head",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_PRIMARY_MECHANISM = registerItems("uncompleted_primary_mechanism",new Item(new FabricItemSettings()));
-    public static final Item DRILL_TOOL = registerItems("drill_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"drill"),256));
-    public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL,new Identifier(Asplor.MOD_ID,"empty"),0));
-    public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"laser"),16));
-    public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings(), AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK,new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item DRILL_TOOL = registerItems("drill_tool",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"drill"),256));
+    public static final Item USED_DRILL_TOOL = registerItems("used_drill_tool",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item LASER_TOOL = registerItems("laser_tool",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"laser"),16));
+    public static final Item USED_LASER_TOOL = registerItems("used_laser_tool",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"empty"),0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_4K = registerItems("single_item_storage_cell_4k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),4,5.0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_16K = registerItems("single_item_storage_cell_16k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),16,9.0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_64K = registerItems("single_item_storage_cell_64k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),64,13.0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_256K = registerItems("single_item_storage_cell_256k",new SingleItemCellItem(new FabricItemSettings().maxCount(1),256,17.0));
     public static final Item SINGLE_ITEM_STORAGE_CELL_1M = registerItems("single_item_storage_cell_1m",new SingleItemCellItem(new FabricItemSettings().maxCount(1),1024,21.0));
-    public static final Item EMPTY_DROPPER = registerItems("empty_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.EMPTY_DROPPER,AllPartialModels.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"empty"),0));
-    public static final Item MOLTEN_GOLD_DROPPER = registerItems("molten_gold_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_GOLD_DROPPER,AllPartialModels.MOLTEN_GOLD_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_gold_dropper"),1));
-    public static final Item GLUE_DROPPER = registerItems("glue_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"glue_dropper"),4));
+    public static final Item EMPTY_DROPPER = registerItems("empty_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"empty"),0));
+    public static final Item MOLTEN_GOLD_DROPPER = registerItems("molten_gold_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_gold_dropper"),1));
+    public static final Item GLUE_DROPPER = registerItems("glue_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"glue_dropper"),4));
     public static final Item SINGLE_ITEM_STORAGE_CELL_HOUSING = registerItems("single_item_storage_cell_housing",new Item(new FabricItemSettings()));
     public static final Item KELP_PUREE = registerItems("kelp_puree",new Item(new FabricItemSettings()));
     public static final Item ALLOY_NUGGET = registerItems("alloy_nugget",new Item(new FabricItemSettings()));
@@ -97,8 +100,8 @@ public class ModItems {
     public static final Item CRUDE_PRINTED_CALCULATION_PROCESSOR = registerItems("crude_printed_calculation_processor",new Item(new FabricItemSettings()));
     public static final Item CRUDE_PRINTED_ENGINEERING_PROCESSOR = registerItems("crude_printed_engineering_processor",new Item(new FabricItemSettings()));
     public static final Item CRUDE_PRINTED_LOGIC_PROCESSOR = registerItems("crude_printed_logic_processor",new Item(new FabricItemSettings()));
-    public static final Item MOLTEN_ALLOY_DROPPER = registerItems("molten_alloy_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_alloy_dropper"),2));
-    public static final Item MOLTEN_BRASS_DROPPER = registerItems("molten_brass_dropper",new ToolItem(new FabricItemSettings(),AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK,new Identifier(Asplor.MOD_ID,"molten_brass_dropper"),3));
+    public static final Item MOLTEN_ALLOY_DROPPER = registerItems("molten_alloy_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_alloy_dropper"),2));
+    public static final Item MOLTEN_BRASS_DROPPER = registerItems("molten_brass_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_brass_dropper"),3));
     public static final Item ALLOY_SWORD = registerItems("alloy_sword",new SwordItem(AlloyMaterial.Tool.MATERIAL,3,-2.4F,new FabricItemSettings()));
     public static final Item ALLOY_SHOVEL = registerItems("alloy_shovel",new ShovelItem(AlloyMaterial.Tool.MATERIAL,1.5F,-3.0F,new FabricItemSettings()));
     public static final Item ALLOY_PICKAXE = registerItems("alloy_pickaxe",new PickaxeItem(AlloyMaterial.Tool.MATERIAL,1,-2.8F,new FabricItemSettings()));
@@ -118,8 +121,35 @@ public class ModItems {
     public static final Item LARGE_MAP = registerItems("large_map",new LargeMapItem(new FabricItemSettings()));
     public static final Item EMPTY_LARGE_MAP = registerItems("empty_large_map",new EmptyLargeMapItem(new FabricItemSettings()));
 
-    public static void registerRocketItemRender(){
+    @Environment(EnvType.CLIENT)
+    private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
+    }
+
+    @Environment(EnvType.CLIENT)
+    private static void registerToolItemModels(){
+        registerToolItemModel(DRILL_TOOL,AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL);
+        registerToolItemModel(USED_DRILL_TOOL,AllPartialModels.DRILL_TOOL,AllPartialModels.DRILL_TOOL);
+        registerToolItemModel(LASER_TOOL,AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL_WORK);
+        registerToolItemModel(USED_LASER_TOOL,AllPartialModels.LASER_TOOL,AllPartialModels.LASER_TOOL);
+        registerToolItemModel(EMPTY_DROPPER,AllPartialModels.EMPTY_DROPPER,AllPartialModels.EMPTY_DROPPER);
+        registerToolItemModel(MOLTEN_GOLD_DROPPER,AllPartialModels.MOLTEN_GOLD_DROPPER,AllPartialModels.MOLTEN_GOLD_DROPPER_WORK);
+        registerToolItemModel(MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER_WORK);
+        registerToolItemModel(GLUE_DROPPER,AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK);
+        registerToolItemModel(MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK);
+
+    }
+
+    @Environment(EnvType.CLIENT)
+    private static void registerToolItemModel(Item item, PartialModel toolModel,PartialModel toolWorkModel){
+        if (item instanceof ToolItem toolItem){
+            toolItem.setModel(toolModel,toolWorkModel);
+        }
+    }
+    @Environment(EnvType.CLIENT)
+    public static void registerItemClient(){
+        registerRocketItemRender();
+        registerToolItemModels();
     }
 
 

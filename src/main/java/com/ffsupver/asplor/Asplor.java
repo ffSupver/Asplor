@@ -11,6 +11,7 @@ import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.ffsupver.asplor.sound.ModSounds;
+import com.ffsupver.asplor.structure.ModStructureTypes;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.ffsupver.asplor.villager.ModTraders;
 import com.ffsupver.asplor.villager.ModVillagers;
@@ -74,6 +75,7 @@ public class Asplor implements ModInitializer {
 			registerAfterCreateItems();
 		}
 
+		ModStructureTypes.register();
 
 		GoggleDisplays.register();
 

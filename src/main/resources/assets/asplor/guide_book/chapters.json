@@ -26,6 +26,11 @@
       "description": "{\"translate\":\"guide_book.asplor.earth.iron\",\"color\":\"white\"}"
     },
     {
+      "name": "earth/gold_orchid",
+      "order": 7,
+      "description": "{\"translate\":\"guide_book.asplor.earth.gold_orchid\",\"color\":\"white\"}"
+    },
+    {
       "name": "earth/electricity",
       "order": 10,
       "description": "{\"translate\":\"guide_book.asplor.earth.electricity\",\"color\":\"white\"}"

@@ -305,6 +305,7 @@ public class LargeMapState extends PersistentState {
                     MapIconData playIconData = entry.getValue();
                     playIconData.setBlockPos(player.getBlockPos());
                     playIconData.setYaw(player.getYaw());
+                    playIconData.setText(player.getName());
                     entry.setValue(playIconData);
                 } else {
                     iterator.remove(); // 使用 Iterator 的 remove 方法
@@ -442,7 +443,7 @@ public class LargeMapState extends PersistentState {
         private MapIcon mapIcon;
         private BlockPos blockPos;
         private float yaw;
-        private final Text text;
+        private Text text;
         private final boolean canRotate;
         public MapIconData(BlockPos blockPos, MapIcon mapIcon, float yaw, Text text,boolean canRotate){
             this.blockPos = blockPos;
@@ -494,6 +495,10 @@ public class LargeMapState extends PersistentState {
 
         public Text getText() {
             return text;
+        }
+
+        public void setText(Text text) {
+            this.text = text;
         }
 
         @Override
@@ -568,7 +573,8 @@ public class LargeMapState extends PersistentState {
         BLACK_BANNER(-8,-8,17),
         TRAIN(-8,-8,18,12),
         WITHER(-8,-8,19),
-        STATION(-8,-12,20)
+        STATION(-8,-12,20),
+        LAUNCH_PAD(-8,-8,21),
         ;
         public final int offsetX;
         public final int offsetY;
@@ -578,7 +584,7 @@ public class LargeMapState extends PersistentState {
         private static MapIcon[] ICONS = new MapIcon[]{
                 LOCATION,PLAYER,WHITE_BANNER,ORANGE_BANNER,MAGENTA_BANNER,LIGHT_BLUE_BANNER,
                 YELLOW_BANNER,LIME_BANNER,PINK_BANNER,GRAY_BANNER,LIGHT_GRAY_BANNER,CYAN_BANNER,PURPLE_BANNER,
-                BLUE_BANNER,BROWN_BANNER,GREEN_BANNER,RED_BANNER,BLACK_BANNER,TRAIN,WITHER,STATION};
+                BLUE_BANNER,BROWN_BANNER,GREEN_BANNER,RED_BANNER,BLACK_BANNER,TRAIN,WITHER,STATION,LAUNCH_PAD};
 
         MapIcon(int offsetX, int offsetY, int textureIndex, int id,int textOffset) {
             this.offsetX = offsetX;

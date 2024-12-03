@@ -70,6 +70,7 @@ public class ModItemGroups {
                                 entries.add(FROZEN_CORE);
                                 entries.add(UNSTABLE_ROCK);
                                 entries.add(SUSPICIOUS_MARS_SAND);
+                                entries.add(FARM_MOON_SAND);
                                 entries.add(FLINT_BLOCK);
                                 entries.add(ALLOY_HELMET);
                                 entries.add(ALLOY_CHESTPLATE);

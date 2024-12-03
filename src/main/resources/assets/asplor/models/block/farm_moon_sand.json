@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "ad_astra:block/moon_sand",
+    "top": "asplor:block/farm_moon_sand"
+  }
+}

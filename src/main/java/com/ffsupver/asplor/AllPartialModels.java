@@ -1,8 +1,10 @@
 package com.ffsupver.asplor;
 
 import com.jozufozu.flywheel.core.PartialModel;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.util.Identifier;
-
+@Environment(EnvType.CLIENT)
 public class AllPartialModels {
     public static final PartialModel Divider_ROTATING_MODEL = create("block/divider/divider_rotating_model");
     public static final PartialModel ALLOY_MECHANICAL_PRESS_HEAD = create("block/alloy_mechanical_press/head");
@@ -31,6 +33,7 @@ public class AllPartialModels {
     public static final PartialModel MOLTEN_ALLOY_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_alloy_dropper_work");
     public static final PartialModel MOLTEN_BRASS_DROPPER = create("block/smart_mechanical_arm/tools/molten_brass_dropper");
     public static final PartialModel MOLTEN_BRASS_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_brass_dropper_work");
+
 
 
 private static PartialModel create(String path){

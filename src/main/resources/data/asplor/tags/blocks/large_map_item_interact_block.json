@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#asplor:large_map_mark_block",
+    "#minecraft:banners",
+    "create:track",
+    "create:track_station",
+    "ad_astra:launch_pad"
+  ]
+}

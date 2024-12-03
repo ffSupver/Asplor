@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class ToolTypes {
     public static Map<Identifier,ToolType> TOOL_TYPES = new HashMap<>();
+
     public static ToolType EMPTY = registerToolType(new ToolType(Items.AIR,Items.AIR,new Identifier(Asplor.MOD_ID,"empty")));
     public static ToolType DRILL;
     public static ToolType LASER;
@@ -28,6 +29,5 @@ public class ToolTypes {
         GLUE_DROPPER = registerToolType(new ToolType(ModItems.GLUE_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"glue_dropper")));
         MOLTEN_ALLOY_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_ALLOY_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_alloy_dropper")));
         MOLTEN_BRASS_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_BRASS_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_brass_dropper")));
-
     }
 }

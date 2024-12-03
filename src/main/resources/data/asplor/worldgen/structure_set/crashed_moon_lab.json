@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:crashed_moon_lab",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1410853384,
+    "spacing": 64,
+    "separation": 16,
+    "type": "minecraft:random_spread"
+  }
+}

@@ -10,8 +10,11 @@ import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.simibubi.create.compat.Mods;
 import com.simibubi.create.foundation.utility.ModelSwapper;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
+@Environment(EnvType.CLIENT)
 public class AsplorClient implements ClientModInitializer {
 public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
     @Override
@@ -29,7 +32,7 @@ public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
 
         ModModelLayers.register();
 
-        ModItems.registerRocketItemRender();
+        ModItems.registerItemClient();
 
 //        BlockEntityRendererFactories.register(AllBlockEntityTypes.DIVIDER_ENTITY.get(), DividerRenderer2::new);
         BlockEntityRendererFactories.register(AllBlockEntityTypes.SPACE_TELEPORTER_ENTITY.get(), SpaceTeleporterRenderer::new);
@@ -40,6 +43,7 @@ public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
         AllKeys.register();
         PonderIndex.register();
         ModPackets.registerS2CPack();
+
     }
 
 }

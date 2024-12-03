@@ -1,0 +1,5 @@
+{
+  "text": "<item.asplor.gold_orchid_stamen> can turn <block.minecraft.stone> into <block.minecraft.gold_ore>. <item.asplor.gold_orchid_seed> can be found in some ruins. It can only be grown on <block.asplor.farm_moon_sand>. Be careful! <block.asplor.farm_moon_sand> need silk touch.",
+  "picture": "earth/gold_orchid.png",
+  "offset_y": -40
+}

@@ -1,0 +1,5 @@
+{
+  "text": "<item.asplor.gold_orchid_stamen>可以点<block.minecraft.stone>成<block.minecraft.gold_ore>。<item.asplor.gold_orchid_seed>会出现在一些废墟中,它只能被种在<block.asplor.farm_moon_sand>上。注意,<block.asplor.farm_moon_sand>只能用精准采集挖掘。",
+  "picture": "earth/gold_orchid.png",
+  "offset_y": -40
+}

@@ -11,16 +11,16 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class ToolItem extends Item {
-    private final PartialModel toolModel;
-    private final PartialModel toolWorkModel;
-    private final Identifier toolTypeId;
+    private PartialModel toolModel;
+    private PartialModel toolWorkModel;
+    private Identifier toolTypeId;
     private final int maxUsage;
     public static final String USAGE_DATA_KEY = "usage";
 
-    public ToolItem(Settings settings, PartialModel toolModel, PartialModel toolWorkModel, Identifier toolTypeId, int maxUsage) {
+    public ToolItem(Settings settings, Identifier toolTypeId, int maxUsage) {
         super(settings.maxCount(1));
-        this.toolModel = toolModel;
-        this.toolWorkModel = toolWorkModel;
+        this.toolModel = null;
+        this.toolWorkModel = null;
         this.toolTypeId = toolTypeId;
         this.maxUsage = maxUsage;
     }
@@ -77,6 +77,12 @@ public class ToolItem extends Item {
             return new ItemStack(toolType.getUsedToolItem(),1);
         }
         return input;
+    }
+
+
+    public void setModel(PartialModel toolModel,PartialModel toolWorkModel){
+        this.toolModel=toolModel;
+        this.toolWorkModel=toolWorkModel;
     }
 
     public PartialModel getToolModel(){

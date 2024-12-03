@@ -2,13 +2,13 @@
   "type": "asplor:alloy_pressing",
   "ingredients": [
     {
-      "item": "minecraft:bedrock"
+      "item": "ad_astra:moon_sand"
     }
   ],
   "results": [
     {
-      "item": "minecraft:barrier",
-      "count": 2
+      "item": "asplor:farm_moon_sand",
+      "count": 1
     }
   ]
 }

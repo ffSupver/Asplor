@@ -14,6 +14,7 @@ public class ModTags {
         public static final TagKey<Block> LET_STORAGE_ENTITY_BE_BLOCK = createTag("let_storage_entity_to_be_block");
         public static final TagKey<Block> REFINERY_BLOCK = createTag("refinery_block");
         public static final TagKey<Block> LARGE_MAP_MARK_BLOCK = createTag("large_map_mark_block");
+        public static final TagKey<Block> LARGE_MAP_ITEM_INTERACT_BLOCK = createTag("large_map_item_interact_block");
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK,new Identifier(Asplor.MOD_ID,name));
         }

@@ -1,0 +1,16 @@
+{
+  "type": "asplor:crashed",
+  "start_pool": "asplor:crashed_moon_lab",
+  "size": 1,
+  "max_distance_from_center": 80,
+  "biomes": "#asplor:has_structure/has_launch_center",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "start_height": {
+    "absolute": -8
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "use_expansion_hack": false,
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}

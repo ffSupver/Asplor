@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "asplor:gold_orchid_stamen"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:gold_ore"
+    }
+  ]
+}

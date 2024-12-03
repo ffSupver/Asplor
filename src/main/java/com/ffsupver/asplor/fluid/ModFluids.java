@@ -2,6 +2,8 @@ package com.ffsupver.asplor.fluid;
 
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.fluid.moltenMetal.*;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
@@ -55,6 +57,7 @@ public class ModFluids {
 
     public static void register(){
     }
+    @Environment(EnvType.CLIENT)
     public static void registerRenders(){
         registerRender(REFINED_OIL,FLOWING_REFINED_OIL,Identifier.of("minecraft","block/water_still"),0x101703);
         registerRender(GLUE,FLOWING_GLUE,Identifier.of("minecraft","block/water_still"),0x4fab5b);
@@ -80,10 +83,12 @@ public class ModFluids {
 
 
     }
+    @Environment(EnvType.CLIENT)
     private static void registerRender(FlowableFluid still,FlowableFluid flowing,Identifier path,int colorRGB){
             registerSignalRenderer(still,flowing,path,colorRGB);
     }
 
+    @Environment(EnvType.CLIENT)
     private static void registerSignalRenderer(FlowableFluid still, FlowableFluid flowing, Identifier path, int color){
         FluidRenderHandlerRegistry.INSTANCE.register(still,flowing,new SimpleFluidRenderHandler(path,path,path,color));
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),still,flowing);

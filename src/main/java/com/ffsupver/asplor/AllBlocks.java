@@ -277,6 +277,7 @@ public class AllBlocks {
     public static final Block AllOY_CASING = registerBlock("alloy_casing",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block AllOY_MACHINE = registerBlock("alloy_machine",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block GOLD_ORCHID = registerBlock("gold_orchid",new GoldOrchidBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
+    public static final Block FARM_MOON_SAND = registerBlock("farm_moon_sand",new FarmMoonSandBlock(FabricBlockSettings.copy(Blocks.SAND).ticksRandomly()));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

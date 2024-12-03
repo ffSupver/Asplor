@@ -38,9 +38,19 @@ public class LargeMapScreen extends Screen {
     private final int MAX_UPDATE_CACHE_COOLDOWN = 40;
 
     private float scale = 1.0f;
+    private final float SCALE_STEP = 0.1f;
     private final float MIN_SCALE = 1/16f;
     private final float MAX_SCALE = 8f;
-    private ArrayList<Long> chunksNeedToUpdate;
+    private final int backgroundWidth = 255,backgroundHeight = 255;
+    private int screenWidth, screenHeight;
+
+    private int backgroundX,backgroundY;
+
+    private  int borderXMin,borderXMax ,borderYMin, borderYMax ;
+
+    //鼠标手势
+    private boolean dragging = false;
+    private int dragStartX,dragStartY,dragStartOriginalX, dragStartOriginalZ;
 
 
     private final Map<Long, Identifier> chunkTextures = new HashMap<>();
@@ -54,6 +64,22 @@ public class LargeMapScreen extends Screen {
         this.mapId = mapId;
         this.updateColorCooldown = MAX_UPDATE_COLOR_COOLDOWN;
         this.updateCacheCooldown = MAX_UPDATE_CACHE_COOLDOWN;
+
+
+
+    }
+
+    @Override
+    protected void init() {
+        screenWidth = this.width;
+        screenHeight = this.height;
+        backgroundX = (screenWidth - backgroundWidth) / 2;
+        backgroundY = (screenHeight - backgroundHeight) / 2;
+        borderXMin = backgroundX+4;
+        borderXMax = backgroundX+backgroundWidth-4;
+        borderYMin = backgroundY+4;
+        borderYMax = backgroundY+backgroundHeight-4;
+        super.init();
     }
 
     private void requestMapData(int mapId, List<Long> needUpdateChunks) {
@@ -196,7 +222,51 @@ public class LargeMapScreen extends Screen {
     }
 
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (mouseX <= borderXMax && mouseX >= borderXMin && mouseY <= borderYMax && mouseY >= borderYMin){
+            //左键
+            if (button == 0) {
+                dragging = true;
+                dragStartX = (int) mouseX;
+                dragStartY = (int) mouseY;
+                dragStartOriginalX = startX;
+                dragStartOriginalZ = startZ;
+                return true;
+            }
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
 
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (button == 0){
+            dragging = false;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double deltaX, double deltaY) {
+        if (dragging && button == 0) { // 如果正在拖动
+            // 计算新的屏幕坐标
+            float dragSpeed = 1.0f;
+            startX = dragStartOriginalX - (int) ((mouseX - dragStartX)/scale* dragSpeed);
+            startZ = dragStartOriginalZ - (int) ((mouseY - dragStartY)/scale* dragSpeed);
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double amount) {
+        if (amount > 0){
+            zoom(true);
+        }else if (amount < 0){
+            zoom(false);
+        }
+        return true;
+    }
 
     private void zoom(boolean in){
         this.scale = in ? scale*2 : scale/2;
@@ -230,21 +300,9 @@ public class LargeMapScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-
-        int screenWidth = this.width;
-        int screenHeight = this.height;
-
-        int backgroundWidth = 255;
-        int backgroundHeight = 255;
-
-        int backgroundX = (screenWidth - backgroundWidth) / 2;
-        int backgroundY = (screenHeight - backgroundHeight) / 2;
         context.drawTexture(BACKGROUND_TEXTURE, backgroundX, backgroundY, 0, 0, backgroundWidth, backgroundHeight);
 
-        int borderXMin = backgroundX+4;
-        int borderXMax = backgroundX+backgroundWidth-4;
-        int borderYMin = backgroundY+4;
-        int borderYMax = backgroundY+backgroundHeight-4;
+
 
 
         // 初始的绝对坐标

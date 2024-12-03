@@ -1,7 +1,11 @@
 package com.ffsupver.asplor.block.blocks;
 
+import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.item.ModItems;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.CropBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -33,7 +37,7 @@ public class GoldOrchidBlock extends CropBlock {
 
     @Override
     public boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.FARMLAND);
+        return floor.isOf(AllBlocks.FARM_MOON_SAND);
     }
 
     @Override

@@ -66,6 +66,10 @@ public static void registerRecipes(){
             RefineryRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,SmartProcessingRecipe.Serializer.ID),
             SmartProcessingRecipe.Serializer.INSTANCE);
+
+
+
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,LargeMapCloningRecipe.ID),LargeMapCloningRecipe.SERIALIZER);
 }
 
 private static <T extends Inventory> void  registerRecipeSerializer(BaseRecipeSerializer<Recipe<T>> recipeRecipeSerializer){
