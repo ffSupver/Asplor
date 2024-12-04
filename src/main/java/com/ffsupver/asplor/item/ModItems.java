@@ -1,5 +1,10 @@
 package com.ffsupver.asplor.item;
 
+import appeng.api.parts.IPart;
+import appeng.api.parts.IPartItem;
+import appeng.api.parts.PartModels;
+import appeng.items.parts.PartItem;
+import appeng.items.parts.PartModelsHelper;
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.AllPartialModels;
 import com.ffsupver.asplor.Asplor;
@@ -121,6 +126,7 @@ public class ModItems {
     public static final Item LARGE_MAP = registerItems("large_map",new LargeMapItem(new FabricItemSettings()));
     public static final Item EMPTY_LARGE_MAP = registerItems("empty_large_map",new EmptyLargeMapItem(new FabricItemSettings()));
 
+
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
@@ -153,6 +159,11 @@ public class ModItems {
     }
 
 
+
+    private static <T extends IPart> Item registerAEPartItem(String name, Item.Settings settings, Class<T> partClass, Function<IPartItem<T>,T> factory){
+        PartModels.registerModels(PartModelsHelper.createModels(partClass));
+        return registerItems(name,new PartItem<T>(settings,partClass,factory));
+    }
 
     private static Item registerBucketItem(String name, Fluid fluid){
         return registerBucketItem(name,fluid,null);

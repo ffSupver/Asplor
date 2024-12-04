@@ -25,7 +25,7 @@ public class SingleItemCellItem extends AEBaseItem implements ICellWorkbenchItem
     private final double idleDrain;
     public SingleItemCellItem(Settings properties, long maxCountK, double idleDrain) {
         super(properties);
-        this.maxStorageCount = maxCountK * 1024;
+        this.maxStorageCount = maxCountK * 1024 * 8;
         this.idleDrain = idleDrain;
     }
 
