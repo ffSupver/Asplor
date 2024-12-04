@@ -2,7 +2,7 @@ package com.ffsupver.asplor.compat.rei;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.AllRecipeTypes;
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyPressingRecipe;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyPressingRecipe;
 import com.ffsupver.asplor.compat.rei.category.*;
 import com.ffsupver.asplor.compat.rei.display.*;
 import com.ffsupver.asplor.recipe.*;

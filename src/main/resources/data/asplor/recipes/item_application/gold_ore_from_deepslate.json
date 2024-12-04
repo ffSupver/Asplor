@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    },
+    {
+      "item": "asplor:gold_orchid_stamen"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:deepslate_gold_ore"
+    }
+  ]
+}

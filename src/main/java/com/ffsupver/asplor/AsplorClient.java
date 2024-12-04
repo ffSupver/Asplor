@@ -8,7 +8,6 @@ import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.simibubi.create.compat.Mods;
-import com.simibubi.create.foundation.utility.ModelSwapper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -16,11 +15,11 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 @Environment(EnvType.CLIENT)
 public class AsplorClient implements ClientModInitializer {
-public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
+
     @Override
     public void onInitializeClient() {
 
-//        MODEL_SWAPPER.registerListeners();
+
 
 
         AllBlocks.registerRender();
@@ -34,10 +33,10 @@ public static final ModelSwapper MODEL_SWAPPER = new ModelSwapper();
 
         ModItems.registerItemClient();
 
-//        BlockEntityRendererFactories.register(AllBlockEntityTypes.DIVIDER_ENTITY.get(), DividerRenderer2::new);
+
         BlockEntityRendererFactories.register(AllBlockEntityTypes.SPACE_TELEPORTER_ENTITY.get(), SpaceTeleporterRenderer::new);
-//        BUFFER_CACHE.registerCompartment(KineticBlockEntityRenderer.KINETIC_BLOCK);
-//        BUFFER_CACHE.registerCompartment(DividerRenderer.DIVIDER);
+
+
 
         AllPartialModels.init();
         AllKeys.register();

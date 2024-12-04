@@ -1,6 +1,6 @@
 package com.ffsupver.asplor.util;
 
-public class MathUtil {
+public final class MathUtil {
     public static long fromEtoAE(long E){
         return E*2;
     }

@@ -4,7 +4,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-public class NbtUtil {
+public final class NbtUtil {
     public static BlockPos readBlockPosFromNbt(NbtCompound nbtCompound){
         return new BlockPos(nbtCompound.getInt("x"),nbtCompound.getInt("y"),nbtCompound.getInt("z"));
     }

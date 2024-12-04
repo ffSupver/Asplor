@@ -1,6 +1,6 @@
 package com.ffsupver.asplor.compat.rei.display;
 
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyPressingRecipe;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyPressingRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;

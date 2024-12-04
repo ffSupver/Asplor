@@ -1,9 +1,9 @@
 package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.alloyChest.AlloyChestEntity;
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressEntity;
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressInstance;
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPressRenderer;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressEntity;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressInstance;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressRenderer;
 import com.ffsupver.asplor.block.battery.BatteryEntity;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderEntity;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderRenderer;
@@ -15,6 +15,7 @@ import com.ffsupver.asplor.block.electrolyzer.ElectrolyzerRenderer;
 import com.ffsupver.asplor.block.energyOutputer.EnergyOutputEntity;
 import com.ffsupver.asplor.block.generator.GeneratorEntity;
 import com.ffsupver.asplor.block.generator.GeneratorInstance;
+import com.ffsupver.asplor.block.generator.GeneratorRenderer;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerEntity;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerRenderer;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpEntity;
@@ -23,6 +24,7 @@ import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceEntity;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceRenderer;
 import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
+import com.ffsupver.asplor.block.motor.MotorRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryControllerEntity;
 import com.ffsupver.asplor.block.refinery.RefineryControllerRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryInputEntity;
@@ -71,7 +73,7 @@ public class AllBlockEntityTypes {
             .blockEntity("generator", GeneratorEntity::new)
             .instance(() -> GeneratorInstance::new, false)
             .validBlocks(GENERATOR)
-//            .renderer(() -> DividerRenderer::new)
+            .renderer(() -> GeneratorRenderer::new)
             .register();
 
 public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
@@ -97,7 +99,7 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("motor", MotorEntity::new)
             .instance(() -> MotorInstance::new, false)
             .validBlocks(MOTOR)
-//            .renderer(() -> CreativeMotorRenderer::new)
+            .renderer(() -> MotorRenderer::new)
             .register();
 
     public static final BlockEntityEntry<MechanicalPumpEntity> MECHANICAL_PUMP_ENTITY = REGISTRATE

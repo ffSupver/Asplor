@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-public class REIFluidDisplay {
+public final class REIFluidDisplay {
     public static <T> EntryStack<T> setTooltipProcessor(EntryStack<? extends T> stack, BiFunction<EntryStack<T>, Tooltip, Tooltip> processor) {
         return stack.tooltipProcessor((BiFunction) processor);
     }

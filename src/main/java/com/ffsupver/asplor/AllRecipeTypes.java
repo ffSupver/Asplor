@@ -1,6 +1,6 @@
 package com.ffsupver.asplor;
 
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyPressingRecipe;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyPressingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;

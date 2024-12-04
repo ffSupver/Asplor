@@ -4,10 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
@@ -169,7 +166,7 @@ public class ElectrolyzerRecipe implements Recipe<FluidInventory> {
 
             // 写入输出流体B的类型和数量
             buf.writeIdentifier(Registries.FLUID.getId(recipe.getOutputFluidB()));
-            buf.writeLong(recipe.getOutputAmountA());
+            buf.writeLong(recipe.getOutputAmountB());
 
         }
     }

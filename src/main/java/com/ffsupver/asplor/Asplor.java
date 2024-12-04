@@ -6,6 +6,7 @@ import com.ffsupver.asplor.enchantment.ModEnchantments;
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItemGroups;
 import com.ffsupver.asplor.item.ModItems;
+import com.ffsupver.asplor.item.item.largeMap.LargeMapState;
 import com.ffsupver.asplor.item.item.singleItemCell.ICellHandlerRegister;
 import com.ffsupver.asplor.networking.ModPackets;
 import com.ffsupver.asplor.recipe.ModRecipes;
@@ -84,6 +85,8 @@ public class Asplor implements ModInitializer {
 		ICellHandlerRegister.register();
 
 		ChunkLoaderServer.registerLoadChunkFunction();
+
+		LargeMapState.loadMapIcon();
 
 		Registry.register(Registries.PAINTING_VARIANT,new Identifier(MOD_ID,"icon"),new PaintingVariant(64,64));
 

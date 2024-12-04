@@ -23,6 +23,8 @@ import net.minecraft.item.NetworkSyncedItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -96,6 +98,7 @@ public class LargeMapItem extends NetworkSyncedItem {
         if (!user.isSneaking()){
 
             LargeMapState largeMapState = getMapState(itemStack, world);
+            world.playSound(user.getX(),user.getY(),user.getZ(), SoundEvents.ITEM_BOOK_PAGE_TURN, SoundCategory.PLAYERS,1,1,true);
             if (!user.getWorld().isClient() && largeMapState != null && getMapId(itemStack) != null) {
                 int mapId = getMapId(itemStack);
                 LargeMapState renderMapState = largeMapState.getRenderState((ServerPlayerEntity) user);
@@ -200,65 +203,64 @@ public class LargeMapItem extends NetworkSyncedItem {
                             int worldX = chunkX * 16 + localX; // 绝对 X 坐标
                             int worldZ = chunkZ * 16 + localZ; // 绝对 Z 坐标
 
-                            if (offsetX == -updateRadius && localX == 0){
-                               preHeight = world.getChunk(chunkX-1,chunkZ).sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX-1, worldZ);
+                            if (offsetX == -updateRadius && localX == 0) {
+                                preHeight = world.getChunk(chunkX - 1, chunkZ).sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX - 1, worldZ);
                             }
-
 
 
                             BlockPos.Mutable blockPos = new BlockPos.Mutable(worldX, 0, worldZ);
-                            WorldChunk chunk = world.getChunk(chunkX, chunkZ);
+                            if (world.isChunkLoaded(chunkX, chunkZ)) {
+                                WorldChunk chunk = world.getChunk(chunkX, chunkZ);
 
-                            // 获取当前坐标最高的方块
-                            int height = chunk.sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX, worldZ);
-                            blockPos.setY(height);
+                                // 获取当前坐标最高的方块
+                                int height = chunk.sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX, worldZ);
+                                blockPos.setY(height);
 
-                            MapColor mapColor = MapColor.CLEAR;
+                                MapColor mapColor = MapColor.CLEAR;
 
-                            while (height > world.getBottomY()) {
-                                // 获取方块的颜色
-                                BlockState blockState = chunk.getBlockState(blockPos);
-                                if (!blockState.isAir()){
-                                    mapColor = blockState.getMapColor(world, blockPos);
-
-                                    // 如果存在液体，处理液体颜色
-                                    if (blockState.getFluidState() != Fluids.EMPTY.getDefaultState()) {
-                                        blockState = this.getFluidStateIfVisible(world, blockState, blockPos);
+                                while (height > world.getBottomY()) {
+                                    // 获取方块的颜色
+                                    BlockState blockState = chunk.getBlockState(blockPos);
+                                    if (!blockState.isAir()) {
                                         mapColor = blockState.getMapColor(world, blockPos);
-                                    }
+
+                                        // 如果存在液体，处理液体颜色
+                                        if (blockState.getFluidState() != Fluids.EMPTY.getDefaultState()) {
+                                            blockState = this.getFluidStateIfVisible(world, blockState, blockPos);
+                                            mapColor = blockState.getMapColor(world, blockPos);
+                                        }
 
 
-                                    // 找到有效颜色后退出循环
-                                    if (mapColor !=  MapColor.CLEAR) {
-                                        break;
+                                        // 找到有效颜色后退出循环
+                                        if (mapColor != MapColor.CLEAR) {
+                                            break;
+                                        }
                                     }
+
+                                    // 向下移动
+                                    height--;
+                                    blockPos.setY(height);
                                 }
 
-                                // 向下移动
-                                height--;
-                                blockPos.setY(height);
+
+                                // 计算亮度等级
+                                MapColor.Brightness brightness = calculateBrightness(height, preHeight);
+
+
+                                //存储本区块最后一列的高度
+                                if (localX == 15) {
+                                    heights[localZ] = height;
+                                }
+                                preHeight = height;
+
+                                // 调整颜色亮度并存入数组
+                                byte mapColorId = (byte) (mapColor != null ? mapColor.id : 0);
+                                mapColorId = setBrightness(mapColorId, brightness);
+
+
+                                // 将颜色存入数组
+                                colors[localX + localZ * 16] = mapColorId;
                             }
-
-
-
-                            // 计算亮度等级
-                            MapColor.Brightness brightness = calculateBrightness(height, preHeight);
-
-
-                            //存储本区块最后一列的高度
-                            if (localX == 15){
-                                heights[localZ] = height;
-                            }
-                            preHeight = height;
-
-                            // 调整颜色亮度并存入数组
-                            byte mapColorId = (byte) (mapColor != null ? mapColor.id : 0);
-                            mapColorId = setBrightness(mapColorId,brightness);
-
-
-
-                          // 将颜色存入数组
-                            colors[localX + localZ * 16] = mapColorId;
                         }
 
                     }

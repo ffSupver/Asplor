@@ -19,7 +19,7 @@ import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
 
-public class RenderUtil {
+public final class RenderUtil {
     public static Box createRenderBoundingBox(BlockPos pos, Double renderDistance) {
         return new Box(pos.getX()+0.5+renderDistance,pos.getY()+0.5+renderDistance,pos.getZ()+0.5+renderDistance,
                 pos.getX()+0.5-renderDistance,pos.getY()+0.5-renderDistance,pos.getZ()+0.5-renderDistance);

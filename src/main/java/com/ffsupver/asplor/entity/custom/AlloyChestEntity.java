@@ -3,6 +3,7 @@ package com.ffsupver.asplor.entity.custom;
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.entity.ModEntities;
+import com.ffsupver.asplor.sound.ModSounds;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -143,7 +144,17 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
         return actionResult;
     }
 
+    @Override
+    public void onOpen(PlayerEntity player) {
+        this.playSound(ModSounds.ALLOY_CHEST_OPEN,1,1);
+        VehicleInventory.super.onOpen(player);
+    }
 
+    @Override
+    public void onClose(PlayerEntity player) {
+        this.playSound(ModSounds.ALLOY_CHEST_CLOSE,1,1);
+        VehicleInventory.super.onClose(player);
+    }
 
     @Override
     public boolean isCollidable() {

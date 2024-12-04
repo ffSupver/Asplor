@@ -1,10 +1,9 @@
-package com.ffsupver.asplor.block.alloy_mechanical_press;
+package com.ffsupver.asplor.block.alloyMechanicalPress;
 
 import com.ffsupver.asplor.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
-import com.simibubi.create.content.kinetics.press.MechanicalPressBlockEntity;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.EntityShapeContext;

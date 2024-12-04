@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.item.item.largeMap;
 
+import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.util.NbtUtil;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
@@ -550,6 +551,10 @@ public class LargeMapState extends PersistentState {
             boolean can_rotate = buf.readBoolean();
             return new MapIconData(blockPos,mapIcon,yaw,text1,can_rotate);
         }
+    }
+
+    public static void loadMapIcon(){
+        Asplor.LOGGER.info("load "+MapIcon.values().length+" mapIcon");
     }
 
     public static enum MapIcon {

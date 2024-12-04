@@ -2,7 +2,7 @@ package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.ConnectModel;
 import com.ffsupver.asplor.block.alloyChest.AlloyChest;
-import com.ffsupver.asplor.block.alloy_mechanical_press.AlloyMechanicalPress;
+import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
 import com.ffsupver.asplor.block.blocks.*;

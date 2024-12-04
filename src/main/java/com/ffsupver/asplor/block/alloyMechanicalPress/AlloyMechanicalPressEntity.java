@@ -1,4 +1,4 @@
-package com.ffsupver.asplor.block.alloy_mechanical_press;
+package com.ffsupver.asplor.block.alloyMechanicalPress;
 
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.AllTags;
