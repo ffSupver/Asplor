@@ -3,7 +3,7 @@ package com.ffsupver.asplor.util;
 import java.util.Comparator;
 import java.util.Map;
 
-public class ComparatorByMap implements Comparator<String> {
+public final class ComparatorByMap implements Comparator<String> {
     private final Map<String,Integer> order;
     public ComparatorByMap(Map<String,Integer> order){
         this.order = order;

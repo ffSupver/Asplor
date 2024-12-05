@@ -2,8 +2,8 @@ package com.ffsupver.asplor.networking;
 
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.networking.packet.OpenBackpackC2SPacket;
-import com.ffsupver.asplor.networking.packet.OpenGuideBookS2CPacket;
 import com.ffsupver.asplor.networking.packet.large_map.LargeMapDataS2CPacket;
+import com.ffsupver.asplor.networking.packet.large_map.OpenGuideBookS2CPacketHandler;
 import com.ffsupver.asplor.networking.packet.large_map.OpenLargeMapS2CPacketHandler;
 import com.ffsupver.asplor.networking.packet.large_map.RequestLargeMapDataC2SPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -25,7 +25,7 @@ public class ModPackets {
         ServerPlayNetworking.registerGlobalReceiver(REQUEST_LARGE_MAP_DATA, RequestLargeMapDataC2SPacket::receive);
     }
     public static void registerS2CPack(){
-        ClientPlayNetworking.registerGlobalReceiver(OPEN_GUIDE_BOOK_SYNC, OpenGuideBookS2CPacket::receive);
+        ClientPlayNetworking.registerGlobalReceiver(OPEN_GUIDE_BOOK_SYNC, OpenGuideBookS2CPacketHandler::receive);
         ClientPlayNetworking.registerGlobalReceiver(OPEN_LARGE_MAP_SYNC, OpenLargeMapS2CPacketHandler::receive);
         ClientPlayNetworking.registerGlobalReceiver(LARGE_MAP_DATA, LargeMapDataS2CPacket::receive);
     }
