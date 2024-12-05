@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:workshop",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1410102884,
+    "spacing": 24,
+    "separation": 12,
+    "type": "minecraft:random_spread"
+  }
+}
