@@ -125,6 +125,7 @@ public class ModItems {
     public static final Item GOLD_ORCHID_SEED = registerItems("gold_orchid_seed",new AliasedBlockItem(AllBlocks.GOLD_ORCHID,new FabricItemSettings()));
     public static final Item LARGE_MAP = registerItems("large_map",new LargeMapItem(new FabricItemSettings()));
     public static final Item EMPTY_LARGE_MAP = registerItems("empty_large_map",new EmptyLargeMapItem(new FabricItemSettings()));
+    public static final Item TIER_1_ROCKET_SHELL = registerItems("tier_1_rocket_shell",new Item(new FabricItemSettings()));
 
 
     @Environment(EnvType.CLIENT)

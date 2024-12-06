@@ -82,5 +82,21 @@ public class ModLootTables {
             table.pool(netherPortalpoolBuilder);
             table.pool(locatorPoolBuilder);
         }
+
+        if (LootTables.VILLAGE_CARTOGRAPHER_CHEST.equals(id)){
+            NbtCompound largeMapNbt = new NbtCompound();
+            largeMapNbt.putString("chapter","earth/large_map");
+
+            LootPool.Builder cartographerBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,2))
+                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
+                            .apply(SetNbtLootFunction.builder(largeMapNbt)));
+            LootPool.Builder emptyLargeMapBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,1))
+                    .with(ItemEntry.builder(ModItems.EMPTY_LARGE_MAP));
+
+            table.pool(cartographerBuilder);
+            table.pool(emptyLargeMapBuilder);
+        }
     }
 }

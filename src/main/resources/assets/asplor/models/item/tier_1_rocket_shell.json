@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "asplor:item/tier_1_rocket_shell"
+  }
+}

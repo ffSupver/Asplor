@@ -11,6 +11,11 @@
       "description": "{\"translate\":\"item.asplor.guide_book\",\"color\":\"white\"}"
     },
     {
+      "name": "earth/large_map",
+      "order": 2,
+      "description": "{\"translate\":\"guide_book.asplor.earth.large_map\",\"color\":\"white\"}"
+    },
+    {
       "name": "earth/add_chest",
       "order": 4,
       "description": "{\"translate\":\"guide_book.asplor.earth.add_chest\",\"color\":\"white\"}"

@@ -70,6 +70,7 @@ public static void registerRecipes(){
 
 
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,LargeMapCloningRecipe.ID),LargeMapCloningRecipe.SERIALIZER);
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,MysteriousPaperCloningRecipe.ID),MysteriousPaperCloningRecipe.SERIALIZER);
 }
 
 private static <T extends Inventory> void  registerRecipeSerializer(BaseRecipeSerializer<Recipe<T>> recipeRecipeSerializer){

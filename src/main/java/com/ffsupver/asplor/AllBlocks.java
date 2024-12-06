@@ -38,7 +38,6 @@ import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
-import com.simibubi.create.foundation.item.ItemDescription;
 import com.simibubi.create.foundation.utility.Couple;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -52,7 +51,6 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
@@ -227,7 +225,6 @@ public class AllBlocks {
             REGISTRATE.block("chunk_loader",ChunkLoader::new)
                     .properties(p->p.mapColor(MapColor.GOLD).sounds(BlockSoundGroup.METAL).strength(2.5F,4.0F).requiresTool())
                     .addLayer(()->RenderLayer::getCutoutMipped)
-                    .onRegisterAfter(RegistryKeys.ITEM,v-> ItemDescription.useKey(v,"a"))
                     .item(BlockItem::new)
                     .build()
                     .register();

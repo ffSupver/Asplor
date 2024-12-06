@@ -5,6 +5,7 @@ import com.ffsupver.asplor.AllRecipeTypes;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyPressingRecipe;
 import com.ffsupver.asplor.compat.rei.category.*;
 import com.ffsupver.asplor.compat.rei.display.*;
+import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.recipe.*;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.Create;
@@ -13,10 +14,15 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+
+import java.util.List;
 
 
 public class AsplorREIClient implements REIClientPlugin {
@@ -43,6 +49,27 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.registerRecipeFiller(ElectrolyzerRecipe.class,ModRecipes.ELECTROLYZER_RECIPETYPE,ElectrolyzeDisplay::new);
         registry.registerRecipeFiller(RefineryRecipe.class,ModRecipes.REFINERY_RECIPETYPE,RefineryDisplay::new);
         registry.registerRecipeFiller(SmartProcessingRecipe.class,ModRecipes.SMART_PROCESSING_RECIPETYPE,SmartProcessingDisplay::new);
+
+
+
+        //复制配方
+        registry.registerRecipeFiller(LargeMapCloningRecipe.class,RecipeType.CRAFTING,largeMapCloningRecipe -> {
+            ItemStack largeMap = ModItems.LARGE_MAP.getDefaultStack();
+            return new CraftingCloningDisplay(List.of(
+                        EntryIngredients.of(largeMap),
+                        EntryIngredients.of(ModItems.EMPTY_LARGE_MAP.getDefaultStack())
+                    ),
+                    List.of(EntryIngredients.of(largeMap.copyWithCount(2))));
+        });
+        registry.registerRecipeFiller(MysteriousPaperCloningRecipe.class,RecipeType.CRAFTING,mysteriousPaperCloningRecipe -> {
+            ItemStack mysteriousPaper = ModItems.MYSTERIOUS_PAPER.getDefaultStack();
+            return new CraftingCloningDisplay(List.of(
+                    EntryIngredients.of(mysteriousPaper),
+                    EntryIngredients.of(Items.PAPER),
+                    EntryIngredients.of(Items.INK_SAC)
+            ),
+                    List.of(EntryIngredients.of(mysteriousPaper.copyWithCount(2))));
+        });
     }
 
     @Override
@@ -56,6 +83,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.add(new ElectrolyzeCategory());
         registry.add(new RefineryCategory());
         registry.add(new SmartProcessingCategory());
+        registry.add(new CraftingCloningCategory());
 
 
         registry.addWorkstations(DividerCategory.DIVIDER, EntryStacks.of(AllBlocks.DIVIDER));

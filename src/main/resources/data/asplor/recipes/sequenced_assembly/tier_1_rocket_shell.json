@@ -1,0 +1,77 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:alloy_block"
+  },
+  "loops": 8,
+  "results": [
+    {
+      "item": "asplor:tier_1_rocket_shell"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_block"
+        },
+        {
+          "item": "asplor:alloy_block"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_block"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_block"
+        },
+        {
+          "item": "asplor:tier_0_rocket_shell"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_block"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_1_rocket_shell"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:alloy_block"
+  }
+}

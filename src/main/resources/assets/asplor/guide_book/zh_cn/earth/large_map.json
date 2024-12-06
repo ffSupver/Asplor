@@ -1,0 +1,5 @@
+{
+  "text": "使用<item.asplor.empty_large_map>来创建一张<item.asplor.large_map>,它可以记录当前维度的任何你探索过的地方。右键一些方块或实体可以把它记录在你的地图上,右键<block.create.track>可以添加上面的火车。在工作台中用<item.asplor.empty_large_map>复制你的<item.asplor.large_map>，拿着副本的玩家也会显示在图中",
+  "picture": "earth/large_map.png",
+  "offset_y": -20
+}

@@ -1,0 +1,5 @@
+{
+  "text": "Use <item.asplor.empty_large_map> to create a <item.asplor.large_map>,which can draw all the places you explored in this dimension. Right click some blocks or entities can mark them on your map;Right click <block.create.track> will add the train on it to your map. Crafting with <item.asplor.empty_large_map> and <item.asplor.large_map> to copy it;Players who holds the copy will also be displayed on the map.",
+  "picture": "earth/large_map.png",
+  "offset_y": 10
+}
