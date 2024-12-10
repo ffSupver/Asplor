@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asplor:block/large_melting_furnace/fluid_port"
+    }
+  }
+}

@@ -94,6 +94,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.addWorkstations(AssemblerCategory.ASSEMBLER,EntryStacks.of(AllItems.SUPER_GLUE));
         registry.addWorkstations(TimeInjectorCategory.TIME_INJECTOR, EntryStacks.of(AllBlocks.TIME_INJECTOR));
         registry.addWorkstations(MeltingFurnaceCategory.MELT, EntryStacks.of(AllBlocks.MELTING_FURNACE));
+        registry.addWorkstations(MeltingFurnaceCategory.MELT, EntryStacks.of(AllBlocks.LARGE_MELTING_FURNACE_CONTROLLER));
         registry.addWorkstations(ElectrolyzeCategory.ELECTROLYZE,EntryStacks.of(AllBlocks.ELECTROLYZER));
         registry.addWorkstations(RefineryCategory.REFINERY,EntryStacks.of(AllBlocks.REFINERY_CONTROLLER));
         registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.SMART_MECHANICAL_ARM));

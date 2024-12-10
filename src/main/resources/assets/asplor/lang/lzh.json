@@ -137,7 +137,9 @@
   "block.asplor.alloy_casing": "合金机壳",
   "block.asplor.alloy_machine": "合金机器",
   "block.asplor.farm_moon_sand": "月壤耕地",
-
+  "block.asplor.large_melting_furnace_controller": "巨紅溫器心",
+  "block.asplor.large_melting_furnace_fluid_port": "巨紅溫器液口",
+  "block.asplor.large_melting_furnace_item_port": "巨紅溫器料口",
 
 
 
@@ -309,5 +311,8 @@
   "create.tooltip.refinery.ready": "成",
   "create.tooltip.refinery.no_input": "無以入",
   "create.tooltip.refinery.no_output": "無以出",
-  "create.tooltip.refinery.incomplete": "寄"
+  "create.tooltip.refinery.incomplete": "寄",
+  "create.gui.goggles.large_melting_furnace_stats": "巨紅溫器 :",
+  "create.tooltip.large_melting_furnace.ready": "成",
+  "create.tooltip.large_melting_furnace.incomplete": "寄"
 }

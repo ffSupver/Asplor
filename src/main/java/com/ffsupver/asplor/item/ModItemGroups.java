@@ -111,6 +111,9 @@ public class ModItemGroups {
                             entries.add(LOCATOR);
                             entries.add(MECHANICAL_PUMP);
                             entries.add(MELTING_FURNACE);
+                            entries.add(LARGE_MELTING_FURNACE_CONTROLLER);
+                            entries.add(LARGE_MELTING_FURNACE_FLUID_PORT);
+                            entries.add(LARGE_MELTING_FURNACE_ITEM_PORT);
                             entries.add(ELECTROLYZER);
                             entries.add(TIER_0_ROCKET);
                             entries.add(REFINERY_CONTROLLER);

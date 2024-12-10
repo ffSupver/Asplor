@@ -139,6 +139,9 @@
   "block.asplor.alloy_casing": "Alloy Casing",
   "block.asplor.alloy_machine": "Alloy Machine",
   "block.asplor.farm_moon_sand": "Farm Moon Sand",
+  "block.asplor.large_melting_furnace_controller": "Large Melting Furnace Controller",
+  "block.asplor.large_melting_furnace_fluid_port": "Large Melting Furnace Fluid Port",
+  "block.asplor.large_melting_furnace_item_port": "Large Melting Furnace Item Port",
 
 
 
@@ -306,5 +309,8 @@
   "create.tooltip.refinery.ready": "Ready",
   "create.tooltip.refinery.no_input": "No Input",
   "create.tooltip.refinery.no_output": "No Output",
-  "create.tooltip.refinery.incomplete": "Incomplete"
+  "create.tooltip.refinery.incomplete": "Incomplete",
+  "create.gui.goggles.large_melting_furnace_stats": "Large Melting Furnace :",
+  "create.tooltip.large_melting_furnace.ready": "Ready",
+  "create.tooltip.large_melting_furnace.incomplete": "Incomplete"
 }

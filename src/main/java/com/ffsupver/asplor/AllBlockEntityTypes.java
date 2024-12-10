@@ -20,8 +20,7 @@ import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerEntity;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerRenderer;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpEntity;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpInstance;
-import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceEntity;
-import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnaceRenderer;
+import com.ffsupver.asplor.block.meltingFurnace.*;
 import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
 import com.ffsupver.asplor.block.motor.MotorRenderer;
@@ -160,6 +159,21 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("chunk_loader",ChunkLoaderEntity::new)
             .validBlocks(CHUNK_LOADER)
             .renderer(()-> ChunkLoaderRenderer::new)
+            .register();
+    public static final BlockEntityEntry<LargeMeltingFurnaceControllerEntity> LARGE_MELTING_FURNACE_CONTROLLER_ENTITY = REGISTRATE
+            .blockEntity("large_melting_furnace_controller", LargeMeltingFurnaceControllerEntity::new)
+            .validBlocks(LARGE_MELTING_FURNACE_CONTROLLER)
+            .renderer(()-> LargeMeltingFurnaceControllerRenderer::new)
+            .register();
+    public static final BlockEntityEntry<LargeMeltingFurnaceFluidPortEntity> LARGE_MELTING_FURNACE_FLUID_PORT_ENTITY = REGISTRATE
+            .blockEntity("large_melting_furnace_fluid_port", LargeMeltingFurnaceFluidPortEntity::new)
+            .validBlocks(LARGE_MELTING_FURNACE_FLUID_PORT)
+//            .renderer(()-> ChunkLoaderRenderer::new)
+            .register();
+    public static final BlockEntityEntry<LargeMeltingFurnaceItemPortEntity> LARGE_MELTING_FURNACE_ITEM_PORT_ENTITY = REGISTRATE
+            .blockEntity("large_melting_item_fluid_port", LargeMeltingFurnaceItemPortEntity::new)
+            .validBlocks(LARGE_MELTING_FURNACE_ITEM_PORT)
+//            .renderer(()-> ChunkLoaderRenderer::new)
             .register();
 
     //注册普通方块实体

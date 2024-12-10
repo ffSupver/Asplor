@@ -136,6 +136,9 @@
   "block.asplor.alloy_casing": "合金机壳",
   "block.asplor.alloy_machine": "合金机器",
   "block.asplor.farm_moon_sand": "月壤耕地",
+  "block.asplor.large_melting_furnace_controller": "大型熔化炉控制器",
+  "block.asplor.large_melting_furnace_fluid_port": "大型熔化炉流体接口",
+  "block.asplor.large_melting_furnace_item_port": "大型熔化炉物品接口",
 
 
 
@@ -306,12 +309,7 @@
   "create.tooltip.refinery.no_input": "缺少输入",
   "create.tooltip.refinery.no_output": "缺少输出",
   "create.tooltip.refinery.incomplete": "不完整",
-
-
-  "kubejs_fix": {
-    "create.generic.unit.millibuckets": "mB",
-    "create.tooltip.capacityProvided": "应力量：",
-    "create.tooltip.stressImpact": "应力影响："
-  }
-
+  "create.gui.goggles.large_melting_furnace_stats": "大型熔化炉 :",
+  "create.tooltip.large_melting_furnace.ready": "就绪",
+  "create.tooltip.large_melting_furnace.incomplete": "不完整"
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "asplor:block/large_melting_furnace/item_port"
+  }
+}

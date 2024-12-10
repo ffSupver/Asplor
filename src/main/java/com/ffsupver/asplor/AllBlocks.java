@@ -14,6 +14,9 @@ import com.ffsupver.asplor.block.generator.Generator;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurner;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerItem;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPump;
+import com.ffsupver.asplor.block.meltingFurnace.LargeMeltingFurnaceController;
+import com.ffsupver.asplor.block.meltingFurnace.LargeMeltingFurnaceFluidPort;
+import com.ffsupver.asplor.block.meltingFurnace.LargeMeltingFurnaceItemPort;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnace;
 import com.ffsupver.asplor.block.motor.Motor;
 import com.ffsupver.asplor.block.refinery.RefineryController;
@@ -228,23 +231,40 @@ public class AllBlocks {
                     .item(BlockItem::new)
                     .build()
                     .register();
-
+    public static final BlockEntry<LargeMeltingFurnaceController> LARGE_MELTING_FURNACE_CONTROLLER =
+            REGISTRATE.block("large_melting_furnace_controller",LargeMeltingFurnaceController::new)
+                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeMeltingFurnaceFluidPort> LARGE_MELTING_FURNACE_FLUID_PORT =
+            REGISTRATE.block("large_melting_furnace_fluid_port", LargeMeltingFurnaceFluidPort::new)
+                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<LargeMeltingFurnaceItemPort> LARGE_MELTING_FURNACE_ITEM_PORT =
+            REGISTRATE.block("large_melting_furnace_item_port", LargeMeltingFurnaceItemPort::new)
+                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
 
 
 
 
 
     //注册普通方块
-    public  static final Block ALLOY_BLOCK=registerBlock("alloy_block",new Block(FabricBlockSettings.create().strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
-    public static final Block ALLOY_CHEST=registerBlock("alloy_chest",new AlloyChest(FabricBlockSettings.create().strength(4.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
-    public static final Block ASSEMBLER=registerBlock("assembler",new Assembler(FabricBlockSettings.create().strength(0.8f, 4.0f).sounds(BlockSoundGroup.WOOD).solid()));
+    public  static final Block ALLOY_BLOCK=registerBlock("alloy_block",new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
+    public static final Block ALLOY_CHEST=registerBlock("alloy_chest",new AlloyChest(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(4.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
+    public static final Block ASSEMBLER=registerBlock("assembler",new Assembler(FabricBlockSettings.create().mapColor(MapColor.BLUE).strength(0.8f, 4.0f).sounds(BlockSoundGroup.WOOD).solid()));
 
-    public static final Block REFINED_OIL = registerFluidBlock("refined_oil",ModFluids.REFINED_OIL,null);
+    public static final Block REFINED_OIL = registerFluidBlock("refined_oil",ModFluids.REFINED_OIL,settings -> settings.mapColor(MapColor.BLACK));
 
     public static final Block ENERGY_OUTPUT = registerBlock("energy_output",new EnergyOutput());
     public static final Block ANDESITE_MACHINE = registerBlock("andesite_machine",new CasingBlock(FabricBlockSettings.copy(Blocks.BIRCH_WOOD)));
-    public static final Block GLUE = registerFluidBlock("glue",ModFluids.GLUE,null);
-    public  static final Block UNPACKING_TABLE=registerBlock("unpacking_table",new Block(FabricBlockSettings.create().strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
+    public static final Block GLUE = registerFluidBlock("glue",ModFluids.GLUE,settings -> settings.mapColor(MapColor.GREEN));
+    public  static final Block UNPACKING_TABLE=registerBlock("unpacking_table",new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
     public static final Block MOLTEN_IRON = registerMoltenMetalFluidBlock("molten_iron",ModFluids.MOLTEN_IRON,null);
     public static final Block MOLTEN_GOLD = registerMoltenMetalFluidBlock("molten_gold",ModFluids.MOLTEN_GOLD,null);
     public static final Block MOLTEN_COPPER = registerMoltenMetalFluidBlock("molten_copper",ModFluids.MOLTEN_COPPER,null);
@@ -253,10 +273,10 @@ public class AllBlocks {
     public static final Block MOLTEN_BRASS = registerMoltenMetalFluidBlock("molten_brass",ModFluids.MOLTEN_BRASS,null);
     public static final Block MOLTEN_ALLOY = registerMoltenMetalFluidBlock("molten_alloy",ModFluids.MOLTEN_ALLOY,null);
 
-    public static final Block FROZEN_CORE=registerBlock("frozen_core",new FrozenCore(FabricBlockSettings.create().strength(0.8f, 2.0f).sounds(BlockSoundGroup.GLASS).solid()));
+    public static final Block FROZEN_CORE=registerBlock("frozen_core",new FrozenCore(FabricBlockSettings.create().mapColor(MapColor.PALE_PURPLE).strength(0.8f, 2.0f).sounds(BlockSoundGroup.GLASS).solid()));
 
-    public static final Block SALT_WATER = registerFluidBlock("salt_water",ModFluids.SALT_WATER,null);
-    public static final Block CHLORINE = registerFluidBlock("chlorine",ModFluids.CHLORINE,null);
+    public static final Block SALT_WATER = registerFluidBlock("salt_water",ModFluids.SALT_WATER,settings -> settings.mapColor(MapColor.WATER_BLUE));
+    public static final Block CHLORINE = registerFluidBlock("chlorine",ModFluids.CHLORINE,settings -> settings.mapColor(MapColor.LICHEN_GREEN));
     public static final Block UNSTABLE_ROCK = registerBlock("unstable_rock",new UnstableRock(FabricBlockSettings.copy(Blocks.STONE)));
     public static final Block ALLOY_LAVA = registerFluidBlock("alloy_lava",ModFluids.ALLOY_LAVA,p->p.mapColor(MapColor.RED).luminance(15));
     public static final Block MARS_SAND = registerBlock("mars_sand",new FallingBlock(AbstractBlock.Settings.copy(Blocks.SAND).mapColor(MapColor.TERRACOTTA_RED)));
@@ -264,17 +284,17 @@ public class AllBlocks {
     public static final Block MOLTEN_DESH = registerMoltenMetalFluidBlock("molten_desh",ModFluids.MOLTEN_DESH,null);
     public static final Block IMPURE_MOLTEN_DESH = registerMoltenMetalFluidBlock("impure_molten_desh",ModFluids.IMPURE_MOLTEN_DESH,null);
 
-    public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).strength(1.5F, 2.0F).requiresTool()));
-    public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,null);
-    public static final Block CONCENTRATED_OIL = registerFluidBlock("concentrated_oil",ModFluids.CONCENTRATED_OIL,null);
+    public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.BLACK).strength(1.5F, 2.0F).requiresTool()));
+    public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,settings -> settings.mapColor(MapColor.LIGHT_BLUE));
+    public static final Block CONCENTRATED_OIL = registerFluidBlock("concentrated_oil",ModFluids.CONCENTRATED_OIL,settings ->  settings.mapColor(MapColor.BLACK));
     public static final Block REFINERY_BRICKS = registerBlock("refinery_bricks",new Block(REFINERY_SETTING.apply(FabricBlockSettings.create())));
     public static final Block REFINERY_GLASS = registerBlock("refinery_glass",new GlassBlock(REFINERY_SETTING.apply(FabricBlockSettings.create()).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block HEAVY_OIL = registerFluidBlock("heavy_oil",ModFluids.HEAVY_OIL,null);
-    public static final Block LIGHT_OIL = registerFluidBlock("light_oil",ModFluids.LIGHT_OIL,null);
+    public static final Block HEAVY_OIL = registerFluidBlock("heavy_oil",ModFluids.HEAVY_OIL,settings -> settings.mapColor(MapColor.BROWN));
+    public static final Block LIGHT_OIL = registerFluidBlock("light_oil",ModFluids.LIGHT_OIL,settings -> settings.mapColor(MapColor.YELLOW));
     public static final Block AllOY_CASING = registerBlock("alloy_casing",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block AllOY_MACHINE = registerBlock("alloy_machine",new CasingBlock(FabricBlockSettings.create().strength(2.0f,7.0f).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block GOLD_ORCHID = registerBlock("gold_orchid",new GoldOrchidBlock(FabricBlockSettings.copy(Blocks.BEETROOTS)));
-    public static final Block FARM_MOON_SAND = registerBlock("farm_moon_sand",new FarmMoonSandBlock(FabricBlockSettings.copy(Blocks.SAND).ticksRandomly()));
+    public static final Block FARM_MOON_SAND = registerBlock("farm_moon_sand",new FarmMoonSandBlock(FabricBlockSettings.copy(Blocks.SAND).mapColor(MapColor.STONE_GRAY).ticksRandomly()));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

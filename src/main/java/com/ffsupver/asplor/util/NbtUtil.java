@@ -1,8 +1,12 @@
 package com.ffsupver.asplor.util;
 
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+
+import java.util.ArrayList;
 
 public final class NbtUtil {
     public static BlockPos readBlockPosFromNbt(NbtCompound nbtCompound){
@@ -15,6 +19,23 @@ public final class NbtUtil {
         result.putInt("z",blockPos.getZ());
         return result;
     }
+
+    public static NbtList writeBlockPosListToNbt(ArrayList<BlockPos> blockPosList){
+        NbtList result = new NbtList();
+        for (BlockPos blockPos : blockPosList){
+            result.add(NbtUtil.writeBlockPosToNbt(blockPos));
+        }
+        return result;
+    }
+
+    public static ArrayList<BlockPos> readBlockPosListFromNbt(NbtList nbtList){
+        ArrayList<BlockPos> result = new ArrayList<>();
+        for (NbtElement e : nbtList){
+            result.add(readBlockPosFromNbt((NbtCompound) e));
+        }
+        return result;
+    }
+
     public static Vec3d readVec3dFromNbt(NbtCompound nbtCompound){
         return new Vec3d(nbtCompound.getDouble("x"),nbtCompound.getDouble("y"),nbtCompound.getDouble("z"));
     }
