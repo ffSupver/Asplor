@@ -285,6 +285,15 @@
   "asplor.ponder.chunk_loader.header": "How to chunk loader",
   "asplor.ponder.chunk_loader.text_1": "Adding clock to active chunk loader, each clock provide four minutes loading.",
   "asplor.ponder.chunk_loader.text_2": "Crops grow when loaded.",
+  "asplor.ponder.large_melting_furnace.base.header": "Using large melting furnace",
+  "asplor.ponder.large_melting_furnace.base.text_1": "Large melting furnace can be any size smaller than a 32x32x32 cube",
+  "asplor.ponder.large_melting_furnace.base.text_2": "Large melting furnace needs an item port to input items",
+  "asplor.ponder.large_melting_furnace.base.text_3": "Large melting furnace needs an fluid port to output fluid",
+  "asplor.ponder.large_melting_furnace.base.text_4": "Large melting furnace needs an controller",
+  "asplor.ponder.large_melting_furnace.base.text_5": "Inner of large melting furnace must be air or andesite ladder",
+  "asplor.ponder.large_melting_furnace.base.text_6": "Large melting furnace needs to be heat",
+  "asplor.ponder.large_melting_furnace.base.text_7": "Input item in the item port",
+  "asplor.ponder.large_melting_furnace.base.text_8": "Output fluid from the fluid port",
 
 
 

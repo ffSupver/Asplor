@@ -115,7 +115,7 @@ public abstract class SaltWaterFluid extends FlowableFluid {
         if (direction == Direction.DOWN) {
             BlockPos pos1 = pos.down();
             FluidState fluidState2 = world.getFluidState(pos);
-            if (this.isIn(FluidTags.WATER)&&fluidState2.isIn(FluidTags.WATER)&&(!fluidState2.isIn(ModTags.Fluids.GLUE))) {
+            if (this.isIn(FluidTags.WATER)&&fluidState2.isIn(FluidTags.LAVA)&&(!fluidState2.isIn(ModTags.Fluids.SALT_WATER))) {
                 if (state.getBlock() instanceof FluidBlock) {
                     world.setBlockState(pos, Blocks.SAND.getDefaultState(), 3);
                 }

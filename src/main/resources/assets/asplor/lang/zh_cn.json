@@ -285,6 +285,15 @@
   "asplor.ponder.chunk_loader.header": "如何使用区块加载器",
   "asplor.ponder.chunk_loader.text_1": "向区块加载器加入钟来激活它，每个钟可以让这个区块加载4分钟",
   "asplor.ponder.chunk_loader.text_2": "加载的区块里植物会正常生长",
+  "asplor.ponder.large_melting_furnace.base.header": "使用大型熔化炉",
+  "asplor.ponder.large_melting_furnace.base.text_1": "大型熔化炉的大小应该小于32x32x32",
+  "asplor.ponder.large_melting_furnace.base.text_2": "大型熔化炉需要物品接口来输入物品",
+  "asplor.ponder.large_melting_furnace.base.text_3": "大型熔化炉需要流体接口来输出液体",
+  "asplor.ponder.large_melting_furnace.base.text_4": "大型熔化炉需要有一个控制器",
+  "asplor.ponder.large_melting_furnace.base.text_5": "大型熔化炉的内部必须是空的或者是安山梯子",
+  "asplor.ponder.large_melting_furnace.base.text_6": "大型熔化炉需要加热",
+  "asplor.ponder.large_melting_furnace.base.text_7": "从物品接口输入物品",
+  "asplor.ponder.large_melting_furnace.base.text_8": "从流体接口输出流体",
 
 
   "planet.asplor.the_nether": "幽冥星",

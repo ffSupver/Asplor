@@ -25,6 +25,7 @@ public class ModTags {
         public static final TagKey<Fluid> GLUE = createTag("glue");
         public static final TagKey<Fluid> MOLTEN_METAL = createTag("molten_metal");
         public static final TagKey<Fluid> TIER_0_ROCKET_FUEL = createTag("tier_0_rocket_fuel");
+        public static final TagKey<Fluid> SALT_WATER = createTag("salt_water");
 
         private static TagKey<Fluid> createTag(String name) {
             return TagKey.of(RegistryKeys.FLUID,new Identifier(Asplor.MOD_ID,name));
