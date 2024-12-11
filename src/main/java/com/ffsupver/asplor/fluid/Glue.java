@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class Glue extends FlowableFluid {
+public abstract class Glue extends FlowableFluid implements GenerateBlockWhenLava{
     @Override
     public Fluid getFlowing() {
         return ModFluids.FLOWING_GLUE;
@@ -126,6 +126,11 @@ public abstract class Glue extends FlowableFluid {
         }
 
         super.flow(world, pos, state, direction, fluidState);
+    }
+
+    @Override
+    public BlockState getBlockToGenerateWhenLava() {
+        return Blocks.CLAY.getDefaultState();
     }
 
     public static class Flowing extends Glue{

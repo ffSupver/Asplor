@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class HydrochloricAcidFluid extends FlowableFluid {
+public abstract class HydrochloricAcidFluid extends FlowableFluid implements GenerateBlockWhenLava{
     @Override
     public Fluid getFlowing() {
         return ModFluids.FLOWING_HYDROCHLORIC_ACID;
@@ -126,6 +126,11 @@ public abstract class HydrochloricAcidFluid extends FlowableFluid {
         }
 
         super.flow(world, pos, state, direction, fluidState);
+    }
+
+    @Override
+    public BlockState getBlockToGenerateWhenLava() {
+        return Blocks.GRAVEL.getDefaultState();
     }
 
     public static class Flowing extends HydrochloricAcidFluid {

@@ -1,8 +1,7 @@
 package com.ffsupver.asplor.mixin;
 
-import com.ffsupver.asplor.ModTags;
+import com.ffsupver.asplor.fluid.GenerateBlockWhenLava;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.FluidState;
@@ -24,11 +23,10 @@ public abstract class LavaFluidMixin  extends FlowableFluid {
     @Inject(method = "flow",at= @At(value = "INVOKE",target = "Lnet/minecraft/world/WorldAccess;getFluidState(Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/fluid/FluidState;"), cancellable = true)
     protected void flow(WorldAccess world, BlockPos pos, BlockState state, Direction direction, FluidState fluidState, CallbackInfo ci){
         FluidState fluidState1 = world.getFluidState(pos);
-        if (this.isIn(FluidTags.LAVA) && fluidState1.isIn(ModTags.Fluids.GLUE)) {
+        if (this.isIn(FluidTags.LAVA) && fluidState1.getFluid() instanceof GenerateBlockWhenLava generateBlockWhenLava){
             if (state.getBlock() instanceof FluidBlock) {
-                world.setBlockState(pos, Blocks.CLAY.getDefaultState(), 3);
+                world.setBlockState(pos, generateBlockWhenLava.getBlockToGenerateWhenLava(), 3);
             }
-
             this.playExtinguishEvent(world, pos);
             ci.cancel();
         }

@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class SaltWaterFluid extends FlowableFluid {
+public abstract class SaltWaterFluid extends FlowableFluid implements GenerateBlockWhenLava{
     @Override
     public Fluid getFlowing() {
         return ModFluids.FLOWING_SALT_WATER;
@@ -127,6 +127,11 @@ public abstract class SaltWaterFluid extends FlowableFluid {
         }
 
         super.flow(world, pos, state, direction, fluidState);
+    }
+
+    @Override
+    public BlockState getBlockToGenerateWhenLava() {
+        return Blocks.SAND.getDefaultState();
     }
 
     public static class Flowing extends SaltWaterFluid {

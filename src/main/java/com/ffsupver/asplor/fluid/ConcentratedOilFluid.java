@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class ConcentratedOilFluid extends FlowableFluid {
+public abstract class ConcentratedOilFluid extends FlowableFluid implements GenerateBlockWhenLava{
     @Override
     public Fluid getFlowing() {
         return ModFluids.FLOWING_CONCENTRATED_OIL;
@@ -69,7 +69,7 @@ public abstract class ConcentratedOilFluid extends FlowableFluid {
 
     @Override
     protected boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
-        return state.getHeight(world, pos) >= 0.44444445F && fluid.isIn(FluidTags.WATER);
+        return state.getHeight(world, pos) >= 0.44444445F && (fluid.isIn(FluidTags.WATER) || fluid.isIn(FluidTags.LAVA));
     }
 
     @Override
@@ -127,6 +127,12 @@ public abstract class ConcentratedOilFluid extends FlowableFluid {
         }
 
         super.flow(world, pos, state, direction, fluidState);
+    }
+
+
+    @Override
+    public BlockState getBlockToGenerateWhenLava() {
+        return Blocks.COARSE_DIRT.getDefaultState();
     }
 
     public static class Flowing extends ConcentratedOilFluid {

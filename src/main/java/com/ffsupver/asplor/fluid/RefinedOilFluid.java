@@ -11,7 +11,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.state.StateManager;
@@ -23,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class RefinedOilFluid extends FlowableFluid {
+public abstract class RefinedOilFluid extends FlowableFluid implements GenerateBlockWhenLava{
     @Override
     public Fluid getFlowing() {
         return ModFluids.FLOWING_REFINED_OIL;
@@ -71,7 +70,7 @@ public abstract class RefinedOilFluid extends FlowableFluid {
 
     @Override
     protected boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
-        return state.getHeight(world, pos) >= 0.44444445F && fluid.isIn(FluidTags.WATER);
+        return state.getHeight(world, pos) >= 0.44444445F && (fluid.isIn(FluidTags.WATER) || fluid.isIn(FluidTags.LAVA));
     }
 
     @Override
@@ -129,6 +128,12 @@ public abstract class RefinedOilFluid extends FlowableFluid {
         }
 
         super.flow(world, pos, state, direction, fluidState);
+    }
+
+
+    @Override
+    public BlockState getBlockToGenerateWhenLava() {
+        return Blocks.DIRT.getDefaultState();
     }
 
     public static class Flowing extends RefinedOilFluid{
