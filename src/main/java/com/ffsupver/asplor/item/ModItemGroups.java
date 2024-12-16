@@ -137,6 +137,9 @@ public class ModItemGroups {
                             entries.add(SINGLE_ITEM_STORAGE_CELL_1M);
                             entries.add(CHUNK_LOADER);
                             entries.add(INFUSION_CLOCK);
+                            entries.add(IRON_AIRLOCK_SWITCH);
+                            entries.add(IRON_PLATING_AIRLOCK_SWITCH);
+                            entries.add(POLISHED_CUT_CALCITE_AIRLOCK_SWITCH);
                         }).build());
 
     }

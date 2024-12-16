@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/airlock_switch/iron_side",
+    "east": "asplor:block/airlock_switch/iron_side",
+    "north": "asplor:block/airlock_switch/iron_face_on",
+    "particle": "asplor:block/airlock_switch/iron_side",
+    "south": "asplor:block/airlock_switch/iron_face_on",
+    "up": "asplor:block/airlock_switch/iron_side",
+    "west": "asplor:block/airlock_switch/iron_side"
+  }
+}

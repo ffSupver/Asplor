@@ -142,6 +142,9 @@
   "block.asplor.large_melting_furnace_controller": "Large Melting Furnace Controller",
   "block.asplor.large_melting_furnace_fluid_port": "Large Melting Furnace Fluid Port",
   "block.asplor.large_melting_furnace_item_port": "Large Melting Furnace Item Port",
+  "block.asplor.iron_airlock_switch": "Iron Airlock Switch",
+  "block.asplor.iron_plating_airlock_switch": "Iron Plating Airlock Switch",
+  "block.asplor.polished_cut_calcite_airlock_switch": "Polished Cut Calcite Airlock Switch",
 
 
 

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "on=true,axis=x": {
+      "model": "asplor:block/airlock_switch/polished_cut_calcite_on_ew"
+    },
+    "on=false,axis=x": {
+      "model": "asplor:block/airlock_switch/polished_cut_calcite_off_ew"
+    },
+    "on=true,axis=z": {
+      "model": "asplor:block/airlock_switch/polished_cut_calcite_on_ns"
+    },
+    "on=false,axis=z": {
+      "model": "asplor:block/airlock_switch/polished_cut_calcite_off_ns"
+    }
+  }
+}

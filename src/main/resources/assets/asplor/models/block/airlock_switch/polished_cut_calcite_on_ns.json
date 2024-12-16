@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/airlock_switch/polished_cut_calcite_side",
+    "east": "asplor:block/airlock_switch/polished_cut_calcite_side",
+    "north": "asplor:block/airlock_switch/polished_cut_calcite_face_on",
+    "particle": "asplor:block/airlock_switch/polished_cut_calcite_side",
+    "south": "asplor:block/airlock_switch/polished_cut_calcite_face_on",
+    "up": "asplor:block/airlock_switch/polished_cut_calcite_side",
+    "west": "asplor:block/airlock_switch/polished_cut_calcite_side"
+  }
+}

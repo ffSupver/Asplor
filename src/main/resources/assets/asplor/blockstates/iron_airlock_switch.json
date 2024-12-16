@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "on=true,axis=x": {
+      "model": "asplor:block/airlock_switch/iron_on_ew"
+    },
+    "on=false,axis=x": {
+      "model": "asplor:block/airlock_switch/iron_off_ew"
+    },
+    "on=true,axis=z": {
+      "model": "asplor:block/airlock_switch/iron_on_ns"
+    },
+    "on=false,axis=z": {
+      "model": "asplor:block/airlock_switch/iron_off_ns"
+    }
+  }
+}

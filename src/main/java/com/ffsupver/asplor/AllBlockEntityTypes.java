@@ -1,5 +1,6 @@
 package com.ffsupver.asplor;
 
+import com.ffsupver.asplor.block.airlockSwitch.AirlockSwitchEntity;
 import com.ffsupver.asplor.block.alloyChest.AlloyChestEntity;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressEntity;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressInstance;
@@ -40,6 +41,8 @@ import com.simibubi.create.content.contraptions.bearing.BearingInstance;
 import com.simibubi.create.content.contraptions.bearing.BearingRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -184,10 +187,19 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
     public static final BlockEntityType<EnergyOutputEntity> ENERGY_OUTPUT_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"energy_output"),
                     FabricBlockEntityTypeBuilder.create(EnergyOutputEntity::new, ENERGY_OUTPUT).build());
-
+    public static final BlockEntityType<AirlockSwitchEntity> AIRLOCK_SWITCH_ENTITY = registerBaseBlockEntityType("airlock_switch", AirlockSwitchEntity::new);
 
 
 
     public static void register(){
+    }
+
+    public static <T extends BlockEntity> BlockEntityType<T> registerBaseBlockEntityType(String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block){
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier(Asplor.MOD_ID,name),
+                FabricBlockEntityTypeBuilder.create(factory, block).build());
+    }
+    public static <T extends BlockEntity> BlockEntityType<T> registerBaseBlockEntityType(String name, FabricBlockEntityTypeBuilder.Factory<T> factory){
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier(Asplor.MOD_ID,name),
+                FabricBlockEntityTypeBuilder.create(factory).build());
     }
 }

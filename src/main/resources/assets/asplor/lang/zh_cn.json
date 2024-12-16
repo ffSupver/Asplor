@@ -139,6 +139,9 @@
   "block.asplor.large_melting_furnace_controller": "大型熔化炉控制器",
   "block.asplor.large_melting_furnace_fluid_port": "大型熔化炉流体接口",
   "block.asplor.large_melting_furnace_item_port": "大型熔化炉物品接口",
+  "block.asplor.iron_airlock_switch": "铁质气闸开关",
+  "block.asplor.iron_plating_airlock_switch": "铁板气闸开关",
+  "block.asplor.polished_cut_calcite_airlock_switch": "磨制切制方解石气闸开关",
 
 
 
