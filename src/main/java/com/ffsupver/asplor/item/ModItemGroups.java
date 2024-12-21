@@ -116,6 +116,9 @@ public class ModItemGroups {
                             entries.add(LARGE_MELTING_FURNACE_ITEM_PORT);
                             entries.add(ELECTROLYZER);
                             entries.add(TIER_0_ROCKET);
+                            entries.add(CARGO_ROCKET);
+                            entries.add(ROCKET_CARGO_LOADER);
+                            entries.add(ROCKET_FUEL_LOADER);
                             entries.add(REFINERY_CONTROLLER);
                             entries.add(REFINERY_INPUT);
                             entries.add(REFINERY_OUTPUT);

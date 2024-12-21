@@ -23,7 +23,7 @@ public class AirlockSwitchItem extends BlockItem {
         BlockPos pos = context.getBlockPos();
         ItemStack stack = context.getStack();
         PlayerEntity player = context.getPlayer();
-        if (player != null && !player.isSneaking() && context.getWorld().getBlockEntity(pos) instanceof AirlockSwitchEntity airlockSwitchEntity){
+        if (player != null && !player.isSneaking() && context.getWorld().getBlockEntity(pos) instanceof AirlockSwitchEntity){
                 NbtCompound nbt = stack.getOrCreateNbt();
                 nbt.put("pair", NbtUtil.writeBlockPosToNbt(pos));
                 stack.setNbt(nbt);

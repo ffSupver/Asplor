@@ -9,6 +9,7 @@ import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.AllPartialModels;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
+import com.ffsupver.asplor.entity.client.CargoRocketRenderer;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.item.ToolItem;
@@ -126,11 +127,13 @@ public class ModItems {
     public static final Item LARGE_MAP = registerItems("large_map",new LargeMapItem(new FabricItemSettings()));
     public static final Item EMPTY_LARGE_MAP = registerItems("empty_large_map",new EmptyLargeMapItem(new FabricItemSettings()));
     public static final Item TIER_1_ROCKET_SHELL = registerItems("tier_1_rocket_shell",new Item(new FabricItemSettings()));
+    public static final Item CARGO_ROCKET = registerItems("cargo_rocket",new CargoRocketItem(new FabricItemSettings().maxCount(1).fireproof()));
 
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
+        BuiltinItemRendererRegistryImpl.INSTANCE.register(CARGO_ROCKET, new RocketItemRenderer(CargoRocketRenderer.CARGO_ROCKET_MODEL,CargoRocketRenderer.CARGO_ROCKET_TEXTURE));
     }
 
     @Environment(EnvType.CLIENT)

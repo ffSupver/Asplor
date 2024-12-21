@@ -29,6 +29,9 @@ import com.ffsupver.asplor.block.refinery.RefineryControllerEntity;
 import com.ffsupver.asplor.block.refinery.RefineryControllerRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryInputEntity;
 import com.ffsupver.asplor.block.refinery.RefineryOutputEntity;
+import com.ffsupver.asplor.block.rocketCargoLoader.RocketCargoLoaderEntity;
+import com.ffsupver.asplor.block.rocketFuelLoader.RocketFuelLoaderEntity;
+import com.ffsupver.asplor.block.rocketFuelLoader.RocketFuelLoaderRenderer;
 import com.ffsupver.asplor.block.smartMechanicalArm.*;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterEntity;
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
@@ -171,12 +174,21 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
     public static final BlockEntityEntry<LargeMeltingFurnaceFluidPortEntity> LARGE_MELTING_FURNACE_FLUID_PORT_ENTITY = REGISTRATE
             .blockEntity("large_melting_furnace_fluid_port", LargeMeltingFurnaceFluidPortEntity::new)
             .validBlocks(LARGE_MELTING_FURNACE_FLUID_PORT)
-//            .renderer(()-> ChunkLoaderRenderer::new)
             .register();
     public static final BlockEntityEntry<LargeMeltingFurnaceItemPortEntity> LARGE_MELTING_FURNACE_ITEM_PORT_ENTITY = REGISTRATE
             .blockEntity("large_melting_item_fluid_port", LargeMeltingFurnaceItemPortEntity::new)
             .validBlocks(LARGE_MELTING_FURNACE_ITEM_PORT)
-//            .renderer(()-> ChunkLoaderRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<RocketFuelLoaderEntity> ROCKET_FUEL_LOADER_ENTITY = REGISTRATE
+            .blockEntity("rocket_fuel_loader", RocketFuelLoaderEntity::new)
+            .validBlocks(ROCKET_FUEL_LOADER)
+            .renderer(()-> RocketFuelLoaderRenderer::new)
+            .register();
+    public static final BlockEntityEntry<RocketCargoLoaderEntity> ROCKET_CARGO_LOADER_ENTITY = REGISTRATE
+            .blockEntity("rocket_cargo_loader", RocketCargoLoaderEntity::new)
+            .validBlocks(ROCKET_CARGO_LOADER)
+//            .renderer(()-> RocketCargoLoaderEntity::new)
             .register();
 
     //注册普通方块实体

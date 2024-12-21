@@ -3,6 +3,7 @@ package com.ffsupver.asplor.entity;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
+import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
 import com.ffsupver.asplor.item.ModItems;
 import earth.terrarium.adastra.common.entities.vehicles.Rocket;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -26,6 +27,11 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(1.0F, 3.875F))
                     .build());
 
+    public static final EntityType<CargoRocketEntity> CARGO_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"cargo_rocket"),
+            FabricEntityTypeBuilder.<CargoRocketEntity>create(SpawnGroup.MISC, CargoRocketEntity::new)
+                    .dimensions(EntityDimensions.fixed(17/16f,4.3f))
+                    .build()
+    );
 
 
     public static void register(){

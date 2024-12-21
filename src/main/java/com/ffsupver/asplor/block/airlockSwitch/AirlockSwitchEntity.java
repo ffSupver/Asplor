@@ -37,9 +37,6 @@ public class AirlockSwitchEntity extends BlockEntity {
         this.pairPos = pairPos;
     }
 
-    public BlockPos getPairPos() {
-        return pairPos;
-    }
 
     public void use(){
         boolean origin = getCachedState().get(ON);

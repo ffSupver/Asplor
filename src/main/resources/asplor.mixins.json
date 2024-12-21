@@ -14,6 +14,8 @@
     "defaultRequire": 1
   },
   "client": [
+    "cargoRocket.CargoRocketThirdPersonCameraMixin",
+    "cargoRocket.SittingModelMixin",
     "moltenMetal.CameraMixin"
   ]
 }

@@ -23,6 +23,7 @@
     "asplor:alloy_machine",
     "asplor:large_melting_furnace_controller",
     "asplor:large_melting_furnace_fluid_port",
-    "asplor:large_melting_furnace_item_port"
+    "asplor:large_melting_furnace_item_port",
+    "asplor:rocket_fuel_loader"
   ]
 }

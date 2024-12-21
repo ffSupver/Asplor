@@ -24,6 +24,8 @@ import com.ffsupver.asplor.block.motor.Motor;
 import com.ffsupver.asplor.block.refinery.RefineryController;
 import com.ffsupver.asplor.block.refinery.RefineryInput;
 import com.ffsupver.asplor.block.refinery.RefineryOutput;
+import com.ffsupver.asplor.block.rocketCargoLoader.RocketCargoLoader;
+import com.ffsupver.asplor.block.rocketFuelLoader.RocketFuelLoader;
 import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArm;
 import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArmItem;
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolGear;
@@ -250,6 +252,18 @@ public class AllBlocks {
                     .register();
     public static final BlockEntry<LargeMeltingFurnaceItemPort> LARGE_MELTING_FURNACE_ITEM_PORT =
             REGISTRATE.block("large_melting_furnace_item_port", LargeMeltingFurnaceItemPort::new)
+                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<RocketFuelLoader> ROCKET_FUEL_LOADER =
+            REGISTRATE.block("rocket_fuel_loader", RocketFuelLoader::new)
+                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<RocketCargoLoader> ROCKET_CARGO_LOADER =
+            REGISTRATE.block("rocket_cargo_loader", RocketCargoLoader::new)
                     .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
                     .item(BlockItem::new)
                     .build()

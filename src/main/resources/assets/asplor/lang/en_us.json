@@ -82,6 +82,7 @@
   "item.asplor.large_map": "Large Map",
   "item.asplor.empty_large_map": "Empty Large Map",
   "item.asplor.tier_1_rocket_shell": "Tier 1 Rocket Shell",
+  "item.asplor.cargo_rocket": "Cargo Rocket",
 
 
 
@@ -145,6 +146,8 @@
   "block.asplor.iron_airlock_switch": "Iron Airlock Switch",
   "block.asplor.iron_plating_airlock_switch": "Iron Plating Airlock Switch",
   "block.asplor.polished_cut_calcite_airlock_switch": "Polished Cut Calcite Airlock Switch",
+  "block.asplor.rocket_fuel_loader": "Rocket Fuel Loader",
+  "block.asplor.rocket_cargo_loader": "Rocket Cargo Loader",
 
 
 
@@ -233,6 +236,7 @@
   "entity.minecraft.villager.assembler": "Assembler",
   "entity.asplor.tier_0_rocket": "Base Rocket",
   "entity.asplor.structure.launch_center": "Engineer",
+  "entity.asplor.cargo_rocket": "Cargo Rocket",
 
 
   "gui.asplor.backpack": "backpack",

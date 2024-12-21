@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "asplor:block/rocket_fuel_loader/rocket_fuel_loader"
+    }
+  }
+}

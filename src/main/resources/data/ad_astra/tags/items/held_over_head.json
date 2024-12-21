@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "asplor:tier_0_rocket"
+    "asplor:tier_0_rocket",
+    "asplor:cargo_rocket"
   ]
 }

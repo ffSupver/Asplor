@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "asplor:block/rocket_fuel_loader/pipe_base"
+	},
+	"elements": [
+		{
+			"name": "base",
+			"from": [6, 0, 6],
+			"to": [10, 13, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 6]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 13], "texture": "#1"},
+				"east": {"uv": [0, 0, 4, 13], "texture": "#1"},
+				"south": {"uv": [0, 0, 4, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 4, 13], "texture": "#1"},
+				"up": {"uv": [14, 8, 10, 4], "texture": "#1"},
+				"down": {"uv": [14, 8, 10, 12], "texture": "#1"}
+			}
+		},
+		{
+			"name": "top",
+			"from": [5, 13, 5],
+			"to": [11, 17, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 13, 7]},
+			"faces": {
+				"north": {"uv": [10, 0, 16, 4], "texture": "#1"},
+				"east": {"uv": [10, 0, 16, 4], "texture": "#1"},
+				"south": {"uv": [10, 0, 16, 4], "texture": "#1"},
+				"west": {"uv": [10, 0, 16, 4], "texture": "#1"},
+				"up": {"uv": [10, 6, 4, 0], "texture": "#1"},
+				"down": {"uv": [10, 6, 4, 12], "texture": "#1"}
+			}
+		}
+	]
+}

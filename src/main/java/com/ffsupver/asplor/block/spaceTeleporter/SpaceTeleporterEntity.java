@@ -9,6 +9,8 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.Lang;
+import earth.terrarium.adastra.api.planets.Planet;
+import earth.terrarium.adastra.api.planets.PlanetApi;
 import net.fabricmc.fabric.impl.dimension.FabricDimensionInternals;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
@@ -106,17 +108,21 @@ public class SpaceTeleporterEntity extends SmartBlockEntity implements IWrenchab
         renderCanTeleport=canTeleport;
 
 
+        if (!hasTarget||!hasEnergy){
+            return;
+        }
+
         //检测生物
         List<Entity> entitiesAbove = world.getOtherEntities(null, new Box(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, maxHeight, pos.getZ() + 1), (entity -> entity.getType().isIn(ModTags.EntityTypes.CAN_TELEPORT))
         );
 
+        Planet planet = PlanetApi.API.getPlanet(world);
+
 
         //传送生物
+        boolean sameDimension = world.getRegistryKey().getValue().toString().equals(targetDimension);
         highestEntity=0;
         entitiesAbove.forEach(entity -> {
-            if (!hasTarget||!hasEnergy){
-                return;
-            }
             if (entity instanceof PlayerEntity&& entity.isSpectator()){
                 return;
             }
@@ -135,14 +141,15 @@ public class SpaceTeleporterEntity extends SmartBlockEntity implements IWrenchab
 
                 TeleportTarget teleportTarget = new TeleportTarget(
                         new Vec3d(targetPos.getX()+0.5,targetPos.getY()+LIFT_HEIGHT,targetPos.getZ()+0.5),
-                        newMotion, entity.getYaw(), entity.getPitch());
+                        newMotion, entity.getYaw()-10, entity.getPitch());
                 if (!world.isClient()) {
-                    if (world.getRegistryKey().getValue().toString().equals(targetDimension)) {
+                    if (sameDimension) {
                         entity.setVelocity(teleportTarget.velocity);
                         entity.teleport(teleportTarget.position.x,teleportTarget.position.y,teleportTarget.position.z);
                     } else {
                         RegistryKey<World> targetWorld = RegistryKey.of(RegistryKeys.WORLD, new Identifier(targetDimension));
                         FabricDimensionInternals.changeDimension(entity, world.getServer().getWorld(targetWorld), teleportTarget);
+                        entity.setVelocity(teleportTarget.velocity);
                     }
                 }
                 energyStorage.extractEnergy(ENERGY_PER_TELEPORT);

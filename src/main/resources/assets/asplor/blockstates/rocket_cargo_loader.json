@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,connected=false": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_unconnected"
+    },
+    "facing=west,connected=false": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_unconnected",
+      "y": -90
+    },
+    "facing=south,connected=false": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_unconnected",
+      "y": 180
+    },
+    "facing=east,connected=false": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_unconnected",
+      "y": 90
+    },
+    "facing=north,connected=true": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_connected"
+    },
+    "facing=west,connected=true": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_connected",
+      "y": -90
+    },
+    "facing=south,connected=true": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_connected",
+      "y": 180
+    },
+    "facing=east,connected=true": {
+      "model": "asplor:block/rocket_cargo_loader/rocket_cargo_loader_connected",
+      "y": 90
+    }
+  }
+}
