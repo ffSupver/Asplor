@@ -197,6 +197,7 @@
   "description.asplor.smart_mechanical_arm.tools": "Tool Gear ",
   "description.asplor.tool_item.usage": "Can use %s/%s",
   "description.asplor.smart_processing.next": "Next :",
+  "description.asplor.airlock_switch": "Right-click on the side of another block of this type to bind it",
 
 
 
@@ -301,6 +302,17 @@
   "asplor.ponder.large_melting_furnace.base.text_6": "Large melting furnace needs to be heat",
   "asplor.ponder.large_melting_furnace.base.text_7": "Input item in the item port",
   "asplor.ponder.large_melting_furnace.base.text_8": "Output fluid from the fluid port",
+  "asplor.ponder.cargo_rocket.use.header": "Using cargo Rocket",
+  "asplor.ponder.cargo_rocket.use.text_1": "Rocket item loader will bind closest launch pad",
+  "asplor.ponder.cargo_rocket.use.text_2": "Rocket fuel loader will bind closest launch pad",
+  "asplor.ponder.cargo_rocket.use.text_3": "Using item loader to load item into cargo rocket",
+  "asplor.ponder.cargo_rocket.use.text_4": "Rocket item loader will load alloy chest above it to load it into cargo rocket. A cargo rocket can load two alloy chests.",
+  "asplor.ponder.cargo_rocket.use.text_5": "Using fuel loader to load fuel into cargo rocket",
+  "asplor.ponder.cargo_rocket.use.text_6": "Threshold switch works when a cargo rocket is on launch pad",
+  "asplor.ponder.cargo_rocket.use.text_7": "Threshold switch also monitor the fuel in cargo rocket",
+  "asplor.ponder.cargo_rocket.use.text_8": "Power the launch pad to launch cargo rocket",
+  "asplor.ponder.cargo_rocket.use.text_9": "Rocket item loader will unload alloy chest to its top.",
+  "asplor.ponder.cargo_rocket.use.text_10": "Using item loader to unload items in cargo rocket.",
 
 
 

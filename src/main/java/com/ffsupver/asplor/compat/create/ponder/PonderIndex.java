@@ -36,6 +36,8 @@ public class PonderIndex {
                 .addStoryBoard("chunk_loader/chunk_loader",ChunkLoaderScenes::chunkLoader);
         HELPER.forComponents(LARGE_MELTING_FURNACE_CONTROLLER,LARGE_MELTING_FURNACE_FLUID_PORT,LARGE_MELTING_FURNACE_ITEM_PORT)
                 .addStoryBoard("melting_furnace/large_melting_furnace",MeltingFurnaceScenes::largeMeltingFurnace);
+        HELPER.forComponents(ROCKET_CARGO_LOADER,ROCKET_FUEL_LOADER)
+                .addStoryBoard("cargo_rocket/use", CargoRocketScenes::use);
 
 
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)

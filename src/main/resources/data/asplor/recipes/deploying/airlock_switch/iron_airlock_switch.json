@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_block"
+    },
+    {
+      "item": "create:redstone_link"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:iron_airlock_switch"
+    }
+  ]
+}

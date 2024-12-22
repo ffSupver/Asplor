@@ -1,17 +1,24 @@
 package com.ffsupver.asplor.block.airlockSwitch;
 
 import com.ffsupver.asplor.util.NbtUtil;
+import earth.terrarium.adastra.common.utils.TooltipUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class AirlockSwitchItem extends BlockItem {
     public AirlockSwitchItem(Block block, Settings settings) {
@@ -52,5 +59,11 @@ public class AirlockSwitchItem extends BlockItem {
            }
         }
         return placed;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
+        TooltipUtils.addDescriptionComponent(tooltip,Text.translatable("description.asplor.airlock_switch").formatted(Formatting.GRAY));
     }
 }

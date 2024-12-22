@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:polished_cut_calcite"
+    },
+    {
+      "item": "create:redstone_link"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:polished_cut_calcite_airlock_switch"
+    }
+  ]
+}

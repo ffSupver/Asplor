@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.entity.custom;
 
+import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.screen.cargoRocket.CargoRocketScreenHandler;
 import earth.terrarium.adastra.api.planets.Planet;
@@ -93,6 +94,11 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
     private final SimpleFluidContainer fluidContainer;
 
     private float speed;
+    public CargoRocketEntity(World world,Vec3d pos,Vec3d velocity){
+        this(ModEntities.CARGO_ROCKET,world);
+        this.setPosition(pos.x, pos.y, pos.z);
+        this.setVelocity(velocity.x, velocity.y, velocity.z);
+    }
 
     public CargoRocketEntity(EntityType<?> type, World world) {
         super(type, world);
@@ -563,6 +569,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
     public boolean hasLaunched() {
         return this.dataTracker.get(HAS_LAUNCHED);
     }
+    public void setHasLaunched(boolean hasLaunched){this.dataTracker.set(HAS_LAUNCHED,hasLaunched);}
 
     public boolean isLanding(){
         return this.dataTracker.get(IS_LANDING);

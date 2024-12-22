@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "ad_astra:iron_plating_block"
+    },
+    {
+      "item": "create:redstone_link"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:iron_plating_airlock_switch"
+    }
+  ]
+}

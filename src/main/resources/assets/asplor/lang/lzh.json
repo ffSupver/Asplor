@@ -146,6 +146,17 @@
   "block.asplor.polished_cut_calcite_airlock_switch": "磨制切制方解石气闸开关",
   "block.asplor.rocket_fuel_loader": "火箭燃料装载器",
   "block.asplor.rocket_cargo_loader": "火箭货物装载器",
+  "asplor.ponder.cargo_rocket.use.header": "使用货运火箭",
+  "asplor.ponder.cargo_rocket.use.text_1": "火箭货物装载器会自动绑定最近的发射平台",
+  "asplor.ponder.cargo_rocket.use.text_2": "火箭燃料装载器会自动绑定最近的发射平台",
+  "asplor.ponder.cargo_rocket.use.text_3": "用货物装载器来给火箭装载物品",
+  "asplor.ponder.cargo_rocket.use.text_4": "火箭货物装载器会把上面的合金箱子装上货运火箭,一个货运火箭可以装两个合金箱子",
+  "asplor.ponder.cargo_rocket.use.text_5": "用燃料装载器来给火箭添加燃料",
+  "asplor.ponder.cargo_rocket.use.text_6": "存量转信器在有火箭的时候会输出火箭内容物的信号",
+  "asplor.ponder.cargo_rocket.use.text_7": "存量转信器也会输出火箭燃料的信号",
+  "asplor.ponder.cargo_rocket.use.text_8": "充能发射台来发射火箭",
+  "asplor.ponder.cargo_rocket.use.text_9": "火箭货物装载器会把火箭上的合金箱子卸载到它上面",
+  "asplor.ponder.cargo_rocket.use.text_10": "用火箭货物装载器来卸载火箭内的物品",
 
 
 
@@ -197,6 +208,7 @@
   "description.asplor.smart_mechanical_arm.tools": "工具架",
   "description.asplor.tool_item.usage": "可用 %s/%s",
   "description.asplor.smart_processing.next": "下一步:",
+  "description.asplor.airlock_switch": "右键另一个这类方块的侧面来绑定它",
 
 
 

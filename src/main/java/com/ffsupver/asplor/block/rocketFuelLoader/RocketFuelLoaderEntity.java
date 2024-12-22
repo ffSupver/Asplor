@@ -176,7 +176,7 @@ public class RocketFuelLoaderEntity extends SmartBlockEntity implements SidedSto
     @Override
     public float getPercent() {
         if (getRocket() instanceof CargoRocketEntity cargoRocketEntity){
-           return 100f * cargoRocketEntity.fluidContainer().getFirstFluid().getFluidAmount() / cargoRocketEntity.fluidContainer().getSize();
+           return 100f * cargoRocketEntity.fluidContainer().getFirstFluid().getFluidAmount() / cargoRocketEntity.fluidContainer().getTankCapacity(0);
         }
         return 0;
     }
