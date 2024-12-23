@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:alloy_ingot"
+    },
+    "D":{
+      "item": "create:fluid_pipe"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ADA",
+    "AAA"
+  ],
+  "result": {
+    "item": "asplor:large_melting_furnace_fluid_port"
+  },
+  "show_notification": true
+}

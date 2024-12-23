@@ -34,6 +34,7 @@ import com.ffsupver.asplor.block.theNetherReturner.TheNetherReturner;
 import com.ffsupver.asplor.block.timeInjector.TimeInjector;
 import com.ffsupver.asplor.block.windmill.WindmillBearingBlock;
 import com.ffsupver.asplor.fluid.ModFluids;
+import com.ffsupver.asplor.item.item.DescriptionBlockItem;
 import com.ffsupver.asplor.sound.ModSounds;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.CreateClient;
@@ -61,6 +62,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -317,6 +319,7 @@ public class AllBlocks {
     public static final Block IRON_AIRLOCK_SWITCH = registerBlock("iron_airlock_switch",new AirlockSwitch(FabricBlockSettings.copy(IRON_BLOCK)),AirlockSwitchItem::new);
     public static final Block IRON_PLATING_AIRLOCK_SWITCH = registerBlock("iron_plating_airlock_switch",new AirlockSwitch(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER)),AirlockSwitchItem::new);
     public static final Block POLISHED_CUT_CALCITE_AIRLOCK_SWITCH = registerBlock("polished_cut_calcite_airlock_switch",new AirlockSwitch(AbstractBlock.Settings.copy(CALCITE)),AirlockSwitchItem::new);
+    public  static final Block CHARGED_ALLOY_BLOCK=registerBlock("charged_alloy_block",new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()),(block,setting)->new DescriptionBlockItem(block,setting, Text.translatable("description.asplor.charged_alloy_block")));
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){

@@ -31,6 +31,7 @@
     "asplor:iron_plating_airlock_switch",
     "asplor:polished_cut_calcite_airlock_switch",
     "asplor:rocket_fuel_loader",
-    "asplor:rocket_cargo_loader"
+    "asplor:rocket_cargo_loader",
+    "asplor:charged_alloy_block"
   ]
 }

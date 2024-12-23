@@ -145,6 +145,7 @@
   "block.asplor.polished_cut_calcite_airlock_switch": "磨制切制方解石气闸开关",
   "block.asplor.rocket_fuel_loader": "火箭燃料装载器",
   "block.asplor.rocket_cargo_loader": "火箭货物装载器",
+  "block.asplor.charged_alloy_block": "充能合金块",
 
 
 
@@ -197,6 +198,7 @@
   "description.asplor.tool_item.usage": "可用 %s/%s",
   "description.asplor.smart_processing.next": "下一步:",
   "description.asplor.airlock_switch": "右键另一个这类方块的侧面来绑定它",
+  "description.asplor.charged_alloy_block": "吸引底下的合金箱子",
 
 
 
@@ -327,6 +329,8 @@
   "create.gui.goggles.asplor.space_teleporter.info": "空间传送器信息:",
   "create.gui.goggles.asplor.space_teleporter.destination": "位于 %s (%s,%s,%s)",
   "create.gui.goggles.asplor.space_teleporter.can_not_teleport": "没有目的地",
+  "create.gui.goggles.asplor.space_teleporter.not_in_space": "只能在太空运作",
+  "create.gui.goggles.asplor.space_teleporter.target_not_in_space": "目的地不在太空中",
   "create.kinetics.motor.rotation_speed": "设置电动机 RPM",
   "create.gui.goggles.pump_stats": "抽水器状态:",
   "create.tooltip.water_per_tick": "抽水量:",

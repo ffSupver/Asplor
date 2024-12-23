@@ -1,0 +1,81 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:alloy_chest"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "asplor:rocket_cargo_loader"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_chest"
+        },
+        {
+          "item": "asplor:alloy_ingot"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_chest"
+        },
+        {
+          "item": "create:brass_funnel"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_chest"
+        },
+        {
+          "item": "asplor:alloy_mechanism"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:alloy_chest"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:alloy_chest"
+  }
+}

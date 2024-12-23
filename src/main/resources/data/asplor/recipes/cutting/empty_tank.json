@@ -1,0 +1,14 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "asplor:alloy_ingot"
+    }
+  ],
+  "processingTime": 150,
+  "results": [
+    {
+      "item": "asplor:empty_tank"
+    }
+  ]
+}

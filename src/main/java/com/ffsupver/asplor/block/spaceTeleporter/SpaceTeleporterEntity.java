@@ -73,6 +73,14 @@ public class SpaceTeleporterEntity extends SmartBlockEntity implements IWrenchab
         }
     }
 
+    private boolean targetIsSpace(){
+        return PlanetApi.API.isSpace(RegistryKey.of(RegistryKeys.WORLD,new Identifier(targetDimension)));
+    }
+
+    private boolean inSpace(){
+        return PlanetApi.API.isSpace(world);
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -84,8 +92,13 @@ public class SpaceTeleporterEntity extends SmartBlockEntity implements IWrenchab
             targetDimension= world.getRegistryKey().getValue().toString();
         }
 
+        if (!inSpace()){
+            hasTarget = false;
+            return;
+        }
+
         //检测是否有目标
-         hasTarget = !(targetPos.getX() == pos.getX() && targetPos.getZ() == pos.getZ() &&
+         hasTarget = targetIsSpace() && !(targetPos.getX() == pos.getX() && targetPos.getZ() == pos.getZ() &&
                 Objects.equals(targetDimension, world.getRegistryKey().getValue().toString()));
 
         //检测电量是否足够
@@ -209,17 +222,20 @@ public class SpaceTeleporterEntity extends SmartBlockEntity implements IWrenchab
 
     @Override
     public boolean addToGoggleTooltip(List<Text> tooltip, boolean isPlayerSneaking) {
+        Lang.translate("gui.goggles.asplor.space_teleporter.info").forGoggles(tooltip);
         if (renderCanTeleport&&hasTarget){
-            Lang.translate("gui.goggles.asplor.space_teleporter.info").forGoggles(tooltip);
             Lang.translate("gui.goggles.asplor.space_teleporter.destination",
                             targetDimension,targetPos.getX(),targetPos.getY(),targetPos.getZ())
                     .style(Formatting.AQUA)
                     .forGoggles(tooltip,1);
 
         }else{
-            Lang.translate("gui.goggles.asplor.space_teleporter.info")
-                    .forGoggles(tooltip);
-            Lang.translate("gui.goggles.asplor.space_teleporter.can_not_teleport")
+            String msg = inSpace() ?
+                   targetIsSpace() ?
+                           "gui.goggles.asplor.space_teleporter.can_not_teleport" :
+                           "gui.goggles.asplor.space_teleporter.target_not_in_space"
+                    : "gui.goggles.asplor.space_teleporter.not_in_space";
+            Lang.translate(msg)
                     .style(Formatting.AQUA)
                     .forGoggles(tooltip,1);
         }

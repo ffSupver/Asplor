@@ -2,7 +2,7 @@
   "type": "create:deploying",
   "ingredients": [
     {
-      "item": "ad_astra:iron_plating_block"
+      "item": "ad_astra:iron_plating"
     },
     {
       "item": "create:redstone_link"

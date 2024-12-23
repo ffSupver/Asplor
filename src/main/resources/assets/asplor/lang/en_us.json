@@ -148,6 +148,7 @@
   "block.asplor.polished_cut_calcite_airlock_switch": "Polished Cut Calcite Airlock Switch",
   "block.asplor.rocket_fuel_loader": "Rocket Fuel Loader",
   "block.asplor.rocket_cargo_loader": "Rocket Cargo Loader",
+  "block.asplor.charged_alloy_block": "Charged Alloy Block",
 
 
 
@@ -198,6 +199,7 @@
   "description.asplor.tool_item.usage": "Can use %s/%s",
   "description.asplor.smart_processing.next": "Next :",
   "description.asplor.airlock_switch": "Right-click on the side of another block of this type to bind it",
+  "description.asplor.charged_alloy_block": "Pulling the alloy chests underneath",
 
 
 
@@ -329,6 +331,8 @@
   "create.gui.goggles.asplor.space_teleporter.info": "Space Teleporter Info :",
   "create.gui.goggles.asplor.space_teleporter.destination": "At %s (%s,%s,%s)",
   "create.gui.goggles.asplor.space_teleporter.can_not_teleport": "No destination",
+  "create.gui.goggles.asplor.space_teleporter.not_in_space": "Only work in space",
+  "create.gui.goggles.asplor.space_teleporter.target_not_in_space": "Destination should be in space",
   "create.kinetics.motor.rotation_speed": "Set Motor Speed in RPM",
   "create.gui.goggles.pump_stats": "Pump Stats:",
   "create.tooltip.water_per_tick": "Water Provided:",

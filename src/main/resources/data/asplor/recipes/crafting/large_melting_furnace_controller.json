@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:alloy_ingot"
+    },
+    "B": {
+      "item": "asplor:melting_furnace"
+    },
+    "C": {
+      "item": "asplor:alloy_block"
+    },
+    "D":{
+      "item": "asplor:alloy_mechanism"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "DBD",
+    "ACA"
+  ],
+  "result": {
+    "item": "asplor:large_melting_furnace_controller"
+  },
+  "show_notification": true
+}

@@ -26,6 +26,7 @@ public class ModItemGroups {
                                 entries.add(ALLOY_NUGGET);
                                 entries.add(ALLOY_BLOCK);
                                 entries.add(CHARGED_ALLOY_INGOT);
+                                entries.add(CHARGED_ALLOY_BLOCK);
                                 entries.add(ZINC_SHEET);
                                 entries.add(COPPER_WIRE);
                                 entries.add(RESONANT_CRYSTAL);

@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.item.item;
 
 import com.ffsupver.asplor.entity.ModEntities;
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import earth.terrarium.adastra.common.blocks.LaunchPadBlock;
 import earth.terrarium.adastra.common.blocks.properties.LaunchPadPartProperty;
 import earth.terrarium.adastra.common.items.rendered.RenderedItem;

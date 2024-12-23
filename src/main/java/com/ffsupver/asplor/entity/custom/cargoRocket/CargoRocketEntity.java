@@ -1,4 +1,4 @@
-package com.ffsupver.asplor.entity.custom;
+package com.ffsupver.asplor.entity.custom.cargoRocket;
 
 import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.item.ModItems;
@@ -28,9 +28,6 @@ import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
 import earth.terrarium.botarium.common.menu.MenuHooks;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.sound.MovingSoundInstance;
-import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.entity.*;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
@@ -221,6 +218,10 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
                         speed += speed < minSpeed/2 ? 0.1f : 0.15f;
                         this.setVelocity(this.getVelocity().x, speed, this.getVelocity().z);
                         fallDistance *= 0.5f;
+                    }else if (height < 8){
+                        speed = minSpeed/5;
+                        this.setVelocity(this.getVelocity().x, speed, this.getVelocity().z);
+                        fallDistance *= 0.3f;
                     }
                 }
             }
@@ -236,7 +237,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
 
     private void checkHeightWhenLanding(){
         BlockPos checkPos = getBlockPos();
-        while (getWorld().getBlockState(checkPos).isAir()){
+        while (getWorld().getBlockState(checkPos).isAir() && checkPos.getY() >= getWorld().getBottomY()){
             checkPos = checkPos.down();
         }
         height = getBlockY()-checkPos.getY();
@@ -275,7 +276,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
             this.setVelocity(delta.getX(), this.speed, delta.getZ());
             if (this.getWorld().isClient() && !this.startedRocketSound) {
                 this.startedRocketSound = true;
-                MinecraftClient.getInstance().getSoundManager().play(new CargoRocketSoundInstance(this));
+               CargoRocketSound.play(this);
             }
 
             this.spawnRocketParticles();
@@ -595,30 +596,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
     public FluidContainer fluidContainer(){return this.fluidContainer;}
 
 
-    private class CargoRocketSoundInstance extends MovingSoundInstance{
-        private CargoRocketEntity cargoRocketEntity;
-        protected boolean canPlay = true;
-        public CargoRocketSoundInstance(CargoRocketEntity cargoRocketEntity) {
-            super(ModSoundEvents.ROCKET.get(), SoundCategory.AMBIENT, SoundInstance.createRandom());
-            this.cargoRocketEntity = cargoRocketEntity;
-            this.repeat = true;
-        }
 
-        public float getVolume() {
-            return this.canPlay ? 10.0F : 0.0F;
-        }
-
-        @Override
-        public void tick() {
-            if (this.cargoRocketEntity.isLaunching() || this.cargoRocketEntity.hasLaunched()) {
-                this.x = this.cargoRocketEntity.getX();
-                this.y = this.cargoRocketEntity.getY();
-                this.z = this.cargoRocketEntity.getZ();
-            } else {
-                this.setDone();
-            }
-        }
-    }
 
     static {
         IS_LAUNCHING = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

@@ -3,7 +3,7 @@ package com.ffsupver.asplor.entity;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import com.ffsupver.asplor.item.ModItems;
 import earth.terrarium.adastra.common.entities.vehicles.Rocket;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;

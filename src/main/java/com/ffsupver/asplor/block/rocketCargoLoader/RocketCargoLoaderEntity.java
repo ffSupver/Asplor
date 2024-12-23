@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.block.rocketCargoLoader;
 
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import com.ffsupver.asplor.util.NbtUtil;
 import com.ffsupver.asplor.util.RenderUtil;
 import com.simibubi.create.content.redstone.thresholdSwitch.ThresholdSwitchObservable;

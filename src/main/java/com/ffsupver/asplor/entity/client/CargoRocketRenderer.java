@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.entity.client;
 
 import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import com.teamresourceful.resourcefullib.client.CloseablePoseStack;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.OverlayTexture;

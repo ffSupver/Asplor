@@ -1,6 +1,6 @@
 package com.ffsupver.asplor.screen.cargoRocket;
 
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import earth.terrarium.adastra.common.menus.base.BaseEntityContainerMenu;
 import earth.terrarium.adastra.common.menus.slots.CustomSlot;

@@ -63,7 +63,7 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
 
         // 添加重力效果
         if (!this.hasNoGravity()) {
-            this.setVelocity(this.getVelocity().add(0, -0.04, 0)); // 简单重力加速度
+            this.setVelocity(this.getVelocity().add(0, -0.05, 0)); // 简单重力加速度
         }
 
         // 移动实体
@@ -84,6 +84,13 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
                     ((com.ffsupver.asplor.block.alloyChest.AlloyChestEntity) blockEntity).setStack(i,this.getStack(i));
                 }
                 this.discard();
+            }
+        }
+
+        //上吸
+        for (int i =-0;i<5;i++){
+            if (getWorld().getBlockState(getBlockPos().up(i)).isOf(AllBlocks.CHARGED_ALLOY_BLOCK)){
+                this.setVelocity(this.getVelocity().add(0,0.06,0));
             }
         }
     }

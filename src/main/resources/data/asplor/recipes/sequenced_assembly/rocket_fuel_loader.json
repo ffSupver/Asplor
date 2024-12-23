@@ -1,0 +1,81 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:fluid_tank"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "asplor:rocket_fuel_loader"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:fluid_tank"
+        },
+        {
+          "item": "asplor:alloy_ingot"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "create:fluid_tank"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:fluid_tank"
+        },
+        {
+          "item": "create:fluid_pipe"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "create:fluid_tank"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:fluid_tank"
+        },
+        {
+          "item": "asplor:alloy_mechanism"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "create:fluid_tank"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "create:fluid_tank"
+        }
+      ],
+      "results": [
+        {
+          "item": "create:fluid_tank"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "create:fluid_tank"
+  }
+}

@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.compat.create.ponder.scenes;
 
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
-import com.ffsupver.asplor.entity.custom.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
 import com.simibubi.create.content.logistics.funnel.BeltFunnelBlock;
 import com.simibubi.create.foundation.ponder.ElementLink;
