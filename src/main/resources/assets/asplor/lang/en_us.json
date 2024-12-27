@@ -234,12 +234,14 @@
   "key.asplor.large_map.move_right": "Map: Move Right",
   "key.asplor.large_map.zoom_in": "Map: Zoom In",
   "key.asplor.large_map.zoom_out": "Map: Zoom Out",
+  "key.asplor.ranger.down": "Vehicle Down",
 
   "entity.asplor.alloy_chest": "alloy chest",
   "entity.minecraft.villager.assembler": "Assembler",
   "entity.asplor.tier_0_rocket": "Base Rocket",
   "entity.asplor.structure.launch_center": "Engineer",
   "entity.asplor.cargo_rocket": "Cargo Rocket",
+  "entity.asplor.ranger": "Ranger",
 
 
   "gui.asplor.backpack": "backpack",

@@ -54,10 +54,19 @@ public class AllKeys {
             GLFW.GLFW_KEY_MINUS,
             "category.asplor.key"
     ));
+    public static final KeyBinding DOWN = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+            "key.asplor.ranger.down",
+            InputUtil.Type.KEYSYM,
+            GLFW.GLFW_KEY_X,
+            "category.asplor.key"
+    ));
     public static void register(){
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (OPEN_BACKPACK.wasPressed()) {
                 ClientPlayNetworking.send(ModPackets.OPEN_BACKPACK, PacketByteBufs.create());
+            }
+            while (DOWN.wasPressed()){
+//                MinecraftClient.getInstance().player.input
             }
         });
 

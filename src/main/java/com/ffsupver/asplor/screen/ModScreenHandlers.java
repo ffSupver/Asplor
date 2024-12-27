@@ -11,6 +11,8 @@ import com.ffsupver.asplor.screen.backpack.BackpackSmallHandler;
 import com.ffsupver.asplor.screen.backpack.BackpackSmallScreen;
 import com.ffsupver.asplor.screen.cargoRocket.CargoRocketScreen;
 import com.ffsupver.asplor.screen.cargoRocket.CargoRocketScreenHandler;
+import com.ffsupver.asplor.screen.ranger.RangerHandler;
+import com.ffsupver.asplor.screen.ranger.RangerScreen;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.registry.Registries;
@@ -36,6 +38,9 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<CargoRocketScreenHandler> CARGO_ROCKET_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER,new Identifier(Asplor.MOD_ID,"cargo_rocket"),
                     new ExtendedScreenHandlerType<>(CargoRocketScreenHandler::new));
+    public static final ScreenHandlerType<RangerHandler> RANGER_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER,new Identifier(Asplor.MOD_ID,"ranger"),
+                    new ExtendedScreenHandlerType<>(RangerHandler::new));
     public static void registerModScreenHandlers(){
     }
 
@@ -46,6 +51,7 @@ public class ModScreenHandlers {
         HandledScreens.register(ModScreenHandlers.BACKPACK_LARGE_SCREEN_HANDLER, BackpackLargeScreen::new);
         HandledScreens.register(ModScreenHandlers.BACKPACK_SMALL_SCREEN_HANDLER, BackpackSmallScreen::new);
         HandledScreens.register(ModScreenHandlers.CARGO_ROCKET_SCREEN_HANDLER, CargoRocketScreen::new);
+        HandledScreens.register(ModScreenHandlers.RANGER_SCREEN_HANDLER, RangerScreen::new);
     }
 
 }

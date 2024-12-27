@@ -235,6 +235,7 @@
   "key.asplor.large_map.move_right": "地图:右移",
   "key.asplor.large_map.zoom_in": "地图:放大",
   "key.asplor.large_map.zoom_out": "地图:缩小",
+  "key.asplor.ranger.down": "载具下降",
 
 
 
@@ -243,6 +244,7 @@
   "entity.asplor.tier_0_rocket": "基础火箭",
   "entity.asplor.structure.launch_center": "工程师",
   "entity.asplor.cargo_rocket": "货运火箭",
+  "entity.asplor.ranger": "徘徊者",
 
 
 

@@ -17,6 +17,7 @@ public class ModModelLayers {
         EntityRendererRegistry.register(ModEntities.TIER_0_ROCKET, (c)->new RocketRenderer(c, Tier0RocketModelLayer.TIER_0_ROCKET_MODEL, Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
         EntityRendererRegistry.register(ModEntities.CARGO_ROCKET, CargoRocketRenderer::new);
 
+        EntityRendererRegistry.register(ModEntities.RANGER,RangerRenderer::new);
 
     }
 }
