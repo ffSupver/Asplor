@@ -158,6 +158,8 @@
 
   "death.attack.molten": "%1$s jumped into liquid metal , but failed to become Terminator 1000",
   "death.attack.molten.player": "%1$s was knocked into liquid metal by %2$s, but didn't quite become Terminator 1000",
+  "death.attack.charge": "%1$s feel energized.",
+  "death.attack.charge.player": "%1$s feel energized when met %2$s.",
 
 
 

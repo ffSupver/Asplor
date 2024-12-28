@@ -9,6 +9,7 @@ import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.item.item.largeMap.LargeMapState;
 import com.ffsupver.asplor.item.item.singleItemCell.ICellHandlerRegister;
 import com.ffsupver.asplor.networking.ModPackets;
+import com.ffsupver.asplor.planet.PlanetData;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.ffsupver.asplor.sound.ModSounds;
@@ -23,13 +24,24 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.resource.ResourceReloader;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.profiler.Profiler;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.function.BiConsumer;
 
 public class Asplor implements ModInitializer {
 	public static final String MOD_ID = "asplor";
@@ -52,6 +64,9 @@ public class Asplor implements ModInitializer {
 	public void onInitialize() {
 
 		LOGGER.info("Loading Asplor! ");
+
+		onAddReloadListener();
+
 		ModItems.registerModItems();
 		ModItemGroups.registerModItemGroups();
 		ModRecipes.registerRecipes();
@@ -97,5 +112,23 @@ public class Asplor implements ModInitializer {
 		ModTraders.registerTraders();
 		Asplor.LOGGER.info(" create items loaded :" + Create.REGISTRATE.isRegistered(RegistryKeys.ITEM));
 	}
+
+	public static void onAddReloadListener() {
+		onAddReloadListener((id, listener) -> {
+			ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new IdentifiableResourceReloadListener() {
+				public Identifier getFabricId() {
+					return id;
+				}
+				public @NotNull CompletableFuture<Void> reload(@NotNull ResourceReloader.@NotNull Synchronizer synchronizer, @NotNull ResourceManager manager, @NotNull Profiler prepareProfiler, @NotNull Profiler applyProfiler, @NotNull Executor prepareExecutor, @NotNull Executor applyExecutor) {
+					return listener.reload(synchronizer, manager, prepareProfiler, applyProfiler, prepareExecutor, applyExecutor);
+				}
+			});
+		});
+	}
+	public static void onAddReloadListener(BiConsumer<Identifier, ResourceReloader> registry) {
+		registry.accept(new Identifier(MOD_ID, "planets"), new PlanetData());
+	}
+
+
 
 }

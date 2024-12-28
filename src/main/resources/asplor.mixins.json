@@ -5,6 +5,7 @@
   "mixins": [
     "AsplorMixin",
     "CrossbowItemMixin",
+    "EnvironmentTick",
     "LavaFluidMixin",
     "disablePortal.NetherPortalMixin",
     "moltenMetal.EntityMixin",

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:alloy_helmet",
+    "asplor:alloy_chestplate",
+    "asplor:alloy_leggings",
+    "asplor:alloy_boots"
+  ]
+}
