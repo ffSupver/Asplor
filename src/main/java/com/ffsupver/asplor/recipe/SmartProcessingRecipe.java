@@ -27,13 +27,15 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
     private final ItemStack output;
     private final ArrayList<ToolType> toolTypes;
     private final Item processItem;
+    private final String schematic;
 
-    public SmartProcessingRecipe(Identifier id, Ingredient input, ItemStack output, ArrayList<ToolType> toolTypes, Item processItem) {
+    public SmartProcessingRecipe(Identifier id, Ingredient input, ItemStack output, ArrayList<ToolType> toolTypes, Item processItem, String schematic) {
         this.id = id;
         this.input = input;
         this.output = output;
         this.toolTypes = toolTypes;
         this.processItem = processItem;
+        this.schematic = schematic;
     }
 
     @Override
@@ -54,6 +56,10 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
     public ArrayList<ToolType> getToolTypes() {
         return toolTypes;
     }
+
+    public String getSchematic(){return schematic;}
+    public boolean requireSchematic(){return schematic != null;}
+
 
     public ToolType getToolType(ItemStack itemStack){
         NbtCompound itemStackNbt = itemStack.getOrCreateNbt();
@@ -82,7 +88,6 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(1).getRecipeText()),
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(1).getRecipeText()));
                 output.setNbt(outputNbt);
-                System.out.println("1 "+output);
                 return output;
             }else {
                 return getOutput(null);
@@ -95,10 +100,8 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                 RenderUtil.addDescription(itemStackNbt,
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(index+1).getRecipeText()),
                         Text.translatable("description.asplor.smart_processing.next").append(toolTypes.get(index).getRecipeText()));
-                System.out.println("2 "+itemStack);
                 return itemStack;
             }else {
-                System.out.println("3 "+getOutput(null));
                 return getOutput(null);
             }
         }
@@ -147,6 +150,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
             Ingredient ingredient = Ingredient.fromJson(json.getAsJsonObject("ingredient"));
             ItemStack output = ShapedRecipe.outputFromJson(json.getAsJsonObject("output"));
             Item processItem = ShapedRecipe.getItem(json.getAsJsonObject("process_item"));
+            String schematic = JsonHelper.getString(json,"schematic",null);
             JsonArray toolTypeDataList = JsonHelper.getArray(json,"tool_types");
             ArrayList<ToolType> toolTypes = new ArrayList<>();
             for (JsonElement toolTypeData :toolTypeDataList){
@@ -154,7 +158,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                 toolTypes.add(ToolType.getById(toolTypeId));
             }
 
-            return new SmartProcessingRecipe(id,ingredient,output,toolTypes,processItem);
+            return new SmartProcessingRecipe(id,ingredient,output,toolTypes,processItem,schematic);
         }
 
         @Override
@@ -163,6 +167,12 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
             ItemStack output = buf.readItemStack();
             Item processItem = buf.readItemStack().getItem();
 
+            boolean hasSchematic = buf.readBoolean();
+            String schematic = null;
+            if (hasSchematic){
+                schematic = buf.readString();
+            }
+
             int toolTypeCount = buf.readInt();
             ArrayList<ToolType> toolTypes = new ArrayList<>();
             for (int i = 0;i<toolTypeCount;i++){
@@ -170,7 +180,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
                 toolTypes.add(ToolType.getById(toolTypeId));
             }
 
-            return new SmartProcessingRecipe(id,ingredient,output,toolTypes,processItem);
+            return new SmartProcessingRecipe(id,ingredient,output,toolTypes,processItem,schematic);
         }
 
         @Override
@@ -178,6 +188,12 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
             recipe.getIngredients().get(0).write(buf);
             buf.writeItemStack(recipe.getOutput(null));
             buf.writeItemStack(recipe.getProcessItem().getDefaultStack());
+
+            boolean hasSchematic = recipe.getSchematic() == null;
+            buf.writeBoolean(hasSchematic);
+            if (hasSchematic){
+                buf.writeString(recipe.getSchematic());
+            }
 
             buf.writeInt(recipe.getToolTypes().size());
             for (ToolType toolType : recipe.getToolTypes()){

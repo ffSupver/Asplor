@@ -40,6 +40,7 @@ public class ModItemGroups {
                                 entries.add(CONCENTRATED_OIL_TANK);
                                 entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
                                 entries.add(ZINC_COPPER_BATTERY);
+                                entries.add(SPACE_CORE);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
                                 entries.add(HEAVY_OIL_BUCKET);
@@ -127,6 +128,7 @@ public class ModItemGroups {
                             entries.add(REFINERY_GLASS);
                             entries.add(SMART_MECHANICAL_ARM);
                             entries.add(TOOL_GEAR);
+                            entries.add(ALLOY_DEPOT);
                             entries.add(DRILL_TOOL);
                             entries.add(LASER_TOOL);
                             entries.add(EMPTY_DROPPER);

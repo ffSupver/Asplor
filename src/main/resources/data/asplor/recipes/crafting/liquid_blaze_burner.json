@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:blaze_burner"
+    },
+    "B": {
+      "item": "create:fluid_pipe"
+    },
+    "C": {
+      "item": "asplor:iron_mechanism"
+    },
+    "D": {
+      "item": "asplor:alloy_casing"
+    },
+    "E": {
+      "item": "create:fluid_tank"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BDB",
+    "CEC"
+  ],
+  "result": {
+    "item": "asplor:liquid_blaze_burner"
+  },
+  "show_notification": true
+}

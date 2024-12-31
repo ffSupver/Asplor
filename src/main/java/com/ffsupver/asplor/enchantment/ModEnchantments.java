@@ -8,7 +8,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModEnchantments {
-    public static final Enchantment STRENGTH = registerEnchantment("strength",new  StrengthEnchantment(Enchantment.Rarity.RARE,new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
+    public static final Enchantment STRENGTH = registerEnchantment("strength",new  StrengthEnchantment(Enchantment.Rarity.RARE,new EquipmentSlot[]{EquipmentSlot.MAINHAND,EquipmentSlot.OFFHAND}));
+    public static final Enchantment MECHANICALLY_PROFICIENT = registerEnchantment("mechanically_proficient",new MechanicallyProficientEnchantment(Enchantment.Rarity.RARE,new EquipmentSlot[]{EquipmentSlot.MAINHAND}));
     private static Enchantment registerEnchantment(String name,Enchantment enchantment){
         return Registry.register(Registries.ENCHANTMENT,new Identifier(Asplor.MOD_ID,name),enchantment);
     }

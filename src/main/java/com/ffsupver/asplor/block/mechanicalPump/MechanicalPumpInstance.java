@@ -5,12 +5,8 @@ import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityInstance;
 import com.simibubi.create.content.kinetics.base.flwdata.RotatingData;
 import com.simibubi.create.foundation.render.AllMaterialSpecs;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-
-import static com.ffsupver.asplor.AllPartialModels.MOTOR_ROTATING_MODEL;
-import static net.minecraft.state.property.Properties.FACING;
 
 public class MechanicalPumpInstance extends KineticBlockEntityInstance<MechanicalPumpEntity> {
     protected final RotatingData generatorModel;
@@ -24,9 +20,7 @@ public class MechanicalPumpInstance extends KineticBlockEntityInstance<Mechanica
                 .material(AllMaterialSpecs.ROTATING)
                 .getModel(AllPartialModels.SHAFT_HALF, blockState, opposite)
                 .createInstance();
-        if (blockEntity.getCachedState().get(MechanicalPump.HALF).equals(DoubleBlockHalf.UPPER)){
             setup(generatorModel);
-        }
     }
 
     @Override
@@ -36,8 +30,6 @@ public class MechanicalPumpInstance extends KineticBlockEntityInstance<Mechanica
 
     @Override
     public void updateLight() {
-        BlockPos behind = pos.offset(opposite);
-
         BlockPos inFront = pos.offset(direction);
         relight(inFront, generatorModel);
     }

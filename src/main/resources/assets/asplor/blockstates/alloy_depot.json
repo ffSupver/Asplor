@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "schematic=false": {
+      "model": "asplor:block/alloy_depot/alloy_depot"
+    },
+    "schematic=true": {
+      "model": "asplor:block/alloy_depot/alloy_depot_with_schematic"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:depot"
+    },
+    {
+      "item": "asplor:alloy_casing"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:alloy_depot"
+    }
+  ]
+}

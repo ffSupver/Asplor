@@ -1,6 +1,6 @@
 package com.ffsupver.asplor.compat.rei.display;
 
-import com.ffsupver.asplor.compat.rei.category.CraftingCloningCategory;
+import com.ffsupver.asplor.compat.rei.category.SpecialCraftingCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -10,17 +10,17 @@ import me.shedaniel.rei.api.common.entry.InputIngredient;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CraftingCloningDisplay implements Display {
+public class SpecialCraftingDisplay implements Display {
     private final boolean shapeless;
     private final List<EntryIngredient> input;
     private final List<EntryIngredient> output;
 
-    public CraftingCloningDisplay(boolean shapeless, List<EntryIngredient> input, List<EntryIngredient> output) {
+    public SpecialCraftingDisplay(boolean shapeless, List<EntryIngredient> input, List<EntryIngredient> output) {
         this.shapeless = shapeless;
         this.input = input;
         this.output = output;
     }
-    public CraftingCloningDisplay(List<EntryIngredient> input, List<EntryIngredient> output){
+    public SpecialCraftingDisplay(List<EntryIngredient> input, List<EntryIngredient> output){
         this(true,input,output);
     }
 
@@ -37,7 +37,7 @@ public class CraftingCloningDisplay implements Display {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return CraftingCloningCategory.IDENTIFIER;
+        return SpecialCraftingCategory.IDENTIFIER;
     }
 
     public boolean isShapeless() {

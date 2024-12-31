@@ -6,6 +6,7 @@ import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyPressingRecipe;
 import com.ffsupver.asplor.compat.rei.category.*;
 import com.ffsupver.asplor.compat.rei.display.*;
 import com.ffsupver.asplor.item.ModItems;
+import com.ffsupver.asplor.item.item.SchematicItem;
 import com.ffsupver.asplor.recipe.*;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.Create;
@@ -14,6 +15,7 @@ import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.item.ItemStack;
@@ -22,6 +24,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -55,7 +58,7 @@ public class AsplorREIClient implements REIClientPlugin {
         //复制配方
         registry.registerRecipeFiller(LargeMapCloningRecipe.class,RecipeType.CRAFTING,largeMapCloningRecipe -> {
             ItemStack largeMap = ModItems.LARGE_MAP.getDefaultStack();
-            return new CraftingCloningDisplay(List.of(
+            return new SpecialCraftingDisplay(List.of(
                         EntryIngredients.of(largeMap),
                         EntryIngredients.of(ModItems.EMPTY_LARGE_MAP.getDefaultStack())
                     ),
@@ -63,12 +66,22 @@ public class AsplorREIClient implements REIClientPlugin {
         });
         registry.registerRecipeFiller(MysteriousPaperCloningRecipe.class,RecipeType.CRAFTING,mysteriousPaperCloningRecipe -> {
             ItemStack mysteriousPaper = ModItems.MYSTERIOUS_PAPER.getDefaultStack();
-            return new CraftingCloningDisplay(List.of(
+            return new SpecialCraftingDisplay(List.of(
                     EntryIngredients.of(mysteriousPaper),
                     EntryIngredients.of(Items.PAPER),
                     EntryIngredients.of(Items.INK_SAC)
             ),
                     List.of(EntryIngredients.of(mysteriousPaper.copyWithCount(2))));
+        });
+        registry.registerRecipeFiller(SchematicCraftingRecipe.class,RecipeType.CRAFTING,schematicCraftingRecipe -> {
+            String sameRecipe = "same_recipe";
+            ItemStack schematicShard = SchematicItem.getSchematicShardItem(sameRecipe);
+            ArrayList<EntryIngredient> input = new ArrayList<>();
+            for (int i = 0;i<9;i++){
+                input.add(EntryIngredients.of(schematicShard));
+            }
+            return new SpecialCraftingDisplay(input,
+                    List.of(EntryIngredients.of(SchematicItem.getSchematicItem(sameRecipe))));
         });
     }
 
@@ -83,7 +96,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.add(new ElectrolyzeCategory());
         registry.add(new RefineryCategory());
         registry.add(new SmartProcessingCategory());
-        registry.add(new CraftingCloningCategory());
+        registry.add(new SpecialCraftingCategory());
 
 
         registry.addWorkstations(DividerCategory.DIVIDER, EntryStacks.of(AllBlocks.DIVIDER));

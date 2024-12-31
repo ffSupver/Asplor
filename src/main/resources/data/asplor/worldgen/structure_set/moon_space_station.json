@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:moon_space_station",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1410012384,
+    "spacing": 256,
+    "separation": 224,
+    "type": "minecraft:random_spread"
+  }
+}

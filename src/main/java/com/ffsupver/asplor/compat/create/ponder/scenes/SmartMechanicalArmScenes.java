@@ -1,6 +1,8 @@
 package com.ffsupver.asplor.compat.create.ponder.scenes;
 
 import com.ffsupver.asplor.AllBlocks;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepot;
+import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.content.logistics.depot.DepotBehaviour;
 import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
@@ -90,6 +92,39 @@ public class SmartMechanicalArmScenes {
                 .pointAt(util.vector.topOf(util.grid.at(3,2,2)));
 
         scene.idle(40);
+
+        scene.markAsFinished();
+    }
+
+    public static void schematic(SceneBuilder scene, SceneBuildingUtil util) {
+        scene.title("smart_mechanical_arm.schematic", "xxx");
+        scene.configureBasePlate(0, 0, 5);
+        scene.scaleSceneView(0.5f);
+        scene.showBasePlate();
+
+        scene.world.showSection(util.select.everywhere(),Direction.DOWN);
+
+        BlockPos depotPos = util.grid.at(3,1,1);
+
+        scene.overlay.showText(20)
+                .text("depot")
+                .pointAt(util.vector.topOf(depotPos));
+
+        scene.idle(35);
+
+        ItemStack schematicItem = ModItems.SCHEMATIC.getDefaultStack();
+        scene.overlay.showControls(new InputWindowElement(util.vector.topOf(depotPos), Pointing.DOWN).rightClick()
+                .withItem(schematicItem), 10);
+        scene.overlay.showText(20)
+                .text("add schematic")
+                .pointAt(util.vector.blockSurface(depotPos,Direction.WEST));
+        scene.world.modifyBlock(depotPos,blockState -> blockState.with(AlloyDepot.SCHEMATIC,true),false);
+
+        scene.idle(35);
+
+        scene.overlay.showText(20)
+                .text("use schematic")
+                .pointAt(util.vector.blockSurface(depotPos,Direction.UP));
 
         scene.markAsFinished();
     }

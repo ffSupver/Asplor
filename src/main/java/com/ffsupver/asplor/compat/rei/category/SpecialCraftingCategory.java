@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.compat.rei.category;
 
 import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.compat.rei.display.CraftingCloningDisplay;
+import com.ffsupver.asplor.compat.rei.display.SpecialCraftingDisplay;
 import com.google.common.collect.Lists;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
@@ -20,10 +20,10 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-public class CraftingCloningCategory implements DisplayCategory<CraftingCloningDisplay> {
-    public static final CategoryIdentifier<? extends CraftingCloningDisplay> IDENTIFIER = CategoryIdentifier.of(new Identifier(Asplor.MOD_ID,"crafting_cloning"));
+public class SpecialCraftingCategory implements DisplayCategory<SpecialCraftingDisplay> {
+    public static final CategoryIdentifier<? extends SpecialCraftingDisplay> IDENTIFIER = CategoryIdentifier.of(new Identifier(Asplor.MOD_ID,"crafting_cloning"));
     @Override
-    public CategoryIdentifier<? extends CraftingCloningDisplay> getCategoryIdentifier() {
+    public CategoryIdentifier<? extends SpecialCraftingDisplay> getCategoryIdentifier() {
         return IDENTIFIER;
     }
 
@@ -38,7 +38,7 @@ public class CraftingCloningCategory implements DisplayCategory<CraftingCloningD
     }
 
     @Override
-    public List<Widget> setupDisplay(CraftingCloningDisplay display, Rectangle bounds) {
+    public List<Widget> setupDisplay(SpecialCraftingDisplay display, Rectangle bounds) {
         Point startPoint = new Point(bounds.getCenterX() - 58, bounds.getCenterY() - 27);
         List<Widget> widgets = Lists.newArrayList();
         widgets.add(Widgets.createRecipeBase(bounds));

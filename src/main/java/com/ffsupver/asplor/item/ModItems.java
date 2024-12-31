@@ -129,6 +129,10 @@ public class ModItems {
     public static final Item TIER_1_ROCKET_SHELL = registerItems("tier_1_rocket_shell",new Item(new FabricItemSettings()));
     public static final Item CARGO_ROCKET = registerItems("cargo_rocket",new CargoRocketItem(new FabricItemSettings().maxCount(1).fireproof()));
 
+    public static final Item SCHEMATIC = registerItems("schematic",new SchematicItem(new FabricItemSettings()));
+    public static final Item SCHEMATIC_SHARD = registerItems("schematic_shard",new SchematicItem(new FabricItemSettings()));
+    public static final Item SPACE_CORE = registerItems("space_core",new Item(new FabricItemSettings()));
+
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

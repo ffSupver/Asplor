@@ -1,0 +1,31 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": true,
+  "key": {
+    "A": {
+      "item": "asplor:alloy_ingot"
+    },
+    "B": {
+      "item": "asplor:alloy_machine"
+    },
+    "C": {
+      "item": "asplor:charged_alloy_ingot"
+    },
+    "D": {
+      "item": "asplor:space_core"
+    },
+    "F": {
+      "item": "asplor:battery"
+    }
+  },
+  "pattern": [
+    "BAAAB",
+    "ABDBA",
+    "ACDCA",
+    "CFFFC"
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:space_teleporter"
+  }
+}

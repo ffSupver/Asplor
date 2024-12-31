@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:brass_casing"
+    },
+    {
+      "item": "asplor:alloy_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:alloy_casing"
+    }
+  ]
+}

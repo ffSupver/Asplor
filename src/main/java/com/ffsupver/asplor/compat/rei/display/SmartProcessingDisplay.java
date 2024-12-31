@@ -2,6 +2,7 @@ package com.ffsupver.asplor.compat.rei.display;
 
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolType;
 import com.ffsupver.asplor.compat.rei.category.SmartProcessingCategory;
+import com.ffsupver.asplor.item.item.SchematicItem;
 import com.ffsupver.asplor.recipe.SmartProcessingRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
@@ -15,6 +16,7 @@ import java.util.Map;
 
 public class SmartProcessingDisplay extends BasicDisplay {
     private List<ToolType> toolTypes;
+    private String schematic;
     public SmartProcessingDisplay(List<EntryIngredient> inputs, List<EntryIngredient> outputs) {
         super(inputs, outputs);
     }
@@ -22,6 +24,7 @@ public class SmartProcessingDisplay extends BasicDisplay {
     public SmartProcessingDisplay(SmartProcessingRecipe recipe){
         super(List.of(EntryIngredients.ofIngredient(recipe.getIngredients().get(0))),List.of(EntryIngredients.of(recipe.getOutput(null))));
         this.toolTypes =recipe.getToolTypes();
+        this.schematic = recipe.requireSchematic() ? recipe.getSchematic() : null;
     }
 
     public Map<ItemStack,Integer> getToolTypeCount(){
@@ -34,6 +37,12 @@ public class SmartProcessingDisplay extends BasicDisplay {
 
     private List<ToolType> getToolTypes(){
         return  this.toolTypes.stream().distinct().toList();
+    }
+
+    public boolean requireSchematic(){return this.schematic != null;}
+
+    public ItemStack getSchematicItem(){
+        return SchematicItem.getSchematicItem(schematic);
     }
 
 

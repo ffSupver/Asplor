@@ -4,6 +4,7 @@ import com.ffsupver.asplor.block.ConnectModel;
 import com.ffsupver.asplor.block.airlockSwitch.AirlockSwitch;
 import com.ffsupver.asplor.block.airlockSwitch.AirlockSwitchItem;
 import com.ffsupver.asplor.block.alloyChest.AlloyChest;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepot;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
@@ -77,7 +78,10 @@ import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static net.minecraft.block.Blocks.*;
 
 public class AllBlocks {
-    private static final Function<AbstractBlock.Settings,AbstractBlock.Settings> REFINERY_SETTING = settings -> settings.strength(4,16).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.DEEPSLATE_BRICKS).allowsSpawning(Blocks::never);
+    private static final Function<AbstractBlock.Settings,AbstractBlock.Settings> REFINERY_SETTING = settings ->
+            settings.strength(4,16).requiresTool().mapColor(MapColor.BLACK).sounds(BlockSoundGroup.DEEPSLATE_BRICKS).allowsSpawning(Blocks::never);
+    private static final Function<AbstractBlock.Settings,AbstractBlock.Settings> ALLOY_SETTING = settings ->
+            settings.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool();
 
 
     public static final BlockEntry<Divider> DIVIDER =
@@ -242,31 +246,38 @@ public class AllBlocks {
                     .register();
     public static final BlockEntry<LargeMeltingFurnaceController> LARGE_MELTING_FURNACE_CONTROLLER =
             REGISTRATE.block("large_melting_furnace_controller",LargeMeltingFurnaceController::new)
-                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .properties(ALLOY_SETTING::apply)
                     .item(BlockItem::new)
                     .build()
                     .register();
     public static final BlockEntry<LargeMeltingFurnaceFluidPort> LARGE_MELTING_FURNACE_FLUID_PORT =
             REGISTRATE.block("large_melting_furnace_fluid_port", LargeMeltingFurnaceFluidPort::new)
-                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .properties(ALLOY_SETTING::apply)
                     .item(BlockItem::new)
                     .build()
                     .register();
     public static final BlockEntry<LargeMeltingFurnaceItemPort> LARGE_MELTING_FURNACE_ITEM_PORT =
             REGISTRATE.block("large_melting_furnace_item_port", LargeMeltingFurnaceItemPort::new)
-                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .properties(ALLOY_SETTING::apply)
                     .item(BlockItem::new)
                     .build()
                     .register();
     public static final BlockEntry<RocketFuelLoader> ROCKET_FUEL_LOADER =
             REGISTRATE.block("rocket_fuel_loader", RocketFuelLoader::new)
-                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .properties(ALLOY_SETTING::apply)
                     .item(BlockItem::new)
                     .build()
                     .register();
     public static final BlockEntry<RocketCargoLoader> ROCKET_CARGO_LOADER =
             REGISTRATE.block("rocket_cargo_loader", RocketCargoLoader::new)
-                    .properties(p->p.mapColor(MapColor.GRAY).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).strength(8.0f, 20.0f).requiresTool())
+                    .properties(ALLOY_SETTING::apply)
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<AlloyDepot> ALLOY_DEPOT =
+            REGISTRATE.block("alloy_depot", AlloyDepot::new)
+                    .properties(p->ALLOY_SETTING.apply(p).nonOpaque())
+                    .addLayer(() -> RenderLayer::getCutoutMipped)
                     .item(BlockItem::new)
                     .build()
                     .register();

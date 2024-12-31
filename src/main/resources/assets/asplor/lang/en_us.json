@@ -83,6 +83,9 @@
   "item.asplor.empty_large_map": "Empty Large Map",
   "item.asplor.tier_1_rocket_shell": "Tier 1 Rocket Shell",
   "item.asplor.cargo_rocket": "Cargo Rocket",
+  "item.asplor.schematic": "Processing Schematic",
+  "item.asplor.schematic_shard": "Processing Schematic Shard",
+  "item.asplor.space_core": "Space Core",
 
 
 
@@ -149,10 +152,12 @@
   "block.asplor.rocket_fuel_loader": "Rocket Fuel Loader",
   "block.asplor.rocket_cargo_loader": "Rocket Cargo Loader",
   "block.asplor.charged_alloy_block": "Charged Alloy Block",
+  "block.asplor.alloy_depot": "Alloy Depot",
 
 
 
   "enchantment.asplor.strength": "Strength",
+  "enchantment.asplor.mechanically_proficient": "Mechanically Proficient",
 
 
 
@@ -202,6 +207,10 @@
   "description.asplor.smart_processing.next": "Next :",
   "description.asplor.airlock_switch": "Right-click on the side of another block of this type to bind it",
   "description.asplor.charged_alloy_block": "Pulling the alloy chests underneath",
+  "description.asplor.cargo_rocket": "Transport between planets and orbits",
+  "description.asplor.schematic": "recipe of : ",
+  "description.asplor.schematic.same_recipe": "the same recipe",
+  "description.asplor.schematic.space_core": "Space Core",
 
 
 
@@ -319,6 +328,11 @@
   "asplor.ponder.cargo_rocket.use.text_8": "Power the launch pad to launch cargo rocket",
   "asplor.ponder.cargo_rocket.use.text_9": "Rocket item loader will unload alloy chest to its top.",
   "asplor.ponder.cargo_rocket.use.text_10": "Using item loader to unload items in cargo rocket.",
+  "asplor.ponder.smart_mechanical_arm.schematic.header": "Processing with processing schematic",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_1": "Some recipe requires a processing schematic",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_2": "Right-click on the side of alloy depot with a processing schematic",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_3": "It can process with a schematic now",
+
 
 
 

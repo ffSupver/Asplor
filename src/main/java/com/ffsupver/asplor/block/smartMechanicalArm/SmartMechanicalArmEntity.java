@@ -1,5 +1,7 @@
 package com.ffsupver.asplor.block.smartMechanicalArm;
 
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepotBehaviour;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepotEntity;
 import com.ffsupver.asplor.item.item.ToolItem;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.recipe.SmartProcessingRecipe;
@@ -12,6 +14,7 @@ import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.content.logistics.depot.DepotBehaviour;
 import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
+import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -69,7 +72,8 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
 
         double armSpeed = 0.4*Math.abs(speed)/256;
 
-        if (hasTarget() && hasRecipe()){
+
+        if (hasTarget() && hasRecipe() && canInsertToOutput()){
             ToolType recipeToolType = getRecipeToolType();
             if (this.toolType.equals(ToolTypes.EMPTY)){
                 if (hasTool(recipeToolType)){
@@ -102,14 +106,21 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
         }
     }
 
-    private @Nullable DepotBlockEntity getTargetEntity(){
+    private @Nullable BlockEntity getTargetEntity(){
         if (targetPos != null){
            BlockEntity blockEntity = world.getBlockEntity(targetPos);
-           if (blockEntity instanceof DepotBlockEntity){
-               return (DepotBlockEntity) blockEntity;
+           if (blockEntity instanceof DepotBlockEntity depotBlockEntity){
+               return depotBlockEntity;
+           }
+           if (blockEntity instanceof AlloyDepotEntity alloyDepotEntity){
+               return alloyDepotEntity;
            }
         }
         return null;
+    }
+
+    private boolean isAlloyDepot(){
+        return getTargetEntity() instanceof AlloyDepotEntity;
     }
 
     private @Nullable BlockPos getToolEntityPosToDrop(){
@@ -139,8 +150,12 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
     }
 
     private ItemStack getTargetItemStack(){
-        DepotBlockEntity depotBlockEntity = getTargetEntity();
-        return depotBlockEntity.getHeldItem();
+        if (!isAlloyDepot()){
+            DepotBlockEntity depotBlockEntity = (DepotBlockEntity) getTargetEntity();
+            return depotBlockEntity.getHeldItem();
+        }else {
+            return ((AlloyDepotEntity)getTargetEntity()).getHeldItem();
+        }
     }
 
     private ToolType getRecipeToolType(){
@@ -149,12 +164,40 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
     }
 
     private boolean hasRecipe(){
-       return getCurrentRecipe().isPresent();
+        if (getCurrentRecipe().isPresent()){
+            SmartProcessingRecipe recipe = getCurrentRecipe().get();
+            if (recipe.requireSchematic()){
+                if (isAlloyDepot()){
+                    AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
+                    String schematic = recipe.getSchematic();
+                    if (alloyDepotEntity != null) {
+                        return schematic.equals(alloyDepotEntity.getSchematic());
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+       return false;
+    }
+
+    private boolean canInsertToOutput(){
+        SmartProcessingRecipe recipe = getCurrentRecipe().get();
+        if (isAlloyDepot()){
+            AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
+            ItemStack output = recipe.process(alloyDepotEntity.getHeldItem().copyWithCount(1));
+            return output.getCount() <= alloyDepotEntity.insertToOutput(ItemVariant.of(output),output.getCount(),true);
+        }else {
+            DepotBlockEntity depotBlockEntity = (DepotBlockEntity) getTargetEntity();
+            return depotBlockEntity.getHeldItem().getCount() == 1;
+        }
     }
 
     private boolean hasTool(ToolType toolTypeNeed){
         return getToolPos(toolTypeNeed) !=null;
     }
+
+
 
     private void getTool(ToolType toolTypeNeed){
         if (this.armData.isAt(getToolPos(toolTypeNeed))){
@@ -201,20 +244,40 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
 
     private boolean craft(){
         SmartProcessingRecipe recipe = getCurrentRecipe().get();
-        DepotBlockEntity depotBlockEntity = getTargetEntity();
-        ItemStack originalItem = depotBlockEntity.getHeldItem();
-        ItemStack output = recipe.process(getTargetItemStack()).copy();
-        DepotBehaviour behaviour = depotBlockEntity.getBehaviour(DepotBehaviour.TYPE);
-        try(Transaction t = Transaction.openOuter()){
-            behaviour.setHeldItem(new TransportedItemStack(output));
-            t.commit();
-        }
-        System.out.println("craft "+originalItem+" out "+output+" now "+depotBlockEntity.getHeldItem()+" "+depotBlockEntity.getHeldItem().equals(originalItem));
-        if (depotBlockEntity.getHeldItem().equals(originalItem)){
-            return false;
+        if (!isAlloyDepot()){
+            DepotBlockEntity depotBlockEntity = (DepotBlockEntity) getTargetEntity();
+
+            ItemStack originalItem = depotBlockEntity.getHeldItem();
+            ItemStack output = recipe.process(getTargetItemStack()).copy();
+            DepotBehaviour behaviour = depotBlockEntity.getBehaviour(DepotBehaviour.TYPE);
+            try(Transaction t = Transaction.openOuter()){
+                behaviour.setHeldItem(new TransportedItemStack(output));
+                t.commit();
+            }
+            if (depotBlockEntity.getHeldItem().equals(originalItem)){
+                return false;
+            }else {
+                this.usage -= 1;
+                return true;
+            }
         }else {
-            this.usage -= 1;
-            return true;
+            AlloyDepotEntity alloyDepotBlockEntity = (AlloyDepotEntity) getTargetEntity();
+
+            ItemStack originalItem = alloyDepotBlockEntity.getHeldItem();
+            ItemStack output = recipe.process(getTargetItemStack().copyWithCount(1)).copy();
+            AlloyDepotBehaviour behaviour = alloyDepotBlockEntity.getBehaviour(AlloyDepotBehaviour.TYPE);
+            TransportedItemStack left = behaviour.getHeldItem().copy();
+            left.stack.setCount(originalItem.getCount() - 1);
+            behaviour.setHeldItem(left);
+            alloyDepotBlockEntity.insertToOutput(ItemVariant.of(output),output.getCount(),false);
+
+
+            if (alloyDepotBlockEntity.getHeldItem().equals(originalItem)){
+                return false;
+            }else {
+                this.usage -= 1;
+                return true;
+            }
         }
     }
 

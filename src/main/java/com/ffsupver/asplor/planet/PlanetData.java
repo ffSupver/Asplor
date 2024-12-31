@@ -39,7 +39,6 @@ public class PlanetData extends JsonDataLoader {
     @Override
     protected void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {
         PLANET_ENVIRONMENTS.clear();
-        System.out.println("\n\n\nread " + prepared);
         prepared.forEach((key,value)->{
             JsonObject json = JsonHelper.asObject(value, "planets");
             DataResult result = PlanetEnvironment.CODEC.parse(JsonOps.INSTANCE,json);

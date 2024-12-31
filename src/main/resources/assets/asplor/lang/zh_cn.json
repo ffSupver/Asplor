@@ -83,6 +83,10 @@
   "item.asplor.empty_large_map": "空的大地图",
   "item.asplor.tier_1_rocket_shell": "一阶火箭外壳",
   "item.asplor.cargo_rocket": "货运火箭",
+  "item.asplor.schematic": "处理蓝图",
+  "item.asplor.schematic_shard": "处理蓝图碎片",
+  "item.asplor.space_core": "空间核心",
+
 
 
   "block.asplor.alloy_block": "合金块",
@@ -146,10 +150,12 @@
   "block.asplor.rocket_fuel_loader": "火箭燃料装载器",
   "block.asplor.rocket_cargo_loader": "火箭货物装载器",
   "block.asplor.charged_alloy_block": "充能合金块",
+  "block.asplor.alloy_depot": "合金置物台",
 
 
 
   "enchantment.asplor.strength": "强力",
+  "enchantment.asplor.mechanically_proficient": "机械精通",
 
 
 
@@ -199,7 +205,10 @@
   "description.asplor.smart_processing.next": "下一步:",
   "description.asplor.airlock_switch": "右键另一个这类方块的侧面来绑定它",
   "description.asplor.charged_alloy_block": "吸引底下的合金箱子",
-
+  "description.asplor.cargo_rocket": "在行星和轨道之间运输",
+  "description.asplor.schematic": "配方 : ",
+  "description.asplor.schematic.same_recipe": "同一个配方",
+  "description.asplor.schematic.space_core": "空间核心",
 
 
 
@@ -317,6 +326,11 @@
   "asplor.ponder.cargo_rocket.use.text_8": "充能发射台来发射火箭",
   "asplor.ponder.cargo_rocket.use.text_9": "火箭货物装载器会把火箭上的合金箱子卸载到它上面",
   "asplor.ponder.cargo_rocket.use.text_10": "用火箭货物装载器来卸载火箭内的物品",
+  "asplor.ponder.smart_mechanical_arm.schematic.header": "用处理蓝图处理配方",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_1": "一些配方要求使用处理蓝图来处理",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_2": "在合金置物台的侧面用处理蓝图来右键以添加它",
+  "asplor.ponder.smart_mechanical_arm.schematic.text_3": "现在它可以处理需要这个处理蓝图的配方了",
+
 
   "planet.asplor.the_nether": "幽冥星",
   "planet.asplor.the_nether_orbit": "幽冥星近地轨道",

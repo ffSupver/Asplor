@@ -28,6 +28,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
@@ -104,5 +105,6 @@ public class CargoRocketItem extends RenderedItem implements BotariumFluidItem<W
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltipComponents, TooltipContext context) {
         tooltipComponents.add(TooltipUtils.getFluidComponent(FluidUtils.getTank(stack), FluidUtils.getTankCapacity(stack), ModFluids.FUEL.get()));
+        TooltipUtils.addDescriptionComponent(tooltipComponents, Text.translatable("description.asplor.cargo_rocket").formatted(Formatting.GRAY));
     }
 }

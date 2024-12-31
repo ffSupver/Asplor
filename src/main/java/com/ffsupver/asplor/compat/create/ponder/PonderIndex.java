@@ -30,8 +30,9 @@ public class PonderIndex {
                 .addStoryBoard("refinery/build", RefineryScenes::build)
                 .addStoryBoard("refinery/use", RefineryScenes::use)
                 .addStoryBoard("refinery/output_count", RefineryScenes::outputCount);
-        HELPER.forComponents(SMART_MECHANICAL_ARM,TOOL_GEAR)
-                        .addStoryBoard("smart_mechanical_arm/smart_mechanical_arm",SmartMechanicalArmScenes::use);
+        HELPER.forComponents(SMART_MECHANICAL_ARM,TOOL_GEAR,ALLOY_DEPOT)
+                .addStoryBoard("smart_mechanical_arm/smart_mechanical_arm",SmartMechanicalArmScenes::use)
+                        .addStoryBoard("smart_mechanical_arm/schematic",SmartMechanicalArmScenes::schematic);
         HELPER.forComponents(CHUNK_LOADER)
                 .addStoryBoard("chunk_loader/chunk_loader",ChunkLoaderScenes::chunkLoader);
         HELPER.forComponents(LARGE_MELTING_FURNACE_CONTROLLER,LARGE_MELTING_FURNACE_FLUID_PORT,LARGE_MELTING_FURNACE_ITEM_PORT)

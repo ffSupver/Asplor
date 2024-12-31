@@ -26,6 +26,7 @@
     "asplor:large_melting_furnace_item_port",
     "asplor:rocket_fuel_loader",
     "asplor:rocket_cargo_loader",
-    "asplor:charged_alloy_block"
+    "asplor:charged_alloy_block",
+    "asplor:alloy_depot"
   ]
 }

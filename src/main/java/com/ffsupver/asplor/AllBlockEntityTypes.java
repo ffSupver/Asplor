@@ -2,6 +2,8 @@ package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.airlockSwitch.AirlockSwitchEntity;
 import com.ffsupver.asplor.block.alloyChest.AlloyChestEntity;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepotEntity;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepotRenderer;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressEntity;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressInstance;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressRenderer;
@@ -21,6 +23,7 @@ import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerEntity;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerRenderer;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpEntity;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpInstance;
+import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpRenderer;
 import com.ffsupver.asplor.block.meltingFurnace.*;
 import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
@@ -110,6 +113,7 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
     public static final BlockEntityEntry<MechanicalPumpEntity> MECHANICAL_PUMP_ENTITY = REGISTRATE
             .blockEntity("mechanical_pump", MechanicalPumpEntity::new)
             .instance(() -> MechanicalPumpInstance::new, false)
+            .renderer(()-> MechanicalPumpRenderer::new)
             .validBlocks(MECHANICAL_PUMP)
             .register();
 
@@ -189,6 +193,12 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("rocket_cargo_loader", RocketCargoLoaderEntity::new)
             .validBlocks(ROCKET_CARGO_LOADER)
 //            .renderer(()-> RocketCargoLoaderEntity::new)
+            .register();
+
+    public static final BlockEntityEntry<AlloyDepotEntity> ALLOY_DEPOT_ENTITY = REGISTRATE
+            .blockEntity("alloy_depot", AlloyDepotEntity::new)
+            .validBlocks(ALLOY_DEPOT)
+            .renderer(()-> AlloyDepotRenderer::new)
             .register();
 
     //注册普通方块实体

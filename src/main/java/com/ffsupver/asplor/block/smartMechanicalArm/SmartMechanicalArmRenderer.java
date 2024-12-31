@@ -2,26 +2,32 @@ package com.ffsupver.asplor.block.smartMechanicalArm;
 
 import com.ffsupver.asplor.AllPartialModels;
 import com.jozufozu.flywheel.core.PartialModel;
-import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
+import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
+import com.simibubi.create.foundation.render.CachedBufferer;
+import com.simibubi.create.foundation.render.SuperByteBuffer;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 
+import static com.ffsupver.asplor.util.RenderUtil.getTextureLight;
 import static com.ffsupver.asplor.util.RenderUtil.renderModel;
 
-public class SmartMechanicalArmRenderer extends SafeBlockEntityRenderer<SmartMechanicalArmEntity> {
+public class SmartMechanicalArmRenderer extends KineticBlockEntityRenderer<SmartMechanicalArmEntity> {
     public SmartMechanicalArmRenderer(BlockEntityRendererFactory.Context context) {
-        super();
+        super(context);
     }
 
     @Override
     protected void renderSafe(SmartMechanicalArmEntity be, float partialTicks, MatrixStack ms, VertexConsumerProvider buffer, int light, int overlay) {
+
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         SmartMechanicalArmEntity.ArmData armData =be.getArmData();
         Vec3d headPos = armData.headPos;
@@ -80,11 +86,22 @@ public class SmartMechanicalArmRenderer extends SafeBlockEntityRenderer<SmartMec
         }
 
         ms.pop();
+
+        super.renderSafe(be,partialTicks,ms,buffer,getTextureLight(getLightBelow(be)),overlay);
+    }
+
+    @Override
+    protected SuperByteBuffer getRotatedModel(SmartMechanicalArmEntity be, BlockState state) {
+        return CachedBufferer.partialFacing(com.simibubi.create.AllPartialModels.SHAFT_HALF, be.getCachedState(), Direction.DOWN);
     }
 
     private int getLight(SmartMechanicalArmEntity be){
         BlockPos above = be.getPos().up();
        return be.getWorld().getLightLevel(LightType.BLOCK,above);
+    }
+    private int getLightBelow(SmartMechanicalArmEntity be){
+        BlockPos below = be.getPos().down();
+        return be.getWorld().getLightLevel(LightType.BLOCK,below);
     }
 
 }

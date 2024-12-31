@@ -1,0 +1,42 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:charged_alloy_block"
+  },
+  "output": {
+    "item": "asplor:space_core"
+  },
+  "process_item": {
+    "item": "asplor:charged_alloy_block"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_gold_dropper",
+    "asplor:drill",
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_brass_dropper",
+    "asplor:glue_dropper",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser",
+    "asplor:laser"
+  ],
+  "schematic": "space_core"
+}

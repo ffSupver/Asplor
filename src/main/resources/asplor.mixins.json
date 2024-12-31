@@ -6,7 +6,9 @@
     "AsplorMixin",
     "CrossbowItemMixin",
     "EnvironmentTick",
+    "ItemStackMixin",
     "LavaFluidMixin",
+    "StructureBlockEntity",
     "disablePortal.NetherPortalMixin",
     "moltenMetal.EntityMixin",
     "moltenMetal.LivingEntityMixin"

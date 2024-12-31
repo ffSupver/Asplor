@@ -47,16 +47,17 @@ public class SmartProcessingCategory implements DisplayCategory<SmartProcessingD
                 .disableBackground()
                 .markInput());
 
+        if (display.requireSchematic()){
+            addOtherInputSlot(widgets,startPoint,18,19,23,display.getSchematicItem());
+        }
+
         Map<ItemStack,Integer> tools = display.getToolTypeCount();
         int toolOrder = 0;
         for (ItemStack itemStack : tools.keySet()){
-            int offset = 38 + toolOrder*20;
-            widgets.add(Widgets.createTexturedWidget(TEXTURE,startPoint.x+offset,startPoint.y+4,176,0,18,29));
-            widgets.add(Widgets.createLabel(new me.shedaniel.math.Point(startPoint.x+offset+13,startPoint.y+24),Text.literal(tools.get(itemStack).toString())));
-            widgets.add(Widgets.createSlot(new me.shedaniel.math.Point(startPoint.x+offset+1,startPoint.y+5))
-                    .entries(EntryIngredients.of(itemStack))
-                    .disableBackground()
-                    .markInput());
+            int offsetX = 38 + toolOrder*20;
+//            widgets.add(Widgets.createTexturedWidget(TEXTURE,startPoint.x+offsetX,startPoint.y+4,176,0,18,29));
+            widgets.add(Widgets.createLabel(new me.shedaniel.math.Point(startPoint.x+offsetX+13,startPoint.y+24),Text.literal(tools.get(itemStack).toString())));
+            addOtherInputSlot(widgets,startPoint,29,offsetX,4,itemStack);
             toolOrder += 1;
         }
 
@@ -65,6 +66,14 @@ public class SmartProcessingCategory implements DisplayCategory<SmartProcessingD
                 .disableBackground()
                 .markOutput());
         return widgets;
+    }
+
+    private void addOtherInputSlot(List<Widget> widgets, Point startPoint, int v, int offsetX, int offsetY, ItemStack itemStack){
+        widgets.add(Widgets.createTexturedWidget(TEXTURE,startPoint.x+offsetX,startPoint.y+offsetY,176,0,18,v));
+        widgets.add(Widgets.createSlot(new me.shedaniel.math.Point(startPoint.x+offsetX+1,startPoint.y+1+offsetY))
+                .entries(EntryIngredients.of(itemStack))
+                .disableBackground()
+                .markInput());
     }
 
     @Override
