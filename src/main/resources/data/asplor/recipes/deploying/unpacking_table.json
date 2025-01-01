@@ -1,0 +1,16 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:andesite_casing"
+    },
+    {
+      "item": "asplor:alloy_block"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:unpacking_table"
+    }
+  ]
+}

@@ -36,8 +36,7 @@
         },
         {
           "amount": 162,
-          "fluid": "asplor:glue",
-          "nbt": {}
+          "fluid": "asplor:glue"
         }
       ],
       "results": [

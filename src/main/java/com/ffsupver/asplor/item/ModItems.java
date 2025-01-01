@@ -132,6 +132,9 @@ public class ModItems {
     public static final Item SCHEMATIC = registerItems("schematic",new SchematicItem(new FabricItemSettings()));
     public static final Item SCHEMATIC_SHARD = registerItems("schematic_shard",new SchematicItem(new FabricItemSettings()));
     public static final Item SPACE_CORE = registerItems("space_core",new Item(new FabricItemSettings()));
+    public static final Item CONTROLLING_CHIP = registerItems("controlling_chip",new Item(new FabricItemSettings()));
+    public static final Item UNCOMPLETED_CONTROLLING_CHIP = registerItems("uncompleted_controlling_chip",new Item(new FabricItemSettings()));
+    public static final Item MOLTEN_DESH_DROPPER = registerItems("molten_desh_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_desh_dropper"),1));
 
 
     @Environment(EnvType.CLIENT)
@@ -151,6 +154,7 @@ public class ModItems {
         registerToolItemModel(MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER,AllPartialModels.MOLTEN_ALLOY_DROPPER_WORK);
         registerToolItemModel(GLUE_DROPPER,AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK);
         registerToolItemModel(MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK);
+        registerToolItemModel(MOLTEN_DESH_DROPPER,AllPartialModels.MOLTEN_DESH_DROPPER,AllPartialModels.MOLTEN_DESH_DROPPER_WORK);
 
     }
 

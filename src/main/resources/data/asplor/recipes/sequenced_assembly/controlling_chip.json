@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:charged_alloy_block"
+  },
+  "loops": 16,
+  "results": [
+    {
+      "item": "asplor:controlling_chip"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        },
+        {
+          "item": "minecraft:slime_block"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        },
+        {
+          "item": "create:brass_block"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        },
+        {
+          "amount": 81000,
+          "fluid": "asplor:molten_desh"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:uncompleted_controlling_chip"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:controlling_chip"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:uncompleted_controlling_chip"
+  }
+}

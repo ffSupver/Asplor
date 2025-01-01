@@ -1,0 +1,24 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:charged_alloy_ingot"
+  },
+  "output": {
+    "item": "asplor:controlling_chip"
+  },
+  "process_item": {
+    "item": "asplor:uncompleted_controlling_chip"
+  },
+  "tool_types": [
+    "asplor:glue_dropper",
+    "asplor:laser",
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:laser",
+    "asplor:drill",
+    "asplor:molten_brass_dropper",
+    "asplor:drill",
+    "asplor:molten_desh_dropper",
+    "asplor:laser"
+  ]
+}

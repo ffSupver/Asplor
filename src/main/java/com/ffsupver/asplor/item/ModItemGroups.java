@@ -41,6 +41,7 @@ public class ModItemGroups {
                                 entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(SPACE_CORE);
+                                entries.add(CONTROLLING_CHIP);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
                                 entries.add(HEAVY_OIL_BUCKET);
@@ -135,6 +136,7 @@ public class ModItemGroups {
                             entries.add(MOLTEN_GOLD_DROPPER);
                             entries.add(MOLTEN_ALLOY_DROPPER);
                             entries.add(MOLTEN_BRASS_DROPPER);
+                            entries.add(MOLTEN_DESH_DROPPER);
                             entries.add(GLUE_DROPPER);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_4K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_16K);

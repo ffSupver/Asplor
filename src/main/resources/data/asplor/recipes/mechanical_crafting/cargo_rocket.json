@@ -11,12 +11,16 @@
     "C": {
       "item": "create:fluid_tank"
     },
+    "D": {
+      "item": "asplor:controlling_chip"
+    },
     "E": {
       "item": "asplor:alloy_chest"
     }
   },
   "pattern": [
     "  A  ",
+    " ADA ",
     " ACA ",
     " ACA ",
     "AEBEA",

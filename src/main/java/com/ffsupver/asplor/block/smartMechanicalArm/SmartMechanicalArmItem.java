@@ -1,5 +1,7 @@
 package com.ffsupver.asplor.block.smartMechanicalArm;
 
+import com.ffsupver.asplor.AllBlocks;
+import com.ffsupver.asplor.block.alloyDepot.AlloyDepotEntity;
 import com.ffsupver.asplor.util.NbtUtil;
 import com.ffsupver.asplor.util.RenderUtil;
 import com.simibubi.create.content.logistics.depot.DepotBlockEntity;
@@ -34,7 +36,7 @@ public class SmartMechanicalArmItem extends BlockItem {
         PlayerEntity player = context.getPlayer();
         if (player != null && !player.isSneaking()) {
             if (blockEntity != null) {
-                if (blockEntity instanceof DepotBlockEntity) {
+                if (blockEntity instanceof DepotBlockEntity || blockEntity instanceof AlloyDepotEntity) {
                     itemStackNbt.put("target", NbtUtil.writeBlockPosToNbt(pos));
                     BlockPos oldBlockPos = new BlockPos(0, 0, 0);
                     if (itemStackNbt.contains("target", 10)) {
@@ -100,6 +102,18 @@ public class SmartMechanicalArmItem extends BlockItem {
                     }
 
                 }
+            }
+
+
+            ItemStack itemStack = context.getStack();
+            PlayerEntity player = context.getPlayer();
+            if (itemStack.isOf(AllBlocks.SMART_MECHANICAL_ARM.asItem())){
+                itemStack.removeSubNbt("tools");
+                itemStack.removeSubNbt("target");
+                itemStack.removeSubNbt("display");
+            }
+            if (player != null){
+                player.setStackInHand(context.getHand(), itemStack);
             }
             return true;
         }
