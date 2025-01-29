@@ -1,4 +1,4 @@
-package com.ffsupver.asplor.networking.packet.large_map;
+package com.ffsupver.asplor.networking.packet.largeMap;
 
 import com.ffsupver.asplor.item.item.largeMap.LargeMapState;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;

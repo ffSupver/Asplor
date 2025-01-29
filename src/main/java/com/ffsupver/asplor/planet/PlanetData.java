@@ -35,6 +35,10 @@ public class PlanetData extends JsonDataLoader {
         return false;
     }
 
+    public static Map<RegistryKey<World>,PlanetEnvironment> planetEnvironments(){
+        return PLANET_ENVIRONMENTS;
+    }
+
 
     @Override
     protected void apply(Map<Identifier, JsonElement> prepared, ResourceManager manager, Profiler profiler) {

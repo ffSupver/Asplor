@@ -4,7 +4,7 @@ import com.ffsupver.asplor.AllKeys;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.item.item.largeMap.LargeMapState;
 import com.ffsupver.asplor.networking.ModPackets;
-import com.ffsupver.asplor.networking.packet.large_map.RequestLargeMapDataC2SPacket;
+import com.ffsupver.asplor.networking.packet.largeMap.RequestLargeMapDataC2SPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.block.MapColor;
 import net.minecraft.client.MinecraftClient;

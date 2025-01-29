@@ -135,6 +135,7 @@ public class ModItems {
     public static final Item CONTROLLING_CHIP = registerItems("controlling_chip",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_CONTROLLING_CHIP = registerItems("uncompleted_controlling_chip",new Item(new FabricItemSettings()));
     public static final Item MOLTEN_DESH_DROPPER = registerItems("molten_desh_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_desh_dropper"),1));
+    public static final Item WORLD_ADDER = registerItems("world_adder",new WorldAdderItem(new FabricItemSettings().maxCount(1)));
 
 
     @Environment(EnvType.CLIENT)

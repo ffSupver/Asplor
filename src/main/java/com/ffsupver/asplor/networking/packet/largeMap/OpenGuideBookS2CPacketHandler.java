@@ -1,8 +1,6 @@
-package com.ffsupver.asplor.networking.packet.large_map;
+package com.ffsupver.asplor.networking.packet.largeMap;
 
-import com.ffsupver.asplor.item.ModItems;
-import com.ffsupver.asplor.item.item.largeMap.LargeMapState;
-import com.ffsupver.asplor.screen.largeMap.LargeMapScreen;
+import com.ffsupver.asplor.screen.guideBook.GuideBookScreen;
 import io.netty.util.IllegalReferenceCountException;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -15,18 +13,18 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 
 @Environment(EnvType.CLIENT)
-public class OpenLargeMapS2CPacketHandler {
+public class OpenGuideBookS2CPacketHandler {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         Hand hand = buf.readEnumConstant(Hand.class);
-        int mapId = buf.readInt();
-        LargeMapState largeMapState = LargeMapState.readFromBuf(buf);
-        int startX = buf.readInt();
-        int startZ = buf.readInt();
         client.execute(() -> {
             try {
-                ItemStack itemStack = client.player.getStackInHand(hand);
-                if (itemStack.isOf(ModItems.LARGE_MAP)){
-                    client.setScreen(new LargeMapScreen(Text.literal("a"),mapId,largeMapState,startX,startZ));
+                // 在主线程中执行
+                if (client.player != null) {
+
+                    ItemStack itemStack = client.player.getStackInHand(hand);
+                    client.setScreen(
+                            new GuideBookScreen(Text.literal("a"), itemStack)
+                    );
                 }
             } catch (IllegalReferenceCountException e) {
                 e.printStackTrace();

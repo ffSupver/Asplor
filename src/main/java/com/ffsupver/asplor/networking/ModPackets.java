@@ -2,11 +2,12 @@ package com.ffsupver.asplor.networking;
 
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.networking.packet.OpenBackpackC2SPacket;
-import com.ffsupver.asplor.networking.packet.large_map.LargeMapDataS2CPacket;
-import com.ffsupver.asplor.networking.packet.large_map.OpenGuideBookS2CPacketHandler;
-import com.ffsupver.asplor.networking.packet.large_map.OpenLargeMapS2CPacketHandler;
-import com.ffsupver.asplor.networking.packet.large_map.RequestLargeMapDataC2SPacket;
+import com.ffsupver.asplor.networking.packet.largeMap.LargeMapDataS2CPacket;
+import com.ffsupver.asplor.networking.packet.largeMap.OpenGuideBookS2CPacketHandler;
+import com.ffsupver.asplor.networking.packet.largeMap.OpenLargeMapS2CPacketHandler;
+import com.ffsupver.asplor.networking.packet.largeMap.RequestLargeMapDataC2SPacket;
 import com.ffsupver.asplor.networking.packet.ranger.RangerInputC2SPacketHandler;
+import com.ffsupver.asplor.networking.packet.worldAdder.CreateWorldC2SPacketHandler;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.util.Identifier;
@@ -19,6 +20,7 @@ public class ModPackets {
     public static final Identifier REQUEST_LARGE_MAP_DATA = new Identifier(Asplor.MOD_ID, "request_large_map_data");
     public static final Identifier LARGE_MAP_DATA = new Identifier(Asplor.MOD_ID, "large_map_data");
     public static final Identifier RANGER_INPUT = new Identifier(Asplor.MOD_ID, "ranger_input");
+    public static final Identifier WORLD_ADDER_CREATE_WORLD = new Identifier(Asplor.MOD_ID, "world_adder_create_world");
 
 
 
@@ -26,6 +28,7 @@ public class ModPackets {
         ServerPlayNetworking.registerGlobalReceiver(OPEN_BACKPACK, OpenBackpackC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(REQUEST_LARGE_MAP_DATA, RequestLargeMapDataC2SPacket::receive);
         ServerPlayNetworking.registerGlobalReceiver(RANGER_INPUT, RangerInputC2SPacketHandler::receive);
+        ServerPlayNetworking.registerGlobalReceiver(WORLD_ADDER_CREATE_WORLD, CreateWorldC2SPacketHandler::receive);
 
     }
     public static void registerS2CPack(){

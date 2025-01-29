@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.item.item.largeMap;
 
 import com.ffsupver.asplor.item.ModItems;
-import com.ffsupver.asplor.networking.packet.large_map.OpenLargeMapS2CPacket;
+import com.ffsupver.asplor.networking.packet.largeMap.OpenLargeMapS2CPacket;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.content.trains.station.StationBlockEntity;
@@ -23,6 +23,7 @@ import net.minecraft.item.NetworkSyncedItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -172,7 +173,7 @@ public class LargeMapItem extends NetworkSyncedItem {
         return false;
     }
 
-    private void updateColors(World world, Entity entity, LargeMapState largeMapState){
+    private void updateColors(ServerWorld world, Entity entity, LargeMapState largeMapState){
         if (world.getRegistryKey() == largeMapState.dimension && entity instanceof PlayerEntity player) {
             largeMapState.checkAndAddPlayer(player);
             largeMapState.updateByList(player);
@@ -180,10 +181,7 @@ public class LargeMapItem extends NetworkSyncedItem {
             int playerChunkX = ChunkSectionPos.getSectionCoord(MathHelper.floor(entity.getX()));
             int playerChunkZ = ChunkSectionPos.getSectionCoord(MathHelper.floor(entity.getZ()));
 
-            int updateRadius = 4;
-            if (!world.isClient()){
-               updateRadius = world.getServer().getPlayerManager().getSimulationDistance() - 2;
-            }
+            int updateRadius = world.getServer().getPlayerManager().getViewDistance() - 1;
 
             // 遍历玩家周围的区块
             for (int offsetZ = -updateRadius; offsetZ < updateRadius; offsetZ++) {
@@ -300,10 +298,10 @@ public class LargeMapItem extends NetworkSyncedItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient()){
+        if (world instanceof ServerWorld serverWorld){
             LargeMapState largeMapState = getMapState(stack,world);
             if (largeMapState != null && world.getTime() % 10 == 0){
-                updateColors(world, entity, largeMapState);
+                updateColors(serverWorld, entity, largeMapState);
 
             }
         }

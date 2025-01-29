@@ -17,6 +17,7 @@ import com.ffsupver.asplor.structure.ModStructureTypes;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.ffsupver.asplor.villager.ModTraders;
 import com.ffsupver.asplor.villager.ModVillagers;
+import com.ffsupver.asplor.world.WorldData;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
@@ -100,6 +101,7 @@ public class Asplor implements ModInitializer {
 		ICellHandlerRegister.register();
 
 		ChunkLoaderServer.registerLoadChunkFunction();
+		WorldData.registerListener();
 
 		LargeMapState.loadMapIcon();
 

@@ -89,6 +89,7 @@
   "item.asplor.controlling_chip": "Controlling Chip",
   "item.asplor.uncompleted_controlling_chip": "Uncompleted Controlling Chip",
   "item.asplor.molten_desh_dropper": "Molten Desh Dropper",
+  "item.asplor.world_adder": "World Adder",
 
 
 
@@ -337,6 +338,35 @@
   "asplor.ponder.smart_mechanical_arm.schematic.text_3": "It can process with a schematic now",
 
 
+  "asplor.screen.world_adder": "World Adder",
+  "asplor.screen.world_adder.function_name": "Function Name",
+  "asplor.screen.world_adder.blocks": "Blocks",
+  "asplor.screen.world_adder.biomes": "Biomes",
+  "asplor.screen.world_adder.planet": "Planet",
+  "asplor.screen.world_adder.done": "Done",
+  "asplor.screen.world_adder.add": "add",
+  "asplor.screen.world_adder.mul": "mul",
+  "asplor.screen.world_adder.noise": "noise",
+  "asplor.screen.world_adder.shift_noise": "shift noise",
+  "asplor.screen.world_adder.max": "max",
+  "asplor.screen.world_adder.min": "min",
+  "asplor.screen.world_adder.start": "start",
+  "asplor.screen.world_adder.stop": "stop",
+  "asplor.screen.world_adder.interpolated": "interpolated",
+  "asplor.screen.world_adder.y_clamped_gradient": "y clamped gradient",
+  "asplor.screen.world_adder.noise_in_range": "noise in range",
+  "asplor.screen.world_adder.remove": "Remove",
+  "asplor.screen.world_adder.add_list": "Add List",
+  "asplor.screen.world_adder.add_block": "Add",
+  "asplor.screen.world_adder.remove_block": "Remove",
+  "asplor.screen.world_adder.column": "Column",
+  "asplor.screen.world_adder.add_biome": "Add",
+  "asplor.screen.world_adder.remove_biome": "Remove",
+  "asplor.screen.world_adder.oxygen": "oxygen",
+  "asplor.screen.world_adder.temperature": "temperature",
+  "asplor.screen.world_adder.gravity": "gravity",
+  "asplor.screen.world_adder.solar_power": "solar power",
+  "asplor.screen.world_adder.tier": "tier",
 
 
   "planet.asplor.the_nether": "Tartarus",

@@ -58,7 +58,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
     }
 
     public String getSchematic(){return schematic;}
-    public boolean requireSchematic(){return schematic != null;}
+    public boolean requireSchematic(){return schematic != null && !schematic.isEmpty();}
 
 
     public ToolType getToolType(ItemStack itemStack){
@@ -189,7 +189,7 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
             buf.writeItemStack(recipe.getOutput(null));
             buf.writeItemStack(recipe.getProcessItem().getDefaultStack());
 
-            boolean hasSchematic = recipe.getSchematic() == null;
+            boolean hasSchematic = recipe.requireSchematic();
             buf.writeBoolean(hasSchematic);
             if (hasSchematic){
                 buf.writeString(recipe.getSchematic());

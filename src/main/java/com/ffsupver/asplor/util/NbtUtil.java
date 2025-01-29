@@ -1,12 +1,11 @@
 package com.ffsupver.asplor.util;
 
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class NbtUtil {
     public static BlockPos readBlockPosFromNbt(NbtCompound nbtCompound){
@@ -44,6 +43,38 @@ public final class NbtUtil {
         result.putDouble("x",vec3d.getX());
         result.putDouble("y",vec3d.getY());
         result.putDouble("z",vec3d.getZ());
+        return result;
+    }
+
+    public static NbtList writeStringListToNbt(List<String> stringList){
+        NbtList result = new NbtList();
+        for (String s : stringList){
+            result.add(NbtString.of(s));
+        }
+        return result;
+    }
+
+    public static List<String> readStringListFromNbt(NbtList nbtList){
+        ArrayList<String> result = new ArrayList<>();
+        for (NbtElement e : nbtList){
+            result.add(e.asString());
+        }
+        return result;
+    }
+
+    public static NbtList writeFloatListToNbt(List<Float> floatList){
+        NbtList result = new NbtList();
+        for (Float s : floatList){
+            result.add(NbtFloat.of(s));
+        }
+        return result;
+    }
+
+    public static List<Float> readFloatListFromNbt(NbtList nbtList){
+        ArrayList<Float> result = new ArrayList<>();
+        for (NbtElement e : nbtList){
+            result.add(((NbtFloat)e).floatValue());
+        }
         return result;
     }
 }

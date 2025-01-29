@@ -109,7 +109,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
         this.dataTracker.startTracking(IS_LAUNCHING, false);
         this.dataTracker.startTracking(LAUNCH_TICKS, -1);
         this.dataTracker.startTracking(HAS_LAUNCHED, false);
-        this.dataTracker.startTracking(IS_IN_VALID_DIMENSION, AdAstraConfig.launchFromAnywhere || AdAstraData.canLaunchFrom(this.getWorld().getRegistryKey()));
+        this.dataTracker.startTracking(IS_IN_VALID_DIMENSION, AdAstraConfig.launchFromAnywhere || AdAstraData.canLaunchFrom(this.getWorld().getRegistryKey()) || AdAstraData.isPlanet(this.getWorld().getRegistryKey()));
         this.dataTracker.startTracking(FUEL, 0L);
         this.dataTracker.startTracking(FUEL_TYPE, "air");
         this.dataTracker.startTracking(IS_LANDING,false);
