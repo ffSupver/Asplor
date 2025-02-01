@@ -45,6 +45,7 @@ public class ModTags {
         public static TagKey<Biome> MOON = tag("moon");
         public static TagKey<Biome> NO_WIND = tag("no_wind");
         public static TagKey<Biome> HAS_LAUNCH_CENTER = tag("has_launch_center");
+        public static TagKey<Biome> MARS = tag("mars");
 
         private static TagKey<Biome> tag(String name) {
             return TagKey.of(RegistryKeys.BIOME,new Identifier(Asplor.MOD_ID,name));
