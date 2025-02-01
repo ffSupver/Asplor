@@ -17,9 +17,11 @@ import net.minecraft.world.biome.source.MultiNoiseBiomeSource;
 import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class BiomesSupplier {
     public static final BiomesData OUTER_SPACE_PLAINS = createBiomesData("outer_space_plains",getBaseMaterialRule(Blocks.SAND.getDefaultState(),Blocks.IRON_BLOCK.getDefaultState()));
@@ -78,17 +80,24 @@ public class BiomesSupplier {
     public record BiomesData(RegistryKey<Biome> registryKey, MaterialRules.MaterialRule materialRule) {
     }
 
-    public static MaterialRules.MaterialRule generateMaterialRules(List<BiomesData> biomesDataList) {
+    public static MaterialRules.@Nullable MaterialRule generateMaterialRules(List<BiomesData> biomesDataList, List<BlockState> blockStates, List<RegistryKey<Biome>> biomes) {
         // 将 BiomesData 转换为 MaterialRules.condition(...)
+        AtomicInteger index = new AtomicInteger(3);
         MaterialRules.MaterialRule[] rules = biomesDataList.stream()
-                .map(data -> MaterialRules.condition(
-                        MaterialRules.biome(data.registryKey()), // 根据 Biome 的 registryKey 创建条件
-                        data.materialRule()                      // 对应的 materialRule
-                ))
+                .filter(biomesData -> biomes.contains(biomesData.registryKey))
+                .map(data -> {
+                    MaterialRules.MaterialRule rule = MaterialRules.condition(
+                            MaterialRules.biome(data.registryKey()), // 根据 Biome 的 registryKey 创建条件
+                            blockStates.size() > index.get() + 1 ?
+                                    getBaseMaterialRule(blockStates.get(index.get()),blockStates.get(index.get() + 1))  : data.materialRule()                      // 对应的 materialRule
+                    );
+                    index.addAndGet(2);
+                    return rule;
+                })
                 .toArray(MaterialRules.MaterialRule[]::new);   // 转换为数组
 
         // 将所有条件组合到 MaterialRules.sequence 中
-        return MaterialRules.sequence(rules);
+        return rules.length == 0 ? null : MaterialRules.sequence(rules);
     }
     public static MaterialRules.MaterialRule getBaseMaterialRule(BlockState surfaceBlockState, BlockState baseBlockState){
         MaterialRules.MaterialCondition isSurface = MaterialRules.stoneDepth(0,true,0, VerticalSurfaceType.FLOOR);
@@ -105,5 +114,8 @@ public class BiomesSupplier {
                         )
                 )
         );
+    }
+    public static List<RegistryKey<Biome>> toBiomeList(List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource){
+        return biomeSource.stream().map(data -> data.getLeft().getKey().orElseThrow(() -> new RuntimeException("Unknown biome : "+data.getLeft()))).toList();
     }
 }

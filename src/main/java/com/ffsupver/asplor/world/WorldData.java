@@ -63,16 +63,16 @@ public class WorldData {
         return createWorldKey(planetWorldKey.getValue().getPath().replace("planet_","orbit_"));
     }
 
-    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, List<String> chunkGeneratorSettingsCode, List<String> blockList){
+    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList){
         createNewPlantWithOrbit(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList,
                 false, (short) -270,4.8f,32,10);
     }
-    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, List<String> chunkGeneratorSettingsCode, List<String> blockList, PlanetCreatingData planetCreatingData){
+    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList, PlanetCreatingData planetCreatingData){
         planetCreatingData.fillNullValues(false, (short) -270,4.8f,32,10);
         createNewPlantWithOrbit(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList,
                 planetCreatingData.oxygen, planetCreatingData.temperature,planetCreatingData.gravity,planetCreatingData.solarPower,planetCreatingData.tier);
     }
-    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, List<String> chunkGeneratorSettingsCode, List<String> blockList,
+    public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList,
                                                boolean oxygen,short temperature,float gravity,int solarPower,int tier){
         RegistryKey<World> orbitKey = createWorldKey(worldKey);
         createNewDimension(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList);
@@ -85,18 +85,18 @@ public class WorldData {
     }
 
 
-    public static void createNewDimension(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, List<String> chunkGeneratorSettingsCode, List<String> blockList) {
+    public static void createNewDimension(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList) {
         if (server instanceof MinecraftServerAccessor serverAccessor) {
             long seed = server.getOverworld().getSeed();
 
-            chunkGeneratorSettingsCode = chunkGeneratorSettingsCode.stream().map(string -> {
+            chunkGeneratorSettingsCode = new ArrayList<>(chunkGeneratorSettingsCode.stream().map(string -> {
                 if (string.equals("yClampedGradient")) {
                     string = "y_clamped_gradient";
                 }
                 return string;
-            }).toList();
+            }).toList());
 
-            ChunkGeneratorSettings chunkGeneratorSettings = WorldGenerator.getGeneratorSettings(server,chunkGeneratorSettingsCode,blockList);
+            ChunkGeneratorSettings chunkGeneratorSettings = WorldGenerator.getGeneratorSettings(server,chunkGeneratorSettingsCode,blockList,BiomesSupplier.toBiomeList(biomeSource));
 
 
             // 创建维度选项 (包括维度类型、生成器等)
@@ -121,7 +121,7 @@ public class WorldData {
 
             serverAccessor.getWorlds().put(worldKey,newWorld);
             WORLDS.put(worldKey,new Pair<>(newWorld,new Pair<>(new Pair<>(chunkGeneratorSettingsCode,blockList),biomeSource)));
-            System.out.println("put "+worldKey+" "+newWorld);
+            System.out.println("put "+worldKey+" "+newWorld + " f  "+chunkGeneratorSettingsCode);
 
 
         }
@@ -293,8 +293,8 @@ public class WorldData {
                     }
                 }
 
-                List<String> chunkGeneratingSettingsCode = NbtUtil.readStringListFromNbt(worldData.getList("chunk_generating_settings",NbtElement.STRING_TYPE));
-                List<String> blockList = NbtUtil.readStringListFromNbt(worldData.getList("block_list",NbtElement.STRING_TYPE));
+                ArrayList<String> chunkGeneratingSettingsCode = new ArrayList<>(NbtUtil.readStringListFromNbt(worldData.getList("chunk_generating_settings",NbtElement.STRING_TYPE)));
+                ArrayList<String> blockList = new ArrayList<>(NbtUtil.readStringListFromNbt(worldData.getList("block_list",NbtElement.STRING_TYPE)));
 
                 if (worldData.contains("planet",NbtElement.COMPOUND_TYPE)){
                     NbtCompound planetData = worldData.getCompound("planet");

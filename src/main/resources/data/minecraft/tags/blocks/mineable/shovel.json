@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "asplor:mars_sand"
+    "asplor:mars_sand",
+    "asplor:outer_space/astra_diabase_dust"
   ]
 }

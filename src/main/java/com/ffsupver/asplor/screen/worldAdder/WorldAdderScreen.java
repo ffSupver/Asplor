@@ -142,10 +142,10 @@ public class WorldAdderScreen extends Screen {
         );
         this.buttonAddBlock = createButton(100,0,"asplor.screen.world_adder.add_block",
                 buttonWidget -> {
-                    if (this.blockList.size() < 3){
+//                    if (this.blockList.size() < 3){
                         String[] input = this.inputName.getText().replaceAll("\\s*", "").split(",");
                         this.blockList.addAll(Arrays.asList(input));
-                    }
+//                    }
                 }
         );
         this.buttonRemoveBlock = createButton(50,0,"asplor.screen.world_adder.remove_block",

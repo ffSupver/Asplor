@@ -17,6 +17,7 @@ public class ModTags {
         public static final TagKey<Block> LARGE_MAP_MARK_BLOCK = createTag("large_map_mark_block");
         public static final TagKey<Block> LARGE_MAP_ITEM_INTERACT_BLOCK = createTag("large_map_item_interact_block");
         public static final TagKey<Block> LARGE_MELTING_FURNACE_BLOCK = createTag("large_melting_furnace_block");
+        public static final TagKey<Block> ASTRA_DIABASE_STONE_ORE_REPLACEABLES = createTag("astra_diabase_stone_ore_replaceables");
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK,new Identifier(Asplor.MOD_ID,name));
         }

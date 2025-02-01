@@ -2,6 +2,7 @@ package com.ffsupver.asplor.world;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.Asplor;
+import com.ffsupver.asplor.util.MathUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,6 +14,7 @@ import net.minecraft.util.Pair;
 import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
 import net.minecraft.world.gen.densityfunction.DensityFunction;
@@ -32,17 +34,28 @@ import static com.ffsupver.asplor.world.WorldGenerator.DensityFunctionBuilder.of
 public class WorldGenerator {
     private static final Pattern IS_NUMBER = Pattern.compile("-?\\d+(\\.\\d+)?");
     private static final Pattern IS_NEGATIVE_NUMBER = Pattern.compile("-\\d+(\\.\\d+)?");
-    private static final List<List<String>> DENSITY_FUNCTIONS = List.of(
-            List.of("start", "add", "minecraft:overworld/depth", "add", "-0.5", "mul", "start", "shift_noise", "0.25","minecraft:cave_cheese", "stop", "add", "0.25", "min", "start", "add", "minecraft:overworld/depth", "mul", "0.5", "add", "0.25", "stop", "stop"),
-            List.of( "start", "add", "minecraft:overworld/depth", "add","-0.5", "mul", "start", "noise_in_range", "0.25", "1", "-1", "1", "minecraft:cave_cheese", "stop", "add", "0.25", "min", "start", "add", "minecraft:overworld/depth", "mul", "0.5", "add", "0.25", "stop", "stop"),
-            List.of( "start", "add", "minecraft:overworld/depth", "mul", "minecraft:overworld/factor", "add", "0.1", "max", "start", "add", "minecraft:overworld/depth", "mul", "start", "add", "0", "max", "start", "add", "minecraft:overworld/ridges_folded", "mul", "-1", "stop", "stop", "add", "-0.25", "stop", "min", "start", "noise", "minecraft:cave_cheese", "add", "0.5", "stop", "stop"),
-            List.of("interpolated", "start", "noise_in_range", "0.25", "1", "1", "-1", "clay_bands_offset", "noise_in_range", "2", "1", "1", "-1", "clay_bands_offset", "min", "start", "add", "minecraft:overworld/depth", "stop", "max", "start", "add", "minecraft:overworld/depth", "add", "-0.5", "stop", "stop")
+    private static final Pattern HAS_BLOCK_STATE = Pattern.compile("^(.*?)(?:\\[(.*?)])?$");
+
+    private static final List<RandomDensityFunctionGenerator> DENSITY_FUNCTIONS = List.of(
+            new RandomDensityFunctionGenerator(List.of("start", "add", "minecraft:overworld/depth", "add", "-0.5", "mul", "start", "shift_noise", "0.25","minecraft:cave_cheese", "stop", "add", "0.25", "min", "start", "add", "minecraft:overworld/depth", "mul", "0.5", "add", "0.25", "stop", "stop"),
+                    List.of(RandomDensityFunctionGenerator.createProcessor(4,-0.3f,-0.7f),RandomDensityFunctionGenerator.createProcessor(8,0.1f,0.6f),RandomDensityFunctionGenerator.createProcessor(12,0.0f,0.25f),RandomDensityFunctionGenerator.createProcessor(20,0.0f,0.3f))
+            ),
+            new RandomDensityFunctionGenerator(List.of( "start", "add", "minecraft:overworld/depth", "add","-0.5", "mul", "start", "noise_in_range", "0.25", "1", "-1", "1", "minecraft:cave_cheese", "stop", "add", "0.25", "min", "start", "add", "minecraft:overworld/depth", "mul", "0.5", "add", "0.25", "stop", "stop"),
+                    List.of(RandomDensityFunctionGenerator.createProcessor(8,0.1f,0.6f),RandomDensityFunctionGenerator.createProcessor(9,0.8f,1.2f),RandomDensityFunctionGenerator.createProcessor(15,0.0f,0.25f),RandomDensityFunctionGenerator.createProcessor(23,0.0f,0.4f))
+            ),
+            new RandomDensityFunctionGenerator(List.of( "start", "add", "minecraft:overworld/depth", "mul", "minecraft:overworld/factor", "add", "0.1", "max", "start", "add", "minecraft:overworld/depth", "mul", "start", "add", "0", "max", "start", "add", "minecraft:overworld/ridges_folded", "mul", "-1", "stop", "stop", "add", "-0.25", "stop", "min", "start", "noise", "minecraft:cave_cheese", "add", "0.5", "stop", "stop"),
+                        List.of(RandomDensityFunctionGenerator.createProcessor(6,0.0f,0.2f),RandomDensityFunctionGenerator.createProcessor(14,0.0f,1.0f),RandomDensityFunctionGenerator.createProcessor(24,-0.5f,-0.0f),RandomDensityFunctionGenerator.createProcessor(31,0.0f,0.4f))
+                    ),
+            new RandomDensityFunctionGenerator(
+                    List.of( "start", "noise_in_range", "0.25", "1", "1", "-1", "clay_bands_offset", "noise_in_range", "2", "1", "1", "-1", "clay_bands_offset", "min", "start", "add", "minecraft:overworld/depth", "stop", "max", "start", "add", "minecraft:overworld/depth", "add", "-0.5", "stop", "stop"),
+                    List.of(RandomDensityFunctionGenerator.createProcessor(2,0.1f,0.6f),RandomDensityFunctionGenerator.createProcessor(3,0.8f,1.2f),RandomDensityFunctionGenerator.createProcessor(8,1f,3f),RandomDensityFunctionGenerator.createProcessor(9,0.8f,1.2f),RandomDensityFunctionGenerator.createProcessor(23,-1.0f,-0.5f))
+            )
     );
 
-    public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server){
-        return getGeneratorSettings(server,List.of(),List.of());
-    }
-    public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server,List<String> functionList,List<String> blockList){
+//    public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server){
+//        return getGeneratorSettings(server,new ArrayList<>(),List.of());
+//    }
+    public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server, ArrayList<String> functionList, List<String> blockList, List<RegistryKey<Biome>> biomes){
         DynamicRegistryManager.Immutable registryManager = server.getRegistryManager();
         ChunkGeneratorSettings overWorldSettings = registryManager.get(RegistryKeys.CHUNK_GENERATOR_SETTINGS).get(ChunkGeneratorSettings.OVERWORLD);
 
@@ -50,13 +63,11 @@ public class WorldGenerator {
         DensityFunction zero = DensityFunctionTypes.zero();
 
         DensityFunctionBuilder finalDensityBuilder =
-//                new DensityFunctionBuilder(server).interpolated(
                 of(server, functionList)
                         .max(
                                 new DensityFunctionBuilder(server)
                                         .yClampedGradient(-63,-60,1,0)
                         );
-//                );
 
         if (functionList.isEmpty()){
             Random random = server.getOverworld().getRandom();
@@ -68,45 +79,55 @@ public class WorldGenerator {
             for (int w : weight) {
                 sum += w;
             }
-            DensityFunctionBuilder fd = new DensityFunctionBuilder(server);
+            functionList.add("interpolated");
+            functionList.add("start");
             for (int i = 0; i < DENSITY_FUNCTIONS.size(); i++) {
-                fd.add(
-                        of(server,DENSITY_FUNCTIONS.get(i)).mul((double) weight.get(i) / sum)
-                );
+                functionList.add("add");
+                functionList.add("start");
+                functionList.add("add");
+                functionList.addAll(DENSITY_FUNCTIONS.get(i).applyProcessor(random));
+                functionList.add("mul");
+                functionList.add(String.valueOf((float)weight.get(i) / sum));
+
+                functionList.add("stop");
+
             }
-            finalDensityBuilder = new DensityFunctionBuilder(server)
-                    .interpolated(fd)
+            functionList.add("stop");
+
+            finalDensityBuilder = of(server,functionList)
                     .yClampedGradient(-63,-48,1,0);
         }
 
 
-        DensityFunction finalDensity =
-//                functionList.isEmpty() ?
-//                new  DensityFunctionBuilder(server)
-//                        .add("minecraft:overworld/base_3d_noise") // minecraft:overworld/depth erosion factor offset jaggedness ridges ridges_folded sloped_cheese
-//                        .yClampedGradient(-63,-48,1,0)//depth sloped_cheese ridges ridges_folded minecraft:cave_cheese
-//                        .build() //有用的 interpolated, start, add, minecraft:overworld/depth, add, -0.5, mul, start, shift_noise, 0.25, minecraft:cave_cheese, stop, add, 0.25, min, start, add, minecraft:overworld/depth, mul, 0.5, add, 0.25, stop, stop
-//                                //interpolated, start, add, minecraft:overworld/depth, add, -0.5, mul, start, noise_in_range, 0.25, 1, -1, 1, minecraft:cave_cheese, stop, add, 0.25, min, start, add, minecraft:overworld/depth, mul, 0.5, add, 0.25, stop, stop
-//                :
-                finalDensityBuilder.build();//interpolated, start, add, minecraft:overworld/depth, add, -0.5, mul, start, shift_noise, 0.25, minecraft:cave_cheese, stop, add, 0.25, min, start, add, minecraft:overworld/depth, mul, 0.5, add, 0.6, stop, stop, min, start, add, minecraft:overworld/base_3d_noise, add, 0.5, stop
-        //interpolated, start, add, minecraft:overworld/depth, mul, minecraft:overworld/factor, add, 0.1, max, start, add, minecraft:overworld/depth, mul, start, add, 0, max, start, add, minecraft:overworld/ridges_folded, mul, -1, stop, stop, add, -0.25, stop, min, start, noise, minecraft:cave_cheese, add, 0.5, stop, stop
-
+        DensityFunction finalDensity = finalDensityBuilder.build();
 
         ArrayList<BlockState> blockStates = new ArrayList<>(List.of(
                 AllBlocks.FLINT_BLOCK.getDefaultState(), Blocks.WATER.getDefaultState(), Blocks.DIAMOND_BLOCK.getDefaultState())
         );
-        Pattern HAS_BLOCK_STATE = Pattern.compile("^(.*?)(?:\\[(.*?)])?$");
-        for (int i = 0;i < Math.min(blockList.size(),blockStates.size()); i++){
+        for (int i = 0;i < blockList.size(); i++){
             String blockStateCode = blockList.get(i);
             Matcher hasBlockStateResult = HAS_BLOCK_STATE.matcher(blockStateCode);
 
             Block block = Registries.BLOCK.get(new Identifier(hasBlockStateResult.matches() ? hasBlockStateResult.group(1) : blockStateCode));
             if (block != Blocks.AIR){
                 BlockState blockState = block.getDefaultState();
-                blockStates.set(i,blockState);
+                if (i < blockStates.size()){
+                    blockStates.set(i, blockState);
+                }else {
+                    blockStates.add(blockState);
+                }
             }
 
         }
+
+        MaterialRules.MaterialRule biomeRule = BiomesSupplier.generateMaterialRules(BiomesSupplier.BIOMES_LIST,blockStates,biomes);
+        MaterialRules.MaterialRule baseRule =  MaterialRules.condition(
+                MaterialRules.aboveYWithStoneDepth(YOffset.aboveBottom(128),-3),
+                MaterialRules.condition(
+                        MaterialRules.stoneDepth(0,true,0, VerticalSurfaceType.FLOOR),
+                        MaterialRules.block(blockStates.get(2))
+                )
+        );
 
         ChunkGeneratorSettings newSettings =   new ChunkGeneratorSettings(
                 overWorldSettings.generationShapeConfig(),
@@ -131,16 +152,9 @@ public class WorldGenerator {
                                 MaterialRules.verticalGradient("minecraft:bedrock_floor", YOffset.aboveBottom(0),YOffset.aboveBottom(5)),
                                 MaterialRules.block(Blocks.BEDROCK.getDefaultState())
                         ),
-                        MaterialRules.sequence(
-                                BiomesSupplier.generateMaterialRules(BiomesSupplier.BIOMES_LIST),
-                                MaterialRules.condition(
-                                        MaterialRules.aboveYWithStoneDepth(YOffset.aboveBottom(128),-3),
-                                        MaterialRules.condition(
-                                                MaterialRules.stoneDepth(0,true,0, VerticalSurfaceType.FLOOR),
-                                                MaterialRules.block(blockStates.get(2))
-                                        )
-                                )
-                        )
+                        biomeRule == null ?
+                                MaterialRules.sequence(baseRule) :
+                                MaterialRules.sequence(biomeRule, baseRule)
                 ),
 //                overWorldSettings.surfaceRule(),
                 overWorldSettings.spawnTarget(),
@@ -410,5 +424,28 @@ public class WorldGenerator {
             return densityFunctionBuilder;
         }
     }
+    public static class RandomDensityFunctionGenerator{
+        private ArrayList<String> functionList;
+        private ArrayList<Pair<Integer,Pair<Float,Float>>> processors;
+        public RandomDensityFunctionGenerator(List<String> functionList,List<Pair<Integer,Pair<Float,Float>>> processors){
+            this.functionList = new ArrayList<>(functionList);
+            this.processors = new ArrayList<>(processors);
+        }
 
+        public List<String> applyProcessor(Random random){
+            for (Pair<Integer,Pair<Float,Float>> pair : this.processors){
+                int index = pair.getLeft();
+                if (index < functionList.size()){
+                    float min = pair.getRight().getLeft();
+                    float max = pair.getRight().getRight();
+                    functionList.set(index, String.valueOf(MathUtil.getRandomFloat(random, min, max)));
+                }
+            }
+            return functionList;
+        }
+
+        public static Pair<Integer,Pair<Float,Float>> createProcessor(int index, float min,float max) {
+            return new Pair<>(index,new Pair<>(min,max));
+        }
+    }
 }

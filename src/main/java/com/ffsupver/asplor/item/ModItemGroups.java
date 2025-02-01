@@ -88,6 +88,10 @@ public class ModItemGroups {
                                 entries.add(CRUDE_PRINTED_CALCULATION_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_ENGINEERING_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);
+                                entries.add(ASTRA_DIABASE_DUST);
+                                entries.add(ASTRA_DIABASE_STONE);
+                                entries.add(ASTRA_DIABASE_COBBLESTONE);
+                                entries.add(ASTRA_DIABASE_COPPER_ORE);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

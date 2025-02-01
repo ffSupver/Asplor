@@ -33,6 +33,9 @@
     "asplor:rocket_fuel_loader",
     "asplor:rocket_cargo_loader",
     "asplor:charged_alloy_block",
-    "asplor:alloy_depot"
+    "asplor:alloy_depot",
+    "asplor:outer_space/astra_diabase_stone",
+    "asplor:outer_space/astra_diabase_cobblestone",
+    "asplor:outer_space/astra_diabase_copper_ore"
   ]
 }

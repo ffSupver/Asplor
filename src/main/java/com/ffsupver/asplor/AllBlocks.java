@@ -331,6 +331,10 @@ public class AllBlocks {
     public static final Block IRON_PLATING_AIRLOCK_SWITCH = registerBlock("iron_plating_airlock_switch",new AirlockSwitch(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER)),AirlockSwitchItem::new);
     public static final Block POLISHED_CUT_CALCITE_AIRLOCK_SWITCH = registerBlock("polished_cut_calcite_airlock_switch",new AirlockSwitch(AbstractBlock.Settings.copy(CALCITE)),AirlockSwitchItem::new);
     public  static final Block CHARGED_ALLOY_BLOCK=registerBlock("charged_alloy_block",new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()),(block,setting)->new DescriptionBlockItem(block,setting, Text.translatable("description.asplor.charged_alloy_block")));
+    public static final Block ASTRA_DIABASE_DUST = registerBlock("outer_space/astra_diabase_dust",new FallingBlock(FabricBlockSettings.copy(SAND)));
+    public static final Block ASTRA_DIABASE_STONE = registerBlock("outer_space/astra_diabase_stone",new Block(FabricBlockSettings.copy(STONE)));
+    public static final Block ASTRA_DIABASE_COBBLESTONE = registerBlock("outer_space/astra_diabase_cobblestone",new Block(FabricBlockSettings.copy(COBBLESTONE)));
+    public static final Block ASTRA_DIABASE_COPPER_ORE = registerBlock("outer_space/astra_diabase_copper_ore",new Block(FabricBlockSettings.copy(IRON_ORE).strength(1.6f)));
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
