@@ -18,6 +18,7 @@
     "defaultRequire": 1
   },
   "client": [
+    "ArmorChestRenderMixin",
     "cargoRocket.CargoRocketThirdPersonCameraMixin",
     "cargoRocket.SittingModelMixin",
     "moltenMetal.CameraMixin"

@@ -10,11 +10,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerSyncHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -136,7 +134,7 @@ public class BackpackBaseHandler extends ScreenHandler {
         return playerInventory.getStack(index).hasNbt() && playerInventory.getStack(index).getNbt().contains(backpackDataKey);
     }
 
-    private boolean isBackpackItem(ItemStack itemStack){
+    public static boolean isBackpackItem(ItemStack itemStack){
         return itemStack.hasNbt() && itemStack.getNbt().contains(backpackDataKey);
     }
 
