@@ -18,6 +18,7 @@ import com.ffsupver.asplor.util.GoggleDisplays;
 import com.ffsupver.asplor.villager.ModTraders;
 import com.ffsupver.asplor.villager.ModVillagers;
 import com.ffsupver.asplor.world.WorldData;
+import com.ffsupver.asplor.world.WorldRenderingData;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.item.ItemDescription;
@@ -25,6 +26,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
@@ -100,12 +102,15 @@ public class Asplor implements ModInitializer {
 		ToolTypes.register();
 		ICellHandlerRegister.register();
 
+
+		registerServerLifeCycleListener();
 		ChunkLoaderServer.registerLoadChunkFunction();
-		WorldData.registerListener();
 
 		LargeMapState.loadMapIcon();
 
 		Registry.register(Registries.PAINTING_VARIANT,new Identifier(MOD_ID,"icon"),new PaintingVariant(64,64));
+
+		WorldRenderingData.registerListener();
 
 	}
 
@@ -129,6 +134,17 @@ public class Asplor implements ModInitializer {
 	}
 	public static void onAddReloadListener(BiConsumer<Identifier, ResourceReloader> registry) {
 		registry.accept(new Identifier(MOD_ID, "planets"), new PlanetData());
+	}
+
+	private static void registerServerLifeCycleListener(){
+		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+			WorldData.loadWorlds(server);
+			ChunkLoaderServer.loadChunksFromDisk(server);
+		});
+		ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
+			ChunkLoaderServer.saveChunksToDisk(server);
+			WorldData.saveWorlds(server);
+		});
 	}
 
 

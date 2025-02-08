@@ -3,6 +3,11 @@ package com.ffsupver.asplor.util;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
+import earth.terrarium.adastra.client.dimension.ModDimensionSpecialEffects;
+import earth.terrarium.adastra.client.utils.DimensionRenderingUtils;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.RenderLayer;
@@ -12,9 +17,11 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
@@ -75,5 +82,36 @@ public final class RenderUtil {
     public static void draw(SuperByteBuffer buffer, MatrixStack ms, VertexConsumer vc,int light) {
         buffer.light(light)
                 .renderInto(ms, vc);
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static void registerDimensionEffects(RegistryKey<World> dimension, ModDimensionSpecialEffects effects){
+        DimensionRenderingRegistry.registerDimensionEffects(dimension.getValue(), effects);
+        if (effects.renderer().customClouds()) {
+            DimensionRenderingRegistry.registerCloudRenderer(dimension, (context) -> {
+                Vec3d camera = context.camera().getPos();
+                effects.renderClouds(context.world(), DimensionRenderingUtils.getTicks(), context.tickDelta(), context.matrixStack(), camera.x, camera.y, camera.z, context.projectionMatrix());
+            });
+        }
+
+        if (effects.renderer().customSky()) {
+            DimensionRenderingRegistry.registerSkyRenderer(dimension, (context) -> {
+                effects.renderSky(context.world(), DimensionRenderingUtils.getTicks(), context.tickDelta(), context.matrixStack(), context.camera(), context.projectionMatrix(), false, () -> {
+                });
+            });
+        }
+
+        if (effects.renderer().customWeather()) {
+            DimensionRenderingRegistry.registerWeatherRenderer(dimension, (context) -> {
+                Vec3d camera = context.camera().getPos();
+                effects.renderSnowAndRain(context.world(), DimensionRenderingUtils.getTicks(), context.tickDelta(), context.lightmapTextureManager(), camera.x, camera.y, camera.z);
+            });
+        }
+    }
+
+    public static void checkAndRegisterDimensionEffects(RegistryKey<World> worldKey, ModDimensionSpecialEffects effects){
+        if (DimensionRenderingRegistry.getSkyRenderer(worldKey) == null){
+            registerDimensionEffects(worldKey,effects);
+        }
     }
 }

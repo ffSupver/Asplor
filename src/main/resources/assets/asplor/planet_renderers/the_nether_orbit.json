@@ -18,7 +18,7 @@
       "texture": "ad_astra:textures/environment/sun.png"
     },
     {
-      "back_light_color": -12813094,
+      "back_light_color": -4375778,
       "back_light_scale": 240.0,
       "blend": false,
       "global_rotation": [180.0, 0.0, 0.0],
@@ -28,7 +28,7 @@
       "texture": "asplor:textures/environment/the_nether.png"
     },
     {
-      "back_light_color": -5261108,
+      "back_light_color": -12813094,
       "back_light_scale": 12.0,
       "blend": false,
       "global_rotation": [80.0, 0.0, 30.0],

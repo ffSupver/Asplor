@@ -1,4 +1,4 @@
-package com.ffsupver.asplor.networking.packet.largeMap;
+package com.ffsupver.asplor.networking.packet;
 
 import com.ffsupver.asplor.screen.guideBook.GuideBookScreen;
 import io.netty.util.IllegalReferenceCountException;

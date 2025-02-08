@@ -8,7 +8,6 @@ import com.ffsupver.asplor.util.NbtUtil;
 import com.google.common.collect.ImmutableList;
 import earth.terrarium.adastra.api.planets.Planet;
 import earth.terrarium.adastra.common.planets.AdAstraData;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtIo;
@@ -46,6 +45,7 @@ public class WorldData {
     private static final Map<RegistryKey<World>, Pair<ServerWorld,Pair<Pair<List<String>,List<String>>,List<Pair<RegistryEntry<Biome>,List<Float>>>>>> WORLDS = new HashMap<>();
 
     private static final String DATA_FILE_NAME = "asplor_worlds";
+    public static final String NAMESPACE = "outer_space";
 
 
     public static RegistryKey<World> createWorldKey(boolean isPlanet) {
@@ -56,11 +56,19 @@ public class WorldData {
     }
 
     public static RegistryKey<World> createWorldKey(String id){
-        return RegistryKey.of(RegistryKeys.WORLD,new Identifier("outer_space",id));
+        return RegistryKey.of(RegistryKeys.WORLD,new Identifier(NAMESPACE,id));
     }
 
     public static RegistryKey<World> createWorldKey(RegistryKey<World> planetWorldKey) {
         return createWorldKey(planetWorldKey.getValue().getPath().replace("planet_","orbit_"));
+    }
+
+    public static RegistryKey<World> getOrbitPlanetWorldKey(RegistryKey<World> orbitWorldKey) {
+        return createWorldKey(orbitWorldKey.getValue().getPath().replace("orbit_","planet_"));
+    }
+
+    public static boolean isOuterSpaceKey(RegistryKey<World> worldKey){
+        return worldKey.getValue().getNamespace().equals(WorldData.NAMESPACE);
     }
 
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList){
@@ -76,11 +84,11 @@ public class WorldData {
                                                boolean oxygen,short temperature,float gravity,int solarPower,int tier){
         RegistryKey<World> orbitKey = createWorldKey(worldKey);
         createNewDimension(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList);
-        Planet planet = new Planet(worldKey, oxygen, temperature, gravity, solarPower, new Identifier("outer_space:system"), Optional.of(orbitKey), tier, List.of());
+        Planet planet = new Planet(worldKey, oxygen, temperature, gravity, solarPower, new Identifier(NAMESPACE,"system"), Optional.of(orbitKey), tier, List.of());
         addPlanet(planet,worldKey);
 
         createNewOrbitDimension(server,orbitKey);
-        Planet orbitPlanet = new Planet(orbitKey, false, (short) -270, 0.0f, solarPower, new Identifier("outer_space:system"), Optional.empty(), tier, List.of());
+        Planet orbitPlanet = new Planet(orbitKey, false, (short) -270, 0.0f, solarPower, new Identifier(NAMESPACE,"system"), Optional.empty(), tier, List.of());
         addPlanet(orbitPlanet,orbitKey);
     }
 
@@ -198,12 +206,8 @@ public class WorldData {
         return server.getSavePath(new WorldSavePath("data"));
     }
 
-    public static void registerListener(){
-        ServerLifecycleEvents.SERVER_STARTED.register(WorldData::loadWorlds);
-        ServerLifecycleEvents.SERVER_STOPPING.register(WorldData::saveWorlds);
-    }
 
-    private static void saveWorlds(MinecraftServer server) {
+    public static void saveWorlds(MinecraftServer server) {
         File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
 
 
@@ -252,6 +256,10 @@ public class WorldData {
         }
 
         allWorldData.put("data",worldList);
+        WORLDS.clear();
+
+        NbtList renderers = WorldRenderingData.saveRenderers();
+        allWorldData.put("renderers",renderers);
 
 
         try {
@@ -261,7 +269,7 @@ public class WorldData {
         }
     }
 
-    private static void loadWorlds(MinecraftServer server) {
+    public static void loadWorlds(MinecraftServer server) {
         File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
 
         if (!file.exists()) {
@@ -308,6 +316,10 @@ public class WorldData {
                 }else {
                     createNewPlantWithOrbit(server,worldKey,biomes,chunkGeneratingSettingsCode,blockList);
                 }
+            }
+
+            if (nbt.contains("renderers",NbtElement.LIST_TYPE)){
+                WorldRenderingData.loadRenderers(nbt.getList("renderers",NbtElement.COMPOUND_TYPE));
             }
 
         } catch (IOException e) {

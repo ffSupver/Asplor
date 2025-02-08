@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.block.chunkLoader;
 
+import com.ffsupver.asplor.Asplor;
 import com.ibm.icu.impl.Pair;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtIo;
@@ -68,13 +68,10 @@ public class ChunkLoaderServer {
 
     // 保存加载的区块到文件
     public static void saveChunksToDisk(MinecraftServer server) {
+        File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
+        NbtCompound nbt = new NbtCompound();
+        NbtList chunksList = new NbtList();
         for (ServerWorld world : server.getWorlds()) {
-            File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
-
-            // 存储区块数据的NBT
-            NbtCompound nbt = new NbtCompound();
-            NbtList chunksList = new NbtList();
-
             // 遍历每个维度和对应的区块和块位置
             List<Pair<ChunkPos, BlockPos>> chunkList = FORCE_LOAD_CHUNKS.get(world.getRegistryKey());
             if (chunkList != null) {
@@ -94,60 +91,31 @@ public class ChunkLoaderServer {
                     chunksList.add(chunkData);
                 }
             }
-
-            nbt.put("loaded_chunks", chunksList);
-
-            try {
-                NbtIo.write(nbt, file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
-//        NbtCompound nbt = new NbtCompound();
-//        NbtList chunksList = new NbtList();
-//
-//        // 遍历每个维度和对应的区块
-//        for (Map.Entry<RegistryKey<World>, List<Pair<ChunkPos, BlockPos>>> entry : FORCE_LOAD_CHUNKS.entrySet()) {
-//            ServerWorld world = server.getWorld(entry.getKey());
-//            ChunkPos chunkPos = entry.getValue();
-//
-//            // 获取维度ID
-//            String dimensionKey = world.getRegistryKey().getValue().toString();
-//
-//            // 创建保存该维度下区块的信息
-//            NbtCompound chunkData = new NbtCompound();
-//            chunkData.putString("dimension", dimensionKey);
-//            chunkData.putInt("x", chunkPos.x);
-//            chunkData.putInt("z", chunkPos.z);
-//
-//            chunksList.add(chunkData);
-//        }
-//
-//        nbt.put("loaded_chunks", chunksList);
-//
-//        // 保存到指定的文件
-//        File file = new File(getDataPath(server).toFile(), DATA_FILE_NAME);
-//        try {
-//            NbtIo.write(nbt, file);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        nbt.put("loaded_chunks", chunksList);
+
+        FORCE_LOAD_CHUNKS.clear();
+
+        try {
+            NbtIo.write(nbt, file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // 从文件加载强制加载的区块
     public static void loadChunksFromDisk(MinecraftServer server) {
-        for (ServerWorld world : server.getWorlds()) {
-            File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
-
-            if (!file.exists()) {
-                continue; // 文件不存在时跳过
-            }
-
-            try {
-                NbtCompound nbt = NbtIo.read(file);
-                NbtList chunksList = nbt.getList("loaded_chunks", 10);
-
+        File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
+        if (!file.exists()){
+            Asplor.LOGGER.info("File not found "+file);
+            return;
+        }
+        try {
+            NbtCompound nbt = NbtIo.read(file);
+            NbtList chunksList = nbt.getList("loaded_chunks", 10);
+            for (ServerWorld world : server.getWorlds()) {
                 // 遍历区块数据并加载到 FORCE_LOAD_CHUNKS
+                List<Pair<ChunkPos, BlockPos>> chunks = new ArrayList<>();
                 for (int i = 0; i < chunksList.size(); i++) {
                     NbtCompound chunkData = chunksList.getCompound(i);
                     String dimensionKey = chunkData.getString("dimension");
@@ -159,44 +127,18 @@ public class ChunkLoaderServer {
 
                     // 获取维度和区块位置
                     RegistryKey<World> worldKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dimensionKey));
-                    ChunkPos chunkPos = new ChunkPos(x, z);
-                    BlockPos blockPos = new BlockPos(blockX, blockY, blockZ);
-
-                    FORCE_LOAD_CHUNKS.computeIfAbsent(worldKey, k -> new ArrayList<>()).add(Pair.of(chunkPos, blockPos));
+                    if (worldKey.getValue().equals(world.getRegistryKey().getValue())){
+                        ChunkPos chunkPos = new ChunkPos(x, z);
+                        BlockPos blockPos = new BlockPos(blockX, blockY, blockZ);
+                        chunks.add(Pair.of(chunkPos,blockPos));
+                    }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+                FORCE_LOAD_CHUNKS.put(world.getRegistryKey(),chunks);
+
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-//        File file = new File(getDataPath(server).toFile(), DATA_FILE_NAME);
-//        if (!file.exists()) {
-//            return; // 文件不存在时直接返回
-//        }
-//
-//        try {
-//            NbtCompound nbt = NbtIo.read(file);
-//            NbtList chunksList = null;
-//            if (nbt != null) {
-//                chunksList = nbt.getList("loaded_chunks", 10);
-//            }
-//
-//            // 遍历区块数据并加载到 FORCE_LOAD_CHUNKS
-//            if (chunksList != null) {
-//                for (int i = 0; i < chunksList.size(); i++) {
-//                    NbtCompound chunkData = chunksList.getCompound(i);
-//                    String dimensionKey = chunkData.getString("dimension");
-//                    int x = chunkData.getInt("x");
-//                    int z = chunkData.getInt("z");
-//
-//                    // 获取维度和区块位置
-//                    RegistryKey<World> worldKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dimensionKey));
-//                    ChunkPos chunkPos = new ChunkPos(x, z);
-//                    FORCE_LOAD_CHUNKS.put(worldKey, chunkPos);
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
 
@@ -217,7 +159,5 @@ public class ChunkLoaderServer {
                 }
             }
         });
-        ServerLifecycleEvents.SERVER_STARTED.register(ChunkLoaderServer::loadChunksFromDisk);
-        ServerLifecycleEvents.SERVER_STOPPING.register(ChunkLoaderServer::saveChunksToDisk);
     }
 }
