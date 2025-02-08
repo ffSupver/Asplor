@@ -27,14 +27,13 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
     private boolean active;
     private boolean hasTarget;
     private BlockPos targetPos;
+    private int timesRemain;
 
     //render
     private int rotation;
 
     public TheNetherReturnerEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.active = false;
-        this.hasTarget = false;
         this.rotation = 0;
     }
 
@@ -46,6 +45,12 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         }
 
         if (!active){
+            return;
+        }
+
+        if (timesRemain <= 0){
+            this.active = false;
+            this.hasTarget = false;
             return;
         }
 
@@ -72,9 +77,8 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
                     if (entity instanceof LivingEntity) {
                         ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 600));
                     }
+                    timesRemain -= 1;
                     FabricDimensionInternals.changeDimension(entity, overworld, teleportTarget);
-                    active = false;
-                    hasTarget = false;
                 }
                 sendData();
             }
@@ -94,6 +98,10 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         this.targetPos = targetPos;
     }
 
+    public void setTimesRemain(int timesRemain) {
+        this.timesRemain = timesRemain;
+    }
+
     public void setActive(boolean active) {
         this.active = active;
     }
@@ -107,6 +115,7 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         super.read(tag, clientPacket);
         active = tag.getBoolean("active");
         hasTarget = tag.getBoolean("has_target");
+        timesRemain = tag.getInt("times_remain");
 
         if (hasTarget){
             NbtCompound targetPosNbt = tag.getCompound("target");
@@ -124,6 +133,7 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         tag.putBoolean("active", active);
 
         tag.putBoolean("has_target",hasTarget);
+        tag.putInt("times_remain",timesRemain);
 
         if (hasTarget){
             NbtCompound targetPosNbt = new NbtCompound();

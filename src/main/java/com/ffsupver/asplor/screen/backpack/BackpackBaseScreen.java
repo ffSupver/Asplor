@@ -9,12 +9,10 @@ import net.minecraft.screen.Property;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BackpackBaseScreen<T extends BackpackBaseHandler> extends HandledScreen<T> {
     private final Identifier TEXTURE;
-    public static final Text title = Text.translatable("gui.asplor.backpack");
 
     private final int playerInventoryTitleYGet;
 

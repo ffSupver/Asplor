@@ -3,19 +3,21 @@
   "ingredients": [
     {
       "amount": 9000,
-      "fluid": "minecraft:water"
+      "fluid": "asplor:salt_water"
     },
     {
       "item": "asplor:kelp_puree"
     },
     {
-      "item": "create:dough"
+      "item": "asplor:kelp_puree"
+    },
+    {
+      "item": "minecraft:iron_nugget"
     }
   ],
   "results": [
     {
-      "amount": 9000,
-      "fluid": "asplor:glue"
+      "item": "create:copper_nugget"
     }
   ]
 }

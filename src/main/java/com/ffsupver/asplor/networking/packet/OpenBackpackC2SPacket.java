@@ -48,7 +48,7 @@ public class OpenBackpackC2SPacket {
 
                         @Override
                         public Text getDisplayName() {
-                            return BackpackBaseScreen.title;
+                            return BackpackBaseHandler.title;
                         }
 
                         @Nullable

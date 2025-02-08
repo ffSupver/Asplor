@@ -407,6 +407,7 @@ public class LargeMapState extends PersistentState {
             if (!this.updatePlayerList.isEmpty() && this.updatePlayerList.get(0).equals(playerEntity)){
                 updatePlayerIcons();
                 updateEntityIcons(playerEntity.getWorld());
+                this.updatePlayerList.remove(0);
             }
         }else {
             this.updatePlayerList.add(playerEntity);

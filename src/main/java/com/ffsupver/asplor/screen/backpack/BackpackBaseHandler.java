@@ -12,6 +12,7 @@ import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import org.jetbrains.annotations.Nullable;
 
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackpackBaseHandler extends ScreenHandler {
+    public static final Text title = Text.translatable("gui.asplor.backpack");
+
     private DefaultedList<ItemStack> inventory ;
     private final SimpleInventory simpleInventory ;
     private ItemStack backpack;

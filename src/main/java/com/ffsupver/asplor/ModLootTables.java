@@ -12,19 +12,31 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import static net.minecraft.loot.LootTables.*;
 
 public class ModLootTables {
     public static void register(){
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
             addMysteryPaper(id,table);
+            addLocator(id,table);
         });
 
     }
+
+    private static void addLocator(Identifier id, FabricLootSupplierBuilder table){
+        if (NETHER_BRIDGE_CHEST.equals(id)) {
+            LootPool.Builder netherBridgePoolBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,3))
+                    .with(ItemEntry.builder(ModItems.LOCATOR));
+            table.pool(netherBridgePoolBuilder);
+        }
+    }
     private static void addMysteryPaper(Identifier id, FabricLootSupplierBuilder table){
-        ArrayList<Identifier> lootTablesToAddIron = new ArrayList<>();
-        lootTablesToAddIron.add(LootTables.VILLAGE_TOOLSMITH_CHEST);
-        lootTablesToAddIron.add(LootTables.VILLAGE_WEAPONSMITH_CHEST);
-        lootTablesToAddIron.add(LootTables.VILLAGE_ARMORER_CHEST);
+        List<Identifier> lootTablesToAddIron = List.of(
+                VILLAGE_WEAPONSMITH_CHEST,VILLAGE_TOOLSMITH_CHEST,VILLAGE_ARMORER_CHEST
+        );
         if (lootTablesToAddIron.contains(id)) {
             NbtCompound chapterNbt = new NbtCompound();
             chapterNbt.putString("chapter","earth/iron");

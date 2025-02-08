@@ -181,7 +181,7 @@ public class LargeMapItem extends NetworkSyncedItem {
             int playerChunkX = ChunkSectionPos.getSectionCoord(MathHelper.floor(entity.getX()));
             int playerChunkZ = ChunkSectionPos.getSectionCoord(MathHelper.floor(entity.getZ()));
 
-            int updateRadius = world.getServer().getPlayerManager().getViewDistance() - 1;
+            int updateRadius = world.getServer().getPlayerManager().getSimulationDistance() - 1;
 
             // 遍历玩家周围的区块
             for (int offsetZ = -updateRadius; offsetZ < updateRadius; offsetZ++) {

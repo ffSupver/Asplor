@@ -1,0 +1,15 @@
+{
+  "type": "asplor:assembler",
+  "ingredients": [
+    {
+      "item": "asplor:alloy_machine"
+    },
+    {
+      "item": "asplor:controlling_chip"
+    }
+  ],
+  "output": {
+    "item": "asplor:smart_mechanical_arm",
+    "count": 1
+  }
+}

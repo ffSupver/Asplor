@@ -73,6 +73,7 @@ public class TheNetherReturner extends Block implements IBE<TheNetherReturnerEnt
                             handItemStack.setCount(handItemStack.getCount() - 1);
                         }
                         player.setStackInHand(hand,handItemStack);
+                        theNetherReturnerEntity.setTimesRemain(3);
                         theNetherReturnerEntity.setActive(true);
                         return ActionResult.SUCCESS;
                     }
