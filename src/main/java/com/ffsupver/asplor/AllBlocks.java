@@ -14,6 +14,7 @@ import com.ffsupver.asplor.block.divider.Divider;
 import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
 import com.ffsupver.asplor.block.energyOutputer.EnergyOutput;
 import com.ffsupver.asplor.block.generator.Generator;
+import com.ffsupver.asplor.block.lightningAbsorber.LightningAbsorber;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurner;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerItem;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPump;
@@ -279,6 +280,13 @@ public class AllBlocks {
                     .properties(p->ALLOY_SETTING.apply(p).nonOpaque())
                     .addLayer(() -> RenderLayer::getCutoutMipped)
                     .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<LightningAbsorber> LIGHTNING_ABSORBER =
+            REGISTRATE.block("lightning_absorber", LightningAbsorber::new)
+                    .properties(p -> FabricBlockSettings.copy(LIGHTNING_ROD))
+                    .addLayer(() -> RenderLayer::getCutoutMipped)
+                    .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.lightning_absorber")))
                     .build()
                     .register();
 

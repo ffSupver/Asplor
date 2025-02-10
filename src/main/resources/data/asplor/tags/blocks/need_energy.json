@@ -12,6 +12,7 @@
     "ad_astra:oxygen_distributor",
     "ad_astra:gravity_normalizer",
     "ad_astra:energizer",
-    "ad_astra:cryo_freezer"
+    "ad_astra:cryo_freezer",
+    "ae2:energy_acceptor"
   ]
 }

@@ -38,6 +38,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import static com.ffsupver.asplor.ModTags.Blocks.LARGE_MAP_ITEM_INTERACT_BLOCK;
 import static com.ffsupver.asplor.ModTags.Blocks.LARGE_MAP_MARK_BLOCK;
@@ -166,7 +167,7 @@ public class LargeMapItem extends NetworkSyncedItem {
     public static boolean hasMap(PlayerEntity player, int id){
         for (int i = 0;i < player.getInventory().size();i++){
             ItemStack itemStack = player.getInventory().getStack(i);
-            if (itemStack.isOf(ModItems.LARGE_MAP)  && getMapId(itemStack) != null && getMapId(itemStack) == id){
+            if (itemStack.isOf(ModItems.LARGE_MAP)  && getMapId(itemStack) != null && Objects.equals(getMapId(itemStack), id)){
                 return true;
             }
         }
@@ -184,7 +185,8 @@ public class LargeMapItem extends NetworkSyncedItem {
             int updateRadius = world.getServer().getPlayerManager().getSimulationDistance() - 1;
 
             // 遍历玩家周围的区块
-            for (int offsetZ = -updateRadius; offsetZ < updateRadius; offsetZ++) {
+            int offsetZ = (int) ((world.getTime() / 10) % (updateRadius * 2L)) - updateRadius;
+//            for (int offsetZ = -updateRadius; offsetZ < updateRadius; offsetZ++) {
                 int[] heights = new int[16];
                 for (int offsetX = -updateRadius; offsetX < updateRadius; offsetX++) {
                     int chunkX = playerChunkX + offsetX;
@@ -195,19 +197,19 @@ public class LargeMapItem extends NetworkSyncedItem {
 
 
                     // 遍历区块中的 16×16 方块
-                    for (int localZ = 0; localZ < 16; localZ++) {
-                        int preHeight = heights[localZ];
-                        for (int localX = 0; localX < 16; localX++) {
-                            int worldX = chunkX * 16 + localX; // 绝对 X 坐标
-                            int worldZ = chunkZ * 16 + localZ; // 绝对 Z 坐标
+                    if (world.isChunkLoaded(chunkX, chunkZ)) {
+                        for (int localZ = 0; localZ < 16; localZ++) {
+                            int preHeight = heights[localZ];
+                            for (int localX = 0; localX < 16; localX++) {
+                                int worldX = chunkX * 16 + localX; // 绝对 X 坐标
+                                int worldZ = chunkZ * 16 + localZ; // 绝对 Z 坐标
 
-                            if (offsetX == -updateRadius && localX == 0) {
-                                preHeight = world.getChunk(chunkX - 1, chunkZ).sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX - 1, worldZ);
-                            }
+                                if (offsetX == -updateRadius && localX == 0) {
+                                    preHeight = world.getChunk(chunkX - 1, chunkZ).sampleHeightmap(Heightmap.Type.WORLD_SURFACE, worldX - 1, worldZ);
+                                }
 
 
-                            BlockPos.Mutable blockPos = new BlockPos.Mutable(worldX, 0, worldZ);
-                            if (world.isChunkLoaded(chunkX, chunkZ)) {
+                                BlockPos.Mutable blockPos = new BlockPos.Mutable(worldX, 0, worldZ);
                                 WorldChunk chunk = world.getChunk(chunkX, chunkZ);
 
                                 // 获取当前坐标最高的方块
@@ -258,9 +260,11 @@ public class LargeMapItem extends NetworkSyncedItem {
 
                                 // 将颜色存入数组
                                 colors[localX + localZ * 16] = mapColorId;
-                            }
-                        }
 
+                            }
+
+
+                        }
                     }
 
 
@@ -268,7 +272,7 @@ public class LargeMapItem extends NetworkSyncedItem {
                     // 将颜色数组存入 LargeMapState
                     largeMapState.setColor(chunkPos, colors);
                 }
-            }
+//            }
         }
     }
 

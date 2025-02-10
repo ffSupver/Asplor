@@ -108,6 +108,7 @@ public class ModItemGroups {
                             entries.add(GENERATOR);
                             entries.add(MOTOR);
                             entries.add(WINDMILL_BEARING);
+                            entries.add(LIGHTNING_ABSORBER);
                             entries.add(BATTERY);
                             entries.add(ASSEMBLER);
                             entries.add(ENERGY_OUTPUT);

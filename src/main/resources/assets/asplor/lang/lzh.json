@@ -158,6 +158,8 @@
   "block.asplor.outer_space.astra_diabase_stone": "星辉石",
   "block.asplor.outer_space.astra_diabase_cobblestone": "星辉圆石",
   "block.asplor.outer_space.astra_diabase_copper_ore": "星铜矿",
+  "block.asplor.lightning_absorber": "渡劫儀",
+
 
 
 
@@ -216,6 +218,8 @@
   "description.asplor.schematic": "配方 : ",
   "description.asplor.schematic.same_recipe": "同一个配方",
   "description.asplor.schematic.space_core": "空间核心",
+  "description.asplor.lightning_absorber": "被闪电击中时会为下面的方块充电,在雨天或者雷暴天气被引雷的三叉戟击中会召唤闪电",
+  "description.asplor.zinc_copper_battery": "右键机器来给机器充电",
 
 
 

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:lightning_rod"
+    },
+    "B": {
+      "item": "asplor:carbon_powder"
+    },
+    "C": {
+      "item": "ad_astra:steel_block"
+    },
+    "D":{
+      "item": "ad_astra:steel_plate"
+    },
+    "F": {
+      "item": "ad_astra:steel_rod"
+    }
+  },
+  "pattern": [
+    " F ",
+    "DAD",
+    "BCB"
+  ],
+  "result": {
+    "item": "asplor:lightning_absorber"
+  },
+  "show_notification": true
+}

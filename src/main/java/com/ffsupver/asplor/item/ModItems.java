@@ -39,7 +39,7 @@ public class ModItems {
     public static final Item ALLOY_INGOT = registerItems("alloy_ingot",new Item(new FabricItemSettings()));
     public static final Item CHARGED_ALLOY_INGOT = registerItems("charged_alloy_ingot",new Item(new FabricItemSettings()));
     public static final Item SALT = registerItems("salt",new Item(new FabricItemSettings()));
-    public static final Item  ZINC_COPPER_BATTERY = registerItems("zinc_copper_battery",new BatteryItem(new FabricItemSettings().maxCount(1)));
+    public static final Item  ZINC_COPPER_BATTERY = registerItems("zinc_copper_battery",new ZincCopperBatteryItem(new FabricItemSettings().maxCount(1)));
 
 
     public static final Item UNCOMPLETED_ALLOY_CHEST = registerItems("uncompleted_alloy_chest",new Item(new FabricItemSettings().maxCount(1)));

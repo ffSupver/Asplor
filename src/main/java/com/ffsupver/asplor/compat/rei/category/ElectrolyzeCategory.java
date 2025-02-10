@@ -53,7 +53,6 @@ public class ElectrolyzeCategory implements DisplayCategory<ElectrolyzeDisplay> 
         widgets.add(Widgets.createSlot(new me.shedaniel.math.Point(startPoint.x+148,startPoint.y+25))
                 .entries(display.getOutputEntries().get(1))
                 .markOutput());
-        System.out.println(" "+display.outputFluids.get(0).getAmount()+" "+display.outputFluids.get(1).getAmount());
         REIFluidDisplay.addFluidTooltip(widgets,List.of(FluidIngredient.fromFluid(display.inputFluid.getFluid(),display.inputFluid.getAmount())),
                 List.of(new FluidStack(display.outputFluids.get(0).getFluid(),display.outputFluids.get(0).getAmount()),
                         new FluidStack(display.outputFluids.get(1).getFluid(),display.outputFluids.get(1).getAmount())));

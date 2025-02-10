@@ -45,7 +45,7 @@ public class LargeMapState extends PersistentState {
         this(dimension,colorMap,iconDataList,0);
     }
     public LargeMapState(RegistryKey<World> dimension, Map<Long,byte[]> colorMap, int id) {
-        this(dimension,colorMap,new ArrayList<>(),0);
+        this(dimension,colorMap,new ArrayList<>(),id);
     }
 
     public LargeMapState(RegistryKey<World> dimension, Map<Long,byte[]> colorMap, ArrayList<MapIconData> iconDataList,int id) {
@@ -231,17 +231,6 @@ public class LargeMapState extends PersistentState {
         for (long chunk : this.colorMap.keySet()){
             ChunkPos chunkPos = new ChunkPos(chunk);
             chunks.append(" chunk: " +chunkPos.x+ "," +chunkPos.z+" \n");
-
-//            chunks.append(chunk+":\n");
-//            int i = 0;
-//            for (byte color : this.colorMap.get(chunk)){
-//                chunks.append(color+" ");
-//                i++;
-//                if (i >= 16){
-//                    chunks.append("\n");
-//                    i=0;
-//                }
-//            }
         }
         return "Large Map State "+this.dimension+"\n\tcolors: "+chunks;
     }
@@ -416,7 +405,7 @@ public class LargeMapState extends PersistentState {
     }
 
     private void removePlayerWithoutMap(){
-        this.updatePlayerList.removeIf(player -> !LargeMapItem.hasMap(player, this.id));
+        this.updatePlayerList.removeIf(player -> !LargeMapItem.hasMap(player, this.id) || !isOnMap(player));
     }
 
     public void updateIconList(){

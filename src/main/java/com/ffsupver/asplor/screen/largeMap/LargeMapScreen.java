@@ -19,10 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.RotationAxis;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LargeMapScreen extends Screen {
     private static final Identifier BACKGROUND_TEXTURE = new Identifier(Asplor.MOD_ID,"textures/large_map/background.png");
@@ -34,8 +31,10 @@ public class LargeMapScreen extends Screen {
 
     private int updateColorCooldown;
     private int updateCacheCooldown;
-    private final int MAX_UPDATE_COLOR_COOLDOWN = 5;
+    private final int MAX_UPDATE_COLOR_COOLDOWN = 10;
     private final int MAX_UPDATE_CACHE_COOLDOWN = 40;
+
+    private final ArrayList<Long> chunksToUpdate = new ArrayList<>();
 
     private float scale = 1.0f;
     private final float SCALE_STEP = 0.1f;
@@ -83,28 +82,46 @@ public class LargeMapScreen extends Screen {
     }
 
     private void requestMapData(int mapId, List<Long> needUpdateChunks) {
+        for (Long chunk : needUpdateChunks){
+            if (!this.chunksToUpdate.contains(chunk)){
+                chunksToUpdate.add(chunk);
+            }
+        }
+
         int chunkSize = Long.BYTES; // 每个 chunk 的字节大小
         int maxChunksPerPacket = (30000 - Integer.BYTES) / chunkSize; // 计算每个包最多能容纳的 chunks 数量
 
+        int end = Math.min(maxChunksPerPacket, chunksToUpdate.size());
+
+        long[] chunks = new long[end];
+        for (int j =0;j<chunks.length;j++){
+            chunks[j] = chunksToUpdate.get(0);
+            chunksToUpdate.remove(0);
+        }
+
+        // 创建并发送包
+        RequestLargeMapDataC2SPacket packet = new RequestLargeMapDataC2SPacket(mapId, chunks);
+        ClientPlayNetworking.send(ModPackets.REQUEST_LARGE_MAP_DATA, packet.toPacketByteBuf());
+
         // 将 missingChunks 拆分为多个子列表，每个子列表的大小不超过 maxChunksPerPacket
-        for (int i = 0; i < needUpdateChunks.size(); i += maxChunksPerPacket) {
-            int end = Math.min(i + maxChunksPerPacket, needUpdateChunks.size());
-            List<Long> chunkBatch = needUpdateChunks.subList(i, end);
-           long[] chunks = new long[chunkBatch.size()];
-           for (int j =0;j<chunks.length;j++){
-               chunks[j] = chunkBatch.get(j);
-           }
+//        for (int i = 0; i < needUpdateChunks.size(); i += maxChunksPerPacket) {
+//            int end = Math.min(i + maxChunksPerPacket, needUpdateChunks.size());
+//            List<Long> chunkBatch = needUpdateChunks.subList(i, end);
+//           long[] chunks = new long[chunkBatch.size()];
+//           for (int j =0;j<chunks.length;j++){
+//               chunks[j] = chunkBatch.get(j);
+//           }
+//
+//            // 创建并发送包
+//            RequestLargeMapDataC2SPacket packet = new RequestLargeMapDataC2SPacket(mapId, chunks);
+//            ClientPlayNetworking.send(ModPackets.REQUEST_LARGE_MAP_DATA, packet.toPacketByteBuf());
+//        }
 
-            // 创建并发送包
-            RequestLargeMapDataC2SPacket packet = new RequestLargeMapDataC2SPacket(mapId, chunks);
-            ClientPlayNetworking.send(ModPackets.REQUEST_LARGE_MAP_DATA, packet.toPacketByteBuf());
-        }
-
-        //更新图标数据
-        if (needUpdateChunks.isEmpty()){
-            RequestLargeMapDataC2SPacket packet = new RequestLargeMapDataC2SPacket(mapId, new long[]{});
-            ClientPlayNetworking.send(ModPackets.REQUEST_LARGE_MAP_DATA, packet.toPacketByteBuf());
-        }
+//        //更新图标数据
+//        if (needUpdateChunks.isEmpty()){
+//            RequestLargeMapDataC2SPacket packet = new RequestLargeMapDataC2SPacket(mapId, new long[]{});
+//            ClientPlayNetworking.send(ModPackets.REQUEST_LARGE_MAP_DATA, packet.toPacketByteBuf());
+//        }
 
 
     }
@@ -370,7 +387,7 @@ public class LargeMapScreen extends Screen {
 
         if (updateCacheCooldown <= 0){
             cleanCache();
-            updateCacheCooldown = MAX_UPDATE_CACHE_COOLDOWN;
+            updateCacheCooldown = (int) (MAX_UPDATE_CACHE_COOLDOWN * Math.max(1,scale));
         }
 
 

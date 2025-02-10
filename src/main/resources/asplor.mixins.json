@@ -11,6 +11,8 @@
     "MinecraftServerAccessor",
     "StructureBlockEntity",
     "disablePortal.NetherPortalMixin",
+    "lightningAbsorber.LightningEntityMixin",
+    "lightningAbsorber.ServerWorldMixin",
     "moltenMetal.EntityMixin",
     "moltenMetal.LivingEntityMixin"
   ],

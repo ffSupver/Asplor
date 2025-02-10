@@ -88,6 +88,8 @@ public class Asplor implements ModInitializer {
 		ModLootTables.register();
 		ModEnchantments.register();
 
+		ModPointOfInterestTypes.register();
+
 		if (!Create.REGISTRATE.isRegistered(RegistryKeys.ITEM)) {
 			Create.REGISTRATE.addRegisterCallback(RegistryKeys.ITEM, Asplor::registerAfterCreateItems);
 		} else {

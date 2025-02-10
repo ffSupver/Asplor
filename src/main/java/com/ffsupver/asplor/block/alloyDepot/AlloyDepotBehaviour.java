@@ -138,14 +138,12 @@ public class AlloyDepotBehaviour extends BlockEntityBehaviour {
 
                     SingleSlotStorage<ItemVariant> slot = iterator.next();
                     if (!slot.isResourceBlank()) {
-                        System.out.println("no blank");
 
                         try (Transaction t = Transaction.openOuter()) {
                             ItemStack newHeldItem = slot.getResource().toStack();
                             int amount = (int) slot.extract(slot.getResource(), slot.getAmount(), t);
                             heldItem.stack = newHeldItem.copyWithCount(amount);
                             snapshotParticipant.updateSnapshots(t);
-                            System.out.println(amount+" "+slot+" "+heldItem.stack);
                             t.commit();
                         }
                     }

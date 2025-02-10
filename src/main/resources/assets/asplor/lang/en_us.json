@@ -161,6 +161,7 @@
   "block.asplor.outer_space.astra_diabase_stone": "Astra Diabase Stone",
   "block.asplor.outer_space.astra_diabase_cobblestone": "Astra Diabase Cobblestone",
   "block.asplor.outer_space.astra_diabase_copper_ore": "Astra Diabase Copper Ore",
+  "block.asplor.lightning_absorber": "Lightning Absorber",
 
 
 
@@ -219,6 +220,8 @@
   "description.asplor.schematic": "recipe of : ",
   "description.asplor.schematic.same_recipe": "the same recipe",
   "description.asplor.schematic.space_core": "Space Core",
+  "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
+  "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
 
 
 

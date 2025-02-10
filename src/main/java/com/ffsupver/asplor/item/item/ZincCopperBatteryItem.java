@@ -3,21 +3,28 @@ package com.ffsupver.asplor.item.item;
 import appeng.api.config.Actionable;
 import appeng.items.tools.powered.powersink.AEBasePoweredItem;
 import com.ffsupver.asplor.item.ModItems;
+import earth.terrarium.adastra.common.utils.TooltipUtils;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
 import team.reborn.energy.api.EnergyStorage;
+
+import java.util.List;
 
 import static com.ffsupver.asplor.util.MathUtil.fromAEtoE;
 import static com.ffsupver.asplor.util.MathUtil.fromEtoAE;
 
-public class BatteryItem extends AEBasePoweredItem {
+public class ZincCopperBatteryItem extends AEBasePoweredItem {
     private static final Double CAPACITY = 25000.0;
 
-    public BatteryItem(Settings settings) {
+    public ZincCopperBatteryItem(Settings settings) {
         super(()->CAPACITY,settings);
     }
 
@@ -64,4 +71,9 @@ public class BatteryItem extends AEBasePoweredItem {
         return 0;
     }
 
+    @Override
+    public void appendTooltip(ItemStack stack, World level, List<Text> lines, TooltipContext advancedTooltips) {
+        super.appendTooltip(stack, level, lines, advancedTooltips);
+        TooltipUtils.addDescriptionComponent(lines,Text.translatable("description.asplor.zinc_copper_battery").formatted(Formatting.GRAY));
+    }
 }

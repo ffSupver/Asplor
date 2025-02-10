@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "asplor:zinc_copper_battery"
+    }
+  ],
+  "results": [
+    {
+      "amount": 4500,
+      "fluid": "asplor:chlorine"
+    },
+    {
+      "item": "create:copper_nugget"
+    }
+  ]
+}
