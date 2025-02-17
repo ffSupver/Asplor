@@ -77,7 +77,7 @@ public class DividerEntity extends KineticBlockEntity implements SidedStorageBlo
         float pitch = MathHelper.clamp((Math.abs(getSpeed()) / 256f) + .45f, .85f, 1f);
         if (world != null) {
             world.playSound(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5, ModSounds.DIVIDER_CUT,
-                    SoundCategory.BLOCKS,0.2f,pitch,false);
+                    SoundCategory.BLOCKS, getCachedState().get(Divider.CASING) ? .025f :.2f,pitch,true);
         }
 
     }

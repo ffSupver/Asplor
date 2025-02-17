@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item":  "minecraft:diamond_block"
+  },
+  "base": {
+    "item": "minecraft:book"
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "Enchantments": [
+        {
+          "id": "mending",
+          "lvl": 1
+        }
+      ]
+    }
+  },
+  "template": {
+    "item":"create:experience_block"
+  }
+}

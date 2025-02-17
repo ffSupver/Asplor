@@ -89,6 +89,8 @@
   "item.asplor.controlling_chip": "控制芯片",
   "item.asplor.uncompleted_controlling_chip": "未完成的控制芯片",
   "item.asplor.molten_desh_dropper": "熔融戴斯滴液器",
+  "item.asplor.tier_2_rocket_shell": "二阶火箭外壳",
+  "item.asplor.trident_shard": "三叉戟碎片",
 
 
 
@@ -243,6 +245,7 @@
   "guide_book.asplor.earth.electricity": "電紀",
   "guide_book.asplor.earth.gold_orchid": "神金蘭",
   "guide_book.asplor.earth.large_map": "大地图",
+  "guide_book.asplor.earth.lightning_absorber": "雷电接收器",
 
 
 

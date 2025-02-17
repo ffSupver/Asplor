@@ -6,6 +6,7 @@ import com.ffsupver.asplor.item.item.SchematicItem;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.Create;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
 import com.simibubi.create.content.logistics.depot.SharedDepotBlockMethods;
 import com.simibubi.create.foundation.block.IBE;
@@ -39,7 +40,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class AlloyDepot extends Block implements IBE<AlloyDepotEntity> {
+public class AlloyDepot extends Block implements IBE<AlloyDepotEntity>, IWrenchable {
     public static final Property<Boolean> SCHEMATIC = BooleanProperty.of("schematic");
     public AlloyDepot(Settings settings) {
         super(settings);

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "asplor:diamond_shard"
+    },
+    "X": {
+      "item": "asplor:trident_shard"
+    }
+  },
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "item": "minecraft:trident"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item":  "minecraft:diamond_block"
+  },
+  "base": {
+    "item": "minecraft:book"
+  },
+  "result": {
+    "item": "minecraft:enchanted_book",
+    "nbt": {
+      "Enchantments": [
+        {
+          "id": "channeling",
+          "lvl": 1
+        }
+      ]
+    }
+  },
+  "template": {
+    "item":"minecraft:heart_of_the_sea"
+  }
+}

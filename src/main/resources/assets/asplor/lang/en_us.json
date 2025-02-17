@@ -90,6 +90,8 @@
   "item.asplor.uncompleted_controlling_chip": "Uncompleted Controlling Chip",
   "item.asplor.molten_desh_dropper": "Molten Desh Dropper",
   "item.asplor.world_adder": "World Adder",
+  "item.asplor.tier_2_rocket_shell": "Tier 2 Rocket Shell",
+  "item.asplor.trident_shard": "Trident Shard",
 
 
 
@@ -245,7 +247,7 @@
   "guide_book.asplor.earth.electricity": "Electric Age",
   "guide_book.asplor.earth.gold_orchid": "Gold Orchid",
   "guide_book.asplor.earth.large_map": "Large Map",
-
+  "guide_book.asplor.earth.lightning_absorber": "Lightning Absorber",
 
 
   "category.asplor.key": "Asplor",

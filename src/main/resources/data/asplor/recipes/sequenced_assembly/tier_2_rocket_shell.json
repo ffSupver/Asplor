@@ -1,0 +1,77 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "ad_astra:desh_block"
+  },
+  "loops": 8,
+  "results": [
+    {
+      "item": "asplor:tier_2_rocket_shell"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:desh_block"
+        },
+        {
+          "item": "ad_astra:desh_block"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:desh_block"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:desh_block"
+        },
+        {
+          "item": "asplor:tier_1_rocket_shell"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:desh_block"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ad_astra:desh_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:desh_block"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ad_astra:desh_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_2_rocket_shell"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "ad_astra:desh_block"
+  }
+}

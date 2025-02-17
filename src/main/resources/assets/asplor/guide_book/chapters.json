@@ -41,6 +41,11 @@
       "description": "{\"translate\":\"guide_book.asplor.earth.electricity\",\"color\":\"white\"}"
     },
     {
+      "name": "earth/lightning_absorber",
+      "order": 11,
+      "description": "{\"translate\":\"guide_book.asplor.earth.lightning_absorber\",\"color\":\"white\"}"
+    },
+    {
       "name": "earth/oil",
       "order": 18,
       "description": "{\"translate\":\"guide_book.asplor.earth.oil\",\"color\":\"white\"}"

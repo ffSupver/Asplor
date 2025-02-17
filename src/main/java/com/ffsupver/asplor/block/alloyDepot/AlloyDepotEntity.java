@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.alloyDepot;
 
+import com.ffsupver.asplor.item.item.SchematicItem;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -12,6 +13,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
@@ -82,5 +84,13 @@ public class AlloyDepotEntity extends SmartBlockEntity implements SidedStorageBl
             }
         }
         return result;
+    }
+
+    @Override
+    public void destroy() {
+        if (getSchematic() != null){
+            ItemScatterer.spawn(world,pos.getX(),pos.getY(),pos.getZ(),SchematicItem.getSchematicItem(getSchematic()));
+        }
+        super.destroy();
     }
 }

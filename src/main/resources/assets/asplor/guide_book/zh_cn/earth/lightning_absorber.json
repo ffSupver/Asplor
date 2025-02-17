@@ -1,0 +1,5 @@
+{
+  "text": "当你获得<item.ad_astra.steel_ingot>后你就可以制作<block.asplor.lightning_absorber>来发电,用引雷的<item.minecraft.trident>来在雨天或者雷雨天发电",
+  "picture": "earth/lightning_absorber.png",
+  "offset_y": -40
+}

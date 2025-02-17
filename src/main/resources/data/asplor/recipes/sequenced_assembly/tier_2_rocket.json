@@ -1,0 +1,129 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "ad_astra:tier_1_rocket"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "ad_astra:tier_2_rocket"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "ad_astra:rocket_nose_cone"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "asplor:tier_2_rocket_shell"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "asplor:controlling_chip"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "ad_astra:desh_tank"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "ad_astra:desh_engine"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        },
+        {
+          "item": "ad_astra:rocket_fin"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ad_astra:tier_1_rocket"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:tier_2_rocket"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:tier_2_rocket_shell"
+  }
+}
