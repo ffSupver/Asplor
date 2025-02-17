@@ -34,7 +34,7 @@ public class MysteriousPaperCloningRecipe extends SpecialCraftingRecipe {
                     }
 
                     itemStack = itemStack2;
-                }else if (itemStack2.isOf(Items.INK_SAC)){
+                }else if (itemStack2.isOf(Items.BLACK_DYE)){
                     if (!itemStack1.isEmpty()){
                         return false;
                     }
@@ -69,7 +69,7 @@ public class MysteriousPaperCloningRecipe extends SpecialCraftingRecipe {
                     }
 
                     itemStack = itemStack2;
-                }else if (itemStack2.isOf(Items.INK_SAC)){
+                }else if (itemStack2.isOf(Items.BLACK_DYE)){
                     if (!itemStack1.isEmpty()) {
                         return ItemStack.EMPTY;
                     }

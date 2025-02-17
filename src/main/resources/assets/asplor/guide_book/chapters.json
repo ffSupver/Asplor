@@ -11,58 +11,63 @@
       "description": "{\"translate\":\"item.asplor.guide_book\",\"color\":\"white\"}"
     },
     {
-      "name": "earth/large_map",
+      "name": "earth/all",
       "order": 2,
+      "description": "{\"translate\":\"guide_book.asplor.earth.all\",\"color\":\"gold\"}"
+    },
+    {
+      "name": "earth/large_map",
+      "order": 5,
       "description": "{\"translate\":\"guide_book.asplor.earth.large_map\",\"color\":\"white\"}"
     },
     {
       "name": "earth/add_chest",
-      "order": 4,
+      "order": 8,
       "description": "{\"translate\":\"guide_book.asplor.earth.add_chest\",\"color\":\"white\"}"
     },
     {
       "name": "earth/add_goggles",
-      "order": 5,
+      "order": 9,
       "description": "{\"translate\":\"guide_book.asplor.earth.add_goggles\",\"color\":\"white\"}"
     },
     {
       "name": "earth/iron",
-      "order": 6,
+      "order": 16,
       "description": "{\"translate\":\"guide_book.asplor.earth.iron\",\"color\":\"white\"}"
     },
     {
       "name": "earth/gold_orchid",
-      "order": 7,
+      "order": 17,
       "description": "{\"translate\":\"guide_book.asplor.earth.gold_orchid\",\"color\":\"white\"}"
     },
     {
       "name": "earth/electricity",
-      "order": 10,
+      "order": 20,
       "description": "{\"translate\":\"guide_book.asplor.earth.electricity\",\"color\":\"white\"}"
     },
     {
       "name": "earth/lightning_absorber",
-      "order": 11,
+      "order": 21,
       "description": "{\"translate\":\"guide_book.asplor.earth.lightning_absorber\",\"color\":\"white\"}"
     },
     {
       "name": "earth/oil",
-      "order": 18,
+      "order": 28,
       "description": "{\"translate\":\"guide_book.asplor.earth.oil\",\"color\":\"white\"}"
     },
     {
       "name": "earth/nether_portal",
-      "order": 19,
+      "order": 29,
       "description": "{\"translate\":\"guide_book.asplor.earth.nether_portal\",\"color\":\"white\"}"
     },
     {
       "name": "earth/base_rocket",
-      "order": 20,
+      "order": 30,
       "description": "{\"translate\":\"guide_book.asplor.earth.base_rocket\",\"color\":\"white\"}"
     },
     {
       "name": "earth/locator",
-      "order": 21,
+      "order": 31,
       "description": "{\"translate\":\"guide_book.asplor.earth.locator\",\"color\":\"white\"}"
     }
   ]

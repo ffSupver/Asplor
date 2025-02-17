@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "asplor",
 	"version": "${version}",
-	"name": "asplor",
+	"name": "Asplor",
 	"description": "This is an mod for asplor!",
 	"authors": [
 		"ffSupver"

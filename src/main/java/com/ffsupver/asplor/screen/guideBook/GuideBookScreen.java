@@ -46,6 +46,7 @@ public class GuideBookScreen extends Screen {
     public static final Identifier GUIDE_BOOK_TEXTURE = new Identifier(Asplor.MOD_ID,"textures/guide_book/background.png");
     public static final Identifier GUIDE_BOOK_CHAPTERS = new Identifier(Asplor.MOD_ID,"guide_book/chapters.json");
     private List<OrderedText> cachedPage;
+    private final List<List<Item>> itemsToRender = new ArrayList<>();
     private Text pageIndexText;
 
     private PageTurnWidget nextPageButton;
@@ -177,6 +178,7 @@ public class GuideBookScreen extends Screen {
             JsonObject jsonObject = JsonParser.parseString(jsonContent).getAsJsonObject();
 
             Text finalText = Text.empty();
+            List<Item> itemToRender = new ArrayList<>();
             String text = JsonUtils.getString("text",jsonObject);
 
 
@@ -201,6 +203,9 @@ public class GuideBookScreen extends Screen {
                         itemText = itemText.copy().setStyle(Style.EMPTY.withFormatting(Formatting.GOLD).withHoverEvent(
                                 new HoverEvent(HoverEvent.Action.SHOW_ITEM,new HoverEvent.ItemStackContent(itemToShow.getDefaultStack()))
                         ));
+                        if (!itemToRender.contains(itemToShow)){
+                            itemToRender.add(itemToShow);
+                        }
                     }
                 }
                 finalText = finalText.copy().append(itemText);
@@ -215,6 +220,7 @@ public class GuideBookScreen extends Screen {
             }
 
 
+            this.itemsToRender.add(itemToRender);
 
             return Text.Serializer.toJson(finalText);
         } catch (IOException e) {
@@ -338,11 +344,28 @@ public class GuideBookScreen extends Screen {
 
         for(int m = 0; m < l; ++m) {
             OrderedText orderedText = this.cachedPage.get(m);
-            TextRenderer var10001 = this.textRenderer;
+            TextRenderer textRenderer1 = this.textRenderer;
             int var10003 = i + 36;
             Objects.requireNonNull(this.textRenderer);
-            context.drawText(var10001, orderedText, var10003, 32 + m * 9, 0, false);
+            context.drawText(textRenderer1, orderedText, var10003, 32 + m * 9, 0, false);
         }
+
+        // 渲染物品
+        int itemX = i + 36;
+        int itemY = 32 + l * 9 + 2; // 在文本下方渲染物品
+        for (Item item : itemsToRender.get(pageIndex)) {
+            ItemStack itemStackToRender = item.getDefaultStack();
+            context.drawItem(itemStackToRender, itemX, itemY);
+
+            if (mouseX >= itemX && mouseX < itemX + 16 && mouseY >= itemY && mouseY < itemY + 16) {
+                context.drawHoverEvent(this.textRenderer, Style.EMPTY.withHoverEvent(
+                                    new HoverEvent(HoverEvent.Action.SHOW_ITEM,new HoverEvent.ItemStackContent(itemStackToRender))
+                            ), mouseX,mouseY);
+            }
+
+            itemX += 20; // 每个物品之间留出一些空间
+        }
+
 
         Style style = this.getTextStyleAt(mouseX, mouseY);
         if (style != null) {

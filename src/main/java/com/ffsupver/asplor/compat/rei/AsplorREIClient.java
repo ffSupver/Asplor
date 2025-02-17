@@ -69,7 +69,7 @@ public class AsplorREIClient implements REIClientPlugin {
             return new SpecialCraftingDisplay(List.of(
                     EntryIngredients.of(mysteriousPaper),
                     EntryIngredients.of(Items.PAPER),
-                    EntryIngredients.of(Items.INK_SAC)
+                    EntryIngredients.of(Items.BLACK_DYE)
             ),
                     List.of(EntryIngredients.of(mysteriousPaper.copyWithCount(2))));
         });

@@ -1,4 +1,6 @@
 {
+  "asplor": "Asplor",
+
   "item.asplor.alloy_ingot": "Alloy Ingot",
   "item.asplor.charged_alloy_ingot": "Charged Alloy Ingot",
   "item.asplor.uncompleted_alloy_chest": "uncompleted Alloy Chest",
@@ -248,6 +250,7 @@
   "guide_book.asplor.earth.gold_orchid": "Gold Orchid",
   "guide_book.asplor.earth.large_map": "Large Map",
   "guide_book.asplor.earth.lightning_absorber": "Lightning Absorber",
+  "guide_book.asplor.earth.all": "Earth",
 
 
   "category.asplor.key": "Asplor",
