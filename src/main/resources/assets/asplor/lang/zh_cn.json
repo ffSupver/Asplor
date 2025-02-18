@@ -222,6 +222,8 @@
   "description.asplor.lightning_absorber": "被闪电击中时会为下面的方块充电,在雨天或者雷暴天气被引雷的三叉戟击中会召唤闪电",
   "description.asplor.zinc_copper_battery": "右键机器来给机器充电",
 
+  "description.asplor.enchantment.strength": "增加箭的飞行速度",
+  "description.asplor.enchantment.mechanically_proficient": "减少在机械手上的耐久消耗,完全减免如果等级达到",
 
 
   "tool_type.asplor.drill": "钻头处理",

@@ -2,6 +2,7 @@ package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.spaceTeleporter.SpaceTeleporterRenderer;
 import com.ffsupver.asplor.compat.create.ponder.PonderIndex;
+import com.ffsupver.asplor.enchantment.ModEnchantments;
 import com.ffsupver.asplor.entity.client.ModModelLayers;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.ModItems;
@@ -43,6 +44,7 @@ public class AsplorClient implements ClientModInitializer {
         PonderIndex.register();
         ModPackets.registerS2CPack();
 
+        ModEnchantments.registerDescription();
     }
 
 }

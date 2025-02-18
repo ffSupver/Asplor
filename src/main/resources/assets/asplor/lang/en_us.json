@@ -1,6 +1,4 @@
 {
-  "asplor": "Asplor",
-
   "item.asplor.alloy_ingot": "Alloy Ingot",
   "item.asplor.charged_alloy_ingot": "Charged Alloy Ingot",
   "item.asplor.uncompleted_alloy_chest": "uncompleted Alloy Chest",
@@ -227,6 +225,8 @@
   "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
   "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
 
+  "description.asplor.enchantment.strength": "Increases the speed of arrows",
+  "description.asplor.enchantment.mechanically_proficient": "Reduces damage of tools when used by a deployer. Completely reduce at ",
 
 
 

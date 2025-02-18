@@ -41,6 +41,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GuideBookScreen extends Screen {
+    private static final Pattern SHOULD_TRANSLATE = Pattern.compile("<(.*?)>");
     private int pageIndex;
     private Contents contents;
     public static final Identifier GUIDE_BOOK_TEXTURE = new Identifier(Asplor.MOD_ID,"textures/guide_book/background.png");
@@ -183,8 +184,7 @@ public class GuideBookScreen extends Screen {
 
 
             // 定义正则表达式来匹配 <xxx> 格式的字符串
-            Pattern pattern = Pattern.compile("<(.*?)>");
-            Matcher matcher = pattern.matcher(text);
+            Matcher matcher = SHOULD_TRANSLATE.matcher(text);
 
             int lastIndex = 0;
             while (matcher.find()) {
