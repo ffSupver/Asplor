@@ -1,4 +1,4 @@
-package com.ffsupver.asplor.entity.custom.cargoRocket;
+package com.ffsupver.asplor.entity.custom.rocket;
 
 import earth.terrarium.adastra.common.registry.ModSoundEvents;
 import net.fabricmc.api.EnvType;
@@ -8,14 +8,14 @@ import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
 @Environment(EnvType.CLIENT)
-public class CargoRocketSound {
-    public static void play(CargoRocketEntity cargoRocketEntity){
+public class RocketSound {
+    public static void play(RoundTripRocketEntity cargoRocketEntity){
         MinecraftClient.getInstance().getSoundManager().play(new CargoRocketSoundInstance(cargoRocketEntity));
     }
     private static class CargoRocketSoundInstance extends MovingSoundInstance {
-        private CargoRocketEntity cargoRocketEntity;
+        private final RoundTripRocketEntity cargoRocketEntity;
         protected boolean canPlay = true;
-         public CargoRocketSoundInstance(CargoRocketEntity cargoRocketEntity) {
+         public CargoRocketSoundInstance(RoundTripRocketEntity cargoRocketEntity) {
             super(ModSoundEvents.ROCKET.get(), SoundCategory.AMBIENT, SoundInstance.createRandom());
             this.cargoRocketEntity = cargoRocketEntity;
             this.repeat = true;

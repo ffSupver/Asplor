@@ -9,6 +9,7 @@ import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.AllPartialModels;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.entity.ModEntities;
+import com.ffsupver.asplor.entity.client.AdvanceRocketRenderer;
 import com.ffsupver.asplor.entity.client.CargoRocketRenderer;
 import com.ffsupver.asplor.entity.client.Tier0RocketModelLayer;
 import com.ffsupver.asplor.fluid.ModFluids;
@@ -138,12 +139,16 @@ public class ModItems {
     public static final Item WORLD_ADDER = registerItems("world_adder",new WorldAdderItem(new FabricItemSettings().maxCount(1)));
     public static final Item TIER_2_ROCKET_SHELL = registerItems("tier_2_rocket_shell",new Item(new FabricItemSettings()));
     public static final Item TRIDENT_SHARD = registerItems("trident_shard",new Item(new FabricItemSettings()));
+    public static final Item NAVIGATION_CHIP = registerItems("navigation_chip",new NavigationChipItem(new FabricItemSettings()));
+
+    public static final Item ADVANCE_ROCKET = registerItems("advance_rocket",new AdvanceRocketItem(new FabricItemSettings().maxCount(1).fireproof()));
 
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
         BuiltinItemRendererRegistryImpl.INSTANCE.register(CARGO_ROCKET, new RocketItemRenderer(CargoRocketRenderer.CARGO_ROCKET_MODEL,CargoRocketRenderer.CARGO_ROCKET_TEXTURE));
+        BuiltinItemRendererRegistryImpl.INSTANCE.register(ADVANCE_ROCKET, new RocketItemRenderer(AdvanceRocketRenderer.ADVANCE_ROCKET_MODEL,AdvanceRocketRenderer.ADVANCE_ROCKET_TEXTURE));
     }
 
     @Environment(EnvType.CLIENT)

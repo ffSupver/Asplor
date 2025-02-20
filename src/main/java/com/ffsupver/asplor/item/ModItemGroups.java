@@ -127,6 +127,7 @@ public class ModItemGroups {
                             entries.add(ELECTROLYZER);
                             entries.add(TIER_0_ROCKET);
                             entries.add(CARGO_ROCKET);
+                            entries.add(ADVANCE_ROCKET);
                             entries.add(ROCKET_CARGO_LOADER);
                             entries.add(ROCKET_FUEL_LOADER);
                             entries.add(REFINERY_CONTROLLER);

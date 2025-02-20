@@ -4,7 +4,8 @@ import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
 import com.ffsupver.asplor.entity.custom.Ranger;
-import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.rocket.AdvanceRocketEntity;
+import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
 import com.ffsupver.asplor.item.ModItems;
 import earth.terrarium.adastra.common.entities.vehicles.Rocket;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -38,9 +39,12 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(1f,1f))
                     .build()
     );
-
+    public static final EntityType<AdvanceRocketEntity> ADVANCE_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"advance_rocket"),
+            FabricEntityTypeBuilder.<AdvanceRocketEntity>create(SpawnGroup.MISC, AdvanceRocketEntity::new)
+                    .dimensions(EntityDimensions.fixed(1.3f,6.7f))
+                    .build()
+    );
 
     public static void register(){
-//        FabricDefaultAttributeRegistry.register(CART,CartEntity.createCartAttribute());
     }
 }

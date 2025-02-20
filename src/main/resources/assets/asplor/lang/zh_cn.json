@@ -91,6 +91,8 @@
   "item.asplor.molten_desh_dropper": "熔融戴斯滴液器",
   "item.asplor.tier_2_rocket_shell": "二阶火箭外壳",
   "item.asplor.trident_shard": "三叉戟碎片",
+  "item.asplor.advance_rocket": "高级火箭",
+  "item.asplor.navigation_chip": "导航芯片",
 
 
 
@@ -266,6 +268,7 @@
   "entity.asplor.structure.launch_center": "工程师",
   "entity.asplor.cargo_rocket": "货运火箭",
   "entity.asplor.ranger": "徘徊者",
+  "entity.asplor.advance_rocket": "高级火箭",
 
 
 

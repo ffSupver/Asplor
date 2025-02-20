@@ -1,6 +1,6 @@
 package com.ffsupver.asplor.mixin.cargoRocket;
 
-import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
 import net.minecraft.client.render.entity.model.AnimalModel;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.Entity;

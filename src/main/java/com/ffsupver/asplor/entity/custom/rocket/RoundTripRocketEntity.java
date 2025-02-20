@@ -1,8 +1,5 @@
-package com.ffsupver.asplor.entity.custom.cargoRocket;
+package com.ffsupver.asplor.entity.custom.rocket;
 
-import com.ffsupver.asplor.entity.ModEntities;
-import com.ffsupver.asplor.item.ModItems;
-import com.ffsupver.asplor.screen.cargoRocket.CargoRocketScreenHandler;
 import earth.terrarium.adastra.api.planets.Planet;
 import earth.terrarium.adastra.api.planets.PlanetApi;
 import earth.terrarium.adastra.api.systems.GravityApi;
@@ -66,7 +63,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider , Mount , RideableInventory {
+public abstract class RoundTripRocketEntity extends Entity implements ExtraDataMenuProvider , Mount , RideableInventory {
     private int lerpSteps;
     private double lerpX;
     private double lerpY;
@@ -91,13 +88,13 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
     private final SimpleFluidContainer fluidContainer;
 
     private float speed;
-    public CargoRocketEntity(World world,Vec3d pos,Vec3d velocity){
-        this(ModEntities.CARGO_ROCKET,world);
+    public RoundTripRocketEntity(EntityType<?> type,World world, Vec3d pos, Vec3d velocity){
+        this(type,world);
         this.setPosition(pos.x, pos.y, pos.z);
         this.setVelocity(velocity.x, velocity.y, velocity.z);
     }
 
-    public CargoRocketEntity(EntityType<?> type, World world) {
+    public RoundTripRocketEntity(EntityType<?> type, World world) {
         super(type, world);
         this.speed = 0.005f;
         this.fluidContainer = new SimpleFluidContainer(FluidConstants.fromMillibuckets(6000L), 1,
@@ -114,9 +111,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
         this.dataTracker.startTracking(FUEL_TYPE, "air");
         this.dataTracker.startTracking(IS_LANDING,false);
     }
-    private int getInventorySize() {
-        return 46;
-    }
+    protected abstract int getInventorySize();
     @Override
     public boolean collidesWith(Entity entity) {
         return BoatEntity.canCollide(this, entity);
@@ -276,7 +271,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
             this.setVelocity(delta.getX(), this.speed, delta.getZ());
             if (this.getWorld().isClient() && !this.startedRocketSound) {
                 this.startedRocketSound = true;
-               CargoRocketSound.play(this);
+               RocketSound.play(this);
             }
 
             this.spawnRocketParticles();
@@ -285,6 +280,8 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
         }
     }
 
+    protected abstract Optional<RegistryKey<World>> getTargetWorldKeyOptional(Planet planet);
+
     private void teleport(){
         this.launchpadBound = false;
         this.dataTracker.set(HAS_LAUNCHED,false);
@@ -292,13 +289,13 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
         this.dataTracker.set(IS_LANDING,true);
         Planet planet = PlanetApi.API.getPlanet(getWorld());
         if (planet != null){
-          Optional<RegistryKey<World>> destinationWorldKey = PlanetApi.API.isSpace(getWorld()) ? planet.getOrbitPlanet() : planet.orbit();
+          Optional<RegistryKey<World>> destinationWorldKey = getTargetWorldKeyOptional(planet);
           if (destinationWorldKey.isPresent()){
               TeleportTarget teleportTarget = new TeleportTarget(this.getPos(),this.getVelocity(),this.getYaw(),this.getPitch());
               ServerWorld targetWorld = getWorld().getServer().getWorld(destinationWorldKey.get());
               if (targetWorld != null) {
                   List<Entity> passengers = this.getPassengerList();
-                  CargoRocketEntity teleportedCargoRocketEntity = FabricDimensions.teleport(this, targetWorld, teleportTarget);
+                  RoundTripRocketEntity teleportedCargoRocketEntity = FabricDimensions.teleport(this, targetWorld, teleportTarget);
                   passengers.forEach(entity -> {
                       List<Entity> secondPassengerList = entity.getPassengerList();
                       Entity teleportedEntity = FabricDimensions.teleport(entity, targetWorld, teleportTarget);
@@ -522,8 +519,11 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
 
     }
 
+    @NotNull
+    protected abstract ItemStack asItemStack();
+
     public ItemStack getDropStack(){
-        ItemStackHolder stack = new ItemStackHolder(ModItems.CARGO_ROCKET.getDefaultStack());
+        ItemStackHolder stack = new ItemStackHolder(asItemStack());
         ItemFluidContainer container = FluidContainer.of(stack);
         if (container == null) {
             return stack.getStack();
@@ -578,9 +578,7 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
 
     @Nullable
     @Override
-    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new CargoRocketScreenHandler(syncId,playerInventory,this);
-    }
+    public abstract ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player);
 
 
 
@@ -599,12 +597,12 @@ public class CargoRocketEntity extends Entity implements ExtraDataMenuProvider ,
 
 
     static {
-        IS_LAUNCHING = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        LAUNCH_TICKS = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.INTEGER);
-        HAS_LAUNCHED = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        IS_IN_VALID_DIMENSION = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        FUEL = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.LONG);
-        FUEL_TYPE = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.STRING);
-        IS_LANDING = DataTracker.registerData(CargoRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+        IS_LAUNCHING = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+        LAUNCH_TICKS = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.INTEGER);
+        HAS_LAUNCHED = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+        IS_IN_VALID_DIMENSION = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+        FUEL = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.LONG);
+        FUEL_TYPE = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.STRING);
+        IS_LANDING = DataTracker.registerData(RoundTripRocketEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     }
 }

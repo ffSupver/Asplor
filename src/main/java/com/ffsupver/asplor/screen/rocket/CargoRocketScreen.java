@@ -1,7 +1,7 @@
-package com.ffsupver.asplor.screen.cargoRocket;
+package com.ffsupver.asplor.screen.rocket;
 
 import com.ffsupver.asplor.Asplor;
-import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
 import earth.terrarium.adastra.client.screens.base.VehicleScreen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.entity.player.PlayerInventory;

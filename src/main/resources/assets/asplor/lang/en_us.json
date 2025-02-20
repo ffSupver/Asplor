@@ -92,6 +92,8 @@
   "item.asplor.world_adder": "World Adder",
   "item.asplor.tier_2_rocket_shell": "Tier 2 Rocket Shell",
   "item.asplor.trident_shard": "Trident Shard",
+  "item.asplor.advance_rocket": "Advance Rocket",
+  "item.asplor.navigation_chip": "Navigation Chip",
 
 
 
@@ -269,6 +271,8 @@
   "entity.asplor.structure.launch_center": "Engineer",
   "entity.asplor.cargo_rocket": "Cargo Rocket",
   "entity.asplor.ranger": "Ranger",
+  "entity.asplor.advance_rocket": "Advance Rocket",
+
 
 
   "gui.asplor.backpack": "backpack",

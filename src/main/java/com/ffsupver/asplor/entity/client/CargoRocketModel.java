@@ -1,7 +1,7 @@
 package com.ffsupver.asplor.entity.client;
 
 
-import com.ffsupver.asplor.entity.custom.cargoRocket.CargoRocketEntity;
+import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
