@@ -3,6 +3,8 @@
   "values": [
     "asplor:iron_airlock_switch",
     "asplor:iron_plating_airlock_switch",
-    "asplor:outer_space/astra_diabase_copper_ore"
+    "asplor:outer_space/astra_diabase_copper_ore",
+    "asplor:outer_space/astra_iron_ore",
+    "asplor:outer_space/astra_silver_ore"
   ]
 }

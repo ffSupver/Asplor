@@ -2,7 +2,6 @@ package com.ffsupver.asplor.world;
 
 import com.ffsupver.asplor.Asplor;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -22,10 +21,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 public class BiomesSupplier {
-    public static final BiomesData OUTER_SPACE_PLAINS = createBiomesData("outer_space_plains",getBaseMaterialRule(Blocks.SAND.getDefaultState(),Blocks.IRON_BLOCK.getDefaultState()));
-    public static final BiomesData OUTER_SPACE_HILLS = createBiomesData("outer_space_hills",getBaseMaterialRule(Blocks.DIRT.getDefaultState(),Blocks.IRON_BLOCK.getDefaultState()));
+    public static final BiomesData OUTER_SPACE_PLAINS = createBiomesData("outer_space_plains");
+    public static final BiomesData OUTER_SPACE_HILLS = createBiomesData("outer_space_hills");
     public static final List<BiomesData> BIOMES_LIST = List.of(OUTER_SPACE_PLAINS,OUTER_SPACE_HILLS);
     public static MultiNoiseBiomeSource getBiomeSource(List<Pair<RegistryEntry<Biome>, List<Float>>> biomes){
         ArrayList<com.mojang.datafixers.util.Pair<MultiNoiseUtil.NoiseHypercube,RegistryEntry<Biome>>> entries = new ArrayList<>();
@@ -72,24 +72,52 @@ public class BiomesSupplier {
         }
         return result;
     }
-
-    public static BiomesData createBiomesData(String id, MaterialRules.MaterialRule materialRule){
-        return new BiomesData(RegistryKey.of(RegistryKeys.BIOME,new Identifier(Asplor.MOD_ID,id)),materialRule);
+    public static List<RegistryEntry<Biome>> toBiomeEntryListKey(MinecraftServer server, List<BiomesData> biomeIdList){
+        Registry<Biome> biomeRegistry = server.getRegistryManager().get(RegistryKeys.BIOME);
+        ArrayList<RegistryEntry<Biome>> result = new ArrayList<>();
+        for (BiomesData data : biomeIdList){
+            Biome biome = biomeRegistry.get(data.registryKey().getValue());
+            if (biome != null){
+                RegistryEntry<Biome> entry = biomeRegistry.getEntry(biome);
+                if (!result.contains(entry)){
+                    result.add(entry);
+                }
+            }
+        }
+        return result;
     }
 
-    public record BiomesData(RegistryKey<Biome> registryKey, MaterialRules.MaterialRule materialRule) {
+    public static BiomesData createBiomesData(String id){
+        return BiomesData.of(RegistryKey.of(RegistryKeys.BIOME,new Identifier(Asplor.MOD_ID,id)));
     }
 
-    public static MaterialRules.@Nullable MaterialRule generateMaterialRules(List<BiomesData> biomesDataList, List<BlockState> blockStates, List<RegistryKey<Biome>> biomes) {
+    public record BiomesData(RegistryKey<Biome> registryKey, Function<List<BlockState>,MaterialRules.MaterialRule> materialRule) {
+        public static BiomesData of(RegistryKey<Biome> registryKey){
+            return new BiomesData(registryKey,BiomesData::defaultRule);
+        }
+        private static MaterialRules.MaterialRule defaultRule(List<BlockState> blockStates) {
+            return getBaseMaterialRule(blockStates.get(0),blockStates.get(1));
+        }
+    }
+
+    public static MaterialRules.@Nullable MaterialRule generateMaterialRules(List<BiomesData> biomesDataList, List<BlockState> blockStates, List<RegistryKey<Biome>> biomes, List<Pair<BlockState,BlockState>> biomeBlocks, Random random) {
         // 将 BiomesData 转换为 MaterialRules.condition(...)
         AtomicInteger index = new AtomicInteger(3);
         MaterialRules.MaterialRule[] rules = biomesDataList.stream()
                 .filter(biomesData -> biomes.contains(biomesData.registryKey))
                 .map(data -> {
+                    MaterialRules.MaterialRule materialRule;
+                    if (blockStates.size() > index.get() + 1){
+                        materialRule = getBaseMaterialRule(blockStates.get(index.get()),blockStates.get(index.get() + 1));
+                    }else {
+                        Pair<BlockState,BlockState> pair = biomeBlocks.get(random.nextInt(biomeBlocks.size()));
+                        List<BlockState> bs = List.of(pair.getLeft(),pair.getRight());
+                        materialRule = data.materialRule().apply(bs);
+                        blockStates.addAll(bs);
+                    }
                     MaterialRules.MaterialRule rule = MaterialRules.condition(
                             MaterialRules.biome(data.registryKey()), // 根据 Biome 的 registryKey 创建条件
-                            blockStates.size() > index.get() + 1 ?
-                                    getBaseMaterialRule(blockStates.get(index.get()),blockStates.get(index.get() + 1))  : data.materialRule()                      // 对应的 materialRule
+                            materialRule
                     );
                     index.addAndGet(2);
                     return rule;

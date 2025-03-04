@@ -22,6 +22,12 @@ public class ModItemGroups {
                                 entries.add(EMPTY_LARGE_MAP);
                                 entries.add(GOLD_ORCHID_SEED);
                                 entries.add(GOLD_ORCHID_STAMEN);
+                                entries.add(RAW_ASTRA_COPPER);
+                                entries.add(RAW_ASTRA_IRON);
+                                entries.add(RAW_ASTRA_SILVER);
+                                entries.add(ASTRA_COPPER_INGOT);
+                                entries.add(ASTRA_IRON_INGOT);
+                                entries.add(ASTRA_SILVER_INGOT);
                                 entries.add(ALLOY_INGOT);
                                 entries.add(ALLOY_NUGGET);
                                 entries.add(ALLOY_BLOCK);
@@ -91,9 +97,12 @@ public class ModItemGroups {
                                 entries.add(CRUDE_PRINTED_ENGINEERING_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);
                                 entries.add(ASTRA_DIABASE_DUST);
+                                entries.add(ASTRA_DIABASE_DIRT);
                                 entries.add(ASTRA_DIABASE_STONE);
                                 entries.add(ASTRA_DIABASE_COBBLESTONE);
                                 entries.add(ASTRA_DIABASE_COPPER_ORE);
+                                entries.add(ASTRA_IRON_ORE);
+                                entries.add(ASTRA_SILVER_ORE);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

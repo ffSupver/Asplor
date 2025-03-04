@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:lake",
+  "config": {
+    "barrier": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "asplor:outer_space/astra_diabase_stone"
+      }
+    },
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "asplor:molten_copper",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    }
+  }
+}

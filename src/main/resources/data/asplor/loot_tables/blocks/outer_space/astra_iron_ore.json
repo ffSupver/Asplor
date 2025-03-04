@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "asplor:outer_space/astra_diabase_copper_ore"
+              "name": "asplor:outer_space/astra_iron_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "asplor:raw_astra_copper"
+              "name": "asplor:raw_astra_iron"
             }
           ]
         }
@@ -46,5 +46,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "asplor:blocks/astra_diabase_copper_ore"
+  "random_sequence": "asplor:blocks/astra_iron_ore"
 }

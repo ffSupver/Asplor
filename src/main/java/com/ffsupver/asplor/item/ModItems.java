@@ -143,6 +143,12 @@ public class ModItems {
 
     public static final Item ADVANCE_ROCKET = registerItems("advance_rocket",new AdvanceRocketItem(new FabricItemSettings().maxCount(1).fireproof()));
 
+    public static final Item RAW_ASTRA_COPPER = registerItems("raw_astra_copper",new Item(new FabricItemSettings()));
+    public static final Item RAW_ASTRA_IRON = registerItems("raw_astra_iron",new Item(new FabricItemSettings()));
+    public static final Item RAW_ASTRA_SILVER = registerItems("raw_astra_silver",new Item(new FabricItemSettings()));
+    public static final Item ASTRA_COPPER_INGOT = registerItems("astra_copper_ingot",new Item(new FabricItemSettings()));
+    public static final Item ASTRA_IRON_INGOT = registerItems("astra_iron_ingot",new Item(new FabricItemSettings()));
+    public static final Item ASTRA_SILVER_INGOT = registerItems("astra_silver_ingot",new Item(new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

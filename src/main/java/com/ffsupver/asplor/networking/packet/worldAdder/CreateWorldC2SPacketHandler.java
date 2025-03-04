@@ -14,7 +14,6 @@ import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.ffsupver.asplor.world.WorldData.createNewPlantWithOrbit;
 import static com.ffsupver.asplor.world.WorldData.createWorldKey;
@@ -50,7 +49,7 @@ public class CreateWorldC2SPacketHandler {
                     server,worldKey,
                     BiomesSupplier.getBiomeSourceSetting(
                             biomesList.isEmpty()?
-                                List.of(serverWorld.getBiome(user.getBlockPos())) :
+                                    BiomesSupplier.toBiomeEntryListKey(server,BiomesSupplier.BIOMES_LIST) :
                                     BiomesSupplier.toBiomeEntryList(server,biomesList) ,
                             server.getOverworld().getRandom()
                     ),

@@ -343,7 +343,10 @@ public class AllBlocks {
     public static final Block ASTRA_DIABASE_STONE = registerBlock("outer_space/astra_diabase_stone",new Block(FabricBlockSettings.copy(STONE)));
     public static final Block ASTRA_DIABASE_COBBLESTONE = registerBlock("outer_space/astra_diabase_cobblestone",new Block(FabricBlockSettings.copy(COBBLESTONE)));
     public static final Block ASTRA_DIABASE_COPPER_ORE = registerBlock("outer_space/astra_diabase_copper_ore",new Block(FabricBlockSettings.copy(IRON_ORE).strength(1.6f)));
+    public static final Block ASTRA_DIABASE_DIRT = registerBlock("outer_space/astra_diabase_dirt",new Block(FabricBlockSettings.copy(DIRT)));
+    public static final Block ASTRA_IRON_ORE = registerBlock("outer_space/astra_iron_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
 
+    public static final Block ASTRA_SILVER_ORE = registerBlock("outer_space/astra_silver_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

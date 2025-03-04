@@ -37,6 +37,8 @@
     "asplor:outer_space/astra_diabase_stone",
     "asplor:outer_space/astra_diabase_cobblestone",
     "asplor:outer_space/astra_diabase_copper_ore",
-    "asplor:lightning_absorber"
+    "asplor:lightning_absorber",
+    "asplor:outer_space/astra_iron_ore",
+    "asplor:outer_space/astra_silver_ore"
   ]
 }

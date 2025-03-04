@@ -93,7 +93,12 @@
   "item.asplor.trident_shard": "三叉戟碎片",
   "item.asplor.advance_rocket": "高级火箭",
   "item.asplor.navigation_chip": "导航芯片",
-
+  "item.asplor.raw_astra_copper": "粗星铜",
+  "item.asplor.raw_astra_iron": "粗星铁",
+  "item.asplor.raw_astra_silver": "粗星银",
+  "item.asplor.astra_copper_ingot": "星铜锭",
+  "item.asplor.astra_iron_ingot": "星铁锭",
+  "item.asplor.astra_silver_ingot": "星银锭",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -163,6 +168,9 @@
   "block.asplor.outer_space.astra_diabase_cobblestone": "星辉圆石",
   "block.asplor.outer_space.astra_diabase_copper_ore": "星铜矿",
   "block.asplor.lightning_absorber": "渡劫儀",
+  "block.asplor.outer_space.astra_diabase_dirt": "星辉泥土",
+  "block.asplor.outer_space.astra_iron_ore": "星铁矿",
+  "block.asplor.outer_space.astra_silver_ore": "星银矿",
 
 
 
@@ -199,8 +207,8 @@
 
 
 
-  "itemGroup.asplor_machines": "屎山:机器",
-  "itemGroup.asplor_ingredients": "屎山:材料",
+  "itemGroup.asplor_machines": "星:机器",
+  "itemGroup.asplor_ingredients": "星:材料",
 
   "subtitles.block.alloy_chest.open": "合金箱子: 打开",
   "subtitles.block.alloy_chest.close": "合金箱子: 关闭",
@@ -255,7 +263,7 @@
 
 
 
-  "category.asplor.key": "屎山",
+  "category.asplor.key": "星",
   "key.asplor.open_backpack": "打开背包",
   "key.asplor.large_map.move_up": "地图:上移",
   "key.asplor.large_map.move_down": "地图:下移",

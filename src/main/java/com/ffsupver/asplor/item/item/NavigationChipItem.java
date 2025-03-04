@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.item.item;
 
+import com.ffsupver.asplor.world.WorldData;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,16 +28,24 @@ public class NavigationChipItem extends Item {
         super.appendTooltip(stack, world, tooltip, context);
         Optional<RegistryKey<World>> first = getWorldKey(stack,true);
         Optional<RegistryKey<World>> second = getWorldKey(stack,false);
-        tooltip.add((first.map(worldRegistryKey -> toPlanetName(worldRegistryKey.getValue())).orElse(UNKNOWN_WORLD))
-                .copy()
-                .append(Text.literal(" <--> "))
-                .append((second.map(registryKey -> toPlanetName(registryKey.getValue())).orElse(UNKNOWN_WORLD)))
-        );
+        if (first.isPresent() || second.isPresent()){
+            tooltip.add((first.map(worldRegistryKey -> toPlanetName(worldRegistryKey.getValue())).orElse(UNKNOWN_WORLD))
+                    .copy()
+                    .append(Text.literal(" <--> "))
+                    .append((second.map(
+                            registryKey -> toPlanetName(registryKey.getValue())
+                    ).orElse(UNKNOWN_WORLD)))
+            );
+        }
 
     }
 
     private static Text toPlanetName(Identifier id){
-        return Text.translatable("planet."+id.getNamespace()+"."+id.getPath());
+        if (id.getNamespace().equals(WorldData.NAMESPACE)){
+            return Text.literal(id.getPath());
+        }else {
+            return Text.translatable("planet." + id.getNamespace() + "." + id.getPath());
+        }
     }
 
     public static ItemStack putWorldKey(RegistryKey<World> worldKey, ItemStack itemStack, boolean first){

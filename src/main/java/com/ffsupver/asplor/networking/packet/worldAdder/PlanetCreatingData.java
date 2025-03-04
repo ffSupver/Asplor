@@ -1,6 +1,7 @@
 package com.ffsupver.asplor.networking.packet.worldAdder;
 
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.util.math.random.Random;
 
 public class PlanetCreatingData {
     public Boolean oxygen;
@@ -72,5 +73,15 @@ public class PlanetCreatingData {
         if (this.solarPower == null && solarPower != null) {
             this.solarPower = solarPower;
         }
+    }
+
+    public static PlanetCreatingData generateRandomPlanetData(Random random, int tier){
+        PlanetCreatingData planetCreatingData = new PlanetCreatingData();
+        planetCreatingData.temperature = (short) random.nextBetween(-400,400);
+        planetCreatingData.tier = tier;
+        planetCreatingData.oxygen = random.nextBoolean();
+        planetCreatingData.gravity = random.nextFloat() * 20f;
+        planetCreatingData.solarPower = random.nextInt(200);
+        return planetCreatingData;
     }
 }

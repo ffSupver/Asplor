@@ -28,8 +28,6 @@ public class GetWorldRendererPacketClient {
         WorldRenderingData.PlanetRendererData planetRendererData = WorldRenderingData.PlanetRendererData.readFromPacket(buf);
 
         client.execute(() ->{
-            System.out.println("client rec " + planetRendererData.planetRenderer().skyRenderables());
-
             WorldRenderingData.registerPlanetWithOrbit(planetRendererData);
             registerAll();
         });

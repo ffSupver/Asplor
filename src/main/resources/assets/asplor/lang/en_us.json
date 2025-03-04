@@ -94,6 +94,12 @@
   "item.asplor.trident_shard": "Trident Shard",
   "item.asplor.advance_rocket": "Advance Rocket",
   "item.asplor.navigation_chip": "Navigation Chip",
+  "item.asplor.raw_astra_copper": "Raw Astra Copper",
+  "item.asplor.raw_astra_iron": "Raw Astra Iron",
+  "item.asplor.raw_astra_silver": "Raw Astra Silver",
+  "item.asplor.astra_copper_ingot": "Astra Copper Ingot",
+  "item.asplor.astra_iron_ingot": "Astra Iron Ingot",
+  "item.asplor.astra_silver_ingot": "Astra Silver Ingot",
 
 
 
@@ -166,6 +172,9 @@
   "block.asplor.outer_space.astra_diabase_cobblestone": "Astra Diabase Cobblestone",
   "block.asplor.outer_space.astra_diabase_copper_ore": "Astra Diabase Copper Ore",
   "block.asplor.lightning_absorber": "Lightning Absorber",
+  "block.asplor.outer_space.astra_diabase_dirt": "Astra Diabase Dirt",
+  "block.asplor.outer_space.astra_iron_ore": "Astra Iron Ore",
+  "block.asplor.outer_space.astra_silver_ore": "Astra Silver Ore",
 
 
 

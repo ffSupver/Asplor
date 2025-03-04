@@ -3,6 +3,8 @@ package com.ffsupver.asplor.world;
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.util.MathUtil;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
+import earth.terrarium.adastra.common.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -29,6 +31,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.ffsupver.asplor.AllBlocks.*;
 import static com.ffsupver.asplor.world.WorldGenerator.DensityFunctionBuilder.of;
 
 public class WorldGenerator {
@@ -51,10 +54,25 @@ public class WorldGenerator {
                     List.of(RandomDensityFunctionGenerator.createProcessor(2,0.1f,0.6f),RandomDensityFunctionGenerator.createProcessor(3,0.8f,1.2f),RandomDensityFunctionGenerator.createProcessor(8,1f,3f),RandomDensityFunctionGenerator.createProcessor(9,0.8f,1.2f),RandomDensityFunctionGenerator.createProcessor(23,-1.0f,-0.5f))
             )
     );
+    private static final List<WorldBlockData> BLOCK_LISTS = List.of(
+            new  WorldBlockData(
+                    List.of(ModBlocks.MOON_STONE.get().getDefaultState(), Blocks.AIR.getDefaultState(),ModBlocks.MOON_SAND.get().getDefaultState()),List.of(
+                    new Pair<>(ModBlocks.MOON_SAND.get().getDefaultState(),ModBlocks.MOON_STONE.get().getDefaultState())
+                    )
+            ),
+            new  WorldBlockData(
+                    List.of(ModBlocks.MARS_STONE.get().getDefaultState(), Blocks.AIR.getDefaultState(),ModBlocks.MARS_SAND.get().getDefaultState()),List.of(
+                    new Pair<>(ModBlocks.MARS_SAND.get().getDefaultState(),ModBlocks.MARS_STONE.get().getDefaultState())
+                )
+            ),
+            new  WorldBlockData(
+                    List.of(ASTRA_DIABASE_STONE.getDefaultState(), AllBlocks.GLUE.getDefaultState(), ASTRA_DIABASE_DUST.getDefaultState()),List.of(
+                    new Pair<>(ASTRA_DIABASE_DIRT.getDefaultState(), AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get().getDefaultState())
+                )
+            )
+    );
 
-//    public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server){
-//        return getGeneratorSettings(server,new ArrayList<>(),List.of());
-//    }
+
     public static ChunkGeneratorSettings getGeneratorSettings(MinecraftServer server, ArrayList<String> functionList, List<String> blockList, List<RegistryKey<Biome>> biomes){
         DynamicRegistryManager.Immutable registryManager = server.getRegistryManager();
         ChunkGeneratorSettings overWorldSettings = registryManager.get(RegistryKeys.CHUNK_GENERATOR_SETTINGS).get(ChunkGeneratorSettings.OVERWORLD);
@@ -68,9 +86,9 @@ public class WorldGenerator {
                                 new DensityFunctionBuilder(server)
                                         .yClampedGradient(-63,-60,1,0)
                         );
+        Random random = server.getOverworld().getRandom();
 
         if (functionList.isEmpty()){
-            Random random = server.getOverworld().getRandom();
             ArrayList<Integer> weight = new ArrayList<>();
             for (int i = 0; i < DENSITY_FUNCTIONS.size(); i++) {
                 weight.add(random.nextInt(100));
@@ -101,8 +119,9 @@ public class WorldGenerator {
 
         DensityFunction finalDensity = finalDensityBuilder.build();
 
-        ArrayList<BlockState> blockStates = new ArrayList<>(List.of(
-                AllBlocks.FLINT_BLOCK.getDefaultState(), Blocks.WATER.getDefaultState(), Blocks.DIAMOND_BLOCK.getDefaultState())
+        WorldBlockData worldBlockData = BLOCK_LISTS.get(random.nextInt(BLOCK_LISTS.size()));
+        ArrayList<BlockState> blockStates = new ArrayList<>(
+                worldBlockData.baseBlockList()
         );
         for (int i = 0;i < blockList.size(); i++){
             String blockStateCode = blockList.get(i);
@@ -120,7 +139,7 @@ public class WorldGenerator {
 
         }
 
-        MaterialRules.MaterialRule biomeRule = BiomesSupplier.generateMaterialRules(BiomesSupplier.BIOMES_LIST,blockStates,biomes);
+        MaterialRules.MaterialRule biomeRule = BiomesSupplier.generateMaterialRules(BiomesSupplier.BIOMES_LIST,blockStates,biomes,worldBlockData.biomeBlockList(),random);
         MaterialRules.MaterialRule baseRule =  MaterialRules.condition(
                 MaterialRules.aboveYWithStoneDepth(YOffset.aboveBottom(128),-3),
                 MaterialRules.condition(
@@ -164,6 +183,19 @@ public class WorldGenerator {
                 overWorldSettings.oreVeins(),
                 overWorldSettings.usesLegacyRandom()
         );
+
+        //记录方块
+        Registry<Block> blockRegistry = registryManager.get(RegistryKeys.BLOCK);
+        for (int i = 0;i < blockStates.size(); i++){
+            BlockState blockState = blockStates.get(i);
+            String bCode = blockRegistry.getKey(blockState.getBlock()).get().getValue().toString();
+            if (blockList.size() <= i){
+                blockList.add(bCode);
+            }else {
+                blockList.set(i,bCode);
+            }
+        }
+
         return newSettings;
     }
 
@@ -447,5 +479,9 @@ public class WorldGenerator {
         public static Pair<Integer,Pair<Float,Float>> createProcessor(int index, float min,float max) {
             return new Pair<>(index,new Pair<>(min,max));
         }
+    }
+
+    public record WorldBlockData(List<BlockState> baseBlockList,List<Pair<BlockState,BlockState>> biomeBlockList){
+        public int getBiomeListSize(){return biomeBlockList.size();}
     }
 }

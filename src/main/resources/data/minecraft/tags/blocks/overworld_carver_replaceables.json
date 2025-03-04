@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#asplor:astra_diabase_stone_ore_replaceables",
+    "asplor:outer_space/astra_diabase_dust",
+    "asplor:outer_space/astra_diabase_dirt"
+  ]
+}

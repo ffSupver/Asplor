@@ -22,7 +22,9 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_underground"
+      "asplor:mars_stone_lake_lava",
+      "asplor:moon_stone_lake_lava",
+      "asplor:astra_diabase_lake_lava"
     ],
     [
       "minecraft:amethyst_geode"
@@ -34,7 +36,9 @@
     [],
     [],
     [
-      "asplor:astra_diabase_copper_ore"
+      "asplor:astra_diabase_copper_ore",
+      "asplor:astra_iron_ore",
+      "asplor:astra_silver_ore"
     ],
     [],
     [
