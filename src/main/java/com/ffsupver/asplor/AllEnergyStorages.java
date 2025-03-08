@@ -1,5 +1,6 @@
 package com.ffsupver.asplor;
 
+import com.ffsupver.asplor.block.planetLocator.PlanetLocatorEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.Direction;
@@ -39,6 +40,10 @@ public class AllEnergyStorages {
         registerEnergyStorage(
                 (blockEntity, direction) -> blockEntity.getEnergyStorage(),
                 ELECTROLYZER_ENTITY.get()
+        );
+        registerEnergyStorage(
+                PlanetLocatorEntity::getEnergyStorage,
+                PLANET_LOCATOR_ENTITY.get()
         );
 
     }

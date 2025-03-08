@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "asplor:block/alloy_block",
+    "side": "asplor:block/planet_locator",
+    "top": "asplor:block/planet_locator_top"
+  }
+}

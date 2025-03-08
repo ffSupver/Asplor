@@ -6,17 +6,18 @@ import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
 import static com.ffsupver.asplor.world.WorldData.createNewPlantWithOrbit;
-import static com.ffsupver.asplor.world.WorldData.createWorldKey;
 
 public class CreateWorldC2SPacketHandler {
 
@@ -43,8 +44,12 @@ public class CreateWorldC2SPacketHandler {
 
         PlanetCreatingData planetCreatingData = PlanetCreatingData.readFromBuffer(buf);
 
+        Identifier worldId = buf.readIdentifier();
+
+        boolean teleport = buf.readBoolean();
+
         server.execute(()->{
-            RegistryKey<World> worldKey = createWorldKey(true);
+            RegistryKey<World> worldKey =RegistryKey.of(RegistryKeys.WORLD,worldId);
             createNewPlantWithOrbit(
                     server,worldKey,
                     BiomesSupplier.getBiomeSourceSetting(
@@ -57,7 +62,9 @@ public class CreateWorldC2SPacketHandler {
                     blockList,
                     planetCreatingData
             );
-            FabricDimensions.teleport(user,server.getWorld(worldKey),new TeleportTarget(user.getPos(),user.getVelocity(),user.getYaw(),user.getPitch()));
+            if (teleport){
+                FabricDimensions.teleport(user, server.getWorld(worldKey), new TeleportTarget(user.getPos(), user.getVelocity(), user.getYaw(), user.getPitch()));
+            }
         });
     }
 }

@@ -56,6 +56,9 @@ public class WorldData {
     }
 
     public static RegistryKey<World> createWorldKey(String id){
+        if (!id.contains("planet_") && !id.contains("orbit_")){
+            id = "planet_" + id;
+        }
         return RegistryKey.of(RegistryKeys.WORLD,new Identifier(NAMESPACE,id));
     }
 
@@ -71,14 +74,20 @@ public class WorldData {
         return worldKey.getValue().getNamespace().equals(WorldData.NAMESPACE);
     }
 
+    public static boolean containsWorld(RegistryKey<World> worldKey){
+        return WORLDS.containsKey(worldKey);
+    }
+
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList){
         createNewPlantWithOrbit(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList,
                 false, (short) -270,4.8f,32,10);
     }
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList, PlanetCreatingData planetCreatingData){
-        planetCreatingData.fillNullValues(false, (short) -270,4.8f,32,10);
-        createNewPlantWithOrbit(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList,
-                planetCreatingData.oxygen, planetCreatingData.temperature,planetCreatingData.gravity,planetCreatingData.solarPower,planetCreatingData.tier);
+        if (!containsWorld(worldKey)){
+            planetCreatingData.fillNullValues(false, (short) -270, 4.8f, 32, 10);
+            createNewPlantWithOrbit(server, worldKey, biomeSource, chunkGeneratorSettingsCode, blockList,
+                    planetCreatingData.oxygen, planetCreatingData.temperature, planetCreatingData.gravity, planetCreatingData.solarPower, planetCreatingData.tier);
+        }
     }
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList,
                                                boolean oxygen,short temperature,float gravity,int solarPower,int tier){
@@ -108,7 +117,6 @@ public class WorldData {
 
 
             // 创建维度选项 (包括维度类型、生成器等)
-//            System.out.println("biome "+biomeSource.stream().map(m-> m.getLeft() + " " + m.getRight()).toList());
 
             Registry<DimensionType> dimensionTypeRegistry = server.getRegistryManager().get(RegistryKeys.DIMENSION_TYPE);
             DimensionType planetsType = dimensionTypeRegistry.get(new Identifier("asplor:outer_planets"));

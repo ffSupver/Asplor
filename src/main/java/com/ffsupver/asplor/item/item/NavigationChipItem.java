@@ -42,7 +42,7 @@ public class NavigationChipItem extends Item {
 
     private static Text toPlanetName(Identifier id){
         if (id.getNamespace().equals(WorldData.NAMESPACE)){
-            return Text.literal(id.getPath());
+            return Text.literal(id.getPath().replace("planet_","").replace("orbit_",""));
         }else {
             return Text.translatable("planet." + id.getNamespace() + "." + id.getPath());
         }

@@ -28,6 +28,8 @@ import com.ffsupver.asplor.block.meltingFurnace.*;
 import com.ffsupver.asplor.block.motor.MotorEntity;
 import com.ffsupver.asplor.block.motor.MotorInstance;
 import com.ffsupver.asplor.block.motor.MotorRenderer;
+import com.ffsupver.asplor.block.planetLocator.PlanetLocatorEntity;
+import com.ffsupver.asplor.block.planetLocator.PlanetLocatorRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryControllerEntity;
 import com.ffsupver.asplor.block.refinery.RefineryControllerRenderer;
 import com.ffsupver.asplor.block.refinery.RefineryInputEntity;
@@ -199,6 +201,12 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("alloy_depot", AlloyDepotEntity::new)
             .validBlocks(ALLOY_DEPOT)
             .renderer(()-> AlloyDepotRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<PlanetLocatorEntity> PLANET_LOCATOR_ENTITY = REGISTRATE
+            .blockEntity("planet_locator", PlanetLocatorEntity::new)
+            .validBlocks(PLANET_LOCATOR)
+            .renderer(()-> PlanetLocatorRenderer::new)
             .register();
 
     //注册普通方块实体

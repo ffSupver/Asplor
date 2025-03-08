@@ -23,6 +23,7 @@ import com.ffsupver.asplor.block.meltingFurnace.LargeMeltingFurnaceFluidPort;
 import com.ffsupver.asplor.block.meltingFurnace.LargeMeltingFurnaceItemPort;
 import com.ffsupver.asplor.block.meltingFurnace.MeltingFurnace;
 import com.ffsupver.asplor.block.motor.Motor;
+import com.ffsupver.asplor.block.planetLocator.PlanetLocator;
 import com.ffsupver.asplor.block.refinery.RefineryController;
 import com.ffsupver.asplor.block.refinery.RefineryInput;
 import com.ffsupver.asplor.block.refinery.RefineryOutput;
@@ -289,7 +290,13 @@ public class AllBlocks {
                     .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.lightning_absorber")))
                     .build()
                     .register();
-
+    public static final BlockEntry<PlanetLocator> PLANET_LOCATOR =
+            REGISTRATE.block("planet_locator", PlanetLocator::new)
+                    .properties(p -> FabricBlockSettings.copy(IRON_BLOCK))
+                    .addLayer(() -> RenderLayer::getCutoutMipped)
+                    .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.planet_locator")))
+                    .build()
+                    .register();
 
 
 
@@ -347,6 +354,7 @@ public class AllBlocks {
     public static final Block ASTRA_IRON_ORE = registerBlock("outer_space/astra_iron_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
 
     public static final Block ASTRA_SILVER_ORE = registerBlock("outer_space/astra_silver_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
+    public static final Block METEORITE = registerBlock("meteorite",new Block(FabricBlockSettings.copy(STONE)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

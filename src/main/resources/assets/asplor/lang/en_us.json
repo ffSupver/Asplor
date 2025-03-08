@@ -100,6 +100,8 @@
   "item.asplor.astra_copper_ingot": "Astra Copper Ingot",
   "item.asplor.astra_iron_ingot": "Astra Iron Ingot",
   "item.asplor.astra_silver_ingot": "Astra Silver Ingot",
+  "item.asplor.meteorite_fragment": "Meteorite Fragment",
+  "item.asplor.planet_naming": "Planet Naming",
 
 
 
@@ -175,6 +177,8 @@
   "block.asplor.outer_space.astra_diabase_dirt": "Astra Diabase Dirt",
   "block.asplor.outer_space.astra_iron_ore": "Astra Iron Ore",
   "block.asplor.outer_space.astra_silver_ore": "Astra Silver Ore",
+  "block.asplor.meteorite": "Meteorite",
+  "block.asplor.planet_locator": "Planet Locator",
 
 
 
@@ -235,11 +239,20 @@
   "description.asplor.schematic.space_core": "Space Core",
   "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
   "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
+  "description.asplor.meteorite.has_oxygen": "Has Oxygen",
+  "description.asplor.meteorite.no_oxygen": "No Oxygen",
+  "description.asplor.meteorite.temperature": "Temperature : %s",
+  "description.asplor.meteorite.gravity": "Gravity : %s",
+  "description.asplor.meteorite.solar_power": "Solar Power : %s",
+  "description.asplor.planet_locator": "Locate planets by meteorite fragments",
 
   "description.asplor.enchantment.strength": "Increases the speed of arrows",
   "description.asplor.enchantment.mechanically_proficient": "Reduces damage of tools when used by a deployer. Completely reduce at ",
 
 
+  "message.asplor.planet_naming.invalid_name": "Invalid Name",
+  "message.asplor.planet_naming.no_planet_data": "No Planet Data",
+  "message.asplor.planet_naming.need_name": "Need To Name",
 
   "tool_type.asplor.drill": "drill process",
   "tool_type.asplor.laser": "laser process",

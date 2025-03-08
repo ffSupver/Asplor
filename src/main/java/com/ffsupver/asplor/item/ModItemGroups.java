@@ -39,11 +39,13 @@ public class ModItemGroups {
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(TIER_1_ROCKET_SHELL);
                                 entries.add(TIER_2_ROCKET_SHELL);
+                                entries.add(NAVIGATION_CHIP);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
                                 entries.add(KELP_PUREE);
                                 entries.add(DIAMOND_SHARD);
                                 entries.add(TRIDENT_SHARD);
+                                entries.add(METEORITE_FRAGMENT);
                                 entries.add(EMPTY_TANK);
                                 entries.add(CONCENTRATED_OIL_TANK);
                                 entries.add(SINGLE_ITEM_STORAGE_CELL_HOUSING);
@@ -134,6 +136,8 @@ public class ModItemGroups {
                             entries.add(LARGE_MELTING_FURNACE_FLUID_PORT);
                             entries.add(LARGE_MELTING_FURNACE_ITEM_PORT);
                             entries.add(ELECTROLYZER);
+                            entries.add(PLANET_NAMING);
+                            entries.add(PLANET_LOCATOR);
                             entries.add(TIER_0_ROCKET);
                             entries.add(CARGO_ROCKET);
                             entries.add(ADVANCE_ROCKET);

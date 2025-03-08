@@ -99,6 +99,8 @@
   "item.asplor.astra_copper_ingot": "星铜锭",
   "item.asplor.astra_iron_ingot": "星铁锭",
   "item.asplor.astra_silver_ingot": "星银锭",
+  "item.asplor.meteorite_fragment": "陨石碎片",
+  "item.asplor.planet_naming": "行星命名牌",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -171,6 +173,8 @@
   "block.asplor.outer_space.astra_diabase_dirt": "星辉泥土",
   "block.asplor.outer_space.astra_iron_ore": "星铁矿",
   "block.asplor.outer_space.astra_silver_ore": "星银矿",
+  "block.asplor.meteorite": "陨石",
+  "block.asplor.planet_locator": "行星定位器",
 
 
 
@@ -232,10 +236,19 @@
   "description.asplor.schematic.space_core": "空间核心",
   "description.asplor.lightning_absorber": "被闪电击中时会为下面的方块充电,在雨天或者雷暴天气被引雷的三叉戟击中会召唤闪电",
   "description.asplor.zinc_copper_battery": "右键机器来给机器充电",
+  "description.asplor.meteorite.has_oxygen": "有氧气",
+  "description.asplor.meteorite.no_oxygen": "无氧气",
+  "description.asplor.meteorite.temperature": "温度: %s",
+  "description.asplor.meteorite.gravity": "重力加速度: %s",
+  "description.asplor.meteorite.solar_power": "阳光: %s",
+  "description.asplor.planet_locator": "通过陨石碎片定位行星",
 
   "description.asplor.enchantment.strength": "增加箭的飞行速度",
   "description.asplor.enchantment.mechanically_proficient": "减少在机械手上的耐久消耗,完全减免如果等级达到",
 
+  "message.asplor.planet_naming.invalid_name": "名称无效",
+  "message.asplor.planet_naming.no_planet_data": "缺少行星数据",
+  "message.asplor.planet_naming.need_name": "未命名",
 
 
   "tool_type.asplor.drill": "钻头处理",

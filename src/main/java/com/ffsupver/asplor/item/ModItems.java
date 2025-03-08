@@ -150,6 +150,9 @@ public class ModItems {
     public static final Item ASTRA_IRON_INGOT = registerItems("astra_iron_ingot",new Item(new FabricItemSettings()));
     public static final Item ASTRA_SILVER_INGOT = registerItems("astra_silver_ingot",new Item(new FabricItemSettings()));
 
+    public static final Item METEORITE_FRAGMENT = registerItems("meteorite_fragment",new MeteoriteFragmentItem(new FabricItemSettings()));
+    public static final Item PLANET_NAMING = registerItems("planet_naming",new PlanetNamingItem(new FabricItemSettings().maxCount(1)));
+
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));

@@ -13,6 +13,7 @@
     "ad_astra:gravity_normalizer",
     "ad_astra:energizer",
     "ad_astra:cryo_freezer",
-    "ae2:energy_acceptor"
+    "ae2:energy_acceptor",
+    "asplor:planet_locator"
   ]
 }

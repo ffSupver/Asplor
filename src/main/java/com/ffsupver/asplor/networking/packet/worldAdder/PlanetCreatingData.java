@@ -1,5 +1,8 @@
 package com.ffsupver.asplor.networking.packet.worldAdder;
 
+import earth.terrarium.adastra.api.planets.Planet;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.math.random.Random;
 
@@ -57,6 +60,45 @@ public class PlanetCreatingData {
 
         return planetData;
     }
+
+    public NbtCompound toNbt(){
+        NbtCompound nbt = new NbtCompound();
+        if (oxygen != null){
+            nbt.putBoolean("oxygen",oxygen);
+        }
+        if (temperature != null){
+            nbt.putShort("temperature",temperature);
+        }
+        if (tier != null){
+            nbt.putInt("temperature",tier);
+        }
+        if (gravity != null){
+            nbt.putFloat("gravity",gravity);
+        }
+        if (solarPower != null){
+            nbt.putInt("solar_power",solarPower);
+        }
+        return nbt;
+    }
+
+    public void fromNbt(NbtCompound nbt){
+        if (nbt.contains("oxygen", NbtElement.BYTE_TYPE)){
+            oxygen = nbt.getBoolean("oxygen");
+        }
+        if (nbt.contains("temperature", NbtElement.SHORT_TYPE)){
+            temperature = nbt.getShort("temperature");
+        }
+        if (nbt.contains("tier", NbtElement.INT_TYPE)){
+            tier = nbt.getInt("tier");
+        }
+        if (nbt.contains("gravity", NbtElement.FLOAT_TYPE)){
+            gravity = nbt.getFloat("gravity");
+        }
+        if (nbt.contains("solar_power", NbtElement.INT_TYPE)){
+            solarPower = nbt.getInt("solar_power");
+        }
+    }
+
     public void fillNullValues(Boolean oxygen, Short temperature, Float gravity, Integer tier, Integer solarPower) {
         if (this.oxygen == null && oxygen != null) {
             this.oxygen = oxygen;
@@ -75,6 +117,32 @@ public class PlanetCreatingData {
         }
     }
 
+    public void fillNullValues(Random random, int tier) {
+        if (this.oxygen == null) {
+            this.oxygen = random.nextBoolean();
+        }
+        if (this.temperature == null) {
+            this.temperature = (short) random.nextBetween(-400,400);
+        }
+        if (this.gravity == null) {
+            this.gravity = random.nextFloat() * 20f;
+        }
+        if (this.tier == null) {
+            this.tier = tier;
+        }
+        if (this.solarPower == null) {
+            this.solarPower = random.nextInt(200);
+        }
+    }
+
+    public void fromPlanet(Planet planet){
+        this.oxygen = planet.oxygen();
+        this.temperature = planet.temperature();
+        this.gravity = planet.gravity();
+        this.tier = planet.tier();
+        this.solarPower = planet.solarPower();
+    }
+
     public static PlanetCreatingData generateRandomPlanetData(Random random, int tier){
         PlanetCreatingData planetCreatingData = new PlanetCreatingData();
         planetCreatingData.temperature = (short) random.nextBetween(-400,400);
@@ -83,5 +151,20 @@ public class PlanetCreatingData {
         planetCreatingData.gravity = random.nextFloat() * 20f;
         planetCreatingData.solarPower = random.nextInt(200);
         return planetCreatingData;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanetCreatingData{" +
+                "oxygen=" + oxygen +
+                ", temperature=" + temperature +
+                ", gravity=" + gravity +
+                ", tier=" + tier +
+                ", solarPower=" + solarPower +
+                '}';
+    }
+
+    public boolean isEmpty(){
+        return oxygen == null && temperature == null && gravity == null && tier == null && solarPower == null;
     }
 }

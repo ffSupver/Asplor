@@ -28,6 +28,7 @@
     "asplor:rocket_cargo_loader",
     "asplor:charged_alloy_block",
     "asplor:alloy_depot",
-    "asplor:lightning_absorber"
+    "asplor:lightning_absorber",
+    "asplor:planet_locator"
   ]
 }

@@ -53,4 +53,11 @@ public final class MathUtil {
             this(new CubeNode[]{cubeNode,cubeNode1,cubeNode2,cubeNode3});
         }
     }
+
+    public static float sin(float a){
+        return (float) Math.sin(a);
+    }
+    public static float cos(float a){
+        return (float) Math.cos(a);
+    }
 }
