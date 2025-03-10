@@ -70,7 +70,7 @@ public class PlanetCreatingData {
             nbt.putShort("temperature",temperature);
         }
         if (tier != null){
-            nbt.putInt("temperature",tier);
+            nbt.putInt("tier",tier);
         }
         if (gravity != null){
             nbt.putFloat("gravity",gravity);
@@ -145,10 +145,24 @@ public class PlanetCreatingData {
 
     public static PlanetCreatingData generateRandomPlanetData(Random random, int tier){
         PlanetCreatingData planetCreatingData = new PlanetCreatingData();
-        planetCreatingData.temperature = (short) random.nextBetween(-400,400);
+        int temperature = 3000;
+        planetCreatingData.temperature = (short) (random.nextBetween(-temperature,temperature) / (
+                random.nextBoolean() ?
+                        random.nextBoolean() ?
+                                random.nextBoolean() ?
+                                        random.nextBoolean() ?
+                                                1 : 2
+                                        : 4
+                                : 10
+                        : 30
+        ));
         planetCreatingData.tier = tier;
         planetCreatingData.oxygen = random.nextBoolean();
-        planetCreatingData.gravity = random.nextFloat() * 20f;
+        planetCreatingData.gravity = random.nextFloat() * (random.nextBoolean() ?
+                random.nextBoolean() ?
+                        5f : 10f
+                : 20f
+        );
         planetCreatingData.solarPower = random.nextInt(200);
         return planetCreatingData;
     }

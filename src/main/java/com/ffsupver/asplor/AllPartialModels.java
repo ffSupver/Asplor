@@ -37,9 +37,12 @@ public class AllPartialModels {
     public static final PartialModel ROCKET_FUEL_LOADER_PIPE_EXTEND = create("block/rocket_fuel_loader/pipe_extend");
     public static final PartialModel MOLTEN_DESH_DROPPER = create("block/smart_mechanical_arm/tools/molten_desh_dropper");
     public static final PartialModel MOLTEN_DESH_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_desh_dropper_work");
+    public static final PartialModel MOLTEN_OSTRUM_DROPPER = create("block/smart_mechanical_arm/tools/molten_ostrum_dropper");
+    public static final PartialModel MOLTEN_OSTRUM_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_ostrum_dropper_work");
 
 
-private static PartialModel create(String path){
+
+    private static PartialModel create(String path){
     return new PartialModel(new Identifier(Asplor.MOD_ID,path));
 }
     public static void init() {

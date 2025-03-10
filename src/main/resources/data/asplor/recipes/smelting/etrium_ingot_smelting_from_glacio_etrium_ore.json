@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "asplor:glacio_etrium_ore"
+  },
+  "result": "ad_astra:etrium_ingot"
+}

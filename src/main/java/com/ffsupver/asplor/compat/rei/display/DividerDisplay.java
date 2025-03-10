@@ -1,12 +1,14 @@
 package com.ffsupver.asplor.compat.rei.display;
 
+import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.compat.rei.category.DividerCategory;
 import com.ffsupver.asplor.recipe.DividerRecipe;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
-import net.minecraft.recipe.*;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ public class DividerDisplay extends BasicDisplay {
 
     private static List<EntryIngredient> getInputList(DividerRecipe recipe) {
         if(recipe==null) {
-            System.out.println("null recipe");
+            Asplor.LOGGER.error("null recipe");
             return Collections.emptyList();
         }
         List<EntryIngredient> list = new ArrayList<>();

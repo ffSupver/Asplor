@@ -29,6 +29,7 @@
     "asplor:charged_alloy_block",
     "asplor:alloy_depot",
     "asplor:lightning_absorber",
-    "asplor:planet_locator"
+    "asplor:planet_locator",
+    "asplor:glacio_etrium_ore"
   ]
 }

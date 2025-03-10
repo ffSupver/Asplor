@@ -45,6 +45,9 @@ public class DividerRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
+        if (this instanceof MeteoriteDivideRecipe){
+            System.out.println(recipeItems + " " );
+        }
         return (DefaultedList<Ingredient>) recipeItems;
     }
 

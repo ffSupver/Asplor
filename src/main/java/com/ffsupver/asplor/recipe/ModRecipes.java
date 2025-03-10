@@ -72,6 +72,7 @@ public static void registerRecipes(){
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,LargeMapCloningRecipe.ID),LargeMapCloningRecipe.SERIALIZER);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,MysteriousPaperCloningRecipe.ID),MysteriousPaperCloningRecipe.SERIALIZER);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,SchematicCraftingRecipe.ID),SchematicCraftingRecipe.SERIALIZER);
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,MeteoriteDivideRecipe.ID),MeteoriteDivideRecipe.SERIALIZER);
 }
 
 private static <T extends Inventory> void  registerRecipeSerializer(BaseRecipeSerializer<Recipe<T>> recipeRecipeSerializer){

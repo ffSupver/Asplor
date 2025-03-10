@@ -53,6 +53,8 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_HEAVY_OIL = registerFluid("flowing_heavy_oil",new HeavyOilFluid.Flowing());
     public static final FlowableFluid LIGHT_OIL = registerFluid("light_oil",new LightOilFluid.Still());
     public static final FlowableFluid FLOWING_LIGHT_OIL = registerFluid("flowing_light_oil",new LightOilFluid.Flowing());
+    public static final FlowableFluid MOLTEN_OSTRUM = registerFluid("molten_ostrum",new MoltenOstrum.Still());
+    public static final FlowableFluid FLOWING_MOLTEN_OSTRUM = registerFluid("flowing_molten_ostrum",new MoltenOstrum.Flowing());
 
 
     public static void register(){
@@ -79,6 +81,7 @@ public class ModFluids {
         registerMoltenMetalRender(MOLTEN_ALLOY,FLOWING_MOLTEN_ALLOY,0xD3D5EB);
         registerMoltenMetalRender(MOLTEN_DESH,FLOWING_MOLTEN_DESH,0xE8660F);
         registerMoltenMetalRender(IMPURE_MOLTEN_DESH,FLOWING_IMPURE_MOLTEN_DESH,0xD44B07);
+        registerMoltenMetalRender(MOLTEN_OSTRUM,FLOWING_MOLTEN_OSTRUM,0x6E1A43);
 
 
 

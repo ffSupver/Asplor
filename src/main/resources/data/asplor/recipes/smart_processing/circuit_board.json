@@ -1,0 +1,24 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:controlling_chip"
+  },
+  "output": {
+    "item": "asplor:circuit_board"
+  },
+  "process_item": {
+    "item": "asplor:controlling_chip"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_gold_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_alloy_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_brass_dropper"
+  ]
+}

@@ -95,7 +95,7 @@ public class DividerEntity extends KineticBlockEntity implements SidedStorageBlo
         }
         if (getCurrentRecipe().isPresent()) {
             if (timer <= 0) {
-                craftItem();
+                craftItem(inputInv.getStackInSlot(0));
                 timer = 2560;
                 markDirty();
                 sendData();
@@ -124,13 +124,17 @@ public class DividerEntity extends KineticBlockEntity implements SidedStorageBlo
         super.invalidate();
     }
 
-    private void craftItem() {
-        ItemStack result = getCurrentRecipe().get().getOutput(null);
-        try (Transaction t = TransferUtil.getTransaction()) {
-            ItemStackHandlerSlot slot = inputInv.getSlot(0);
-            slot.extract(slot.getResource(), 1, t);
-            outputInv.insert(ItemVariant.of(result), result.getCount(), t);
-            t.commit();
+    private void craftItem(ItemStack itemStack) {
+        if (getCurrentRecipe().get() instanceof DividerRecipe dividerRecipe){
+            SimpleInventory simpleInventory = new SimpleInventory(1);
+            simpleInventory.setStack(0,itemStack);
+            ItemStack result = dividerRecipe.craft(simpleInventory, null);
+            try (Transaction t = TransferUtil.getTransaction()) {
+                ItemStackHandlerSlot slot = inputInv.getSlot(0);
+                slot.extract(slot.getResource(), 1, t);
+                outputInv.insert(ItemVariant.of(result), result.getCount(), t);
+                t.commit();
+            }
         }
 
     }

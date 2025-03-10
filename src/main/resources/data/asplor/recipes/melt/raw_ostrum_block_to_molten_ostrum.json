@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:raw_ostrum_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_ostrum",
+    "amount": 81000
+  },
+  "process_time": 9600,
+  "heat_type": "super"
+}

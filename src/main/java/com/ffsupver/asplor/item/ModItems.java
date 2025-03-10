@@ -62,6 +62,7 @@ public class ModItems {
     public static final Item CONCENTRATED_OIL_BUCKET = registerBucketItem("concentrated_oil_bucket",ModFluids.CONCENTRATED_OIL);
     public  static final Item HEAVY_OIL_BUCKET = registerBucketItem("heavy_oil_bucket",ModFluids.HEAVY_OIL);
     public  static final Item LIGHT_OIL_BUCKET = registerBucketItem("light_oil_bucket",ModFluids.LIGHT_OIL);
+    public  static final Item MOLTEN_OSTRUM_BUCKET = registerBucketItem("molten_ostrum_bucket",ModFluids.MOLTEN_OSTRUM);
 
 
 
@@ -152,6 +153,12 @@ public class ModItems {
 
     public static final Item METEORITE_FRAGMENT = registerItems("meteorite_fragment",new MeteoriteFragmentItem(new FabricItemSettings()));
     public static final Item PLANET_NAMING = registerItems("planet_naming",new PlanetNamingItem(new FabricItemSettings().maxCount(1)));
+    public static final Item TIER_3_ROCKET_SHELL = registerItems("tier_3_rocket_shell",new Item(new FabricItemSettings()));
+    public static final Item TIER_4_ROCKET_SHELL = registerItems("tier_4_rocket_shell",new Item(new FabricItemSettings()));
+    public static final Item CIRCUIT_BOARD = registerItems("circuit_board",new Item(new FabricItemSettings()));
+    public static final Item ADVANCE_CIRCUIT_BOARD = registerItems("advance_circuit_board",new Item(new FabricItemSettings()));
+    public static final Item MOLTEN_OSTRUEM_DROPPER = registerItems("molten_ostrum_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_ostrum_dropper"),5));
+    public static final Item RAW_ETRUIM = registerItems("raw_etrium",new Item(new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
@@ -172,6 +179,7 @@ public class ModItems {
         registerToolItemModel(GLUE_DROPPER,AllPartialModels.GLUE_DROPPER,AllPartialModels.GLUE_DROPPER_WORK);
         registerToolItemModel(MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER,AllPartialModels.MOLTEN_BRASS_DROPPER_WORK);
         registerToolItemModel(MOLTEN_DESH_DROPPER,AllPartialModels.MOLTEN_DESH_DROPPER,AllPartialModels.MOLTEN_DESH_DROPPER_WORK);
+        registerToolItemModel(MOLTEN_OSTRUEM_DROPPER,AllPartialModels.MOLTEN_OSTRUM_DROPPER,AllPartialModels.MOLTEN_OSTRUM_DROPPER_WORK);
 
     }
 

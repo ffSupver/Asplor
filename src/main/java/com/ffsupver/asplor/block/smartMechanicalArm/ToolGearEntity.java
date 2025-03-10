@@ -63,10 +63,7 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
             return false;
         }
         boolean dropped = false;
-//        try(Transaction t = Transaction.openOuter()) {
-//            droppedCount = this.itemStackHandler.insert(ItemVariant.of(droppedTool),droppedTool.getCount(),t);
-//            t.commit();
-//        }
+
         for (int i = 0 ; i < itemStackHandler.getSlots().size(); i++){
             if (itemStackHandler.getStackInSlot(i).isOf(Items.AIR)){
                 itemStackHandler.setStackInSlot(i,droppedTool);
@@ -132,7 +129,7 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
         @Override
         protected void onContentsChanged(int slot) {
             super.onContentsChanged(slot);
-            sendData();
+            notifyUpdate();
         }
     }
 }

@@ -330,6 +330,7 @@ public class AllBlocks {
     public static Block SUSPICIOUS_MARS_SAND = registerBlock("suspicious_mars_sand",new BrushableBlock(MARS_SAND,FabricBlockSettings.copy(Blocks.SUSPICIOUS_SAND), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE));
     public static final Block MOLTEN_DESH = registerMoltenMetalFluidBlock("molten_desh",ModFluids.MOLTEN_DESH,null);
     public static final Block IMPURE_MOLTEN_DESH = registerMoltenMetalFluidBlock("impure_molten_desh",ModFluids.IMPURE_MOLTEN_DESH,null);
+    public static final Block MOLTEN_OSTRUM = registerMoltenMetalFluidBlock("molten_ostrum",ModFluids.MOLTEN_OSTRUM,null);
 
     public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(IRON_BLOCK).mapColor(MapColor.BLACK).strength(1.5F, 2.0F).requiresTool()));
     public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,settings -> settings.mapColor(MapColor.LIGHT_BLUE));
@@ -355,6 +356,7 @@ public class AllBlocks {
 
     public static final Block ASTRA_SILVER_ORE = registerBlock("outer_space/astra_silver_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
     public static final Block METEORITE = registerBlock("meteorite",new Block(FabricBlockSettings.copy(STONE)));
+    public static final Block GLACIO_ETRUIM_ORE = registerBlock("glacio_etrium_ore",new Block(FabricBlockSettings.copy(STONE).strength(4.0f)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

@@ -101,6 +101,13 @@
   "item.asplor.astra_silver_ingot": "星银锭",
   "item.asplor.meteorite_fragment": "陨石碎片",
   "item.asplor.planet_naming": "行星命名牌",
+  "item.asplor.tier_3_rocket_shell": "三阶火箭外壳",
+  "item.asplor.tier_4_rocket_shell": "四阶火箭外壳",
+  "item.asplor.circuit_board": "电路板",
+  "item.asplor.molten_ostrum_bucket": "熔融紫金桶",
+  "item.asplor.advance_circuit_board": "高级电路板",
+  "item.asplor.molten_ostrum_dropper": "熔融紫金滴液器",
+  "item.asplor.raw_etrium": "粗电金",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -175,6 +182,8 @@
   "block.asplor.outer_space.astra_silver_ore": "星银矿",
   "block.asplor.meteorite": "陨石",
   "block.asplor.planet_locator": "行星定位器",
+  "block.asplor.molten_ostrum": "熔融紫金",
+  "block.asplor.glacio_etrium_ore": "霜原电金矿",
 
 
 
@@ -234,6 +243,7 @@
   "description.asplor.schematic": "配方 : ",
   "description.asplor.schematic.same_recipe": "同一个配方",
   "description.asplor.schematic.space_core": "空间核心",
+  "description.asplor.schematic.advance_circuit_board": "高级电路板",
   "description.asplor.lightning_absorber": "被闪电击中时会为下面的方块充电,在雨天或者雷暴天气被引雷的三叉戟击中会召唤闪电",
   "description.asplor.zinc_copper_battery": "右键机器来给机器充电",
   "description.asplor.meteorite.has_oxygen": "有氧气",
@@ -257,6 +267,8 @@
   "tool_type.asplor.glue_dropper": "注入凝胶",
   "tool_type.asplor.molten_alloy_dropper": "注入熔融合金",
   "tool_type.asplor.molten_brass_dropper": "注入熔融黄铜",
+  "tool_type.asplor.molten_desh_dropper": "注入熔融戴斯",
+  "tool_type.asplor.molten_ostrum_dropper": "注入熔融紫金",
 
 
 

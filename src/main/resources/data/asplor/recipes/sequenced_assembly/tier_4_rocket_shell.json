@@ -1,0 +1,78 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "ad_astra:calorite_block"
+  },
+  "loops": 8,
+  "results": [
+    {
+      "item": "asplor:tier_4_rocket_shell"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:calorite_block"
+        },
+        {
+          "item": "ad_astra:calorite_block"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:calorite_block"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:calorite_block"
+        },
+        {
+          "item": "asplor:tier_3_rocket_shell"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:calorite_block"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "ad_astra:calorite_block"
+        }
+      ],
+      "processingTime": 40,
+      "results": [
+        {
+          "item": "ad_astra:calorite_block"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ad_astra:calorite_block"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:tier_4_rocket_shell"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "ad_astra:calorite_block"
+  }
+}

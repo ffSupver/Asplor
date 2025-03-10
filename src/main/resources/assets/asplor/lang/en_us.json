@@ -102,6 +102,13 @@
   "item.asplor.astra_silver_ingot": "Astra Silver Ingot",
   "item.asplor.meteorite_fragment": "Meteorite Fragment",
   "item.asplor.planet_naming": "Planet Naming",
+  "item.asplor.tier_3_rocket_shell": "Tier 3 Rocket Shell",
+  "item.asplor.tier_4_rocket_shell": "Tier 4 Rocket Shell",
+  "item.asplor.circuit_board": "Circuit Board",
+  "item.asplor.molten_ostrum_bucket": "Molten Ostrum Bucket",
+  "item.asplor.advance_circuit_board": "Advance Circuit Board",
+  "item.asplor.molten_ostrum_dropper": "Molten Ostrum Dropper",
+  "item.asplor.raw_etrium": "Raw Etruim",
 
 
 
@@ -179,6 +186,8 @@
   "block.asplor.outer_space.astra_silver_ore": "Astra Silver Ore",
   "block.asplor.meteorite": "Meteorite",
   "block.asplor.planet_locator": "Planet Locator",
+  "block.asplor.molten_ostrum": "Molten Ostrum",
+  "block.asplor.glacio_etrium_ore": "Glacio Etruim Ore",
 
 
 
@@ -237,6 +246,7 @@
   "description.asplor.schematic": "recipe of : ",
   "description.asplor.schematic.same_recipe": "the same recipe",
   "description.asplor.schematic.space_core": "Space Core",
+  "description.asplor.schematic.advance_circuit_board": "Advance Circuit Board",
   "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
   "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
   "description.asplor.meteorite.has_oxygen": "Has Oxygen",
@@ -260,6 +270,8 @@
   "tool_type.asplor.glue_dropper": "inject glue",
   "tool_type.asplor.molten_alloy_dropper": "inject molten alloy",
   "tool_type.asplor.molten_brass_dropper": "inject molten brass",
+  "tool_type.asplor.molten_desh_dropper": "inject molten desh",
+  "tool_type.asplor.molten_ostrum_dropper": "inject molten ostrum",
 
 
 

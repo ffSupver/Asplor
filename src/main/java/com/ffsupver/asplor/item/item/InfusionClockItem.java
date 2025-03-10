@@ -2,7 +2,9 @@ package com.ffsupver.asplor.item.item;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.decorative.solid.BuddingCertusQuartzBlock;
+import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.block.blocks.UnstableRock;
+import earth.terrarium.adastra.common.registry.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -76,6 +78,11 @@ public class InfusionClockItem extends Item {
                 decreaseItem(context);
                 return ActionResult.SUCCESS;
             }
+        }
+        if (blockState.isOf(ModBlocks.GLACIO_ICE_SHARD_ORE.get())){
+            world.setBlockState(blockPos, AllBlocks.GLACIO_ETRUIM_ORE.getDefaultState());
+            decreaseItem(context);
+            return ActionResult.SUCCESS;
         }
         return super.useOnBlock(context);
     }

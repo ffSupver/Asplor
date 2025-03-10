@@ -25,6 +25,7 @@ public class ModItemGroups {
                                 entries.add(RAW_ASTRA_COPPER);
                                 entries.add(RAW_ASTRA_IRON);
                                 entries.add(RAW_ASTRA_SILVER);
+                                entries.add(RAW_ETRUIM);
                                 entries.add(ASTRA_COPPER_INGOT);
                                 entries.add(ASTRA_IRON_INGOT);
                                 entries.add(ASTRA_SILVER_INGOT);
@@ -39,6 +40,8 @@ public class ModItemGroups {
                                 entries.add(TIER_0_ROCKET_SHELL);
                                 entries.add(TIER_1_ROCKET_SHELL);
                                 entries.add(TIER_2_ROCKET_SHELL);
+                                entries.add(TIER_3_ROCKET_SHELL);
+                                entries.add(TIER_4_ROCKET_SHELL);
                                 entries.add(NAVIGATION_CHIP);
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
@@ -52,6 +55,8 @@ public class ModItemGroups {
                                 entries.add(ZINC_COPPER_BATTERY);
                                 entries.add(SPACE_CORE);
                                 entries.add(CONTROLLING_CHIP);
+                                entries.add(CIRCUIT_BOARD);
+                                entries.add(ADVANCE_CIRCUIT_BOARD);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
                                 entries.add(HEAVY_OIL_BUCKET);
@@ -69,6 +74,7 @@ public class ModItemGroups {
                                 entries.add(MOLTEN_ALLOY_BUCKET);
                                 entries.add(MOLTEN_DESH_BUCKET);
                                 entries.add(IMPURE_MOLTEN_DESH_BUCKET);
+                                entries.add(MOLTEN_OSTRUM_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(AllOY_CASING);
                                 entries.add(AllOY_MACHINE);
@@ -105,6 +111,8 @@ public class ModItemGroups {
                                 entries.add(ASTRA_DIABASE_COPPER_ORE);
                                 entries.add(ASTRA_IRON_ORE);
                                 entries.add(ASTRA_SILVER_ORE);
+                                entries.add(METEORITE);
+                                entries.add(GLACIO_ETRUIM_ORE);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,
@@ -158,6 +166,7 @@ public class ModItemGroups {
                             entries.add(MOLTEN_ALLOY_DROPPER);
                             entries.add(MOLTEN_BRASS_DROPPER);
                             entries.add(MOLTEN_DESH_DROPPER);
+                            entries.add(MOLTEN_OSTRUEM_DROPPER);
                             entries.add(GLUE_DROPPER);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_4K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_16K);

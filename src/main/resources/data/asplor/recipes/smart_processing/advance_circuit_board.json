@@ -1,0 +1,25 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:circuit_board"
+  },
+  "output": {
+    "item": "asplor:advance_circuit_board"
+  },
+  "process_item": {
+    "item": "asplor:circuit_board"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_ostrum_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_ostrum_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_ostrum_dropper"
+  ],
+  "schematic": "advance_circuit_board"
+}

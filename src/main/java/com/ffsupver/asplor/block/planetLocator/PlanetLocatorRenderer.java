@@ -52,7 +52,7 @@ public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocato
         if (!outputItem.isEmpty()){
             ms.push();
             ms.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
-            ms.translate(.5f, .5f, -1.6f - planetSize);
+            ms.translate(.5f, .5f, -1.3f );
             ms.scale(scale, scale, scale);
             itemRenderer.renderItem(outputItem, ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, ms, buffer, blockEntity.getWorld(), 0);
             ms.pop();
@@ -62,7 +62,7 @@ public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocato
         if (process > 0){
             ms.push();
             ms.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90));
-            ms.translate(.5f, .5f , -.5f - process * (1.1f + planetSize));
+            ms.translate(.5f, .5f , -.5f - process * (.8f));
             ms.scale(scale, scale, scale);
             itemRenderer.renderItem(navItem, ModelTransformationMode.FIXED, light, OverlayTexture.DEFAULT_UV, ms, buffer, blockEntity.getWorld(), 0);
             ms.pop();
