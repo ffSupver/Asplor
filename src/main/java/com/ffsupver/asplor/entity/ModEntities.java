@@ -3,6 +3,7 @@ package com.ffsupver.asplor.entity;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
 import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
+import com.ffsupver.asplor.entity.custom.Meteorite;
 import com.ffsupver.asplor.entity.custom.Ranger;
 import com.ffsupver.asplor.entity.custom.rocket.AdvanceRocketEntity;
 import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
@@ -44,6 +45,11 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(1.3f,6.7f))
                     .build()
     );
+    public static final EntityType<Meteorite> METEORITE = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"meteorite"),
+            FabricEntityTypeBuilder.<Meteorite>create(SpawnGroup.MISC, Meteorite::new)
+                    .dimensions(EntityDimensions.fixed(2.0f, 2.0f)) // 设置实体大小
+                    .trackRangeBlocks(256).trackedUpdateRate(3) // 设置追踪范围和更新频率
+                    .build());
 
     public static void register(){
     }

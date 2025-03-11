@@ -7,6 +7,7 @@ import com.ffsupver.asplor.entity.client.ModModelLayers;
 import com.ffsupver.asplor.fluid.ModFluids;
 import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.networking.ModPackets;
+import com.ffsupver.asplor.particle.ModParticles;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
 import com.simibubi.create.compat.Mods;
 import net.fabricmc.api.ClientModInitializer;
@@ -38,6 +39,7 @@ public class AsplorClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(AllBlockEntityTypes.SPACE_TELEPORTER_ENTITY.get(), SpaceTeleporterRenderer::new);
 
 
+        ModParticles.register();
 
         AllPartialModels.init();
         AllKeys.register();

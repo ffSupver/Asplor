@@ -22,6 +22,8 @@ public class ModModelLayers {
         EntityRendererRegistry.register(ModEntities.RANGER,RangerRenderer::new);
         EntityRendererRegistry.register(ModEntities.ADVANCE_ROCKET, AdvanceRocketRenderer::new);
 
+        EntityRendererRegistry.register(ModEntities.METEORITE,MeteoriteRenderer::new);
+
 
     }
 }
