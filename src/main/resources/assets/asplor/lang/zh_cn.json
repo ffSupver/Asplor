@@ -108,6 +108,7 @@
   "item.asplor.advance_circuit_board": "高级电路板",
   "item.asplor.molten_ostrum_dropper": "熔融紫金滴液器",
   "item.asplor.raw_etrium": "粗电金",
+  "item.asplor.staff_of_shooting_meteorite": "星陨杖",
 
 
 
@@ -195,7 +196,12 @@
 
   "death.attack.molten": "%1$s 跳进了液态金属，但没能成为T-1000",
   "death.attack.molten.player": "%1$s 被 %2$s 推进了液态金属，但没能成为T-1000",
-
+  "death.attack.charge": "%1$s 感到浑身充满能量",
+  "death.attack.charge.player": "%2$s 充能了 %1$s",
+  "death.attack.meteorite_explosion": "%1$s 被 %2$s 的陨石砸中",
+  "death.attack.meteorite_explosion.player": "%1$s 在与 %2$s 战斗时被陨石砸中",
+  "death.attack.meteorite_explosion.item": "%1$s 被 %2$s 用 %3$s 召唤的陨石砸中",
+  "death.attack.meteorite_explosion.no_owner":"从天而降",
 
 
 

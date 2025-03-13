@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "asplor:item/alloy_sword"
+    "layer0": "asplor:item/staff_of_shooting_meteorite"
   }
 }

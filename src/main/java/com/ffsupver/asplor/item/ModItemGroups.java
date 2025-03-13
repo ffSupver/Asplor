@@ -101,6 +101,7 @@ public class ModItemGroups {
                                 entries.add(ALLOY_PICKAXE);
                                 entries.add(ALLOY_AXE);
                                 entries.add(ALLOY_HOE);
+                                entries.add(STAFF_OF_SHOOTING_METEORITE);
                                 entries.add(CRUDE_PRINTED_CALCULATION_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_ENGINEERING_PROCESSOR);
                                 entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);

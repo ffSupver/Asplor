@@ -41,6 +41,7 @@
     "asplor:outer_space/astra_iron_ore",
     "asplor:outer_space/astra_silver_ore",
     "asplor:planet_locator",
-    "asplor:glacio_etrium_ore"
+    "asplor:glacio_etrium_ore",
+    "asplor:meteorite"
   ]
 }

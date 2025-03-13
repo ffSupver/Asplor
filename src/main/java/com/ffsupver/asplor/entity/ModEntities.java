@@ -48,7 +48,7 @@ public class ModEntities {
     public static final EntityType<Meteorite> METEORITE = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"meteorite"),
             FabricEntityTypeBuilder.<Meteorite>create(SpawnGroup.MISC, Meteorite::new)
                     .dimensions(EntityDimensions.fixed(2.0f, 2.0f)) // 设置实体大小
-                    .trackRangeBlocks(256).trackedUpdateRate(3) // 设置追踪范围和更新频率
+                    .trackRangeBlocks(384).trackedUpdateRate(3) // 设置追踪范围和更新频率
                     .build());
 
     public static void register(){

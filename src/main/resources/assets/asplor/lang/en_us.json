@@ -109,6 +109,7 @@
   "item.asplor.advance_circuit_board": "Advance Circuit Board",
   "item.asplor.molten_ostrum_dropper": "Molten Ostrum Dropper",
   "item.asplor.raw_etrium": "Raw Etruim",
+  "item.asplor.staff_of_shooting_meteorite": "Staff Of Shooting Meteorite",
 
 
 
@@ -200,8 +201,10 @@
   "death.attack.molten.player": "%1$s was knocked into liquid metal by %2$s, but didn't quite become Terminator 1000",
   "death.attack.charge": "%1$s feel energized.",
   "death.attack.charge.player": "%1$s feel energized when met %2$s.",
-
-
+  "death.attack.meteorite_explosion": "%1$s hit a meteorite.",
+  "death.attack.meteorite_explosion.player": "%1$s hit by a meteorite of %2$s.",
+  "death.attack.meteorite_explosion.item": "%1$s hit by a meteorite summoned by %2$s with %3$s .",
+  "death.attack.meteorite_explosion.no_owner":"sky",
 
 
   "recipe.asplor.divider": "Divider",
