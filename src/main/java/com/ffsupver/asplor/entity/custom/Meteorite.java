@@ -178,7 +178,7 @@ public class Meteorite extends Entity implements Ownable {
     @Override
     public boolean damage(DamageSource source, float amount) {
         if (amount >= 10){
-            setHitTimes(getHitTimes() - (int) (amount / 10));
+            setHitTimes(Math.min(getHitTimes() - (int) (amount / 10),-MAX_HIT_TIMES * 15));
         }
         return super.damage(source, amount);
     }

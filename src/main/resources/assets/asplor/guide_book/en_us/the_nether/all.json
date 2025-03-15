@@ -1,0 +1,5 @@
+{
+  "text": "<item.asplor.alloy_ingot> is a necessity for you to go to the next planet, <planet.ad_astra.moon>. Craft a <item.ad_astra.tier_1_rocket>!",
+  "picture": "the_nether/all.png",
+  "offset_y": -50
+}

@@ -52,6 +52,7 @@ public class GuideBookScreen extends Screen {
 
     private PageTurnWidget nextPageButton;
     private PageTurnWidget previousPageButton;
+    private final ArrayList<PageTurnWidget> pageTurnWidgets = new ArrayList<>();
     private int cachedPageIndex;
     public GuideBookScreen(Text title,ItemStack book) {
         super(title);
@@ -275,13 +276,33 @@ public class GuideBookScreen extends Screen {
 
     protected void addPageButtons() {
         int i = (this.width - 255) / 2;
-        this.nextPageButton = this.addDrawableChild(new PageTurnWidget(i + 195, 159, true, (button) -> {
+        this.nextPageButton = this.addDrawableChild(new PageTurnWidget(i + 123, 159, true, (button) -> {
             this.goToNextPage();
         }, true));
-        this.previousPageButton = this.addDrawableChild(new PageTurnWidget(i + 33, 159, false, (button) -> {
+        this.previousPageButton = this.addDrawableChild(new PageTurnWidget(i + 105, 159, false, (button) -> {
             this.goToPreviousPage();
         }, true));
+        this.addPageButton();
         this.updatePageButtons();
+    }
+
+    private void addPageButton(){
+        int buttonCount = 4 * 2;
+        int centerX = (this.width - 255) / 2;
+        for (int i = 0; i < buttonCount / 2; i++) {
+            int finalI = i + 2;
+            PageTurnWidget pageTurnWidgetRight = this.addDrawableChild(new PageTurnWidget((i + 1) * 19 + centerX + 123,159,true, button -> {
+                this.jumpToPage(this.pageIndex + finalI);
+                updatePageButtons();
+            },true));
+            PageTurnWidget pageTurnWidgetLeft = this.addDrawableChild(new PageTurnWidget(- (i + 1) * 19 + centerX + 105,159,false, button -> {
+                this.jumpToPage(this.pageIndex - finalI);
+                updatePageButtons();
+            },true));
+
+            pageTurnWidgets.add(pageTurnWidgetLeft);
+            pageTurnWidgets.add(pageTurnWidgetRight);
+        }
     }
 
     private int getPageCount() {
@@ -306,6 +327,11 @@ public class GuideBookScreen extends Screen {
     private void updatePageButtons() {
         this.nextPageButton.visible = this.pageIndex < this.getPageCount() - 1;
         this.previousPageButton.visible = this.pageIndex > 0;
+        for (int i = 0; i < pageTurnWidgets.size(); i++) {
+            int gap = i / 2 + 1;
+            boolean left = i % 2 == 0;
+            pageTurnWidgets.get(i).visible = left ? this.pageIndex - gap > 0 : this.pageIndex < this.getPageCount() - gap - 1;
+        }
     }
 
     public boolean setPage(int index) {

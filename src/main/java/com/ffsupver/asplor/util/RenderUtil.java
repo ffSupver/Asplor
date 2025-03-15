@@ -9,6 +9,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
@@ -113,5 +114,9 @@ public final class RenderUtil {
         if (DimensionRenderingRegistry.getSkyRenderer(worldKey) == null){
             registerDimensionEffects(worldKey,effects);
         }
+    }
+
+    public static boolean isShiftPress(){
+        return Screen.hasShiftDown();
     }
 }

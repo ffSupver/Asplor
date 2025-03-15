@@ -1,0 +1,62 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:bread"
+  },
+  "loops": 8,
+  "results": [
+    {
+      "item": "asplor:kelp_bread",
+      "count": 16
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "minecraft:bread"
+        }
+      ],
+      "processingTime": 20,
+      "results": [
+        {
+          "item": "minecraft:bread"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "minecraft:bread"
+        },
+        {
+          "item": "minecraft:dried_kelp"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "minecraft:bread"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:bread"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:kelp_bread"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "minecraft:bread"
+  }
+}

@@ -109,6 +109,7 @@
   "item.asplor.molten_ostrum_dropper": "熔融紫金滴液器",
   "item.asplor.raw_etrium": "粗电金",
   "item.asplor.staff_of_shooting_meteorite": "星陨杖",
+  "item.asplor.kelp_bread": "海带面包",
 
 
 
@@ -186,6 +187,7 @@
   "block.asplor.planet_locator": "行星定位器",
   "block.asplor.molten_ostrum": "熔融紫金",
   "block.asplor.glacio_etrium_ore": "霜原电金矿",
+  "block.asplor.chest_sorter": "理箱器",
 
 
 
@@ -258,6 +260,7 @@
   "description.asplor.meteorite.gravity": "重力加速度: %s",
   "description.asplor.meteorite.solar_power": "阳光: %s",
   "description.asplor.planet_locator": "通过陨石碎片定位行星",
+  "description.asplor.chest_sorter": "右键以将手上的物品放入对应的箱子",
 
   "description.asplor.enchantment.strength": "增加箭的飞行速度",
   "description.asplor.enchantment.mechanically_proficient": "减少在机械手上的耐久消耗,完全减免如果等级达到",
@@ -290,6 +293,7 @@
   "guide_book.asplor.earth.large_map": "大地图",
   "guide_book.asplor.earth.lightning_absorber": "雷电接收器",
   "guide_book.asplor.earth.all": "地球",
+  "guide_book.asplor.the_nether.all": "冥",
 
 
 
@@ -421,5 +425,7 @@
   "create.tooltip.refinery.incomplete": "寄",
   "create.gui.goggles.large_melting_furnace_stats": "巨紅溫器 :",
   "create.tooltip.large_melting_furnace.ready": "成",
-  "create.tooltip.large_melting_furnace.incomplete": "寄"
+  "create.tooltip.large_melting_furnace.incomplete": "寄",
+  "create.gui.goggles.planet": "行星:",
+  "create.gui.goggles.planet.oxygen": "氧气: "
 }

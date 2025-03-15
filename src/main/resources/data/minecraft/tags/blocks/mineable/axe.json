@@ -4,6 +4,7 @@
     "asplor:assembler",
     "asplor:windmill_bearing",
     "asplor:alloy_casing",
-    "asplor:alloy_machine"
+    "asplor:alloy_machine",
+    "asplor:chest_sorter"
   ]
 }

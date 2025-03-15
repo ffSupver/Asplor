@@ -46,6 +46,7 @@ public class ModItemGroups {
                                 entries.add(SALT);
                                 entries.add(CARBON_POWDER);
                                 entries.add(KELP_PUREE);
+                                entries.add(KELP_BREAD);
                                 entries.add(DIAMOND_SHARD);
                                 entries.add(TRIDENT_SHARD);
                                 entries.add(METEORITE_FRAGMENT);
@@ -122,6 +123,7 @@ public class ModItemGroups {
                         .icon(()->new ItemStack(GENERATOR))
                         .entries((displayContext, entries) -> {
                             entries.add(ALLOY_CHEST);
+                            entries.add(CHEST_SORTER);
                             entries.add(PACKER);
                             entries.add(UNPACKING_TABLE);
                             entries.add(LIQUID_BLAZE_BURNER);

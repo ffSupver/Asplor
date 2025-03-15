@@ -148,7 +148,7 @@ public class PlanetLocatorEntity extends SmartBlockEntity implements IHaveGoggle
         return energyStorage.getAmount() > ENERGY_RATE;
     }
 
-    public PlanetCreatingData getPlanet() {
+    public PlanetCreatingData getPlanetData() {
         notifyUpdate();
         return planet;
     }
@@ -158,8 +158,7 @@ public class PlanetLocatorEntity extends SmartBlockEntity implements IHaveGoggle
     }
 
     public void updatePlanetData(){
-        RegistryKey<World> worldKey = RegistryKey.of(RegistryKeys.WORLD,this.worldKey);
-        Planet getPlanet = AdAstraData.getPlanet(worldKey);
+        Planet getPlanet = getPlanet();
         if (getPlanet.isSpace()){
            RegistryKey<World> g = getPlanet.getOrbitPlanet().orElse(null);
             if (g != null) {
@@ -176,11 +175,17 @@ public class PlanetLocatorEntity extends SmartBlockEntity implements IHaveGoggle
     }
 
 
+    public Planet getPlanet(){
+        RegistryKey<World> worldKey = RegistryKey.of(RegistryKeys.WORLD,this.worldKey);
+        Planet result = AdAstraData.getPlanet(worldKey);
+        return result;
+    }
 
 
     @Override
     public boolean addToGoggleTooltip(List<Text> tooltip, boolean isPlayerSneaking) {
-        return GoggleDisplays.addEnergyDisplayToGoggles(tooltip,energyStorage);
+        return GoggleDisplays.addPlanetDataDisplayToGoggles(tooltip,planet,worldKey) | GoggleDisplays.addEnergyDisplayToGoggles(tooltip,energyStorage);
+
     }
 
     @Override

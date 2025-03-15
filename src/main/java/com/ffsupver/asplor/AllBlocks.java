@@ -9,6 +9,7 @@ import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
 import com.ffsupver.asplor.block.blocks.*;
+import com.ffsupver.asplor.block.blocks.ChestSorter;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoader;
 import com.ffsupver.asplor.block.divider.Divider;
 import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
@@ -297,7 +298,12 @@ public class AllBlocks {
                     .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.planet_locator")))
                     .build()
                     .register();
-
+    public static final BlockEntry<ChestSorter> CHEST_SORTER =
+            REGISTRATE.block("chest_sorter", ChestSorter::new)
+                    .properties(p -> FabricBlockSettings.copy(CRAFTING_TABLE))
+                    .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.chest_sorter")))
+                    .build()
+                    .register();
 
 
 

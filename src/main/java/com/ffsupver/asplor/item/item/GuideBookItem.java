@@ -3,6 +3,8 @@ package com.ffsupver.asplor.item.item;
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.networking.packet.OpenGuideBookS2CPacket;
 import com.ffsupver.asplor.screen.guideBook.GuideBookScreen;
+import com.ffsupver.asplor.util.NbtUtil;
+import com.ffsupver.asplor.util.RenderUtil;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -20,6 +22,8 @@ import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -34,6 +38,7 @@ import java.util.Optional;
 
 public class GuideBookItem extends Item {
     public static final String GUIDE_BOOK_DATA_KEY = "chapter";
+    private static final Text HEAD = Text.literal("-");
     public GuideBookItem(Settings settings) {
         super(settings);
     }
@@ -53,12 +58,27 @@ public class GuideBookItem extends Item {
 
         NbtList chapters = getChaptersFromNbt(stack);
         if (chapters != null){
-            for (NbtElement element : chapters){
-                String chapter = element.asString();
+            ArrayList<String> chapterIds = new  ArrayList<>(NbtUtil.readStringListFromNbt(chapters));
+            chapterIds.sort((s1,s2)->{
+                List<ChapterData> firstChapterDataL = allChapterData.stream().filter(chapterData -> chapterData.name.equals(s1)).toList();
+               List<ChapterData> secondChapterDataL = allChapterData.stream().filter(chapterData -> chapterData.name.equals(s2)).toList();
+               if (firstChapterDataL.isEmpty() || secondChapterDataL.isEmpty()){
+                   return 0;
+               }else {
+                   ChapterData firstChapter = firstChapterDataL.get(0);
+                   ChapterData secondChapter = secondChapterDataL.get(0);
+                   return firstChapter.order - secondChapter.order;
+               }
+            });
+
+            for (String chapterId : chapterIds){
                 allChapterData.forEach(chapterData -> {
-                    if (chapterData.getName().equals(chapter)){
-                        Text head = Text.literal("-");
-                        tooltip.add(head.copy().append(Text.Serializer.fromJson(chapterData.getDescription())));
+                    if (chapterData.getName().equals(chapterId)){
+                        Text description = Text.Serializer.fromJson(chapterData.getDescription());
+                        if (RenderUtil.isShiftPress() || description != null && description.getStyle().getColor().equals(TextColor.fromFormatting(Formatting.GOLD))) {
+                            Text toAdd = HEAD.copy().append(description);
+                            tooltip.add(toAdd);
+                        }
                     }
                 });
             }

@@ -69,6 +69,11 @@
       "name": "earth/locator",
       "order": 31,
       "description": "{\"translate\":\"guide_book.asplor.earth.locator\",\"color\":\"white\"}"
+    },
+    {
+      "name": "the_nether/all",
+      "order": 50,
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.all\",\"color\":\"gold\"}"
     }
   ]
 }

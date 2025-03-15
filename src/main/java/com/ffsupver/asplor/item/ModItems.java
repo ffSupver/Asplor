@@ -160,13 +160,13 @@ public class ModItems {
     public static final Item MOLTEN_OSTRUEM_DROPPER = registerItems("molten_ostrum_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_ostrum_dropper"),5));
     public static final Item RAW_ETRUIM = registerItems("raw_etrium",new Item(new FabricItemSettings()));
     public static final Item STAFF_OF_SHOOTING_METEORITE = registerItems("staff_of_shooting_meteorite",new StaffOfShootingMeteorite(new FabricItemSettings().maxCount(1).maxDamage(16)));
+    public static final Item KELP_BREAD = registerItems("kelp_bread",new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(2.5f).snack().build())));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
         BuiltinItemRendererRegistryImpl.INSTANCE.register(TIER_0_ROCKET,  new RocketItemRenderer(Tier0RocketModelLayer.TIER_0_ROCKET_MODEL,Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
         BuiltinItemRendererRegistryImpl.INSTANCE.register(CARGO_ROCKET, new RocketItemRenderer(CargoRocketRenderer.CARGO_ROCKET_MODEL,CargoRocketRenderer.CARGO_ROCKET_TEXTURE));
         BuiltinItemRendererRegistryImpl.INSTANCE.register(ADVANCE_ROCKET, new RocketItemRenderer(AdvanceRocketRenderer.ADVANCE_ROCKET_MODEL,AdvanceRocketRenderer.ADVANCE_ROCKET_TEXTURE));
-//        BuiltinItemRendererRegistryImpl.INSTANCE.register(STAFF_OF_SHOOTING_METEORITE, new ItemRenderer);
 
     }
 

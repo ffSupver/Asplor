@@ -4,7 +4,6 @@ import com.ffsupver.asplor.block.planetLocator.PlanetLocatorEntity;
 import com.ffsupver.asplor.networking.packet.worldAdder.CreateWorldC2SPacket;
 import com.ffsupver.asplor.networking.packet.worldAdder.PlanetCreatingData;
 import com.ffsupver.asplor.world.WorldData;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -35,11 +34,11 @@ public class PlanetNamingItem extends Item {
                 String name = itemStack.getName().getString();
                 boolean isNameValid = Identifier.isValid(name) && !name.contains(":");
                 if (isNameValid) {
-                    PlanetCreatingData planetCreatingData = planetLocatorEntity.getPlanet();
+                    PlanetCreatingData planetCreatingData = planetLocatorEntity.getPlanetData();
                     if (planetCreatingData != null) {
                         Identifier worldId = WorldData.createWorldKey(name).getValue();
                         planetLocatorEntity.setWorldKey(worldId);
-                        if (user instanceof ClientPlayerEntity clientPlayer) {
+                        if (world.isClient()) {
                             CreateWorldC2SPacket.send(new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), planetCreatingData, worldId, false);
                         }
                         user.setStackInHand(hand, itemStack.copyWithCount(itemStack.getCount() - 1));

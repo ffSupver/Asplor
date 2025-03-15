@@ -1,0 +1,5 @@
+{
+  "text": "<item.asplor.alloy_ingot>是前往下一站——<planet.ad_astra.moon>的必需品,造一个<item.ad_astra.tier_1_rocket>吧!",
+  "picture": "the_nether/all.png",
+  "offset_y": -50
+}

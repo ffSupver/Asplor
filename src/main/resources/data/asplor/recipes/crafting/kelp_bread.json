@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "food",
+  "key": {
+    "A": {
+      "item": "minecraft:dried_kelp"
+    },
+    "C": {
+      "item": "minecraft:bread"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "ACA",
+    "AAA"
+  ],
+  "result": {
+    "item": "asplor:kelp_bread",
+    "count": 9
+  },
+  "show_notification": true
+}

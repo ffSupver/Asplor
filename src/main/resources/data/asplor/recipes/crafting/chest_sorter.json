@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:primary_mechanism"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:hopper"
+    },
+    "D": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "DCD",
+    "BAB",
+    "DCD"
+  ],
+  "result": {
+    "item": "asplor:chest_sorter"
+  },
+  "show_notification": true
+}
