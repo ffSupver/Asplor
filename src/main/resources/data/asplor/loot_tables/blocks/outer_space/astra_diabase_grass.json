@@ -13,32 +13,36 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "enchantments": [
-                      {
-                        "enchantment": "minecraft:silk_touch",
-                        "levels": {
-                          "min": 1
-                        }
-                      }
+                    "items": [
+                      "minecraft:shears"
                     ]
                   }
                 }
               ],
-              "name": "asplor:outer_space/astra_diabase_copper_ore"
+              "name": "asplor:outer_space/astra_diabase_grass"
             },
             {
               "type": "minecraft:item",
+              "conditions": [
+                {
+                  "chance": 0.125,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
               "functions": [
                 {
                   "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops",
-                  "function": "minecraft:apply_bonus"
+                  "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
                 },
                 {
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "asplor:raw_astra_copper"
+              "name": "minecraft:wheat_seeds"
             }
           ]
         }
@@ -46,5 +50,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "asplor:blocks/outer_space/astra_diabase_copper_ore"
+  "random_sequence": "asplor:blocks/outer_space/astra_diabase_grass"
 }

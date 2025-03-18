@@ -24,21 +24,16 @@
                   }
                 }
               ],
-              "name": "asplor:outer_space/astra_diabase_copper_ore"
+              "name": "asplor:outer_space/astra_diabase_grass_block"
             },
             {
               "type": "minecraft:item",
-              "functions": [
+              "conditions": [
                 {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:ore_drops",
-                  "function": "minecraft:apply_bonus"
-                },
-                {
-                  "function": "minecraft:explosion_decay"
+                  "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "asplor:raw_astra_copper"
+              "name": "asplor:outer_space/astra_diabase_dirt"
             }
           ]
         }
@@ -46,5 +41,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "asplor:blocks/outer_space/astra_diabase_copper_ore"
+  "random_sequence": "asplor:outer_space/astra_diabase_grass_block"
 }

@@ -48,9 +48,9 @@
     [
       "minecraft:glow_lichen",
       "minecraft:patch_tall_grass_2",
-      "minecraft:trees_plains",
+      "asplor:trees_astra_diabase",
       "minecraft:flower_plains",
-      "minecraft:patch_grass_plain",
+      "asplor:patch_astra_diabase_grass",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",

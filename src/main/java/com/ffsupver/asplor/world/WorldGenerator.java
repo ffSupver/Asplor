@@ -25,6 +25,7 @@ import net.minecraft.world.gen.noise.NoiseRouter;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import org.jetbrains.annotations.NotNull;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,17 +58,18 @@ public class WorldGenerator {
     private static final List<WorldBlockData> BLOCK_LISTS = List.of(
             new  WorldBlockData(
                     List.of(ModBlocks.MOON_STONE.get().getDefaultState(), Blocks.AIR.getDefaultState(),ModBlocks.MOON_SAND.get().getDefaultState()),List.of(
-                    new Pair<>(ModBlocks.MOON_SAND.get().getDefaultState(),ModBlocks.MOON_STONE.get().getDefaultState())
+                    WorldBlockData.createBiomeList(ModBlocks.MOON_SAND.get().getDefaultState(),ModBlocks.MOON_STONE.get().getDefaultState(),ModBlocks.MOON_SAND.get().getDefaultState())
                     )
             ),
             new  WorldBlockData(
                     List.of(ModBlocks.MARS_STONE.get().getDefaultState(), Blocks.AIR.getDefaultState(),ModBlocks.MARS_SAND.get().getDefaultState()),List.of(
-                    new Pair<>(ModBlocks.MARS_SAND.get().getDefaultState(),ModBlocks.MARS_STONE.get().getDefaultState())
+                    WorldBlockData.createBiomeList(ModBlocks.MARS_SAND.get().getDefaultState(),ModBlocks.MARS_STONE.get().getDefaultState(),ModBlocks.MARS_SAND.get().getDefaultState())
                 )
             ),
             new  WorldBlockData(
                     List.of(ASTRA_DIABASE_STONE.getDefaultState(), AllBlocks.GLUE.getDefaultState(), ASTRA_DIABASE_DUST.getDefaultState()),List.of(
-                    new Pair<>(ASTRA_DIABASE_DIRT.getDefaultState(), AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get().getDefaultState())
+                    WorldBlockData.createBiomeList(ASTRA_DIABASE_DIRT.getDefaultState(), AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get().getDefaultState(), ASTRA_DIABASE_GRASS_BLOCK.getDefaultState()),
+                    WorldBlockData.createBiomeList(ASTRA_DIABASE_DUST.getDefaultState(), AllPaletteStoneTypes.VERIDIUM.getBaseBlock().get().getDefaultState(),ASTRA_DIABASE_DUST.getDefaultState())
                 )
             )
     );
@@ -249,8 +251,10 @@ public class WorldGenerator {
             boolean negative = IS_NEGATIVE_NUMBER.matcher(function).matches();
             String functionNumberString = negative ? function.replace('-', '0') : function;
             double functionNumber = (negative ? -1 : 1) * (
-                    functionNumberString.contains(".") ?
-                            Double.parseDouble(functionNumberString) : Integer.parseInt(functionNumberString)
+                    functionNumberString.contains("E") ?
+                            new BigDecimal(functionNumberString).doubleValue() :
+                            functionNumberString.contains(".") ?
+                                Double.parseDouble(functionNumberString) : Integer.parseInt(functionNumberString)
             );
             return Optional.of(functionNumber);
         }
@@ -275,10 +279,15 @@ public class WorldGenerator {
             DynamicRegistryManager.Immutable registryManager = server.getRegistryManager();
             Registry<DensityFunction> densityFunctionRegistry = registryManager.get(RegistryKeys.DENSITY_FUNCTION);
 
-            DensityFunction result = densityFunctionRegistry.get(RegistryKey.of(RegistryKeys.DENSITY_FUNCTION, new Identifier(id)));
+            DensityFunction result;
+            try {
+                 result = densityFunctionRegistry.get(RegistryKey.of(RegistryKeys.DENSITY_FUNCTION, new Identifier(id)));
 
-            if (result == null){
-                throw new RuntimeException("No Density Function found : " + id);
+                if (result == null) {
+                    throw new RuntimeException("No Density Function found : " + id);
+                }
+            }catch (Exception e){
+                throw new RuntimeException("No Density Function found : " + id + " "+e);
             }
 
             return  result;
@@ -481,7 +490,10 @@ public class WorldGenerator {
         }
     }
 
-    public record WorldBlockData(List<BlockState> baseBlockList,List<Pair<BlockState,BlockState>> biomeBlockList){
+    public record WorldBlockData(List<BlockState> baseBlockList,List<Pair<BlockState,Pair<BlockState,BlockState>>> biomeBlockList){
+        public static Pair<BlockState,Pair<BlockState,BlockState>> createBiomeList(BlockState blockState,BlockState surfaceState,BlockState surfaceTopState){
+            return new Pair<>(blockState,new Pair<>(surfaceState,surfaceTopState));
+        }
         public int getBiomeListSize(){return biomeBlockList.size();}
     }
 }

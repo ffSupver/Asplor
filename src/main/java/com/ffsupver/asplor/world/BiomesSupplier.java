@@ -27,6 +27,16 @@ public class BiomesSupplier {
     public static final BiomesData OUTER_SPACE_PLAINS = createBiomesData("outer_space_plains");
     public static final BiomesData OUTER_SPACE_HILLS = createBiomesData("outer_space_hills");
     public static final List<BiomesData> BIOMES_LIST = List.of(OUTER_SPACE_PLAINS,OUTER_SPACE_HILLS);
+
+    private static final MaterialRules.MaterialCondition IS_SURFACE = MaterialRules.stoneDepth(0,false,8, VerticalSurfaceType.FLOOR);
+    private static final Function<BlockState,MaterialRules.MaterialRule> IS_SURFACE_TOP = blockState ->  MaterialRules.condition(
+                MaterialRules.stoneDepth(0,false,0, VerticalSurfaceType.FLOOR),
+                MaterialRules.condition(
+                        MaterialRules.water(0,0),
+                        MaterialRules.block(blockState)
+                )
+            );
+
     public static MultiNoiseBiomeSource getBiomeSource(List<Pair<RegistryEntry<Biome>, List<Float>>> biomes){
         ArrayList<com.mojang.datafixers.util.Pair<MultiNoiseUtil.NoiseHypercube,RegistryEntry<Biome>>> entries = new ArrayList<>();
         for (Pair<RegistryEntry<Biome>,List<Float>> biomeData : biomes){
@@ -96,22 +106,22 @@ public class BiomesSupplier {
             return new BiomesData(registryKey,BiomesData::defaultRule);
         }
         private static MaterialRules.MaterialRule defaultRule(List<BlockState> blockStates) {
-            return getBaseMaterialRule(blockStates.get(0),blockStates.get(1));
+            return getBaseMaterialRule(blockStates.get(0),blockStates.get(1),blockStates.get(2));
         }
     }
 
-    public static MaterialRules.@Nullable MaterialRule generateMaterialRules(List<BiomesData> biomesDataList, List<BlockState> blockStates, List<RegistryKey<Biome>> biomes, List<Pair<BlockState,BlockState>> biomeBlocks, Random random) {
+    public static MaterialRules.@Nullable MaterialRule generateMaterialRules(List<BiomesData> biomesDataList, List<BlockState> blockStates, List<RegistryKey<Biome>> biomes, List<Pair<BlockState,Pair<BlockState,BlockState>>> biomeBlocks, Random random) {
         // 将 BiomesData 转换为 MaterialRules.condition(...)
         AtomicInteger index = new AtomicInteger(3);
         MaterialRules.MaterialRule[] rules = biomesDataList.stream()
                 .filter(biomesData -> biomes.contains(biomesData.registryKey))
                 .map(data -> {
                     MaterialRules.MaterialRule materialRule;
-                    if (blockStates.size() > index.get() + 1){
-                        materialRule = getBaseMaterialRule(blockStates.get(index.get()),blockStates.get(index.get() + 1));
+                    if (blockStates.size() > index.get() + 2){
+                        materialRule = getBaseMaterialRule(blockStates.get(index.get()),blockStates.get(index.get() + 1),blockStates.get(index.get() + 2));
                     }else {
-                        Pair<BlockState,BlockState> pair = biomeBlocks.get(random.nextInt(biomeBlocks.size()));
-                        List<BlockState> bs = List.of(pair.getLeft(),pair.getRight());
+                        Pair<BlockState,Pair<BlockState,BlockState>> pair = biomeBlocks.get(random.nextInt(biomeBlocks.size()));
+                        List<BlockState> bs = List.of(pair.getLeft(),pair.getRight().getLeft(),pair.getRight().getRight());
                         materialRule = data.materialRule().apply(bs);
                         blockStates.addAll(bs);
                     }
@@ -119,7 +129,7 @@ public class BiomesSupplier {
                             MaterialRules.biome(data.registryKey()), // 根据 Biome 的 registryKey 创建条件
                             materialRule
                     );
-                    index.addAndGet(2);
+                    index.addAndGet(3);
                     return rule;
                 })
                 .toArray(MaterialRules.MaterialRule[]::new);   // 转换为数组
@@ -127,17 +137,20 @@ public class BiomesSupplier {
         // 将所有条件组合到 MaterialRules.sequence 中
         return rules.length == 0 ? null : MaterialRules.sequence(rules);
     }
-    public static MaterialRules.MaterialRule getBaseMaterialRule(BlockState surfaceBlockState, BlockState baseBlockState){
-        MaterialRules.MaterialCondition isSurface = MaterialRules.stoneDepth(0,true,0, VerticalSurfaceType.FLOOR);
+    public static MaterialRules.MaterialRule getBaseMaterialRule(BlockState surfaceBlockState, BlockState baseBlockState,BlockState surfaceTopBlockState){
+
         return MaterialRules.condition(
                 MaterialRules.aboveYWithStoneDepth(YOffset.aboveBottom(128),-3),
                 MaterialRules.sequence(
                         MaterialRules.condition(
-                                isSurface,
-                                MaterialRules.block(surfaceBlockState)
+                                IS_SURFACE,
+                                MaterialRules.sequence(
+                                        IS_SURFACE_TOP.apply(surfaceTopBlockState),
+                                        MaterialRules.block(surfaceBlockState)
+                                )
                         ),
                         MaterialRules.condition(
-                                MaterialRules.not(isSurface),
+                                MaterialRules.not(IS_SURFACE),
                                 MaterialRules.block(baseBlockState)
                         )
                 )

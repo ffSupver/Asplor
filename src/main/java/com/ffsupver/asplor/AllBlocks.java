@@ -9,7 +9,7 @@ import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPress;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
 import com.ffsupver.asplor.block.blocks.*;
-import com.ffsupver.asplor.block.blocks.ChestSorter;
+import com.ffsupver.asplor.block.blocks.sapling.AstraDiabaseSaplingGenerator;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoader;
 import com.ffsupver.asplor.block.divider.Divider;
 import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
@@ -363,6 +363,13 @@ public class AllBlocks {
     public static final Block ASTRA_SILVER_ORE = registerBlock("outer_space/astra_silver_ore",new Block(FabricBlockSettings.copy(IRON_ORE)));
     public static final Block METEORITE = registerBlock("meteorite",new Block(FabricBlockSettings.copy(STONE)));
     public static final Block GLACIO_ETRUIM_ORE = registerBlock("glacio_etrium_ore",new Block(FabricBlockSettings.copy(STONE).strength(4.0f)));
+    public static final Block ASTRA_DIABASE_GRASS_BLOCK = registerBlock("outer_space/astra_diabase_grass_block",new AbstractGrassBlock(FabricBlockSettings.copy(GRASS_BLOCK),ASTRA_DIABASE_DIRT));
+    public static final Block ASTRA_DIABASE_GRASS = registerBlock("outer_space/astra_diabase_grass",new AbstractGrass(FabricBlockSettings.copy(GRASS),ModTags.Blocks.ASTRA_DIABASE_DIRT));
+    public static final Block ASTRA_DIABASE_SAPLING = registerBlock("outer_space/astra_diabase_sapling",new AbstractSapling(new AstraDiabaseSaplingGenerator(),FabricBlockSettings.copy(OAK_SAPLING),ModTags.Blocks.ASTRA_DIABASE_DIRT));
+    public static final Block ASTRA_DIABASE_LOG = registerBlock("outer_space/astra_diabase_log",createLogBlock(MapColor.PURPLE,MapColor.MAGENTA));
+    public static final Block ASTRA_DIABASE_LEAVES = registerBlock("outer_space/astra_diabase_leaves",createLeavesBlock(BlockSoundGroup.AZALEA_LEAVES));
+    public static final Block ASTRA_DIABASE_WOOD = registerBlock("outer_space/astra_diabase_wood",createLogBlock(MapColor.PURPLE,MapColor.MAGENTA));
+
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);
@@ -401,6 +408,9 @@ public class AllBlocks {
     public static void registerRender(){
         registerRenderLayer(REFINERY_GLASS,RenderLayer.getCutoutMipped());
         registerRenderLayer(GOLD_ORCHID,RenderLayer.getCutoutMipped());
+        registerRenderLayer(ASTRA_DIABASE_GRASS,RenderLayer.getCutoutMipped());
+        registerRenderLayer(ASTRA_DIABASE_SAPLING,RenderLayer.getCutoutMipped());
+        registerRenderLayer(ASTRA_DIABASE_LEAVES,RenderLayer.getTranslucent());
 
 
         registerConnectTexture(AllOY_CASING,"alloy");

@@ -108,6 +108,12 @@ public class ModItemGroups {
                                 entries.add(CRUDE_PRINTED_LOGIC_PROCESSOR);
                                 entries.add(ASTRA_DIABASE_DUST);
                                 entries.add(ASTRA_DIABASE_DIRT);
+                                entries.add(ASTRA_DIABASE_GRASS_BLOCK);
+                                entries.add(ASTRA_DIABASE_GRASS);
+                                entries.add(ASTRA_DIABASE_SAPLING);
+                                entries.add(ASTRA_DIABASE_LOG);
+                                entries.add(ASTRA_DIABASE_WOOD);
+                                entries.add(ASTRA_DIABASE_LEAVES);
                                 entries.add(ASTRA_DIABASE_STONE);
                                 entries.add(ASTRA_DIABASE_COBBLESTONE);
                                 entries.add(ASTRA_DIABASE_COPPER_ORE);

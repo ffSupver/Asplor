@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "asplor:block/outer_space/astra_diabase_sapling"
+  }
+}

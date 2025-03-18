@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "asplor:astra_diabase_tree",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.2,
+        "feature": {
+          "feature": "asplor:astra_diabase_fancy_tree",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

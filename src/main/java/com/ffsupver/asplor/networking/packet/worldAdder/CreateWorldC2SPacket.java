@@ -39,6 +39,6 @@ public class CreateWorldC2SPacket {
     }
 
     public static void send(List<String> functionList, List<String> blockList, List<String> biomesList, PlanetCreatingData planetData){
-        send(functionList,blockList,biomesList,planetData,createWorldKey(true).getValue(),false);
+        send(functionList,blockList,biomesList,planetData,createWorldKey(true).getValue(),true);
     }
 }

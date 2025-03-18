@@ -5,6 +5,8 @@
     "asplor:windmill_bearing",
     "asplor:alloy_casing",
     "asplor:alloy_machine",
-    "asplor:chest_sorter"
+    "asplor:chest_sorter",
+    "asplor:outer_space/astra_diabase_log",
+    "asplor:outer_space/astra_diabase_wood"
   ]
 }

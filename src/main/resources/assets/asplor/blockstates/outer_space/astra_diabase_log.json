@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "asplor:block/outer_space/astra_diabase_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "asplor:block/outer_space/astra_diabase_log"
+    },
+    "axis=z": {
+      "model":"asplor:block/outer_space/astra_diabase_log_horizontal",
+      "x": 90
+    }
+  }
+}
