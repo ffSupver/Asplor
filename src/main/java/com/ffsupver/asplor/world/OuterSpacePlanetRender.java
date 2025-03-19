@@ -25,7 +25,7 @@ public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
         return this.planetRendererData.ringTexture() != null;
     }
 
-    private static void renderRing(MatrixStack poseStack,boolean isOrbit,Identifier ringTexture){
+    private static void renderRing(MatrixStack poseStack,boolean isOrbit,Identifier ringTexture,ClientWorld clientWorld){
         Tessellator tessellator = Tessellator.getInstance();
         MatrixStack.Entry matrixEntry = poseStack.peek();
 
@@ -36,21 +36,31 @@ public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
 
         MinecraftClient.getInstance().getTextureManager().bindTexture(ringTexture);
 
-        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
+        RenderSystem.setShader(GameRenderer::getPositionTexLightmapColorProgram);
         RenderSystem.setShaderTexture(0, ringTexture);
 
+
         Matrix4f positionMatrix = matrixEntry.getPositionMatrix();
-        consumerProvider.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
+        consumerProvider.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_LIGHT_COLOR);
 
         int yMax = isOrbit ? 180 : 160;
         int yMin = isOrbit ? -1420 : -1440;
         int z = isOrbit ? 40 : 600;
         int x = (int) Math.pow((yMax-yMin) * (yMax - yMin) + 4 * z * z,0.5) / 2;
 
-        consumerProvider.vertex(positionMatrix, x,  yMax,  z).texture(1, 0).next();
-        consumerProvider.vertex(positionMatrix,   x,  yMin, -z).texture(0, 0).next();
-        consumerProvider.vertex(positionMatrix,  -x,  yMin, -z).texture(0, 1).next();
-        consumerProvider.vertex(positionMatrix,  -x,  yMax, z).texture(1, 1).next();
+        int alpha = 255;
+
+
+        long time = clientWorld.getTimeOfDay() % 24000;
+        int t = (int) ((time < 6000 ? time : time < 18000 ? 12000 - time : time - 24000) + 6000) * 255 / 12000;
+        int r = t;
+        int g = t;
+        int b = t;
+
+        consumerProvider.vertex(positionMatrix, x,  yMax,  z).texture(1, 0).light(0).color(r,g,b,alpha).next();
+        consumerProvider.vertex(positionMatrix,   x,  yMin, -z).texture(0, 0).light(0).color(r,g,b,alpha).next();
+        consumerProvider.vertex(positionMatrix,  -x,  yMin, -z).texture(0, 1).light(0).color(r,g,b,alpha).next();
+        consumerProvider.vertex(positionMatrix,  -x,  yMax, z).texture(1, 1).light(0).color(r,g,b,alpha).next();
 
         BufferRenderer.drawWithGlobalProgram(consumerProvider.end());
 
@@ -125,7 +135,7 @@ public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
         boolean r = super.renderSky(level, ticks, partialTick, poseStack, camera, projectionMatrix, isFoggy, setupFog);
         boolean isOrbit = planetRendererData.isOrbit();
         if (shouldRenderRing()){
-                renderRing(poseStack, isOrbit, planetRendererData.ringTexture());
+                renderRing(poseStack, isOrbit, planetRendererData.ringTexture(),level);
         }
 
 

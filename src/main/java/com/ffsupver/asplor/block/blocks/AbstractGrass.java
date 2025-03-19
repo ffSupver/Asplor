@@ -54,6 +54,6 @@ public class AbstractGrass extends PlantBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return saplingBox ? SHAPE : super.getOutlineShape(state, world, pos, context);
+        return SHAPE;
     }
 }
