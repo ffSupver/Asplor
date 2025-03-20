@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_block"
+    },
+    "B": {
+      "item": "minecraft:glass"
+    },
+    "C": {
+      "item": "asplor:alloy_mechanism"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "item": "asplor:simple_space_station"
+  },
+  "show_notification": true
+}

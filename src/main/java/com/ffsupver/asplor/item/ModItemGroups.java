@@ -160,6 +160,7 @@ public class ModItemGroups {
                             entries.add(ADVANCE_ROCKET);
                             entries.add(ROCKET_CARGO_LOADER);
                             entries.add(ROCKET_FUEL_LOADER);
+                            entries.add(SIMPLE_SPACE_STATION);
                             entries.add(REFINERY_CONTROLLER);
                             entries.add(REFINERY_INPUT);
                             entries.add(REFINERY_OUTPUT);

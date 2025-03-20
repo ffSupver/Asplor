@@ -161,6 +161,7 @@ public class ModItems {
     public static final Item RAW_ETRUIM = registerItems("raw_etrium",new Item(new FabricItemSettings()));
     public static final Item STAFF_OF_SHOOTING_METEORITE = registerItems("staff_of_shooting_meteorite",new StaffOfShootingMeteorite(new FabricItemSettings().maxCount(1).maxDamage(16)));
     public static final Item KELP_BREAD = registerItems("kelp_bread",new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(2.5f).snack().build())));
+    public static final Item SIMPLE_SPACE_STATION = registerItems("simple_space_station",new SpaceStationItem(new FabricItemSettings().maxCount(1)));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

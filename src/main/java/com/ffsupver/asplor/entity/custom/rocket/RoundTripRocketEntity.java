@@ -72,7 +72,7 @@ public abstract class RoundTripRocketEntity extends Entity implements ExtraDataM
     private double lerpXRot;
     private boolean launchpadBound;
     public boolean startedRocketSound;
-    private int height;
+    protected int height;
     public static final TrackedData<Boolean> IS_LAUNCHING;
     public static final TrackedData<Integer> LAUNCH_TICKS;
     public static final TrackedData<Boolean> HAS_LAUNCHED;
@@ -198,7 +198,7 @@ public abstract class RoundTripRocketEntity extends Entity implements ExtraDataM
 
 
 
-    private void landingTick(){
+    protected void landingTick(){
         speed = (float) this.getVelocity().y;
         float minSpeed = -0.6f;
         if (!this.getWorld().isClient()){
@@ -235,7 +235,7 @@ public abstract class RoundTripRocketEntity extends Entity implements ExtraDataM
         while (getWorld().getBlockState(checkPos).isAir() && checkPos.getY() >= getWorld().getBottomY()){
             checkPos = checkPos.down();
         }
-        height = getBlockY()-checkPos.getY();
+        height = getBlockY() - checkPos.getY();
     }
 
     @Override
