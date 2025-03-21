@@ -13,7 +13,8 @@
     {
       "name": "earth/all",
       "order": 2,
-      "description": "{\"translate\":\"guide_book.asplor.earth.all\",\"color\":\"gold\"}"
+      "description": "{\"translate\":\"guide_book.asplor.earth.all\",\"color\":\"gold\"}",
+      "display_item": "minecraft:grass_block"
     },
     {
       "name": "earth/large_map",
@@ -73,7 +74,8 @@
     {
       "name": "the_nether/all",
       "order": 50,
-      "description": "{\"translate\":\"guide_book.asplor.the_nether.all\",\"color\":\"gold\"}"
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.all\",\"color\":\"gold\"}",
+      "display_item": "minecraft:netherrack"
     }
   ]
 }

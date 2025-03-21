@@ -30,6 +30,7 @@ import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 import net.minecraft.util.math.MathHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -53,6 +54,7 @@ public class GuideBookScreen extends Screen {
     private PageTurnWidget nextPageButton;
     private PageTurnWidget previousPageButton;
     private final ArrayList<PageTurnWidget> pageTurnWidgets = new ArrayList<>();
+    private final ArrayList<ChapterWidget> chapterWidgets = new ArrayList<>();
     private int cachedPageIndex;
     public GuideBookScreen(Text title,ItemStack book) {
         super(title);
@@ -73,7 +75,9 @@ public class GuideBookScreen extends Screen {
         MinecraftClient client = MinecraftClient.getInstance();
         ResourceManager resourceManager = client.getResourceManager();
 
-        Map<String,Integer> chapterOrder = readChapterOrder(resourceManager);
+        Pair<Map<ChapterData,Integer>,Map<String,ChapterData>> allChapterDataMaps = readChapterOrder(resourceManager);
+        Map<ChapterData, Integer> chapterOrder = allChapterDataMaps.getLeft();
+        Map<String, ChapterData> chapterName = allChapterDataMaps.getRight();
 
         NbtCompound bookNbt = book.getOrCreateNbt();
         if (bookNbt.contains(GuideBookItem.GUIDE_BOOK_DATA_KEY,9)){
@@ -90,8 +94,11 @@ public class GuideBookScreen extends Screen {
         ArrayList<String> texts = new ArrayList<>();
         ArrayList<Identifier> pictures = new ArrayList<>();
         ArrayList<Integer> picturesOffsetY = new ArrayList<>();
+        ArrayList<ChapterData> chapterDatas = new ArrayList<>();
 
         for (String filePathShort : fileIdentifiers) {
+            chapterDatas.add(chapterName.get(filePathShort));
+
             Identifier fileIdentifier = new Identifier(Asplor.MOD_ID,"guide_book/"+client.getLanguageManager().getLanguage()+"/"+filePathShort+".json");
             Identifier defaultFileIdentifier = new Identifier(Asplor.MOD_ID,"guide_book/en_us/"+filePathShort+".json");
 
@@ -113,6 +120,7 @@ public class GuideBookScreen extends Screen {
             private final List<String> pages = texts;
             private final List<Identifier> pagePictures = pictures;
             private final List<Integer> pagePictureOffsetY = picturesOffsetY;
+            private final List<ChapterData> chapterDataList = chapterDatas;
             @Override
             public int getPageCount() {
                 return pages.size();
@@ -125,6 +133,11 @@ public class GuideBookScreen extends Screen {
             @Override
             public int getPictureOffsetY(int index) {
                 return pagePictureOffsetY.get(index);
+            }
+
+            @Override
+            public ChapterData getChapterData(int index) {
+                return chapterDatas.get(index);
             }
 
             @Override
@@ -145,9 +158,10 @@ public class GuideBookScreen extends Screen {
     }
 
 
-    private Map<String,Integer> readChapterOrder(ResourceManager resourceManager){
+    private Pair<Map<ChapterData,Integer>,Map<String,ChapterData>> readChapterOrder(ResourceManager resourceManager){
         Optional<Resource> chapterDataResource = resourceManager.getResource(GUIDE_BOOK_CHAPTERS);
-        Map<String,Integer> result = new HashMap<>();
+        Map<ChapterData,Integer> result = new HashMap<>();
+        Map<String,ChapterData> result2 = new HashMap<>();
         if (chapterDataResource.isPresent()){
             try {
 
@@ -160,7 +174,17 @@ public class GuideBookScreen extends Screen {
 
                     for (JsonElement chapterElement : chapterArray){
                         JsonObject chapter = chapterElement.getAsJsonObject();
-                        result.put(JsonUtils.getString("name",chapter),JsonUtils.getIntOr("order",chapter,0));
+                        String name = JsonUtils.getString("name",chapter);
+                        Text description = Text.Serializer.fromJson(JsonUtils.getString("description",chapter));
+                        ChapterData chapterDataToAdd;
+                        if (chapter.has("display_item")){
+                            ItemStack displayItem = Registries.ITEM.get(new Identifier(JsonUtils.getString("display_item",chapter))).getDefaultStack();
+                            chapterDataToAdd = new ChapterData(name,description,displayItem);
+                        }else {
+                            chapterDataToAdd = new ChapterData(name,description);
+                        }
+                        result.put(chapterDataToAdd, JsonUtils.getIntOr("order",chapter,0));
+                        result2.put(name,chapterDataToAdd);
                     }
                 }
             } catch (IOException e) {
@@ -168,7 +192,7 @@ public class GuideBookScreen extends Screen {
                 e.printStackTrace();
             }
         }
-        return result;
+        return new Pair<>(result,result2);
     }
 
     @Nullable
@@ -264,7 +288,9 @@ public class GuideBookScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        addPageButtons();
+        int centerX = (this.width - 255) / 2;
+        addPageButtons(centerX);
+        addChapterButton(centerX);
         addCloseButton();
     }
 
@@ -274,21 +300,19 @@ public class GuideBookScreen extends Screen {
         }).dimensions(this.width / 2 - 100, 196, 200, 20).build());
     }
 
-    protected void addPageButtons() {
-        int i = (this.width - 255) / 2;
-        this.nextPageButton = this.addDrawableChild(new PageTurnWidget(i + 123, 159, true, (button) -> {
+    protected void addPageButtons(int centerX) {
+        this.nextPageButton = this.addDrawableChild(new PageTurnWidget(centerX + 123, 159, true, (button) -> {
             this.goToNextPage();
         }, true));
-        this.previousPageButton = this.addDrawableChild(new PageTurnWidget(i + 105, 159, false, (button) -> {
+        this.previousPageButton = this.addDrawableChild(new PageTurnWidget(centerX + 105, 159, false, (button) -> {
             this.goToPreviousPage();
         }, true));
-        this.addPageButton();
+        this.addPageButton(centerX);
         this.updatePageButtons();
     }
 
-    private void addPageButton(){
+    private void addPageButton(int centerX){
         int buttonCount = 4 * 2;
-        int centerX = (this.width - 255) / 2;
         for (int i = 0; i < buttonCount / 2; i++) {
             int finalI = i + 2;
             PageTurnWidget pageTurnWidgetRight = this.addDrawableChild(new PageTurnWidget((i + 1) * 19 + centerX + 123,159,true, button -> {
@@ -302,6 +326,19 @@ public class GuideBookScreen extends Screen {
 
             pageTurnWidgets.add(pageTurnWidgetLeft);
             pageTurnWidgets.add(pageTurnWidgetRight);
+        }
+    }
+
+    private void addChapterButton(int centerX){
+        for (int i = 0; i < this.contents.getPageCount(); i++) {
+            ChapterData chapterData = this.contents.getChapterData(i);
+            if (chapterData.isMainChapter){
+                int page = i;
+                ChapterWidget chapterWidget = this.addDrawableChild(new ChapterWidget(centerX + 230, 10 + chapterWidgets.size() * 20, button -> {
+                    this.jumpToPage(page);
+                },chapterData.displayItem,chapterData.description,textRenderer));
+                chapterWidgets.add(chapterWidget);
+            }
         }
     }
 
@@ -440,6 +477,8 @@ public class GuideBookScreen extends Screen {
         Identifier getPicture(int index);
         int getPictureOffsetY(int index);
 
+        ChapterData getChapterData(int index);
+
 
         default StringVisitable getPage(int index) {
             return index >= 0 && index < this.getPageCount() ? this.getPageUnchecked(index) : StringVisitable.EMPTY;
@@ -451,6 +490,30 @@ public class GuideBookScreen extends Screen {
             } else {
                 return (BookScreen.Contents)(stack.isOf(Items.WRITABLE_BOOK) ? new BookScreen.WritableBookContents(stack) : BookScreen.EMPTY_PROVIDER);
             }
+        }
+    }
+
+    public class ChapterData{
+        public final Text description;
+        public final ItemStack displayItem;
+        public final boolean isMainChapter;
+        public final String name;
+        public ChapterData(String name,Text description,ItemStack displayItem,boolean isMainChapter){
+            this.description = description;
+            this.displayItem = displayItem;
+            this.isMainChapter = isMainChapter;
+            this.name = name;
+        }
+        public ChapterData(String name,Text description,ItemStack displayItem){
+            this(name,description,displayItem,true);
+        }
+        public ChapterData(String name,Text description){
+            this(name,description,ItemStack.EMPTY,false);
+        }
+
+        @Override
+        public String toString() {
+            return "Chapter :"+this.name+" Description :"+description+" Item :"+displayItem+" "+isMainChapter;
         }
     }
 }
