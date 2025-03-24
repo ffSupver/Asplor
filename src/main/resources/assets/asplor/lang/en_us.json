@@ -402,6 +402,10 @@
   "asplor.ponder.smart_mechanical_arm.schematic.text_1": "Some recipe requires a processing schematic",
   "asplor.ponder.smart_mechanical_arm.schematic.text_2": "Right-click on the side of alloy depot with a processing schematic",
   "asplor.ponder.smart_mechanical_arm.schematic.text_3": "It can process with a schematic now",
+  "asplor.ponder.atmospheric_regulator.use.header": "Using Atmospheric Regulator",
+  "asplor.ponder.atmospheric_regulator.use.text_1": "Atmospheric regulator can distributes oxygen and regulates the temperature.",
+  "asplor.ponder.atmospheric_regulator.use.text_2": "Add oxygen into atmospheric regulator with fluid pipe",
+  "asplor.ponder.atmospheric_regulator.use.text_3": "Connect atmospheric regulator with oxygen pipe. The atmospheric regulators connected will automatically evenly distribute the oxygen to other atmospheric regulators.",
 
 
   "asplor.screen.world_adder": "World Adder",

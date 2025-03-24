@@ -116,6 +116,10 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
     }
 
     private void checkBlocks(){
+        if (OxygenApi.API.hasOxygen(getWorld())){
+            return;
+        }
+
         Set<BlockPos> lastBlocksCopy = Set.copyOf(lastBlocks);
         Set<BlockPos> newBlocks = FloodFill3D.run(
                 getWorld(),getPos().offset(getFacingSide()),

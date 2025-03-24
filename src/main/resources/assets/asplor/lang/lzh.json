@@ -407,6 +407,10 @@
   "asplor.ponder.smart_mechanical_arm.schematic.text_1": "一些配方要求使用处理蓝图来处理",
   "asplor.ponder.smart_mechanical_arm.schematic.text_2": "在合金置物台的侧面用处理蓝图来右键以添加它",
   "asplor.ponder.smart_mechanical_arm.schematic.text_3": "现在它可以处理需要这个处理蓝图的配方了",
+  "asplor.ponder.atmospheric_regulator.use.header": "如何使用大气调节器",
+  "asplor.ponder.atmospheric_regulator.use.text_1": "大气调节器可以释放氧气并调节温度",
+  "asplor.ponder.atmospheric_regulator.use.text_2": "用流体管道像大气调节器加入氧气",
+  "asplor.ponder.atmospheric_regulator.use.text_3": "用氧气管道连接大气调节器,连接的大气调节器会自动均摊其中的氧气",
 
 
   "planet.asplor.the_nether": "冥",

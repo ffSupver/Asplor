@@ -37,7 +37,7 @@ public class AtmosphericRegulator extends Block implements IBE<AtmosphericRegula
 
     @Override
     public BlockEntityType<? extends AtmosphericRegulatorEntity> getBlockEntityType() {
-        return AllBlockEntityTypes.ATMOSPHERIC_REGULATOR_ENTITY.get();
+        return AllBlockEntityTypes.ATMOSPHERIC_REGULATOR_ENTITY_IRON.get();
     }
 
     @Override

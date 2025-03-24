@@ -188,6 +188,8 @@ public class ModItemGroups {
                             entries.add(IRON_AIRLOCK_SWITCH);
                             entries.add(IRON_PLATING_AIRLOCK_SWITCH);
                             entries.add(POLISHED_CUT_CALCITE_AIRLOCK_SWITCH);
+                            entries.add(ATMOSPHERIC_REGULATOR_IRON);
+                            entries.add(OXYGEN_PIPE_IRON);
                         }).build());
 
     }

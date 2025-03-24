@@ -10,7 +10,7 @@ import com.simibubi.create.infrastructure.ponder.scenes.BearingScenes;
 import com.simibubi.create.infrastructure.ponder.scenes.ProcessingScenes;
 
 import static com.ffsupver.asplor.AllBlocks.*;
-import static com.ffsupver.asplor.item.ModItems.*;
+import static com.ffsupver.asplor.item.ModItems.PACKER;
 
 public class PonderIndex {
     static final PonderRegistrationHelper HELPER = new PonderRegistrationHelper(Asplor.MOD_ID);
@@ -39,7 +39,8 @@ public class PonderIndex {
                 .addStoryBoard("melting_furnace/large_melting_furnace",MeltingFurnaceScenes::largeMeltingFurnace);
         HELPER.forComponents(ROCKET_CARGO_LOADER,ROCKET_FUEL_LOADER)
                 .addStoryBoard("cargo_rocket/use", CargoRocketScenes::use);
-
+        HELPER.forComponents(ATMOSPHERIC_REGULATOR_IRON)
+                .addStoryBoard("atmospheric_regulator/use", AtmosphericRegulatorScenes::use);
 
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)
                 .addStoryBoard("mechanical_press/pressing", ProcessingScenes::pressing)

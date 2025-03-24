@@ -209,10 +209,9 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .validBlocks(PLANET_LOCATOR)
             .renderer(()-> PlanetLocatorRenderer::new)
             .register();
-    public static final BlockEntityEntry<AtmosphericRegulatorEntity> ATMOSPHERIC_REGULATOR_ENTITY = REGISTRATE
-            .blockEntity("atmospheric_regulator", AtmosphericRegulatorEntity::new)
-//            .validBlocks()
-//            .renderer(()-> PlanetLocatorRenderer::new)
+    public static final BlockEntityEntry<AtmosphericRegulatorEntity> ATMOSPHERIC_REGULATOR_ENTITY_IRON = REGISTRATE
+            .blockEntity("atmospheric_regulator_iron", AtmosphericRegulatorEntity::new)
+            .validBlocks(ATMOSPHERIC_REGULATOR_IRON)
             .register();
 
     //注册普通方块实体
