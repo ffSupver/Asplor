@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "asplor:block/atmospheric_regulator/iron/u"
+    },
+    "facing=down": {
+      "model": "asplor:block/atmospheric_regulator/iron/u",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "asplor:block/atmospheric_regulator/iron/n"
+    },
+    "facing=south": {
+      "model": "asplor:block/atmospheric_regulator/iron/s"
+    },
+    "facing=east": {
+      "model": "asplor:block/atmospheric_regulator/iron/e"
+    },
+    "facing=west": {
+      "model": "asplor:block/atmospheric_regulator/iron/w"
+    }
+  }
+}

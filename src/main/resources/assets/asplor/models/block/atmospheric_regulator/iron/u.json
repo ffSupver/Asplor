@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/atmospheric_regulator/iron/bottom",
+    "side": "asplor:block/atmospheric_regulator/iron/side",
+    "top": "asplor:block/atmospheric_regulator/iron/top"
+  }
+}

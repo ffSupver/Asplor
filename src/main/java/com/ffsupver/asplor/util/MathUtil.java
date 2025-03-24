@@ -1,5 +1,8 @@
 package com.ffsupver.asplor.util;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.random.Random;
 
 public final class MathUtil {
@@ -59,5 +62,12 @@ public final class MathUtil {
     }
     public static float cos(float a){
         return (float) Math.cos(a);
+    }
+
+    public static Direction directionFromPos(BlockPos centerPos,BlockPos directionPos){
+        Vec3i checkVec = new Vec3i(directionPos.getX() - centerPos.getX(),
+                directionPos.getY() - centerPos.getY(),
+                directionPos.getZ() - centerPos.getZ());
+        return Direction.fromVector(checkVec.getX(),checkVec.getY(),checkVec.getZ());
     }
 }

@@ -6,6 +6,8 @@
     "asplor:outer_space/astra_diabase_copper_ore",
     "asplor:outer_space/astra_iron_ore",
     "asplor:outer_space/astra_silver_ore",
-    "asplor:meteorite"
+    "asplor:meteorite",
+    "asplor:atmospheric_regulator/iron",
+    "asplor:oxygen_pipe/iron"
   ]
 }

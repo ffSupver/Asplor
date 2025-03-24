@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/atmospheric_regulator/iron/left_up",
+    "east": "asplor:block/atmospheric_regulator/iron/straight_horizontal",
+    "north": "asplor:block/atmospheric_regulator/iron/straight_horizontal",
+    "particle": "minecraft:block/iron_block",
+    "south": "asplor:block/atmospheric_regulator/iron/side",
+    "up": "asplor:block/atmospheric_regulator/iron/left_down",
+    "west": "asplor:block/atmospheric_regulator/iron/side"
+  }
+}

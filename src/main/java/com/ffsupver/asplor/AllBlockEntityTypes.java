@@ -7,6 +7,7 @@ import com.ffsupver.asplor.block.alloyDepot.AlloyDepotRenderer;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressEntity;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressInstance;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressRenderer;
+import com.ffsupver.asplor.block.atmosphericRegulator.AtmosphericRegulatorEntity;
 import com.ffsupver.asplor.block.battery.BatteryEntity;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderEntity;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderRenderer;
@@ -207,6 +208,11 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("planet_locator", PlanetLocatorEntity::new)
             .validBlocks(PLANET_LOCATOR)
             .renderer(()-> PlanetLocatorRenderer::new)
+            .register();
+    public static final BlockEntityEntry<AtmosphericRegulatorEntity> ATMOSPHERIC_REGULATOR_ENTITY = REGISTRATE
+            .blockEntity("atmospheric_regulator", AtmosphericRegulatorEntity::new)
+//            .validBlocks()
+//            .renderer(()-> PlanetLocatorRenderer::new)
             .register();
 
     //注册普通方块实体

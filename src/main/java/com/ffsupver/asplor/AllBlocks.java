@@ -6,6 +6,8 @@ import com.ffsupver.asplor.block.airlockSwitch.AirlockSwitchItem;
 import com.ffsupver.asplor.block.alloyChest.AlloyChest;
 import com.ffsupver.asplor.block.alloyDepot.AlloyDepot;
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPress;
+import com.ffsupver.asplor.block.atmosphericRegulator.AtmosphericRegulator;
+import com.ffsupver.asplor.block.atmosphericRegulator.OxygenPipe;
 import com.ffsupver.asplor.block.battery.Battery;
 import com.ffsupver.asplor.block.battery.BatteryModel;
 import com.ffsupver.asplor.block.blocks.*;
@@ -304,7 +306,12 @@ public class AllBlocks {
                     .item((lightningAbsorber, settings) -> new DescriptionBlockItem(lightningAbsorber,settings,Text.translatable("description.asplor.chest_sorter")))
                     .build()
                     .register();
-
+    public static final BlockEntry<AtmosphericRegulator> ATMOSPHERIC_REGULATOR_IRON =
+            REGISTRATE.block("atmospheric_regulator/iron", AtmosphericRegulator::new)
+                    .properties(p -> FabricBlockSettings.copy(IRON_BLOCK))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
 
 
     //注册普通方块
@@ -369,6 +376,7 @@ public class AllBlocks {
     public static final Block ASTRA_DIABASE_LOG = registerBlock("outer_space/astra_diabase_log",createLogBlock(MapColor.PURPLE,MapColor.MAGENTA));
     public static final Block ASTRA_DIABASE_LEAVES = registerBlock("outer_space/astra_diabase_leaves",createLeavesBlock(BlockSoundGroup.AZALEA_LEAVES));
     public static final Block ASTRA_DIABASE_WOOD = registerBlock("outer_space/astra_diabase_wood",createLogBlock(MapColor.PURPLE,MapColor.MAGENTA));
+    public static final Block OXYGEN_PIPE_IRON = registerBlock("oxygen_pipe/iron",new OxygenPipe(FabricBlockSettings.copy(IRON_BLOCK)));
 
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
