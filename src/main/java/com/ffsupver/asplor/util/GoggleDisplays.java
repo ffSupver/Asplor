@@ -19,9 +19,13 @@ public class GoggleDisplays {
         //注册工程师护目镜显示
         GogglesItem.addIsWearingPredicate(player ->{
                     ItemStack itemStack = player.getEquippedStack(EquipmentSlot.HEAD);
-                    return itemStack.hasNbt()&&itemStack.getNbt().getBoolean("goggle");
+                    return isGoggle(itemStack);
                 }
         );
+    }
+
+    public static boolean isGoggle(ItemStack itemStack){
+        return itemStack.hasNbt()&&itemStack.getNbt().getBoolean("goggle");
     }
 
     public static boolean addEnergyDisplayToGoggles(List<Text> tooltip, SmartEnergyStorage energyStorage){

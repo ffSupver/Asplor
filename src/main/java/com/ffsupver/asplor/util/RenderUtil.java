@@ -1,6 +1,9 @@
 package com.ffsupver.asplor.util;
 
 import com.jozufozu.flywheel.core.PartialModel;
+import com.jozufozu.flywheel.core.model.BakedModelBuilder;
+import com.jozufozu.flywheel.core.model.ShadeSeparatedBufferedData;
+import com.simibubi.create.CreateClient;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import earth.terrarium.adastra.client.dimension.ModDimensionSpecialEffects;
@@ -77,6 +80,17 @@ public final class RenderUtil {
     public static void renderModel(BlockEntity be, MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int light){
         VertexConsumer solid = bufferSource.getBuffer(RenderLayer.getSolid());
         SuperByteBuffer modelBuffer = CachedBufferer.partial(model,be.getCachedState());
+        draw(modelBuffer,ms,solid,light);
+    }
+
+    public static void renderModel(MatrixStack ms, VertexConsumerProvider bufferSource, PartialModel model,int light) {
+        VertexConsumer solid = bufferSource.getBuffer(RenderLayer.getTranslucent());
+        SuperByteBuffer modelBuffer = CreateClient.BUFFER_CACHE.get(CachedBufferer.PARTIAL,model,()->{
+            ShadeSeparatedBufferedData sS = new BakedModelBuilder(model.get()).build();
+            SuperByteBuffer superByteBuffer = new SuperByteBuffer(sS);
+            sS.release();
+            return superByteBuffer;
+        });
         draw(modelBuffer,ms,solid,light);
     }
 
