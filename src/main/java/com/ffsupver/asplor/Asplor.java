@@ -1,6 +1,5 @@
 package com.ffsupver.asplor;
 
-import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderServer;
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolTypes;
 import com.ffsupver.asplor.enchantment.ModEnchantments;
 import com.ffsupver.asplor.entity.ModEntities;
@@ -17,7 +16,6 @@ import com.ffsupver.asplor.structure.ModStructureTypes;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.ffsupver.asplor.villager.ModTraders;
 import com.ffsupver.asplor.villager.ModVillagers;
-import com.ffsupver.asplor.world.WorldData;
 import com.ffsupver.asplor.world.WorldRenderingData;
 import com.simibubi.create.Create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
@@ -26,7 +24,6 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
@@ -105,8 +102,6 @@ public class Asplor implements ModInitializer {
 		ICellHandlerRegister.register();
 
 
-		registerServerLifeCycleListener();
-		ChunkLoaderServer.registerLoadChunkFunction();
 
 		LargeMapState.loadMapIcon();
 
@@ -138,16 +133,6 @@ public class Asplor implements ModInitializer {
 		registry.accept(new Identifier(MOD_ID, "planets"), new PlanetData());
 	}
 
-	private static void registerServerLifeCycleListener(){
-		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
-			WorldData.loadWorlds(server);
-			ChunkLoaderServer.loadChunksFromDisk(server);
-		});
-		ServerLifecycleEvents.SERVER_STOPPING.register(server -> {
-			ChunkLoaderServer.saveChunksToDisk(server);
-			WorldData.saveWorlds(server);
-		});
-	}
 
 
 

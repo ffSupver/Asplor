@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.chunkLoader;
 
+import appeng.server.services.ChunkLoadingService;
 import com.ffsupver.asplor.item.ModItems;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
@@ -13,6 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
 
 import java.util.List;
 
@@ -28,14 +30,19 @@ public class ChunkLoaderEntity extends SmartBlockEntity {
     @Override
     public void tick() {
         super.tick();
-        if (ticksRemain > 0){
-            ticksRemain--;
-            if (world instanceof ServerWorld serverWorld && !ChunkLoaderServer.hasChunk(serverWorld,serverWorld.getChunk(pos).getPos())){
-                ChunkLoaderServer.addChunk(serverWorld,serverWorld.getChunk(pos).getPos(),pos);
+            if (ticksRemain > 0) {
+                ticksRemain--;
+                if (world instanceof ServerWorld serverWorld) {
+                    if (!isChunkLoad(serverWorld)) {
+                        addChunk(serverWorld);
+                    }
+                }
+            } else {
+                if (world instanceof ServerWorld serverWorld) {
+                    removeChunk(serverWorld);
+                }
             }
-        }else {
-            ChunkLoaderServer.removeChunk(world,world.getChunk(pos).getPos(),pos);
-        }
+
     }
 
     public int getTicksRemain() {
@@ -83,5 +90,27 @@ public class ChunkLoaderEntity extends SmartBlockEntity {
             }
         }
         return ActionResult.PASS;
+    }
+
+    @Override
+    public void destroy() {
+        if (world instanceof ServerWorld serverWorld){
+            removeChunk(serverWorld);
+        }
+        super.destroy();
+    }
+
+    private ChunkPos getChunkPos(){return getWorld().getChunk(getPos()).getPos();}
+
+    private boolean removeChunk(ServerWorld serverWorld){
+        return ChunkLoadingService.getInstance().releaseChunk(serverWorld,getPos(),getChunkPos());
+    }
+
+    private boolean addChunk(ServerWorld serverWorld){
+        return ChunkLoadingService.getInstance().forceChunk(serverWorld,getPos(),getChunkPos());
+    }
+
+    private boolean isChunkLoad(ServerWorld serverWorld){
+        return ChunkLoadingService.getInstance().isChunkForced(serverWorld,getChunkPos().x,getChunkPos().z);
     }
 }

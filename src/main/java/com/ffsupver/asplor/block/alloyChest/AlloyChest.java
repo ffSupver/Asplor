@@ -32,7 +32,6 @@ public class AlloyChest extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING;
     public static final BooleanProperty OPEN;
     public AlloyChest(Settings settings) {
-
         super(settings);
         this.setDefaultState(((BlockState) this.stateManager.getDefaultState()).with(FACING, Direction.NORTH).with(OPEN,false));
     }

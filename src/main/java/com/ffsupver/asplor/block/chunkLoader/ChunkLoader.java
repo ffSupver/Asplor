@@ -2,6 +2,7 @@ package com.ffsupver.asplor.block.chunkLoader;
 
 import com.ffsupver.asplor.AllBlockEntityTypes;
 import com.simibubi.create.foundation.block.IBE;
+import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
@@ -27,8 +28,10 @@ public class ChunkLoader extends Block implements IBE<ChunkLoaderEntity> {
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if(!state.isOf(newState.getBlock())){
+            withBlockEntityDo(world,pos, SmartBlockEntity::destroy);
+        }
         super.onStateReplaced(state, world, pos, newState, moved);
-        ChunkLoaderServer.removeChunk(world,world.getChunk(pos).getPos(),pos);
     }
 
     @Override
