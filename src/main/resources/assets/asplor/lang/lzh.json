@@ -275,6 +275,7 @@
   "description.asplor.meteorite.charged": "带电",
   "description.asplor.planet_locator": "通过陨石碎片定位行星",
   "description.asplor.chest_sorter": "右键以将手上的物品放入对应的箱子",
+  "description.asplor.charged_proof": "防电",
 
   "description.asplor.enchantment.strength": "增加箭的飞行速度",
   "description.asplor.enchantment.mechanically_proficient": "减少在机械手上的耐久消耗,完全减免如果等级达到",

@@ -275,6 +275,7 @@
   "description.asplor.meteorite.charged": "Charged",
   "description.asplor.planet_locator": "Locate planets by meteorite fragments",
   "description.asplor.chest_sorter": "Right-click to place the item in hand into the corresponding chest",
+  "description.asplor.charged_proof": "Charged Proof",
 
   "description.asplor.enchantment.strength": "Increases the speed of arrows",
   "description.asplor.enchantment.mechanically_proficient": "Reduces damage of tools when used by a deployer. Completely reduce at ",

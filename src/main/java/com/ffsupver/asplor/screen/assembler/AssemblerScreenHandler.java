@@ -3,9 +3,11 @@ package com.ffsupver.asplor.screen.assembler;
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.item.item.GuideBookItem;
+import com.ffsupver.asplor.planet.Charged;
 import com.ffsupver.asplor.recipe.AssemblerRecipe;
 import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.screen.ModScreenHandlers;
+import com.ffsupver.asplor.util.RenderUtil;
 import com.simibubi.create.AllItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -91,7 +93,8 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
         boolean isAddingGoggles = inputStack1.getItem() instanceof ArmorItem &&((ArmorItem) inputStack1.getItem()).getType().equals(ArmorItem.Type.HELMET)&&inputStack2.isOf(AllItems.GOGGLES.asItem());
         boolean isAddingChest = inputStack1.getItem() instanceof ArmorItem && ((ArmorItem) inputStack1.getItem()).getType().equals(ArmorItem.Type.CHESTPLATE)&&(inputStack2.isOf(Items.CHEST)||inputStack2.isOf(AllBlocks.ALLOY_CHEST.asItem()));
         boolean isAddingMysteriousPages = inputStack1.isOf(ModItems.GUIDE_BOOK) && inputStack2.isOf(ModItems.MYSTERIOUS_PAPER) && GuideBookItem.canAdd(inputStack1,inputStack2);
-        if(inputStack3.isOf(AllItems.SUPER_GLUE.asItem())){
+        boolean isAddingChargedProof = Charged.canAddChargedProof(inputStack1,inputStack2);
+        if(inputStack3.isOf(AllItems.SUPER_GLUE.asItem())) {
             if (isAddingGoggles) {
                 ItemStack outputStack = inputStack1.copy();
 
@@ -113,66 +116,73 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
                 outputStack.setNbt(outputStackNbt);
 
                 output.setStack(0, outputStack);
-            }else if (isAddingChest){
-                NbtCompound originBackpackData=new NbtCompound();
+            } else if (isAddingChest) {
+                NbtCompound originBackpackData = new NbtCompound();
                 String backpackType = "null";
-                DefaultedList<ItemStack> originInventory=DefaultedList.ofSize(54,ItemStack.EMPTY);
-                if (inputStack1.hasNbt()&&inputStack1.getNbt().contains(backpackDataKey,10)){
-                    originBackpackData=inputStack1.getNbt().getCompound(backpackDataKey).copy();
+                DefaultedList<ItemStack> originInventory = DefaultedList.ofSize(54, ItemStack.EMPTY);
+                if (inputStack1.hasNbt() && inputStack1.getNbt().contains(backpackDataKey, 10)) {
+                    originBackpackData = inputStack1.getNbt().getCompound(backpackDataKey).copy();
                 }
-                if (!originBackpackData.isEmpty()&&originBackpackData.contains(backpackTypeKey,8)){
-                    backpackType=originBackpackData.getString(backpackTypeKey);
-                    Inventories.readNbt(originBackpackData,originInventory);
+                if (!originBackpackData.isEmpty() && originBackpackData.contains(backpackTypeKey, 8)) {
+                    backpackType = originBackpackData.getString(backpackTypeKey);
+                    Inventories.readNbt(originBackpackData, originInventory);
                 }
-                if (inputStack2.isOf(Items.CHEST)){
-                    if (!backpackType.equals("null")&&(backpackType.equals("large")||backpackType.equals("small"))){
+                if (inputStack2.isOf(Items.CHEST)) {
+                    if (!backpackType.equals("null") && (backpackType.equals("large") || backpackType.equals("small"))) {
                         removeOutput();
-                    }else {
-                        Inventories.writeNbt(originBackpackData,originInventory);
-                        originBackpackData.putString(backpackTypeKey,"small");
+                    } else {
+                        Inventories.writeNbt(originBackpackData, originInventory);
+                        originBackpackData.putString(backpackTypeKey, "small");
                         ItemStack outputStack = inputStack1.copy();
                         NbtCompound outputStackNbt = outputStack.getOrCreateNbt();
-                        outputStackNbt.put(backpackDataKey,originBackpackData);
+                        outputStackNbt.put(backpackDataKey, originBackpackData);
                         addDescription(outputStackNbt,
                                 Text.translatable("description.asplor.chest").styled(style -> style.withColor(Formatting.GOLD)),
                                 Text.empty()
                         );
                         outputStack.setNbt(outputStackNbt);
-                        this.output.setStack(0,outputStack);
+                        this.output.setStack(0, outputStack);
                     }
-                }else if (inputStack2.isOf(AllBlocks.ALLOY_CHEST.asItem())){
-                    if (backpackType.equals("large")){
+                } else if (inputStack2.isOf(AllBlocks.ALLOY_CHEST.asItem())) {
+                    if (backpackType.equals("large")) {
                         removeOutput();
-                    }else {
-                        Inventories.writeNbt(originBackpackData,originInventory);
-                        originBackpackData.putString(backpackTypeKey,"large");
+                    } else {
+                        Inventories.writeNbt(originBackpackData, originInventory);
+                        originBackpackData.putString(backpackTypeKey, "large");
                         ItemStack outputStack = inputStack1.copy();
                         NbtCompound outputStackNbt = outputStack.getOrCreateNbt();
-                        outputStackNbt.put(backpackDataKey,originBackpackData);
+                        outputStackNbt.put(backpackDataKey, originBackpackData);
                         addDescription(outputStackNbt,
                                 Text.translatable("description.asplor.alloy_chest").styled(style -> style.withColor(Formatting.GOLD)),
                                 Text.translatable("description.asplor.chest").styled(style -> style.withColor(Formatting.GOLD))
                         );
                         outputStack.setNbt(outputStackNbt);
-                        this.output.setStack(0,outputStack);
+                        this.output.setStack(0, outputStack);
                     }
                 }
 
-            }else if (isAddingMysteriousPages){
+            } else if (isAddingMysteriousPages) {
                 ItemStack outputStack = inputStack1.copy();
                 NbtCompound outputStackNbt = outputStack.getOrCreateNbt();
                 NbtCompound pageNbt = inputStack2.getOrCreateNbt();
                 NbtList outputChapterList;
-                if (outputStackNbt.contains(GuideBookItem.GUIDE_BOOK_DATA_KEY,9)){
-                     outputChapterList = outputStackNbt.getList(GuideBookItem.GUIDE_BOOK_DATA_KEY, 8);
-                }else {
+                if (outputStackNbt.contains(GuideBookItem.GUIDE_BOOK_DATA_KEY, 9)) {
+                    outputChapterList = outputStackNbt.getList(GuideBookItem.GUIDE_BOOK_DATA_KEY, 8);
+                } else {
                     outputChapterList = new NbtList();
                 }
                 outputChapterList.add(NbtString.of(pageNbt.getString("chapter")));
-                outputStackNbt.put(GuideBookItem.GUIDE_BOOK_DATA_KEY,outputChapterList);
+                outputStackNbt.put(GuideBookItem.GUIDE_BOOK_DATA_KEY, outputChapterList);
                 outputStack.setNbt(outputStackNbt);
 
 
+                this.output.setStack(0, outputStack);
+            }else if (isAddingChargedProof) {
+                ItemStack outputStack = Charged.addChargedProof(inputStack1.copy());
+                NbtCompound nbt = outputStack.getOrCreateNbt();
+                Text proofDescription = Text.translatable("description.asplor.charged_proof").formatted(Formatting.GOLD);
+                RenderUtil.addDescription(nbt, proofDescription, proofDescription);
+                outputStack.setNbt(nbt);
                 this.output.setStack(0,outputStack);
             }else if (getCurrentRecipe(input).isPresent()) {
                 currenRecipe = getCurrentRecipe(input).get();
@@ -220,7 +230,8 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
 
     @Override
     protected ForgingSlotsManager getForgingSlotsManager() {
-         return ForgingSlotsManager.create().input(0, 26, 48, (stack)->{
+         return ForgingSlotsManager.create()
+                 .input(0, 26, 48, (stack)->{
                     return true;
                  })
                  .input(1, 44, 48, (stack)->{
@@ -235,6 +246,14 @@ public class AssemblerScreenHandler extends ForgingScreenHandler {
     @Override
     public boolean canUse(PlayerEntity player) {
         return true;
+    }
+
+    @Override
+    public int getSlotFor(ItemStack stack) {
+        if(stack.isOf(AllItems.SUPER_GLUE.get())){
+            return getForgingSlotsManager().getInputSlotIndices().get(2);
+        }
+        return super.getSlotFor(stack);
     }
 
     @Override
