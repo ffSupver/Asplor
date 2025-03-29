@@ -51,6 +51,7 @@ public class WorldAdderScreen extends Screen {
     private ButtonWidget buttonGravity;
     private ButtonWidget buttonSolarPower;
     private ButtonWidget buttonTier;
+    private ButtonWidget buttonCharged;
     private final PlanetCreatingData planetData = new PlanetCreatingData();
 
     private final ArrayList<String> blockList = new ArrayList<>();
@@ -211,6 +212,12 @@ public class WorldAdderScreen extends Screen {
                 }
         );
 
+        this.buttonCharged = createButton(-50,20,"asplor.screen.world_adder.charged",
+                buttonWidget -> {
+                    planetData.charged = Boolean.parseBoolean(inputName.getText());
+                }
+        );
+
 
         this.inputName.setMaxLength(1024);
         this.inputName.setVisible(true);
@@ -253,6 +260,7 @@ public class WorldAdderScreen extends Screen {
         this.buttonGravity.visible = visible;
         this.buttonSolarPower.visible = visible;
         this.buttonTier.visible = visible;
+        this.buttonCharged.visible = visible;
     }
 
     private void updateColumn(){
@@ -398,7 +406,7 @@ public class WorldAdderScreen extends Screen {
             case PLANET -> {
                 List<String> info = List.of(
                         "oxygen " + planetData.oxygen,"temperature " + planetData.temperature,"gravity " + planetData.gravity,
-                        "solarPower " + planetData.solarPower,"tier " + planetData.tier
+                        "solarPower " + planetData.solarPower,"tier " + planetData.tier , " charged "+ planetData.charged
                 );
                 for (int i = 0; i < info.size(); i++) {
                     String string = info.get(i);

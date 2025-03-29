@@ -1,19 +1,25 @@
 package com.ffsupver.asplor.world;
 
+import com.ffsupver.asplor.Asplor;
+import com.ffsupver.asplor.planet.PlanetData;
 import com.ffsupver.asplor.util.MathUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import earth.terrarium.adastra.client.dimension.ModDimensionSpecialEffects;
+import earth.terrarium.adastra.common.planets.AdAstraData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 import org.joml.Matrix4f;
 @Environment(EnvType.CLIENT)
 
 public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
+    private static final Identifier CHARGED_TEXTURE = new Identifier(Asplor.MOD_ID,"textures/environment/charged/");
     private final WorldRenderingData.PlanetRendererData planetRendererData;
 
     public OuterSpacePlanetRender(WorldRenderingData.PlanetRendererData rendererData) {
@@ -107,6 +113,18 @@ public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
         renderFace(matrixEntry,vertexConsumer,texture,face,scaleY,offsetX / 4f,offsetY / 4f,(offsetX + 1) / 4f,(offsetY + 1) / 4f);
     }
 
+    private static void renderPlanet(MatrixStack.Entry matrixEntry, BufferBuilder vertexConsumer,
+                                     Identifier texture, MathUtil.CubeFace face,float scaleY,float u1,float v1,float u2,float v2,long worldTime,boolean charged){
+        renderFace(matrixEntry,vertexConsumer,texture,face,scaleY,u1,v1,u2,v2);
+        if (charged){
+            int i = (int) (worldTime % 100);
+            if (i >= 0 && i < 7) {
+                renderFace(matrixEntry, vertexConsumer, CHARGED_TEXTURE.withPath(p -> p + i + ".png"), face, scaleY * 0.95f, u1, v1, u2, v2);
+            }
+        }
+
+    }
+
     private static void renderFace(MatrixStack.Entry matrixEntry, BufferBuilder vertexConsumer,
                                    Identifier texture, MathUtil.CubeFace face,float scaleY,float u1,float v1,float u2,float v2) {
             MinecraftClient.getInstance().getTextureManager().bindTexture(texture);
@@ -145,13 +163,13 @@ public class OuterSpacePlanetRender extends ModDimensionSpecialEffects {
         BufferBuilder consumerProvider = tessellator.getBuffer();
 
         poseStack.push();
-        renderFace(matrixEntry,consumerProvider,planetRendererData.planetTexture(), MathUtil.CubeFace.D, isOrbit ? 1.5f : 1.2f,0,0,1,1);
+        RegistryKey<World> planetWorldKey = isOrbit ? AdAstraData.getPlanet(level.getRegistryKey()).getOrbitPlanet().orElse(level.getRegistryKey()) : level.getRegistryKey();
+        renderPlanet(matrixEntry,consumerProvider,planetRendererData.planetTexture(), MathUtil.CubeFace.D,
+                isOrbit ? 1.5f : 1.2f,0,0,1,1,level.getTime(), PlanetData.isCharged(planetWorldKey));
         poseStack.pop();
 
 
         return r;
     }
-
-
 
 }

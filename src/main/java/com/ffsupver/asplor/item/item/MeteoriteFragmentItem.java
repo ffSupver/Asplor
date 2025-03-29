@@ -52,5 +52,8 @@ public class MeteoriteFragmentItem extends Item {
         if (planetCreatingData.solarPower != null){
             tooltip.add(Text.translatable( "description.asplor.meteorite.solar_power",planetCreatingData.solarPower).formatted(Formatting.GRAY));
         }
+        if (planetCreatingData.charged != null && planetCreatingData.charged){
+            tooltip.add(Text.translatable("description.asplor.meteorite.charged").formatted(Formatting.GRAY));
+        }
     }
 }

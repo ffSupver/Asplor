@@ -35,6 +35,10 @@ public class PlanetData extends JsonDataLoader {
         return false;
     }
 
+    public static PlanetEnvironment getPlanetEnvironment(RegistryKey<World> worldKey){
+        return PLANET_ENVIRONMENTS.get(worldKey);
+    }
+
     public static Map<RegistryKey<World>,PlanetEnvironment> planetEnvironments(){
         return PLANET_ENVIRONMENTS;
     }

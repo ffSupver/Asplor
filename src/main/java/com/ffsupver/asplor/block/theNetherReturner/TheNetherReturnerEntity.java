@@ -21,6 +21,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.TeleportTarget;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TheNetherReturnerEntity extends SmartBlockEntity {
@@ -28,6 +29,7 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
     private boolean hasTarget;
     private BlockPos targetPos;
     private int timesRemain;
+    private final ArrayList<Entity> entitiesToTeleport = new ArrayList<>();
 
     //render
     private int rotation;
@@ -48,6 +50,8 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
             return;
         }
 
+        teleportMarkedEntity();
+
         if (timesRemain <= 0){
             this.active = false;
             this.hasTarget = false;
@@ -59,32 +63,44 @@ public class TheNetherReturnerEntity extends SmartBlockEntity {
         }
 
 
+
        List<Entity> entitiesToReturn = world.getOtherEntities(null, new Box(pos.getX(), pos.getY()+1, pos.getZ(), pos.getX() + 1, pos.getY()+2, pos.getZ() + 1), (entity -> true));
 
         for (Entity entity : entitiesToReturn){
+            if (timesRemain > 0){
+                entitiesToTeleport.add(entity);
+                timesRemain -= 1;
+                notifyUpdate();
+            }else {
+                break;
+            }
+        }
 
-            if (!world.isClient()){
-                if (world.getDimensionKey().getValue().equals(new Identifier(Asplor.MOD_ID,"the_nether"))) {
+    }
+
+    private void teleportMarkedEntity(){
+        for (Entity entity : entitiesToTeleport){
+            if (!world.isClient()) {
+                if (world.getDimensionKey().getValue().equals(new Identifier(Asplor.MOD_ID, "the_nether"))) {
                     ServerWorld overworld = world.getServer().getWorld(RegistryKey.of(RegistryKeys.WORLD, new Identifier("overworld")));
 
                     TeleportTarget teleportTarget = new TeleportTarget(
-                           hasTarget ?
-                                   targetPos.toCenterPos() :
-                                   new Vec3d(entity.getX(), overworld.getHeight() + overworld.getBottomY(), entity.getZ()),
+                            hasTarget ?
+                                    targetPos.toCenterPos() :
+                                    new Vec3d(entity.getX(), overworld.getHeight() + overworld.getBottomY(), entity.getZ()),
                             entity.getVelocity(), entity.getYaw(), entity.getPitch());
 
 
                     if (entity instanceof LivingEntity) {
                         ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 600));
                     }
-                    timesRemain -= 1;
                     FabricDimensionInternals.changeDimension(entity, overworld, teleportTarget);
                 }
                 sendData();
             }
         }
-
     }
+
 
     public int getRotation() {
         return rotation;

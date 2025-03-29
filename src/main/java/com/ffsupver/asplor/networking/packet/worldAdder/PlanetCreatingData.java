@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.networking.packet.worldAdder;
 
+import com.ffsupver.asplor.planet.PlanetData;
 import earth.terrarium.adastra.api.planets.Planet;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
@@ -12,6 +13,7 @@ public class PlanetCreatingData {
     public Float gravity;
     public Integer tier;
     public Integer solarPower;
+    public Boolean charged;
 
     // 写入数据到 PacketByteBuf
     public void writeToBuffer(PacketByteBuf buf) {
@@ -36,6 +38,11 @@ public class PlanetCreatingData {
 
         // 处理 solarPower 字段，Integer 可能为 null
         buf.writeInt(solarPower != null ? solarPower : Integer.MIN_VALUE);  // 使用 Integer.MIN_VALUE 表示 null
+
+        buf.writeBoolean(charged != null);  // 写入是否为 null
+        if (charged != null) {
+            buf.writeBoolean(charged);  // 如果不为 null，则写入值
+        }
     }
     public static PlanetCreatingData readFromBuffer(PacketByteBuf buf) {
         PlanetCreatingData planetData = new PlanetCreatingData();
@@ -58,6 +65,10 @@ public class PlanetCreatingData {
         int solarPower = buf.readInt();
         planetData.solarPower = (solarPower == Integer.MIN_VALUE) ? null : solarPower;
 
+        if (buf.readBoolean()) {
+            planetData.charged = buf.readBoolean();
+        }
+
         return planetData;
     }
 
@@ -78,6 +89,9 @@ public class PlanetCreatingData {
         if (solarPower != null){
             nbt.putInt("solar_power",solarPower);
         }
+        if (charged != null){
+            nbt.putBoolean("charged",charged);
+        }
         return nbt;
     }
 
@@ -97,9 +111,12 @@ public class PlanetCreatingData {
         if (nbt.contains("solar_power", NbtElement.INT_TYPE)){
             solarPower = nbt.getInt("solar_power");
         }
+        if (nbt.contains("charged", NbtElement.BYTE_TYPE)){
+            charged = nbt.getBoolean("charged");
+        }
     }
 
-    public void fillNullValues(Boolean oxygen, Short temperature, Float gravity, Integer tier, Integer solarPower) {
+    public void fillNullValues(Boolean oxygen, Short temperature, Float gravity, Integer tier, Integer solarPower,Boolean charged) {
         if (this.oxygen == null && oxygen != null) {
             this.oxygen = oxygen;
         }
@@ -114,6 +131,9 @@ public class PlanetCreatingData {
         }
         if (this.solarPower == null && solarPower != null) {
             this.solarPower = solarPower;
+        }
+        if (this.charged == null && charged != null) {
+            this.charged = charged;
         }
     }
 
@@ -133,14 +153,20 @@ public class PlanetCreatingData {
         if (this.solarPower == null) {
             this.solarPower = random.nextInt(200);
         }
+        if (this.charged == null) {
+            this.charged = random.nextBoolean();
+        }
     }
 
-    public void fromPlanet(Planet planet){
+    public void fromPlanet(Planet planet, PlanetData.PlanetEnvironment planetEnvironment){
         this.oxygen = planet.oxygen();
         this.temperature = planet.temperature();
         this.gravity = planet.gravity();
         this.tier = planet.tier();
         this.solarPower = planet.solarPower();
+        if (planetEnvironment != null){
+            this.charged = planetEnvironment.charged();
+        }
     }
 
     public static PlanetCreatingData generateRandomPlanetData(Random random, int tier){
@@ -164,6 +190,7 @@ public class PlanetCreatingData {
                 : 20f
         );
         planetCreatingData.solarPower = random.nextInt(200);
+        planetCreatingData.charged = !random.nextBoolean() && random.nextBoolean();
         return planetCreatingData;
     }
 
@@ -175,10 +202,11 @@ public class PlanetCreatingData {
                 ", gravity=" + gravity +
                 ", tier=" + tier +
                 ", solarPower=" + solarPower +
+                ", charged="+charged+
                 '}';
     }
 
     public boolean isEmpty(){
-        return oxygen == null && temperature == null && gravity == null && tier == null && solarPower == null;
+        return oxygen == null && temperature == null && gravity == null && tier == null && solarPower == null && charged == null;
     }
 }

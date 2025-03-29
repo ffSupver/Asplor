@@ -203,6 +203,7 @@
   "enchantment.asplor.strength": "强力",
   "enchantment.asplor.mechanically_proficient": "机械精通",
 
+  "command.worldtp.success": "将 %s 传送到 %s,%s,%s 于 %s",
 
 
   "death.attack.molten": "%1$s 跳进了液态金属，但没能成为T-1000",
@@ -244,6 +245,8 @@
   "subtitles.block.alloy_chest.close": "合金箱子: 关闭",
   "subtitles.block.divider.cut": "切割机: 切割",
   "subtitles.entity.villager.work_assembler": "装配大师: 装配",
+  "subtitles.block.electricity_work": "电流: 工作",
+
 
   "description.asplor.goggle": "带有工程师护目镜",
   "description.asplor.chest": "带有箱子",
@@ -268,6 +271,7 @@
   "description.asplor.meteorite.temperature": "温度: %s",
   "description.asplor.meteorite.gravity": "重力加速度: %s",
   "description.asplor.meteorite.solar_power": "阳光: %s",
+  "description.asplor.meteorite.charged": "带电",
   "description.asplor.planet_locator": "通过陨石碎片定位行星",
   "description.asplor.chest_sorter": "右键以将手上的物品放入对应的箱子",
 

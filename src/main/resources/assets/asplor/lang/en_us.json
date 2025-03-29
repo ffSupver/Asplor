@@ -208,6 +208,9 @@
 
 
 
+  "command.worldtp.success": "Teleport %s to %s,%s,%s in %s",
+
+
   "death.attack.molten": "%1$s jumped into liquid metal , but failed to become Terminator 1000",
   "death.attack.molten.player": "%1$s was knocked into liquid metal by %2$s, but didn't quite become Terminator 1000",
   "death.attack.charge": "%1$s feel energized.",
@@ -244,6 +247,7 @@
   "subtitles.block.alloy_chest.close": "Alloy chest closes",
   "subtitles.block.divider.cut": "Divider cuts",
   "subtitles.entity.villager.work_assembler": "Assembler works",
+  "subtitles.block.electricity_work": "Electricity works",
 
   "description.asplor.goggle": "With goggles",
   "description.asplor.chest": "With chest",
@@ -268,6 +272,7 @@
   "description.asplor.meteorite.temperature": "Temperature : %s",
   "description.asplor.meteorite.gravity": "Gravity : %s",
   "description.asplor.meteorite.solar_power": "Solar Power : %s",
+  "description.asplor.meteorite.charged": "Charged",
   "description.asplor.planet_locator": "Locate planets by meteorite fragments",
   "description.asplor.chest_sorter": "Right-click to place the item in hand into the corresponding chest",
 
@@ -437,6 +442,7 @@
   "asplor.screen.world_adder.gravity": "gravity",
   "asplor.screen.world_adder.solar_power": "solar power",
   "asplor.screen.world_adder.tier": "tier",
+  "asplor.screen.world_adder.charged": "charged",
 
 
   "planet.asplor.the_nether": "Tartarus",

@@ -32,6 +32,7 @@ import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
 import net.minecraft.world.level.ServerWorldProperties;
 import net.minecraft.world.level.UnmodifiableLevelProperties;
 import net.minecraft.world.level.storage.LevelStorage;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -80,17 +81,17 @@ public class WorldData {
 
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList){
         createNewPlantWithOrbit(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList,
-                false, (short) -270,4.8f,32,10);
+                false, (short) -270,4.8f,32,10,false);
     }
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList, PlanetCreatingData planetCreatingData){
         if (!containsWorld(worldKey)){
-            planetCreatingData.fillNullValues(false, (short) -270, 4.8f, 32, 10);
+            planetCreatingData.fillNullValues(false, (short) -270, 4.8f, 32, 10,false);
             createNewPlantWithOrbit(server, worldKey, biomeSource, chunkGeneratorSettingsCode, blockList,
-                    planetCreatingData.oxygen, planetCreatingData.temperature, planetCreatingData.gravity, planetCreatingData.solarPower, planetCreatingData.tier);
+                    planetCreatingData.oxygen, planetCreatingData.temperature, planetCreatingData.gravity, planetCreatingData.solarPower, planetCreatingData.tier,planetCreatingData.charged);
         }
     }
     public static void createNewPlantWithOrbit(MinecraftServer server, RegistryKey<World> worldKey, List<Pair<RegistryEntry<Biome>,List<Float>>> biomeSource, ArrayList<String> chunkGeneratorSettingsCode, List<String> blockList,
-                                               boolean oxygen,short temperature,float gravity,int solarPower,int tier){
+                                               boolean oxygen,short temperature,float gravity,int solarPower,int tier,boolean charged){
         RegistryKey<World> orbitKey = createWorldKey(worldKey);
         createNewDimension(server,worldKey,biomeSource,chunkGeneratorSettingsCode,blockList);
         Planet planet = new Planet(worldKey, oxygen, temperature, gravity, solarPower, new Identifier(NAMESPACE,"system"), Optional.of(orbitKey), tier, List.of());
@@ -99,6 +100,9 @@ public class WorldData {
         createNewOrbitDimension(server,orbitKey);
         Planet orbitPlanet = new Planet(orbitKey, false, (short) -270, 0.0f, solarPower, new Identifier(NAMESPACE,"system"), Optional.empty(), tier, List.of());
         addPlanet(orbitPlanet,orbitKey);
+
+        PlanetData.PlanetEnvironment planetEnvironment = new PlanetData.PlanetEnvironment(worldKey,charged);
+        PlanetData.planetEnvironments().put(worldKey,planetEnvironment);
     }
 
 
@@ -214,6 +218,30 @@ public class WorldData {
         return server.getSavePath(new WorldSavePath("data"));
     }
 
+    @NotNull
+    private static NbtCompound planetToNbt(Planet planet) {
+        NbtCompound planetData = new NbtCompound();
+        if (planet != null){
+            planetData.putBoolean("oxygen", planet.oxygen());
+            planetData.putShort("temperature", planet.temperature());
+            planetData.putFloat("gravity", planet.gravity());
+            planetData.putInt("solar_power", planet.solarPower());
+            planetData.putInt("tier", planet.tier());
+        }
+
+        return planetData;
+    }
+
+    private static NbtCompound planetEnvironmentToNbt(PlanetData.PlanetEnvironment planetEnvironment){
+        NbtCompound planetEnvironmentData = new NbtCompound();
+        if (planetEnvironment != null){
+            planetEnvironmentData.putBoolean("charged", planetEnvironment.charged());
+        }
+        return planetEnvironmentData;
+    }
+
+
+
 
     public static void saveWorlds(MinecraftServer server) {
         File file = getDataPath(server).resolve(DATA_FILE_NAME).toFile();
@@ -251,16 +279,24 @@ public class WorldData {
             worldList.add(worldData);
 
             Planet planet = AdAstraData.getPlanet(worldKey);
-            if (planet != null){
-                NbtCompound planetData = new NbtCompound();
-                planetData.putBoolean("oxygen",planet.oxygen());
-                planetData.putShort("temperature",planet.temperature());
-                planetData.putFloat("gravity",planet.gravity());
-                planetData.putInt("solar_power",planet.solarPower());
-                planetData.putInt("tier",planet.tier());
-
-                worldData.put("planet",planetData);
-            }
+            PlanetData.PlanetEnvironment planetEnvironment = PlanetData.getPlanetEnvironment(worldKey);
+            NbtCompound planetData = planetToNbt(planet);
+            NbtCompound planetEnvironmentData = planetEnvironmentToNbt(planetEnvironment);
+//                    new NbtCompound();
+//            if (planet != null){
+//                planetData.putBoolean("oxygen",planet.oxygen());
+//                planetData.putShort("temperature",planet.temperature());
+//                planetData.putFloat("gravity",planet.gravity());
+//                planetData.putInt("solar_power",planet.solarPower());
+//                planetData.putInt("tier",planet.tier());
+//
+//
+//            }
+//            if (planetEnvironment != null){
+//                planetData.putBoolean("charged",planetEnvironment.charged());
+//            }
+            worldData.put("planet",planetData);
+            worldData.put("planet_environment",planetEnvironmentData);
         }
 
         allWorldData.put("data",worldList);
@@ -319,8 +355,14 @@ public class WorldData {
                     float gravity = planetData.getFloat("gravity");
                     int solarPower = planetData.getInt("solar_power");
                     int tier = planetData.getInt("tier");
+
+                    boolean charged = false;
+                    if (worldData.contains("planet_environment",NbtElement.COMPOUND_TYPE)){
+                        NbtCompound planetEnvironmentData = worldData.getCompound("planet_environment");
+                        charged = planetEnvironmentData.getBoolean("charged");
+                    }
                     createNewPlantWithOrbit(server,worldKey,biomes,chunkGeneratingSettingsCode,blockList,
-                            oxygen,temperature,gravity,solarPower,tier);
+                            oxygen,temperature,gravity,solarPower,tier,charged);
                 }else {
                     createNewPlantWithOrbit(server,worldKey,biomes,chunkGeneratingSettingsCode,blockList);
                 }

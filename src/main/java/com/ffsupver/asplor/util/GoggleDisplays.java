@@ -69,6 +69,9 @@ public class GoggleDisplays {
             if (planet.solarPower != null) {
                 tooltip.add(addIndex(Text.translatable("description.asplor.meteorite.solar_power", planet.solarPower).formatted(Formatting.GRAY), 1));
             }
+            if (planet.charged != null && planet.charged){
+                tooltip.add(addIndex(Text.translatable("description.asplor.meteorite.charged").formatted(Formatting.GRAY),1));
+            }
 
         }
         return empty;

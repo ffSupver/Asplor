@@ -4,6 +4,7 @@ import com.ffsupver.asplor.block.SmartEnergyStorage;
 import com.ffsupver.asplor.item.item.MeteoriteFragmentItem;
 import com.ffsupver.asplor.item.item.NavigationChipItem;
 import com.ffsupver.asplor.networking.packet.worldAdder.PlanetCreatingData;
+import com.ffsupver.asplor.planet.PlanetData;
 import com.ffsupver.asplor.util.GoggleDisplays;
 import com.ffsupver.asplor.util.RenderUtil;
 import com.ffsupver.asplor.world.WorldData;
@@ -169,7 +170,7 @@ public class PlanetLocatorEntity extends SmartBlockEntity implements IHaveGoggle
             if (this.planet == null){
                 this.planet = new PlanetCreatingData();
             }
-            this.planet.fromPlanet(getPlanet);
+            this.planet.fromPlanet(getPlanet, PlanetData.getPlanetEnvironment(getPlanet.dimension()));
         }
         notifyUpdate();
     }

@@ -29,6 +29,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
+import java.util.Locale;
+
 
 public final class RenderUtil {
     public static Box createRenderBoundingBox(BlockPos pos, Double renderDistance) {
@@ -132,5 +134,9 @@ public final class RenderUtil {
 
     public static boolean isShiftPress(){
         return Screen.hasShiftDown();
+    }
+
+    public static String formatFloat(double d) {
+        return String.format(Locale.ROOT, "%f", d);
     }
 }
