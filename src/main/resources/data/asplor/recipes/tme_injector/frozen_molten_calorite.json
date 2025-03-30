@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:molten_calorite"
+  },
+  "ingredients": [
+    {
+      "item": "asplor:frozen_core"
+    }
+  ],
+  "output": {
+    "item": "ad_astra:calorite_block"
+  }
+}

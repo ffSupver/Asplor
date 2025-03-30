@@ -111,6 +111,7 @@
   "item.asplor.staff_of_shooting_meteorite": "星陨杖",
   "item.asplor.kelp_bread": "海带面包",
   "item.asplor.simple_space_station": "简易空间站",
+  "item.asplor.molten_calorite_bucket": "熔融耐热合金桶",
 
 
 
@@ -197,6 +198,7 @@
   "block.asplor.outer_space.astra_diabase_wood": "星辉木",
   "block.asplor.atmospheric_regulator.iron": "铁质大气调节器",
   "block.asplor.oxygen_pipe.iron": "铁质氧气管道",
+  "block.asplor.molten_calorite": "熔融耐热合金",
 
 
 
@@ -309,6 +311,7 @@
   "guide_book.asplor.earth.lightning_absorber": "雷电接收器",
   "guide_book.asplor.earth.all": "地球",
   "guide_book.asplor.the_nether.all": "冥",
+  "guide_book.asplor.the_nether.the_nether_altar": "幽冥星祭坛",
 
 
 

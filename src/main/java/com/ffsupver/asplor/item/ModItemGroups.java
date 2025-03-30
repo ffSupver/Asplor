@@ -76,6 +76,7 @@ public class ModItemGroups {
                                 entries.add(MOLTEN_DESH_BUCKET);
                                 entries.add(IMPURE_MOLTEN_DESH_BUCKET);
                                 entries.add(MOLTEN_OSTRUM_BUCKET);
+                                entries.add(MOLTEN_CALORITE_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(AllOY_CASING);
                                 entries.add(AllOY_MACHINE);

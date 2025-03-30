@@ -112,6 +112,7 @@
   "item.asplor.staff_of_shooting_meteorite": "Staff Of Shooting Meteorite",
   "item.asplor.kelp_bread": "Kelp Bread",
   "item.asplor.simple_space_station": "Simple Space Station",
+  "item.asplor.molten_calorite_bucket": "Molten Calorite Bucket",
 
 
 
@@ -200,6 +201,7 @@
   "block.asplor.outer_space.astra_diabase_wood": "Astra Diabase Wood",
   "block.asplor.atmospheric_regulator.iron": "Iron Atmospheric Regulator",
   "block.asplor.oxygen_pipe.iron": "Iron Oxygen Pipe",
+  "block.asplor.molten_calorite": "Molten Calorite",
 
 
 
@@ -309,6 +311,7 @@
   "guide_book.asplor.earth.lightning_absorber": "Lightning Absorber",
   "guide_book.asplor.earth.all": "Earth",
   "guide_book.asplor.the_nether.all": "Tartarus",
+  "guide_book.asplor.the_nether.the_nether_altar": "The Nether Altar",
 
   "category.asplor.key": "Asplor",
   "key.asplor.open_backpack": "Open Backpack",

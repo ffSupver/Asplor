@@ -63,6 +63,7 @@ public class ModItems {
     public  static final Item HEAVY_OIL_BUCKET = registerBucketItem("heavy_oil_bucket",ModFluids.HEAVY_OIL);
     public  static final Item LIGHT_OIL_BUCKET = registerBucketItem("light_oil_bucket",ModFluids.LIGHT_OIL);
     public  static final Item MOLTEN_OSTRUM_BUCKET = registerBucketItem("molten_ostrum_bucket",ModFluids.MOLTEN_OSTRUM);
+    public  static final Item MOLTEN_CALORITE_BUCKET = registerBucketItem("molten_calorite_bucket",ModFluids.MOLTEN_CALORITE);
 
 
 

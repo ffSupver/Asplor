@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:calorite_plate"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_calorite",
+    "amount": 9000
+  },
+  "process_time": 80,
+  "heat_type": "normal"
+}

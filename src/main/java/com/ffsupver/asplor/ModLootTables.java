@@ -140,6 +140,17 @@ public class ModLootTables {
 
             table.pool(poolBuilder);
         }
+
+        if (NETHER_BRIDGE_CHEST.equals(id)) {
+            NbtCompound chapterNbt = new NbtCompound();
+            chapterNbt.putString("chapter","the_nether/the_nether_altar");
+            LootPool.Builder poolBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,1))
+                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
+                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+
+            table.pool(poolBuilder);
+        }
     }
 
     private static Identifier getMinecraftEntity(String id){return new Identifier("minecraft","entities/"+id);}

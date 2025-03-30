@@ -76,6 +76,11 @@
       "order": 50,
       "description": "{\"translate\":\"guide_book.asplor.the_nether.all\",\"color\":\"gold\"}",
       "display_item": "minecraft:netherrack"
+    },
+    {
+      "name": "the_nether/the_nether_altar",
+      "order": 60,
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.the_nether_altar\",\"color\":\"white\"}"
     }
   ]
 }

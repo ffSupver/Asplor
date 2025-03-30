@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:calorite_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_calorite",
+    "amount": 81000
+  },
+  "process_time": 800,
+  "heat_type": "normal"
+}

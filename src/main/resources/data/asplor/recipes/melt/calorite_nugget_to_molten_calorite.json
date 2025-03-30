@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:calorite_nugget"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_calorite",
+    "amount": 1000
+  },
+  "process_time": 15,
+  "heat_type": "normal"
+}

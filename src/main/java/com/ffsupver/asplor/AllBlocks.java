@@ -344,6 +344,7 @@ public class AllBlocks {
     public static final Block MOLTEN_DESH = registerMoltenMetalFluidBlock("molten_desh",ModFluids.MOLTEN_DESH,null);
     public static final Block IMPURE_MOLTEN_DESH = registerMoltenMetalFluidBlock("impure_molten_desh",ModFluids.IMPURE_MOLTEN_DESH,null);
     public static final Block MOLTEN_OSTRUM = registerMoltenMetalFluidBlock("molten_ostrum",ModFluids.MOLTEN_OSTRUM,null);
+    public static final Block MOLTEN_CALORITE = registerMoltenMetalFluidBlock("molten_calorite",ModFluids.MOLTEN_CALORITE,null);
 
     public static final Block FLINT_BLOCK = registerBlock("flint_block",new Block(FabricBlockSettings.copy(IRON_BLOCK).mapColor(MapColor.BLACK).strength(1.5F, 2.0F).requiresTool()));
     public static final Block HYDROCHLORIC_ACID = registerFluidBlock("hydrochloric_acid",ModFluids.HYDROCHLORIC_ACID,settings -> settings.mapColor(MapColor.LIGHT_BLUE));
