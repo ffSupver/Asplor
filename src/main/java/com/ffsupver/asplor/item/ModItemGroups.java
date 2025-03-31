@@ -178,6 +178,7 @@ public class ModItemGroups {
                             entries.add(MOLTEN_BRASS_DROPPER);
                             entries.add(MOLTEN_DESH_DROPPER);
                             entries.add(MOLTEN_OSTRUEM_DROPPER);
+                            entries.add(MOLTEN_CALORITE_DROPPER);
                             entries.add(GLUE_DROPPER);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_4K);
                             entries.add(SINGLE_ITEM_STORAGE_CELL_16K);

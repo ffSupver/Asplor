@@ -20,6 +20,7 @@ public class ToolTypes {
     public static ToolType MOLTEN_BRASS_DROPPER;
     public static ToolType MOLTEN_DESH_DROPPER;
     public static ToolType MOLTEN_OSTRUM_DROPPER;
+    public static ToolType MOLTEN_CALORITE_DROPPER;
     public static ToolType registerToolType(ToolType toolType){
         TOOL_TYPES.put(toolType.getId(),toolType);
         return toolType;
@@ -33,5 +34,6 @@ public class ToolTypes {
         MOLTEN_BRASS_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_BRASS_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_brass_dropper")));
         MOLTEN_DESH_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_DESH_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_desh_dropper")));
         MOLTEN_OSTRUM_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_OSTRUEM_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_ostrum_dropper")));
+        MOLTEN_CALORITE_DROPPER = registerToolType(new ToolType(ModItems.MOLTEN_CALORITE_DROPPER,ModItems.EMPTY_DROPPER,new Identifier(Asplor.MOD_ID,"molten_calorite_dropper")));
     }
 }

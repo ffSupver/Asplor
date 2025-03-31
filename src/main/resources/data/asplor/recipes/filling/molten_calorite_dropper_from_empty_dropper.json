@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item":  "asplor:empty_dropper"
+    },
+    {
+      "amount": 18000,
+      "fluid": "asplor:molten_calorite"
+    }
+  ],
+  "results": [
+    {
+      "item": "asplor:molten_calorite_dropper"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:advance_circuit_board"
+  },
+  "output": {
+    "item": "asplor:navigation_chip"
+  },
+  "process_item": {
+    "item": "asplor:advance_circuit_board"
+  },
+  "tool_types": [
+    "asplor:drill",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_calorite_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_calorite_dropper",
+    "asplor:laser",
+    "asplor:glue_dropper",
+    "asplor:molten_calorite_dropper"
+  ],
+  "schematic": "navigation_chip"
+}

@@ -112,6 +112,7 @@
   "item.asplor.kelp_bread": "海带面包",
   "item.asplor.simple_space_station": "简易空间站",
   "item.asplor.molten_calorite_bucket": "熔融耐热合金桶",
+  "item.asplor.molten_calorite_dropper": "熔融耐热合金滴液器",
 
 
 
@@ -266,6 +267,7 @@
   "description.asplor.schematic.same_recipe": "同一个配方",
   "description.asplor.schematic.space_core": "空间核心",
   "description.asplor.schematic.advance_circuit_board": "高级电路板",
+  "description.asplor.schematic.navigation_chip": "导航芯片",
   "description.asplor.lightning_absorber": "被闪电击中时会为下面的方块充电,在雨天或者雷暴天气被引雷的三叉戟击中会召唤闪电",
   "description.asplor.zinc_copper_battery": "右键机器来给机器充电",
   "description.asplor.meteorite.has_oxygen": "有氧气",

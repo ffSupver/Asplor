@@ -39,7 +39,8 @@ public class AllPartialModels {
     public static final PartialModel MOLTEN_DESH_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_desh_dropper_work");
     public static final PartialModel MOLTEN_OSTRUM_DROPPER = create("block/smart_mechanical_arm/tools/molten_ostrum_dropper");
     public static final PartialModel MOLTEN_OSTRUM_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_ostrum_dropper_work");
-
+    public static final PartialModel MOLTEN_CALORITE_DROPPER = create("block/smart_mechanical_arm/tools/molten_calorite_dropper");
+    public static final PartialModel MOLTEN_CALORITE_DROPPER_WORK = create("block/smart_mechanical_arm/tools/molten_calorite_dropper_work");
 
 
     private static PartialModel create(String path){

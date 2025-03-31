@@ -113,6 +113,7 @@
   "item.asplor.kelp_bread": "Kelp Bread",
   "item.asplor.simple_space_station": "Simple Space Station",
   "item.asplor.molten_calorite_bucket": "Molten Calorite Bucket",
+  "item.asplor.molten_calorite_dropper": "Molten Calorite Dropper",
 
 
 
@@ -267,6 +268,7 @@
   "description.asplor.schematic.same_recipe": "the same recipe",
   "description.asplor.schematic.space_core": "Space Core",
   "description.asplor.schematic.advance_circuit_board": "Advance Circuit Board",
+  "description.asplor.schematic.navigation_chip": "Navigation Chip",
   "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
   "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
   "description.asplor.meteorite.has_oxygen": "Has Oxygen",

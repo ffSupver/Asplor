@@ -1,0 +1,33 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "ad_astra:etrium_block"
+    },
+    "B": {
+      "item": "ad_astra:tier_4_rocket"
+    },
+    "C": {
+      "item": "create:fluid_tank"
+    },
+    "D": {
+      "item": "asplor:navigation_chip"
+    },
+    "E": {
+      "item": "asplor:alloy_chest"
+    }
+  },
+  "pattern": [
+    "  A  ",
+    " ADA ",
+    " ACA ",
+    " ACA ",
+    "AEBEA",
+    "AA AA"
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:advance_rocket"
+  }
+}
