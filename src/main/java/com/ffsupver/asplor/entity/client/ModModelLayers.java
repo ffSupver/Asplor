@@ -4,6 +4,7 @@ import com.ffsupver.asplor.entity.ModEntities;
 import earth.terrarium.adastra.client.renderers.entities.vehicles.RocketRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.EmptyEntityRenderer;
 
 import static com.ffsupver.asplor.entity.client.AdvanceRocketRenderer.ADVANCE_ROCKET_MODEL;
 import static com.ffsupver.asplor.entity.client.CargoRocketRenderer.CARGO_ROCKET_MODEL;
@@ -24,6 +25,7 @@ public class ModModelLayers {
 
         EntityRendererRegistry.register(ModEntities.METEORITE,MeteoriteRenderer::new);
 
+        EntityRendererRegistry.register(ModEntities.ASTRA_MOB, EmptyEntityRenderer::new);
 
     }
 }

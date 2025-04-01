@@ -58,9 +58,10 @@ public class PlanetData extends JsonDataLoader {
     }
 
     public record PlanetEnvironment(RegistryKey<World> dimension,boolean charged) {
+        public static PlanetEnvironment DEFAULT = new PlanetEnvironment(RegistryKey.of(RegistryKeys.WORLD,new Identifier("overworld")),false);
        public static Codec<PlanetEnvironment> CODEC = RecordCodecBuilder.create((instance) -> {
            return instance.group(RegistryKey.createCodec(RegistryKeys.WORLD).fieldOf("dimension").forGetter(PlanetEnvironment::dimension),
-                           Codec.BOOL.optionalFieldOf("charged",false).forGetter(PlanetEnvironment::charged))
+                           Codec.BOOL.optionalFieldOf("charged",DEFAULT.charged()).forGetter(PlanetEnvironment::charged))
                    .apply(instance,PlanetEnvironment::new);
        });
 
