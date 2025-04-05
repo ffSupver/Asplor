@@ -378,7 +378,11 @@ public class AllBlocks {
     public static final Block ASTRA_DIABASE_LEAVES = registerBlock("outer_space/astra_diabase_leaves",createLeavesBlock(BlockSoundGroup.AZALEA_LEAVES));
     public static final Block ASTRA_DIABASE_WOOD = registerBlock("outer_space/astra_diabase_wood",createLogBlock(MapColor.PURPLE,MapColor.MAGENTA));
     public static final Block OXYGEN_PIPE_IRON = registerBlock("oxygen_pipe/iron",new OxygenPipe(FabricBlockSettings.copy(IRON_BLOCK)));
+    public static final Block CHEESE = registerFluidBlock("cheese",ModFluids.CHEESE,settings -> settings.mapColor(MapColor.YELLOW));
 
+    public static final Block ASTRA_DIABASE_STONE_BRICKS = registerBlock("outer_space/astra_diabase_stone_bricks",new Block(FabricBlockSettings.copy(STONE_BRICKS)));
+    public static final Block ASTRA_DIABASE_STONE_BRICK_STAIRS = registerBlock("outer_space/astra_diabase_stone_brick_stairs",new StairsBlock(ASTRA_DIABASE_STONE_BRICKS.getDefaultState(),FabricBlockSettings.copy(ASTRA_DIABASE_STONE_BRICKS)));
+    public static final Block ASTRA_DIABASE_STONE_BRICK_SLAB = registerBlock("outer_space/astra_diabase_stone_brick_slab",new SlabBlock(FabricBlockSettings.copy(ASTRA_DIABASE_STONE_BRICKS)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "asplor:gold_orchid_stamen"
+    }
+  ],
+  "output": {
+    "item": "asplor:gold_orchid_stamen_dust",
+    "count": 1
+  }
+}

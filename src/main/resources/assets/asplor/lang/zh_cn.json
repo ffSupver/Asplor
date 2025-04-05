@@ -113,7 +113,9 @@
   "item.asplor.simple_space_station": "简易空间站",
   "item.asplor.molten_calorite_bucket": "熔融耐热合金桶",
   "item.asplor.molten_calorite_dropper": "熔融耐热合金滴液器",
-
+  "item.asplor.cheese_bucket": "奶酪桶",
+  "item.asplor.gold_orchid_stamen_dust": "化金兰花蕊粉",
+  "item.asplor.moon_stone_billet": "月石锭坯",
 
 
   "block.asplor.alloy_block": "合金块",
@@ -200,7 +202,10 @@
   "block.asplor.atmospheric_regulator.iron": "铁质大气调节器",
   "block.asplor.oxygen_pipe.iron": "铁质氧气管道",
   "block.asplor.molten_calorite": "熔融耐热合金",
-
+  "block.asplor.cheese": "奶酪",
+  "block.asplor.outer_space.astra_diabase_stone_bricks": "星辉石砖",
+  "block.asplor.outer_space.astra_diabase_stone_brick_stairs": "星辉石砖楼梯",
+  "block.asplor.outer_space.astra_diabase_stone_brick_slab": "星辉石砖台阶",
 
 
   "enchantment.asplor.strength": "强力",
@@ -313,6 +318,7 @@
   "guide_book.asplor.earth.all": "地球",
   "guide_book.asplor.the_nether.all": "幽冥星",
   "guide_book.asplor.the_nether.the_nether_altar": "幽冥星祭坛",
+  "guide_book.asplor.moon.gold": "金",
 
 
 

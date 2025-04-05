@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "ingredient": {
+    "item": "asplor:outer_space/astra_diabase_cobblestone"
+  },
+  "result": "asplor:outer_space/astra_diabase_stone"
+}

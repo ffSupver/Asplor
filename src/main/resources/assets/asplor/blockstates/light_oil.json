@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "asplor:block/light_oil"
+      "model": "block/water"
     }
   }
 }

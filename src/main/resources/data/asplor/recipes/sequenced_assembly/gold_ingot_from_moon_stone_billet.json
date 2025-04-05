@@ -1,0 +1,64 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "asplor:moon_stone_billet"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "asplor:moon_stone_billet"
+        },
+        {
+          "amount": 9000,
+          "fluid": "asplor:cheese"
+        }
+      ],
+      "results": [
+        {
+          "item": "asplor:moon_stone_billet"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "asplor:moon_stone_billet"
+        },
+        {
+          "item": "asplor:gold_orchid_stamen_dust"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "asplor:moon_stone_billet"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "asplor:moon_stone_billet"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:gold_ingot"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "asplor:moon_stone_billet"
+  }
+}

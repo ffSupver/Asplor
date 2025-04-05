@@ -46,6 +46,8 @@ public class ModItems {
     public static final Item UNCOMPLETED_ALLOY_CHEST = registerItems("uncompleted_alloy_chest",new Item(new FabricItemSettings().maxCount(1)));
     public static final Item REFINED_OIL_BUCKET = registerBucketItem("refined_oil_bucket",ModFluids.REFINED_OIL);
     public static final Item GLUE_BUCKET = registerBucketItem("glue_bucket",ModFluids.GLUE);
+    public static final Item CHEESE_BUCKET = registerBucketItem("cheese_bucket",ModFluids.CHEESE);
+
     public static final Item SALT_WATER_BUCKET = registerBucketItem("salt_water_bucket",ModFluids.SALT_WATER);
     public static final Item CHLORINE_BUCKET = registerItems("chlorine_bucket",new PlaceableBucketItem(ModFluids.CHLORINE,new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1),false));
     public static final Item MOLTEN_IRON_BUCKET = registerBucketItem("molten_iron_bucket",ModFluids.MOLTEN_IRON);
@@ -164,6 +166,8 @@ public class ModItems {
     public static final Item KELP_BREAD = registerItems("kelp_bread",new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(2.5f).snack().build())));
     public static final Item SIMPLE_SPACE_STATION = registerItems("simple_space_station",new SpaceStationItem(new FabricItemSettings().maxCount(1)));
     public static final Item MOLTEN_CALORITE_DROPPER = registerItems("molten_calorite_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_calorite_dropper"),2));
+    public static final Item GOLD_ORCHID_STAMEN_DUST = registerItems("gold_orchid_stamen_dust",new Item(new FabricItemSettings()));
+    public static final Item MOON_STONE_BILLET = registerItems("moon_stone_billet",new Item(new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "asplor:outer_space/astra_diabase_stone"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 4,
+    "item": "asplor:outer_space/astra_diabase_stone_bricks"
+  },
+  "show_notification": true
+}

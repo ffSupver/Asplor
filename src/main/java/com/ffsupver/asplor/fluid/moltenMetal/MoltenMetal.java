@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class MoltenMetal extends FlowableFluid {
+public abstract class MoltenMetal extends FlowableFluid{
 
     @Override
      public abstract Fluid getFlowing() ;
@@ -67,7 +67,7 @@ public abstract class MoltenMetal extends FlowableFluid {
     }
     @Override
     protected boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
-        return state.getHeight(world, pos) >= 0.44444445F && fluid.isIn(FluidTags.WATER);
+        return state.getHeight(world, pos) >= 0.44444445F && fluid.isIn(FluidTags.WATER) || direction.equals(Direction.UP);
     }
     @Override
     public int getTickRate(WorldView world) {

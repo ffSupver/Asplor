@@ -1,0 +1,78 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "ad_astra:moon_stone"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "ad_astra:moon_cheese_ore"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "ad_astra:moon_stone"
+        }
+      ],
+      "processingTime": 40,
+      "results": [
+        {
+          "item": "ad_astra:moon_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "ad_astra:moon_stone"
+        },
+        {
+          "amount": 9000,
+          "fluid": "asplor:molten_gold"
+        }
+      ],
+      "results": [
+        {
+          "item": "ad_astra:moon_stone"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "ad_astra:moon_stone"
+        },
+        {
+          "item": "asplor:gold_orchid_stamen_dust"
+        }
+
+      ],
+      "results": [
+        {
+          "item": "ad_astra:moon_stone"
+        }
+      ]
+    },
+    {
+      "type": "asplor:alloy_pressing",
+      "ingredients": [
+        {
+          "item": "ad_astra:moon_stone"
+        }
+      ],
+      "results": [
+        {
+          "item": "minecraft:gold_ingot"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "ad_astra:moon_stone"
+  }
+}

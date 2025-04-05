@@ -14,6 +14,8 @@
     "asplor:heavy_oil",
     "asplor:flowing_heavy_oil",
     "asplor:light_oil",
-    "asplor:flowing_light_oil"
+    "asplor:flowing_light_oil",
+    "asplor:cheese",
+    "asplor:flowing_cheese"
   ]
 }

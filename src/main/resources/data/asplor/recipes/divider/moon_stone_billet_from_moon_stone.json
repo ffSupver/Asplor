@@ -1,0 +1,12 @@
+{
+  "type": "asplor:divider",
+  "ingredients": [
+    {
+      "item": "ad_astra:moon_stone"
+    }
+  ],
+  "output": {
+    "item": "asplor:moon_stone_billet",
+    "count": 4
+  }
+}

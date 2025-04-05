@@ -114,6 +114,9 @@
   "item.asplor.simple_space_station": "Simple Space Station",
   "item.asplor.molten_calorite_bucket": "Molten Calorite Bucket",
   "item.asplor.molten_calorite_dropper": "Molten Calorite Dropper",
+  "item.asplor.cheese_bucket": "Cheese Bucket",
+  "item.asplor.gold_orchid_stamen_dust": "Gold Orchid Stamen Dust",
+  "item.asplor.moon_stone_billet": "Moon Stone Billet",
 
 
 
@@ -203,6 +206,10 @@
   "block.asplor.atmospheric_regulator.iron": "Iron Atmospheric Regulator",
   "block.asplor.oxygen_pipe.iron": "Iron Oxygen Pipe",
   "block.asplor.molten_calorite": "Molten Calorite",
+  "block.asplor.cheese": "Cheese",
+  "block.asplor.outer_space.astra_diabase_stone_bricks": "Astra Diabase Stone Bricks",
+  "block.asplor.outer_space.astra_diabase_stone_brick_stairs": "Astra Diabase Stone Brick Stairs",
+  "block.asplor.outer_space.astra_diabase_stone_brick_slab": "Astra Diabase Stone Brick Slab",
 
 
 
@@ -314,6 +321,7 @@
   "guide_book.asplor.earth.all": "Earth",
   "guide_book.asplor.the_nether.all": "Tartarus",
   "guide_book.asplor.the_nether.the_nether_altar": "The Nether Altar",
+  "guide_book.asplor.moon.gold": "Gold",
 
   "category.asplor.key": "Asplor",
   "key.asplor.open_backpack": "Open Backpack",

@@ -81,6 +81,11 @@
       "name": "the_nether/the_nether_altar",
       "order": 60,
       "description": "{\"translate\":\"guide_book.asplor.the_nether.the_nether_altar\",\"color\":\"white\"}"
+    },
+    {
+      "name": "moon/gold",
+      "order": 110,
+      "description": "{\"translate\":\"guide_book.asplor.moon.gold\",\"color\":\"white\"}"
     }
   ]
 }

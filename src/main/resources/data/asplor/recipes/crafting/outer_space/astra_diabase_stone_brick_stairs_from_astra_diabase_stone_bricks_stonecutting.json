@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "asplor:outer_space/astra_diabase_stone_bricks"
+  },
+  "result": "asplor:outer_space/astra_diabase_stone_brick_stairs"
+}

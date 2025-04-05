@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "asplor:block/outer_space/astra_diabase_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "asplor:block/outer_space/astra_diabase_stone_bricks"
+    },
+    "type=top": {
+      "model": "asplor:block/outer_space/astra_diabase_stone_brick_slab_top"
+    }
+  }
+}

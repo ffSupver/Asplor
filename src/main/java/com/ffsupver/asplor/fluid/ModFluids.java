@@ -15,6 +15,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModFluids {
+    private static final Identifier WATER_STILL_TEXTURE = Identifier.of("minecraft", "block/water_still");
+    private static final Identifier WATER_FLOW_TEXTURE = Identifier.of("minecraft", "block/water_flow");
+
+
+
     public static final FlowableFluid REFINED_OIL = registerFluid("refined_oil",new RefinedOilFluid.Still());
     public static final FlowableFluid FLOWING_REFINED_OIL = registerFluid("flowing_refined_oil",new RefinedOilFluid.Flowing());
     public static final FlowableFluid GLUE = registerFluid("glue",new Glue.Still());
@@ -27,6 +32,8 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_ALLOY_LAVA = registerFluid("flowing_alloy_lava",new AlloyLava.Flowing());
     public static final FlowableFluid HYDROCHLORIC_ACID = registerFluid("hydrochloric_acid",new HydrochloricAcidFluid.Still());
     public static final FlowableFluid FLOWING_HYDROCHLORIC_ACID = registerFluid("flowing_hydrochloric_acid",new HydrochloricAcidFluid.Flowing());
+    public static final FlowableFluid CHEESE = registerFluid("cheese",new Cheese.Still());
+    public static final FlowableFluid FLOWING_CHEESE = registerFluid("flowing_cheese",new Cheese.Flowing());
 
     //Molten Metal
 
@@ -63,15 +70,17 @@ public class ModFluids {
     }
     @Environment(EnvType.CLIENT)
     public static void registerRenders(){
-        registerRender(REFINED_OIL,FLOWING_REFINED_OIL,Identifier.of("minecraft","block/water_still"),0x101703);
-        registerRender(GLUE,FLOWING_GLUE,Identifier.of("minecraft","block/water_still"),0x4fab5b);
-        registerRender(SALT_WATER,FLOWING_SALT_WATER,Identifier.of("minecraft","block/water_still"),0x5096E9);
-        registerRender(CHLORINE,FLOWING_CHLORINE,Identifier.of("minecraft","block/water_still"),0xA4C947);
-        registerRender(ALLOY_LAVA,FLOWING_ALLOY_LAVA,Identifier.of(Asplor.MOD_ID,"block/lava_still"),0xD3D5EB);
-        registerRender(HYDROCHLORIC_ACID,FLOWING_HYDROCHLORIC_ACID,Identifier.of("minecraft","block/water_still"),0xB3FBFF);
-        registerRender(CONCENTRATED_OIL,FLOWING_CONCENTRATED_OIL,Identifier.of("minecraft","block/water_still"),0x101701);
-        registerRender(HEAVY_OIL, FLOWING_HEAVY_OIL, Identifier.of("minecraft", "block/water_still"), 0x6E2D07);
-        registerRender(LIGHT_OIL,FLOWING_LIGHT_OIL,Identifier.of("minecraft","block/water_still"),0xF5B110);
+        registerWaterRender(REFINED_OIL,FLOWING_REFINED_OIL,0x101703);
+        registerWaterRender(GLUE,FLOWING_GLUE,0x4fab5b);
+        registerWaterRender(SALT_WATER,FLOWING_SALT_WATER,0x5096E9);
+        registerWaterRender(CHLORINE,FLOWING_CHLORINE,0xA4C947);
+        registerRender(ALLOY_LAVA,FLOWING_ALLOY_LAVA,Identifier.of(Asplor.MOD_ID,"block/lava_still"),Identifier.of(Asplor.MOD_ID,"block/lava_flow"),0xD3D5EB);
+        registerWaterRender(HYDROCHLORIC_ACID,FLOWING_HYDROCHLORIC_ACID,0xB3FBFF);
+        registerWaterRender(CONCENTRATED_OIL,FLOWING_CONCENTRATED_OIL,0x101701);
+        registerWaterRender(HEAVY_OIL, FLOWING_HEAVY_OIL, 0x6E2D07);
+        registerWaterRender(LIGHT_OIL,FLOWING_LIGHT_OIL,0xF5B110);
+        registerRender(CHEESE,FLOWING_CHEESE, Identifier.of(Asplor.MOD_ID,"block/cheese_still"),Identifier.of(Asplor.MOD_ID,"block/cheese_flow"),0xFFF1A0);
+
 
 
 
@@ -90,21 +99,26 @@ public class ModFluids {
 
     }
     @Environment(EnvType.CLIENT)
-    private static void registerRender(FlowableFluid still,FlowableFluid flowing,Identifier path,int colorRGB){
-            registerSignalRenderer(still,flowing,path,colorRGB);
+    private static void registerWaterRender(FlowableFluid still,FlowableFluid flowing,int colorRGB){
+        registerRender(still,flowing,WATER_STILL_TEXTURE,WATER_FLOW_TEXTURE,colorRGB);
     }
 
+
+
+
     @Environment(EnvType.CLIENT)
-    private static void registerSignalRenderer(FlowableFluid still, FlowableFluid flowing, Identifier path, int color){
-        FluidRenderHandlerRegistry.INSTANCE.register(still,flowing,new SimpleFluidRenderHandler(path,path,path,color));
+    private static void registerRender(FlowableFluid still, FlowableFluid flowing, Identifier stillPath,Identifier flowingPath, int color){
+        FluidRenderHandlerRegistry.INSTANCE.register(still,flowing,new SimpleFluidRenderHandler(stillPath,flowingPath,flowingPath,color));
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),still,flowing);
     }
+
+
 
     private static <T extends Fluid> T registerFluid(String id, T value) {
         return (T) Registry.register(Registries.FLUID, new Identifier(Asplor.MOD_ID,id), value);
     }
 
     private static void registerMoltenMetalRender(FlowableFluid still,FlowableFluid flowing,int color){
-        registerRender(still,flowing,Identifier.of(Asplor.MOD_ID,"block/molten_metal_still"),color);
+        registerRender(still,flowing,Identifier.of(Asplor.MOD_ID,"block/molten_metal_still"),Identifier.of(Asplor.MOD_ID,"block/molten_metal_flow"),color);
     }
 }

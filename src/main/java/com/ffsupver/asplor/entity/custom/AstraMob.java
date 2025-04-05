@@ -71,7 +71,6 @@ public class AstraMob extends MobEntity {
 
     private <T extends Entity> void spawnNewEntity(EntityType<T> entityType,ServerWorld serverWorld){
         T t = entityType.spawn(serverWorld,getBlockPos(), SpawnReason.NATURAL);
-//        serverWorld.spawnEntity(t);
         if (t != null) {
             t.teleport(serverWorld, getX(), getY(), getZ(), Set.of(), getYaw(), getPitch());
         }

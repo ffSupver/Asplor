@@ -22,6 +22,8 @@ public class ModItemGroups {
                                 entries.add(EMPTY_LARGE_MAP);
                                 entries.add(GOLD_ORCHID_SEED);
                                 entries.add(GOLD_ORCHID_STAMEN);
+                                entries.add(GOLD_ORCHID_STAMEN_DUST);
+                                entries.add(MOON_STONE_BILLET);
                                 entries.add(RAW_ASTRA_COPPER);
                                 entries.add(RAW_ASTRA_IRON);
                                 entries.add(RAW_ASTRA_SILVER);
@@ -66,6 +68,7 @@ public class ModItemGroups {
                                 entries.add(SALT_WATER_BUCKET);
                                 entries.add(CHLORINE_BUCKET);
                                 entries.add(HYDROCHLORIC_ACID_BUCKET);
+                                entries.add(CHEESE_BUCKET);
                                 entries.add(ALLOY_LAVA_BUCKET);
                                 entries.add(MOLTEN_IRON_BUCKET);
                                 entries.add(MOLTEN_GOLD_BUCKET);
@@ -117,6 +120,9 @@ public class ModItemGroups {
                                 entries.add(ASTRA_DIABASE_LEAVES);
                                 entries.add(ASTRA_DIABASE_STONE);
                                 entries.add(ASTRA_DIABASE_COBBLESTONE);
+                                entries.add(ASTRA_DIABASE_STONE_BRICKS);
+                                entries.add(ASTRA_DIABASE_STONE_BRICK_STAIRS);
+                                entries.add(ASTRA_DIABASE_STONE_BRICK_SLAB);
                                 entries.add(ASTRA_DIABASE_COPPER_ORE);
                                 entries.add(ASTRA_IRON_ORE);
                                 entries.add(ASTRA_SILVER_ORE);

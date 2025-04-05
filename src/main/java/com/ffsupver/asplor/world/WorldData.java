@@ -232,12 +232,28 @@ public class WorldData {
         return planetData;
     }
 
+
+
+
     private static NbtCompound planetEnvironmentToNbt(PlanetData.PlanetEnvironment planetEnvironment){
         NbtCompound planetEnvironmentData = new NbtCompound();
         if (planetEnvironment != null){
             planetEnvironmentData.putBoolean("charged", planetEnvironment.charged());
         }
         return planetEnvironmentData;
+    }
+
+    private static PlanetData.PlanetEnvironment planetEnvironmentFromNbt(NbtCompound nbt,RegistryKey<World> worldKey){
+        if (nbt.contains("planet_environment",NbtElement.COMPOUND_TYPE)){
+            NbtCompound planetEnvironmentData = nbt.getCompound("planet_environment");
+
+            boolean charged = PlanetData.PlanetEnvironment.DEFAULT.charged();
+            if (planetEnvironmentData.contains("charged",NbtElement.BYTE_TYPE)){
+                 charged = planetEnvironmentData.getBoolean("charged");
+            }
+            return new PlanetData.PlanetEnvironment(worldKey,charged);
+        }
+        return PlanetData.PlanetEnvironment.DEFAULT;
     }
 
 
@@ -282,19 +298,6 @@ public class WorldData {
             PlanetData.PlanetEnvironment planetEnvironment = PlanetData.getPlanetEnvironment(worldKey);
             NbtCompound planetData = planetToNbt(planet);
             NbtCompound planetEnvironmentData = planetEnvironmentToNbt(planetEnvironment);
-//                    new NbtCompound();
-//            if (planet != null){
-//                planetData.putBoolean("oxygen",planet.oxygen());
-//                planetData.putShort("temperature",planet.temperature());
-//                planetData.putFloat("gravity",planet.gravity());
-//                planetData.putInt("solar_power",planet.solarPower());
-//                planetData.putInt("tier",planet.tier());
-//
-//
-//            }
-//            if (planetEnvironment != null){
-//                planetData.putBoolean("charged",planetEnvironment.charged());
-//            }
             worldData.put("planet",planetData);
             worldData.put("planet_environment",planetEnvironmentData);
         }
@@ -356,13 +359,11 @@ public class WorldData {
                     int solarPower = planetData.getInt("solar_power");
                     int tier = planetData.getInt("tier");
 
-                    boolean charged = false;
-                    if (worldData.contains("planet_environment",NbtElement.COMPOUND_TYPE)){
-                        NbtCompound planetEnvironmentData = worldData.getCompound("planet_environment");
-                        charged = planetEnvironmentData.getBoolean("charged");
-                    }
+
+                    PlanetData.PlanetEnvironment planetEnvironment = planetEnvironmentFromNbt(worldData,worldKey);
+
                     createNewPlantWithOrbit(server,worldKey,biomes,chunkGeneratingSettingsCode,blockList,
-                            oxygen,temperature,gravity,solarPower,tier,charged);
+                            oxygen,temperature,gravity,solarPower,tier,planetEnvironment.charged());
                 }else {
                     createNewPlantWithOrbit(server,worldKey,biomes,chunkGeneratingSettingsCode,blockList);
                 }
@@ -373,6 +374,7 @@ public class WorldData {
             }
 
         } catch (IOException e) {
+            Asplor.LOGGER.error("Path: "+file+" \n");
             throw new RuntimeException(e);
         }
 

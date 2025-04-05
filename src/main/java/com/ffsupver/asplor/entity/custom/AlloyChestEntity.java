@@ -9,6 +9,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -33,6 +36,7 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
     @Nullable
     private Identifier lootTableId;
     private long lootSeed;
+    private static final TrackedData<Integer> HIT_TIMES;
 
     public AlloyChestEntity(World world, Vec3d position, Vec3d velocity){
         this(ModEntities.ALLOY_CHEST,world);
@@ -64,6 +68,12 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
         // 添加重力效果
         if (!this.hasNoGravity()) {
             this.setVelocity(this.getVelocity().add(0, -0.05, 0)); // 简单重力加速度
+        }
+
+        //恢复
+        int hitTime = this.dataTracker.get(HIT_TIMES);
+        if (hitTime > 0 && this.age % 30 == 0){
+            this.dataTracker.set(HIT_TIMES,hitTime - 1);
         }
 
         // 移动实体
@@ -100,10 +110,14 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
         if (this.isInvulnerableTo(source)) {
             return false;
         } else if (!this.getWorld().isClient && !this.isRemoved()) {
-            if (amount>4) {
+            int hitTimes = this.dataTracker.get(HIT_TIMES);
+            boolean shouldDiscard = amount > 5.0f || hitTimes > 4;
+            if (shouldDiscard) {
                 this.onBroken(source,getWorld(),this);
                 this.dropStack(AllBlocks.ALLOY_CHEST.asItem().getDefaultStack());
                 this.discard();
+            }else {
+                this.dataTracker.set(HIT_TIMES,hitTimes + (int) amount);
             }
             return true;
         } else {
@@ -115,6 +129,7 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
 
     @Override
     protected void initDataTracker() {
+        this.dataTracker.startTracking(HIT_TIMES,0);
     }
 
     @Override
@@ -126,6 +141,8 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
         } else {
             Inventories.readNbt(nbt, this.getInventory());
         }
+
+        this.dataTracker.set(HIT_TIMES,nbt.getInt("hit_times"));
     }
 
     @Override
@@ -138,6 +155,8 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
         } else {
             Inventories.writeNbt(nbt, this.getInventory());
         }
+
+        nbt.putInt("hit_times",this.dataTracker.get(HIT_TIMES));
     }
 
     @Override
@@ -268,5 +287,9 @@ public class AlloyChestEntity extends Entity implements VehicleInventory {
     @Override
     public void clear() {
         this.clearInventory();
+    }
+
+    static {
+        HIT_TIMES = DataTracker.registerData(AlloyChestEntity.class, TrackedDataHandlerRegistry.INTEGER);
     }
 }

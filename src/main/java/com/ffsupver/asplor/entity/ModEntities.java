@@ -20,37 +20,38 @@ import net.minecraft.world.Heightmap;
 
 public class ModEntities {
 
-    public static final EntityType<AlloyChestEntity> ALLOY_CHEST = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"alloy_chest"),
+    public static final EntityType<AlloyChestEntity> ALLOY_CHEST = registerEntity("alloy_chest",
         FabricEntityTypeBuilder.<AlloyChestEntity>create(SpawnGroup.MISC, AlloyChestEntity::new)
             .dimensions(EntityDimensions.fixed(1.0f, 1.0f)) // 设置实体大小
             .trackRangeBlocks(80).trackedUpdateRate(3) // 设置追踪范围和更新频率
         .build());
 
-    public static final EntityType<Rocket> TIER_0_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"tier_0_rocket"),
+    public static final EntityType<Rocket> TIER_0_ROCKET = registerEntity("tier_0_rocket",
             FabricEntityTypeBuilder.<Rocket>create(SpawnGroup.MISC,(entityType,world)->new Rocket(entityType,world,new Rocket.RocketProperties(0, ModItems.TIER_0_ROCKET,0.8F, ModTags.Fluids.TIER_0_ROCKET_FUEL)))
                     .dimensions(EntityDimensions.fixed(1.0F, 3.875F))
                     .build());
 
-    public static final EntityType<CargoRocketEntity> CARGO_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"cargo_rocket"),
+    public static final EntityType<CargoRocketEntity> CARGO_ROCKET = registerEntity("cargo_rocket",
             FabricEntityTypeBuilder.<CargoRocketEntity>create(SpawnGroup.MISC, CargoRocketEntity::new)
                     .dimensions(EntityDimensions.fixed(17/16f,4.3f))
                     .build()
     );
-    public static final EntityType<Ranger> RANGER = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"ranger"),
+    public static final EntityType<Ranger> RANGER = registerEntity("ranger",
             FabricEntityTypeBuilder.<Ranger>create(SpawnGroup.MISC, Ranger::new)
                     .dimensions(EntityDimensions.fixed(1f,1f))
                     .build()
     );
-    public static final EntityType<AdvanceRocketEntity> ADVANCE_ROCKET = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"advance_rocket"),
+    public static final EntityType<AdvanceRocketEntity> ADVANCE_ROCKET = registerEntity("advance_rocket",
             FabricEntityTypeBuilder.<AdvanceRocketEntity>create(SpawnGroup.MISC, AdvanceRocketEntity::new)
                     .dimensions(EntityDimensions.fixed(1.3f,6.7f))
                     .build()
     );
-    public static final EntityType<Meteorite> METEORITE = Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"meteorite"),
+    public static final EntityType<Meteorite> METEORITE = registerEntity("meteorite",
             FabricEntityTypeBuilder.<Meteorite>create(SpawnGroup.MISC, Meteorite::new)
                     .dimensions(EntityDimensions.fixed(2.0f, 2.0f)) // 设置实体大小
                     .trackRangeBlocks(384).trackedUpdateRate(3) // 设置追踪范围和更新频率
-                    .build());
+                    .build()
+    );
 
     public static final EntityType<AstraMob> ASTRA_MOB = registerEntity("astra_mod",
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER,AstraMob::new)

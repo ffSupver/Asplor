@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "ad_astra:cheese_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:cheese",
+    "amount": 81000
+  },
+  "process_time": 400,
+  "heat_type": "normal"
+}

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "asplor:block/salt_water"
+      "model": "block/water"
     }
   }
 }

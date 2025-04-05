@@ -1,0 +1,14 @@
+{
+  "type": "asplor:time_injector",
+  "fluid": {
+    "fluid": "asplor:cheese"
+  },
+  "ingredients": [
+    {
+      "item": "asplor:frozen_core"
+    }
+  ],
+  "output": {
+    "item": "ad_astra:cheese_block"
+  }
+}

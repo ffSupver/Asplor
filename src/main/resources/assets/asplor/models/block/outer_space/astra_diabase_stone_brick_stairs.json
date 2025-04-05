@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "asplor:block/outer_space/astra_diabase_stone_bricks",
+    "side": "asplor:block/outer_space/astra_diabase_stone_bricks",
+    "top": "asplor:block/outer_space/astra_diabase_stone_bricks"
+  }
+}

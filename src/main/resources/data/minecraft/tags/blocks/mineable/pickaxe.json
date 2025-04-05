@@ -44,6 +44,9 @@
     "asplor:glacio_etrium_ore",
     "asplor:meteorite",
     "asplor:atmospheric_regulator/iron",
-    "asplor:oxygen_pipe/iron"
+    "asplor:oxygen_pipe/iron",
+    "asplor:outer_space/astra_diabase_stone_bricks",
+    "asplor:outer_space/astra_diabase_stone_brick_stairs",
+    "asplor:outer_space/astra_diabase_stone_brick_slab"
   ]
 }
