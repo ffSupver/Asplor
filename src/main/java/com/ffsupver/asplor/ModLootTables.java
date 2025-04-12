@@ -1,6 +1,7 @@
 package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.item.ModItems;
+import earth.terrarium.adastra.AdAstra;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplierBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.loot.LootPool;
@@ -29,11 +30,14 @@ public class ModLootTables {
             VILLAGE_PLAINS_CHEST,VILLAGE_DESERT_HOUSE_CHEST,VILLAGE_SAVANNA_HOUSE_CHEST,
             VILLAGE_TAIGA_HOUSE_CHEST,VILLAGE_SNOWY_HOUSE_CHEST
     );
+
+    private static final Identifier MOON_VILLAGE_CHEST = new Identifier(AdAstra.MOD_ID,"chests/village/moon/house");
     public static void register(){
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
             addMysteryPaper(id,table);
             addLocator(id,table);
             addTridentShard(id,table);
+            addGoldOrchidSeed(id,table);
         });
 
     }
@@ -55,6 +59,15 @@ public class ModLootTables {
             LootPool.Builder netherBridgePoolBuilder = LootPool.builder()
                     .rolls(UniformLootNumberProvider.create(0,3))
                     .with(ItemEntry.builder(ModItems.LOCATOR));
+            table.pool(netherBridgePoolBuilder);
+        }
+    }
+    private static void addGoldOrchidSeed(Identifier id, FabricLootSupplierBuilder table){
+        if (MOON_VILLAGE_CHEST.equals(id)) {
+            LootPool.Builder netherBridgePoolBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,2))
+                    .with(ItemEntry.builder(ModItems.GOLD_ORCHID_SEED))
+                    .with(ItemEntry.builder(ModItems.GOLD_ORCHID_STAMEN));
             table.pool(netherBridgePoolBuilder);
         }
     }
@@ -144,6 +157,17 @@ public class ModLootTables {
         if (NETHER_BRIDGE_CHEST.equals(id)) {
             NbtCompound chapterNbt = new NbtCompound();
             chapterNbt.putString("chapter","the_nether/the_nether_altar");
+            LootPool.Builder poolBuilder = LootPool.builder()
+                    .rolls(UniformLootNumberProvider.create(0,1))
+                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
+                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+
+            table.pool(poolBuilder);
+        }
+
+        if (MOON_VILLAGE_CHEST.equals(id)){
+            NbtCompound chapterNbt = new NbtCompound();
+            chapterNbt.putString("chapter","moon/gold");
             LootPool.Builder poolBuilder = LootPool.builder()
                     .rolls(UniformLootNumberProvider.create(0,1))
                     .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)

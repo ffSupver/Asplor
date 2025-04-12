@@ -117,6 +117,8 @@
   "item.asplor.cheese_bucket": "Cheese Bucket",
   "item.asplor.gold_orchid_stamen_dust": "Gold Orchid Stamen Dust",
   "item.asplor.moon_stone_billet": "Moon Stone Billet",
+  "item.asplor.tier_2_rocket_controlling_chip": "Tier 2 Rocket Controlling Chip",
+  "item.asplor.uncompleted_tier_2_rocket_controlling_chip": "Uncompleted Tier 2 Rocket Controlling Chip",
 
 
 
@@ -210,6 +212,8 @@
   "block.asplor.outer_space.astra_diabase_stone_bricks": "Astra Diabase Stone Bricks",
   "block.asplor.outer_space.astra_diabase_stone_brick_stairs": "Astra Diabase Stone Brick Stairs",
   "block.asplor.outer_space.astra_diabase_stone_brick_slab": "Astra Diabase Stone Brick Slab",
+  "block.asplor.oxygen_pipe.iron_plating": "Iron Plating Oxygen Pipe",
+  "block.asplor.atmospheric_regulator.iron_plating": "Iron Plating Atmospheric Regulator",
 
 
 
@@ -276,6 +280,7 @@
   "description.asplor.schematic.space_core": "Space Core",
   "description.asplor.schematic.advance_circuit_board": "Advance Circuit Board",
   "description.asplor.schematic.navigation_chip": "Navigation Chip",
+  "description.asplor.schematic.tier_2_rocket_controlling_chip": "Tier 2 Rocket Controlling Chip",
   "description.asplor.lightning_absorber": "Charging the block below when struck by lightning. Hit with a channeling trident to summon a lightning in either rain or thunder",
   "description.asplor.zinc_copper_battery": "Right-click on the machine to charge the machine",
   "description.asplor.meteorite.has_oxygen": "Has Oxygen",
@@ -322,6 +327,7 @@
   "guide_book.asplor.the_nether.all": "Tartarus",
   "guide_book.asplor.the_nether.the_nether_altar": "The Nether Altar",
   "guide_book.asplor.moon.gold": "Gold",
+  "guide_book.asplor.moon.all": "Moon",
 
   "category.asplor.key": "Asplor",
   "key.asplor.open_backpack": "Open Backpack",

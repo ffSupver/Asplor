@@ -59,6 +59,7 @@ public class ModItemGroups {
                                 entries.add(SPACE_CORE);
                                 entries.add(CONTROLLING_CHIP);
                                 entries.add(CIRCUIT_BOARD);
+                                entries.add(TIER_2_ROCKET_CONTROLLING_CHIP);
                                 entries.add(ADVANCE_CIRCUIT_BOARD);
                                 entries.add(REFINED_OIL_BUCKET);
                                 entries.add(CONCENTRATED_OIL_BUCKET);
@@ -198,6 +199,8 @@ public class ModItemGroups {
                             entries.add(POLISHED_CUT_CALCITE_AIRLOCK_SWITCH);
                             entries.add(ATMOSPHERIC_REGULATOR_IRON);
                             entries.add(OXYGEN_PIPE_IRON);
+                            entries.add(ATMOSPHERIC_REGULATOR_IRON_PLATING);
+                            entries.add(OXYGEN_PIPE_IRON_PLATING);
                         }).build());
 
     }

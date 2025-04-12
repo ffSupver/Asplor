@@ -1,6 +1,6 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "asplor:moon_space_station",
+  "start_pool": "asplor:moon/moon_space_station",
   "size": 1,
   "max_distance_from_center": 114,
   "biomes": "ad_astra:lunar_wastelands",

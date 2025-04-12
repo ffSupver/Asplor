@@ -1,5 +1,6 @@
 package com.ffsupver.asplor.block.airlockSwitch;
 
+import com.ffsupver.asplor.util.MathUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -11,6 +12,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -81,4 +83,12 @@ public class AirlockSwitch extends Block implements BlockEntityProvider {
         return new AirlockSwitchEntity(pos,state);
     }
 
+    @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        Direction.Axis axis = state.get(AXIS);
+        if (!rotation.rotate(MathUtil.getFirstDirectionFromAxis(axis)).getAxis().equals(axis)){
+           return state.with(AXIS,axis.equals(X) ? Z : X);
+        }
+        return super.rotate(state, rotation);
+    }
 }

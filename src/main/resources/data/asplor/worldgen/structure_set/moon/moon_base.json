@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "asplor:moon/moon_base",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1399819893,
+    "spacing": 32,
+    "separation": 14,
+    "type": "minecraft:random_spread"
+  }
+}

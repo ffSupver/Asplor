@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/u"
+    },
+    "facing=down": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/u",
+      "x": 180
+    },
+    "facing=north": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/n"
+    },
+    "facing=south": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/s"
+    },
+    "facing=east": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/e"
+    },
+    "facing=west": {
+      "model": "asplor:block/atmospheric_regulator/iron_plating/w"
+    }
+  }
+}

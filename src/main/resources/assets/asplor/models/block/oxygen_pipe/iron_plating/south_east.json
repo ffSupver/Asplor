@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "asplor:block/atmospheric_regulator/iron_plating/right_up",
+    "east": "asplor:block/atmospheric_regulator/iron_plating/side",
+    "north": "asplor:block/atmospheric_regulator/iron_plating/straight_horizontal",
+    "particle": "ad_astra:block/iron_plating",
+    "south": "asplor:block/atmospheric_regulator/iron_plating/side",
+    "up": "asplor:block/atmospheric_regulator/iron_plating/right_down",
+    "west": "asplor:block/atmospheric_regulator/iron_plating/straight_horizontal"
+  }
+}

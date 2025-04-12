@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "asplor:item/tier_2_rocket_controlling_chip"
+  }
+}

@@ -14,12 +14,15 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class SmartMechanicalArmItem extends BlockItem {
     public SmartMechanicalArmItem(Block block, Settings settings) {
@@ -86,22 +89,21 @@ public class SmartMechanicalArmItem extends BlockItem {
             BlockPos pos = context.getBlockPos();
             if (context.getWorld().getBlockEntity(pos) instanceof SmartMechanicalArmEntity smartMechanicalArmEntity) {
                 NbtCompound itemStackNbt = context.getStack().getOrCreateNbt();
-                if (itemStackNbt.contains("tools", 9)) {
-                    NbtList toolNbtList = itemStackNbt.getList("tools",10);
-                    for (NbtElement element : toolNbtList){
-                        BlockPos toolPos = NbtUtil.readBlockPosFromNbt((NbtCompound) element);
-                        if (pos.getY() == toolPos.getY() && (Math.abs(pos.getZ() - toolPos.getZ())+Math.abs(pos.getX() - toolPos.getX()) < 5)){
-                            smartMechanicalArmEntity.addToolPos(toolPos);
-                        }
+
+                List<BlockPos> toolPosList = getToolPosList(itemStackNbt);
+                for (BlockPos toolPos : toolPosList){
+                    if (pos.getY() == toolPos.getY() && (Math.abs(pos.getZ() - toolPos.getZ())+Math.abs(pos.getX() - toolPos.getX()) < 5)){
+                        smartMechanicalArmEntity.addToolPos(toolPos);
                     }
                 }
-                if (itemStackNbt.contains("target",10)){
-                    BlockPos targetPos = NbtUtil.readBlockPosFromNbt(itemStackNbt.getCompound("target"));
+
+
+                Optional<BlockPos> targetPosOptional = getTargetPos(itemStackNbt);
+                targetPosOptional.ifPresent(targetPos->{
                     if (pos.getY() == targetPos.getY() && (Math.abs(pos.getZ() - targetPos.getZ())+Math.abs(pos.getX() - targetPos.getX()) < 5)){
                         smartMechanicalArmEntity.setTargetPos(targetPos);
                     }
-
-                }
+                });
             }
 
 
@@ -118,5 +120,22 @@ public class SmartMechanicalArmItem extends BlockItem {
             return true;
         }
         return false;
+    }
+
+    private static List<BlockPos> getToolPosList(NbtCompound nbt){
+        List<BlockPos> result = new ArrayList<>();
+        if (nbt.contains("tools", 9)) {
+            NbtList toolNbtList = nbt.getList("tools",10);
+            result.addAll(NbtUtil.readBlockPosListFromNbt(toolNbtList));
+        }
+        return result;
+    }
+
+    private static Optional<BlockPos> getTargetPos(NbtCompound nbt){
+        if (nbt.contains("target",10)){
+            BlockPos targetPos = NbtUtil.readBlockPosFromNbt(nbt.getCompound("target"));
+            return Optional.of(targetPos);
+        }
+        return Optional.empty();
     }
 }

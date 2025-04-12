@@ -3,6 +3,7 @@ package com.ffsupver.asplor.util;
 import net.minecraft.nbt.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,16 @@ public final class NbtUtil {
         result.putInt("x",blockPos.getX());
         result.putInt("y",blockPos.getY());
         result.putInt("z",blockPos.getZ());
+        return result;
+    }
+    public static Vec3i readVec3iFromNbt(NbtCompound nbtCompound){
+        return new Vec3i(nbtCompound.getInt("x"),nbtCompound.getInt("y"),nbtCompound.getInt("z"));
+    }
+    public static NbtCompound writeVec3iToNbt(Vec3i vec3i){
+        NbtCompound result = new NbtCompound();
+        result.putInt("x",vec3i.getX());
+        result.putInt("y",vec3i.getY());
+        result.putInt("z",vec3i.getZ());
         return result;
     }
 

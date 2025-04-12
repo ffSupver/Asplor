@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "shape=ud": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/straight_vertical"
+    },
+    "shape=ns": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/straight_horizontal_ns"
+    },
+    "shape=ew": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/straight_horizontal_ew"
+    },
+    "shape=dn": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/north_down"
+    },
+    "shape=ds": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/south_down"
+    },
+    "shape=de": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/east_down"
+    },
+    "shape=dw": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/west_down"
+    },
+    "shape=ue": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/east_up"
+    },
+    "shape=uw": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/west_up"
+    },
+    "shape=un": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/north_up"
+    },
+    "shape=us": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/south_up"
+    },
+    "shape=ne": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/north_east"
+    },
+    "shape=nw": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/north_west"
+    },
+    "shape=se": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/south_east"
+    },
+    "shape=sw": {
+      "model": "asplor:block/oxygen_pipe/iron_plating/south_west"
+    }
+  }
+}

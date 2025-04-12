@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "ad_astra:moon_sand"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "asplor:mysterious_paper",
+    "nbt": {
+      "chapter": "moon/all"
+    }
+  }
+}

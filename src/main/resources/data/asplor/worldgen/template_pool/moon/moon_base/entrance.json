@@ -1,0 +1,15 @@
+{
+  "name": "asplor:moon/moon_base/entrance",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 100,
+      "element": {
+        "location": "asplor:moon/moon_base/airlock",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

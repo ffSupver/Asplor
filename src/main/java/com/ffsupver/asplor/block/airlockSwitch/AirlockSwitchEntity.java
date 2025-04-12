@@ -7,34 +7,40 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3i;
 
 import static com.ffsupver.asplor.block.airlockSwitch.AirlockSwitch.ON;
 
 public class AirlockSwitchEntity extends BlockEntity {
     private boolean switched;
     private BlockPos pairPos;
+    private Vec3i offset;
     public AirlockSwitchEntity(BlockPos pos, BlockState state) {
         super(AllBlockEntityTypes.AIRLOCK_SWITCH_ENTITY, pos, state);
     }
 
     @Override
     protected void writeNbt(NbtCompound nbt) {
-        if (pairPos != null){
-            nbt.put("pair", NbtUtil.writeBlockPosToNbt(pairPos));
+        if (offset != null) {
+            nbt.put("offset",NbtUtil.writeVec3iToNbt(offset));
         }
         super.writeNbt(nbt);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        if (nbt.contains("pair",10)){
-            pairPos = NbtUtil.readBlockPosFromNbt(nbt.getCompound("pair"));
+        if (nbt.contains("offset",10)){
+            offset = NbtUtil.readBlockPosFromNbt(nbt.getCompound("offset"));
+            pairPos = pos.add(offset);
         }
         super.readNbt(nbt);
     }
 
+
+
     public void setPairPos(BlockPos pairPos) {
         this.pairPos = pairPos;
+        this.offset = new Vec3i(pairPos.getX() - pos.getX(),pairPos.getY() - pos.getY(),pairPos.getZ() - pos.getZ());
     }
 
 

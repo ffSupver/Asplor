@@ -146,6 +146,19 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
     private Optional<SmartProcessingRecipe> getCurrentRecipe(){
         Inventory test = new SimpleInventory(1);
         test.setStack(0,getTargetItemStack());
+
+        List<SmartProcessingRecipe> rl = world.getRecipeManager().getAllMatches(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
+        for (SmartProcessingRecipe recipe : rl){
+            if (recipe.requireSchematic() && isAlloyDepot()) {
+                AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
+                if (alloyDepotEntity != null) {
+                    String schematic = alloyDepotEntity.getSchematic();
+                    if (schematic != null && schematic.equals(recipe.getSchematic())) {
+                        return Optional.of(recipe);
+                    }
+                }
+            }
+        }
         return world.getRecipeManager().getFirstMatch(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
     }
 

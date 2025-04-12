@@ -1,0 +1,22 @@
+{
+  "type":"asplor:smart_processing",
+  "ingredient": {
+    "item": "asplor:controlling_chip"
+  },
+  "output": {
+    "item": "asplor:tier_2_rocket_controlling_chip"
+  },
+  "process_item": {
+    "item": "asplor:uncompleted_tier_2_rocket_controlling_chip"
+  },
+  "tool_types": [
+    "asplor:glue_dropper",
+    "asplor:laser",
+    "asplor:drill",
+    "asplor:molten_alloy_dropper",
+    "asplor:molten_brass_dropper",
+    "asplor:molten_desh_dropper",
+    "asplor:molten_desh_dropper"
+  ],
+  "schematic": "tier_2_rocket_controlling_chip"
+}

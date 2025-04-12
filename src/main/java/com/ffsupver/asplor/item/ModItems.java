@@ -168,6 +168,8 @@ public class ModItems {
     public static final Item MOLTEN_CALORITE_DROPPER = registerItems("molten_calorite_dropper",new ToolItem(new FabricItemSettings(),new Identifier(Asplor.MOD_ID,"molten_calorite_dropper"),2));
     public static final Item GOLD_ORCHID_STAMEN_DUST = registerItems("gold_orchid_stamen_dust",new Item(new FabricItemSettings()));
     public static final Item MOON_STONE_BILLET = registerItems("moon_stone_billet",new Item(new FabricItemSettings()));
+    public static final Item TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
+    public static final Item UNCOMPLETED_TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("uncompleted_tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

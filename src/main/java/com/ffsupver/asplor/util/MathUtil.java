@@ -70,4 +70,12 @@ public final class MathUtil {
                 directionPos.getZ() - centerPos.getZ());
         return Direction.fromVector(checkVec.getX(),checkVec.getY(),checkVec.getZ());
     }
+
+    public static Direction getFirstDirectionFromAxis(Direction.Axis axis){
+        return switch (axis){
+            case X -> Direction.EAST;
+            case Y -> Direction.UP;
+            case Z -> Direction.NORTH;
+        };
+    }
 }

@@ -1,7 +1,7 @@
 {
   "structures": [
     {
-      "structure": "asplor:moon_space_station",
+      "structure": "asplor:moon/moon_space_station",
       "weight": 1
     }
   ],

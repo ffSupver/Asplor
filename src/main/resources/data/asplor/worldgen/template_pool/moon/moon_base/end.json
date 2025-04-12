@@ -1,20 +1,20 @@
 {
-  "name": "asplor:moon_space_station",
+  "name": "asplor:moon/moon_base/end",
   "fallback": "minecraft:empty",
   "elements": [
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
-        "location": "asplor:moon_space_station/space_station_1",
+        "location": "asplor:moon/moon_base/corridor_end_0",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
       }
     },
     {
-      "weight": 1,
+      "weight": 100,
       "element": {
-        "location": "asplor:moon_space_station/space_station_2",
+        "location": "asplor:moon/moon_base/corridor_end_1",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

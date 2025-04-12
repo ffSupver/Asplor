@@ -13,6 +13,8 @@ import earth.terrarium.adastra.common.config.MachineConfig;
 import earth.terrarium.adastra.common.registry.ModFluids;
 import earth.terrarium.adastra.common.utils.floodfill.FloodFill3D;
 import earth.terrarium.botarium.common.fluid.FluidConstants;
+import it.unimi.dsi.fastutil.longs.LongArrayFIFOQueue;
+import it.unimi.dsi.fastutil.longs.LongSet;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.SidedStorageBlockEntity;
@@ -53,7 +55,9 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
             tickCoolDown--;
         }else {
             tickCoolDown = MAX_TICK_COOLDOWN;
-            checkBlocks();
+            if (getOxygenAmount() > 0){
+                checkBlocks();
+            }
             if (connectCoolDown > 0){
                 connectCoolDown--;
             }else {
@@ -68,6 +72,7 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
 
     private void updateConnectBlocks(){
         Direction.Axis axis = getFacingSide().getAxis();
+        toPosList.clear();
         for (Direction direction : Direction.values()){
             if (!axis.test(direction)){
                BlockPos checkConnectPos = walkThroughOxygenBlock(direction);
@@ -82,6 +87,7 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
         }
 
         toPosList.remove(pos);
+
         for (BlockPos connectPos : toPosList) {
             if (getWorld().getBlockEntity(connectPos) instanceof AtmosphericRegulatorEntity atmosphericRegulatorEntity) {
                 atmosphericRegulatorEntity.setFromPos(isController() ? pos : fromPos.equals(connectPos) ? null : fromPos);
@@ -91,6 +97,8 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
                        a.addToPosList(toPosList);
                    }
                 }
+            }else {
+                toPosList.remove(connectPos);
             }
         }
 
@@ -117,6 +125,18 @@ public class AtmosphericRegulatorEntity extends SmartBlockEntity implements Side
 
     private void checkBlocks(){
         if (OxygenApi.API.hasOxygen(getWorld())){
+            return;
+        }
+
+        if(!FloodFill3D.TEST_FULL_SEAL.test(
+                getWorld(),
+                getPos().offset(getFacingSide()),
+                getWorld().getBlockState(getPos().offset(getFacingSide())),
+                LongSet.of(),
+                new LongArrayFIFOQueue(),
+                getFacingSide())
+        ){
+            removeOxygenBlocks();
             return;
         }
 

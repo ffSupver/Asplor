@@ -312,6 +312,12 @@ public class AllBlocks {
                     .item(BlockItem::new)
                     .build()
                     .register();
+    public static final BlockEntry<AtmosphericRegulator> ATMOSPHERIC_REGULATOR_IRON_PLATING =
+            REGISTRATE.block("atmospheric_regulator/iron_plating", AtmosphericRegulator::new)
+                    .properties(p -> AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
 
 
     //注册普通方块
@@ -383,6 +389,7 @@ public class AllBlocks {
     public static final Block ASTRA_DIABASE_STONE_BRICKS = registerBlock("outer_space/astra_diabase_stone_bricks",new Block(FabricBlockSettings.copy(STONE_BRICKS)));
     public static final Block ASTRA_DIABASE_STONE_BRICK_STAIRS = registerBlock("outer_space/astra_diabase_stone_brick_stairs",new StairsBlock(ASTRA_DIABASE_STONE_BRICKS.getDefaultState(),FabricBlockSettings.copy(ASTRA_DIABASE_STONE_BRICKS)));
     public static final Block ASTRA_DIABASE_STONE_BRICK_SLAB = registerBlock("outer_space/astra_diabase_stone_brick_slab",new SlabBlock(FabricBlockSettings.copy(ASTRA_DIABASE_STONE_BRICKS)));
+    public static final Block OXYGEN_PIPE_IRON_PLATING = registerBlock("oxygen_pipe/iron_plating",new OxygenPipe(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

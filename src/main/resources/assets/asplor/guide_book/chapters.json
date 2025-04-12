@@ -83,6 +83,12 @@
       "description": "{\"translate\":\"guide_book.asplor.the_nether.the_nether_altar\",\"color\":\"white\"}"
     },
     {
+      "name": "moon/all",
+      "order": 100,
+      "description": "{\"translate\":\"guide_book.asplor.moon.all\",\"color\":\"gold\"}",
+      "display_item": "ad_astra:moon_sand"
+    },
+    {
       "name": "moon/gold",
       "order": 110,
       "description": "{\"translate\":\"guide_book.asplor.moon.gold\",\"color\":\"white\"}"

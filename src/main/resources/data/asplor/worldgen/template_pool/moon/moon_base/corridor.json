@@ -1,0 +1,42 @@
+{
+  "name": "asplor:moon/moon_base/corridor",
+  "fallback": "asplor:moon/moon_base/end",
+  "elements": [
+    {
+      "weight": 100,
+      "element": {
+        "location": "asplor:moon/moon_base/corridor",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "location": "asplor:moon/moon_base/corridor_long",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "asplor:moon/moon_base/corridor_end_0",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "asplor:moon/moon_base/corridor_end_1",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

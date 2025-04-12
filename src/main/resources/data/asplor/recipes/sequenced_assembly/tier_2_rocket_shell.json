@@ -45,10 +45,14 @@
       ]
     },
     {
-      "type": "asplor:alloy_pressing",
+      "type": "create:filling",
       "ingredients": [
         {
           "item": "ad_astra:desh_block"
+        },
+        {
+          "amount": 9000,
+          "fluid": "asplor:cheese"
         }
       ],
       "results": [
