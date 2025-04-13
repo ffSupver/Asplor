@@ -2,10 +2,7 @@ package com.ffsupver.asplor.entity;
 
 import com.ffsupver.asplor.Asplor;
 import com.ffsupver.asplor.ModTags;
-import com.ffsupver.asplor.entity.custom.AlloyChestEntity;
-import com.ffsupver.asplor.entity.custom.AstraMob;
-import com.ffsupver.asplor.entity.custom.Meteorite;
-import com.ffsupver.asplor.entity.custom.Ranger;
+import com.ffsupver.asplor.entity.custom.*;
 import com.ffsupver.asplor.entity.custom.rocket.AdvanceRocketEntity;
 import com.ffsupver.asplor.entity.custom.rocket.CargoRocketEntity;
 import com.ffsupver.asplor.item.ModItems;
@@ -58,6 +55,12 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(3,3))
                     .build()
     );
+
+    public static final EntityType<ZombifiedCosmonaut> ZOMBIFIED_COSMONAUT = registerEntity("zombified_cosmonaut",
+            FabricEntityTypeBuilder.<ZombifiedCosmonaut>create(SpawnGroup.MONSTER,ZombifiedCosmonaut::new)
+                    .dimensions(EntityDimensions.fixed(0.6F, 1.95F))
+                    .build()
+    );
     public static <T extends Entity> EntityType<T> registerEntity(String id, EntityType<T> entityType){
         return Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,id),
                 entityType);
@@ -69,6 +72,7 @@ public class ModEntities {
 
     private  static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(ASTRA_MOB,AstraMob.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(ZOMBIFIED_COSMONAUT, ZombifiedCosmonaut.createZombifiedCosmonautAttributes());
     }
 
     public static void register(){

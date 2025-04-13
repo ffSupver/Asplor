@@ -1,0 +1,24 @@
+{
+  "name": "asplor:moon/moon_base/spawner",
+  "fallback": "asplor:moon/moon_base/end",
+  "elements": [
+    {
+      "weight": 100,
+      "element": {
+        "location": "asplor:moon/moon_base/zombified_cosmonaut_spawner",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 100,
+      "element": {
+        "location": "asplor:moon/moon_base/star_crawler_spawner",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

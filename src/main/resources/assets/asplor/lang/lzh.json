@@ -118,6 +118,9 @@
   "item.asplor.moon_stone_billet": "月石锭坯",
   "item.asplor.tier_2_rocket_controlling_chip": "二阶火箭控制芯片",
   "item.asplor.uncompleted_tier_2_rocket_controlling_chip": "未完成的二阶火箭控制芯片",
+  "item.asplor.zombified_cosmonaut_spawn_egg": "僵尸宇航员刷怪蛋",
+
+
 
 
   "block.asplor.alloy_block": "合金块",
@@ -258,7 +261,9 @@
   "subtitles.block.divider.cut": "切割机: 切割",
   "subtitles.entity.villager.work_assembler": "装配大师: 装配",
   "subtitles.block.electricity_work": "电流: 工作",
-
+  "subtitles.entity.zombified_cosmonaut.ambient": "僵尸宇航员 : 低吼",
+  "subtitles.entity.zombified_cosmonaut.death": "僵尸宇航员 : 死亡",
+  "subtitles.entity.zombified_cosmonaut.hurt": "僵尸宇航员 : 受伤",
 
 
   "description.asplor.goggle": "带有工程师护目镜",
@@ -350,6 +355,7 @@
   "entity.asplor.ranger": "徘徊者",
   "entity.asplor.advance_rocket": "高级火箭",
   "entity.asplor.meteorite": "陨石",
+  "entity.asplor.zombified_cosmonaut": "僵尸宇航员",
 
 
 

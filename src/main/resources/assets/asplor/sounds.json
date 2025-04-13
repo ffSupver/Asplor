@@ -68,5 +68,27 @@
     "sounds": [
       "asplor:electricity_work"
     ]
+  },
+
+  "zombified_cosmonaut.ambient": {
+    "subtitle": "subtitles.entity.zombified_cosmonaut.ambient",
+    "sounds": [
+      "asplor:zombified_cosmonaut/ambient1",
+      "asplor:zombified_cosmonaut/ambient2",
+      "asplor:zombified_cosmonaut/ambient3"
+    ]
+  },
+  "zombified_cosmonaut.death": {
+    "subtitle": "subtitles.entity.zombified_cosmonaut.death",
+    "sounds": [
+      "asplor:zombified_cosmonaut/death"
+    ]
+  },
+  "zombified_cosmonaut.hurt": {
+    "subtitle": "subtitles.entity.zombified_cosmonaut.hurt",
+    "sounds": [
+      "asplor:zombified_cosmonaut/hurt1",
+      "asplor:zombified_cosmonaut/hurt2"
+    ]
   }
 }

@@ -18,6 +18,9 @@ public class ModSounds {
     public static final SoundEvent DIVIDER_CUT = registerSoundEvent("divider_cut");
     public static final SoundEvent ASSEMBLER_WORK = registerSoundEvent("assembler_work");
     public static final SoundEvent ELECTRICITY_WORK = registerSoundEvent("electricity_work");
+    public static final SoundEvent ZOMBIFIED_COSMONAUT_AMBIENT = registerSoundEvent("zombified_cosmonaut.ambient");
+    public static final SoundEvent ZOMBIFIED_COSMONAUT_DEATH = registerSoundEvent("zombified_cosmonaut.death");
+    public static final SoundEvent ZOMBIFIED_COSMONAUT_HURT = registerSoundEvent("zombified_cosmonaut.hurt");
 
     public static final BlockSoundGroup ALLOY_BLOCK_SOUND_GROUP=new BlockSoundGroup(1f,1f
             ,ModSounds.ALLOY_BLOCK_BREAK,ModSounds.ALLOY_BLOCK_STEP,ModSounds.ALLOY_BLOCK_PLACE,ModSounds.ALLOY_BLOCK_HIT,ModSounds.ALLOY_BLOCK_FALL);

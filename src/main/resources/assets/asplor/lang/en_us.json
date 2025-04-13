@@ -119,6 +119,7 @@
   "item.asplor.moon_stone_billet": "Moon Stone Billet",
   "item.asplor.tier_2_rocket_controlling_chip": "Tier 2 Rocket Controlling Chip",
   "item.asplor.uncompleted_tier_2_rocket_controlling_chip": "Uncompleted Tier 2 Rocket Controlling Chip",
+  "item.asplor.zombified_cosmonaut_spawn_egg": "Zombified Cosmonaut Spawn Egg",
 
 
 
@@ -262,6 +263,9 @@
   "subtitles.block.divider.cut": "Divider cuts",
   "subtitles.entity.villager.work_assembler": "Assembler works",
   "subtitles.block.electricity_work": "Electricity works",
+  "subtitles.entity.zombified_cosmonaut.ambient": "Zombified cosmonaut groans",
+  "subtitles.entity.zombified_cosmonaut.death": "Zombified cosmonaut dies",
+  "subtitles.entity.zombified_cosmonaut.hurt": "Zombified cosmonaut hurts",
 
   "description.asplor.goggle": "With goggles",
   "description.asplor.chest": "With chest",
@@ -347,6 +351,7 @@
   "entity.asplor.ranger": "Ranger",
   "entity.asplor.advance_rocket": "Advance Rocket",
   "entity.asplor.meteorite": "Meteorite",
+  "entity.asplor.zombified_cosmonaut": "Zombified Cosmonaut",
 
 
 

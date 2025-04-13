@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "asplor:astra_mod"
+    "asplor:astra_mod",
+    "asplor:zombified_cosmonaut"
   ]
 }

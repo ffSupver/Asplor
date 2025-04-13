@@ -170,6 +170,7 @@ public class ModItems {
     public static final Item MOON_STONE_BILLET = registerItems("moon_stone_billet",new Item(new FabricItemSettings()));
     public static final Item TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("uncompleted_tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
+    public static final Item ZOMBIFIED_COSMONAUT_SPAWN_EGG = registerItems("zombified_cosmonaut_spawn_egg",new SpawnEggItem(ModEntities.ZOMBIFIED_COSMONAUT,0x377D68,0xC7DCD0,new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){
