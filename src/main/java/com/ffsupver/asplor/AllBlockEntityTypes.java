@@ -9,6 +9,8 @@ import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressInstan
 import com.ffsupver.asplor.block.alloyMechanicalPress.AlloyMechanicalPressRenderer;
 import com.ffsupver.asplor.block.atmosphericRegulator.AtmosphericRegulatorEntity;
 import com.ffsupver.asplor.block.battery.BatteryEntity;
+import com.ffsupver.asplor.block.blocks.BaseSkullBlockEntity;
+import com.ffsupver.asplor.block.blocks.BaseSkullBlockEntityRenderer;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderEntity;
 import com.ffsupver.asplor.block.chunkLoader.ChunkLoaderRenderer;
 import com.ffsupver.asplor.block.divider.DividerEntity;
@@ -53,6 +55,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -223,13 +226,18 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier(Asplor.MOD_ID,"energy_output"),
                     FabricBlockEntityTypeBuilder.create(EnergyOutputEntity::new, ENERGY_OUTPUT).build());
     public static final BlockEntityType<AirlockSwitchEntity> AIRLOCK_SWITCH_ENTITY = registerBaseBlockEntityType("airlock_switch", AirlockSwitchEntity::new);
+    public static final BlockEntityType<BaseSkullBlockEntity> ZOMBIFIED_COSMONAUT_SKULL_ENTITY = registerBaseBlockEntityType("zombified_cosmonaut_skull", BaseSkullBlockEntity::new, ZOMBIFIED_COSMONAUT_HEAD,ZOMBIFIED_COSMONAUT_WALL_HEAD);
 
 
 
     public static void register(){
     }
 
-    public static <T extends BlockEntity> BlockEntityType<T> registerBaseBlockEntityType(String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block){
+    public static void registerRender(){
+        BlockEntityRendererFactories.register(ZOMBIFIED_COSMONAUT_SKULL_ENTITY, BaseSkullBlockEntityRenderer::new);
+    }
+
+    public static <T extends BlockEntity> BlockEntityType<T> registerBaseBlockEntityType(String name, FabricBlockEntityTypeBuilder.Factory<T> factory, Block... block){
         return Registry.register(Registries.BLOCK_ENTITY_TYPE,new Identifier(Asplor.MOD_ID,name),
                 FabricBlockEntityTypeBuilder.create(factory, block).build());
     }

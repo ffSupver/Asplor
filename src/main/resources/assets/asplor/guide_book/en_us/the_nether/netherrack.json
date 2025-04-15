@@ -1,0 +1,5 @@
+{
+  "text": "When <block.asplor.refined_oil> flows below <block.asplor.nether_oil>, <block.minecraft.netherrack> generates!",
+  "picture": "the_nether/netherrack.png",
+  "offset_y": -50
+}

@@ -1,8 +1,10 @@
 package com.ffsupver.asplor.entity.custom;
 
+import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.item.ModItems;
 import com.ffsupver.asplor.sound.ModSounds;
 import com.simibubi.create.AllItems;
+import net.minecraft.block.SkullBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityData;
@@ -123,6 +125,10 @@ public class ZombifiedCosmonaut extends ZombieEntity {
 
     @Override
     protected ItemStack getSkull() {
-        return ItemStack.EMPTY;
+        return new ItemStack(AllBlocks.ZOMBIFIED_COSMONAUT_HEAD.asItem());
+    }
+
+    public enum SkullType implements SkullBlock.SkullType{
+        ZOMBIFIED_COSMONAUT
     }
 }

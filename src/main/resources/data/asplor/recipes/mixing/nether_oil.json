@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 81000,
+      "fluid": "asplor:refined_oil"
+    },
+    {
+      "item": "create:cinder_flour"
+    }
+  ],
+  "results": [
+    {
+      "amount": 9000,
+      "fluid": "asplor:nether_oil"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_quartz_ore"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_quartz",
+    "amount": 27000
+  },
+  "process_time": 200,
+  "heat_type": "normal"
+}

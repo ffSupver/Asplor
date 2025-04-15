@@ -64,7 +64,10 @@ public class ModFluids {
     public static final FlowableFluid FLOWING_MOLTEN_OSTRUM = registerFluid("flowing_molten_ostrum",new MoltenOstrum.Flowing());
     public static final FlowableFluid MOLTEN_CALORITE = registerFluid("molten_calorite",new MoltenCalorite.Still());
     public static final FlowableFluid FLOWING_MOLTEN_CALORITE = registerFluid("flowing_molten_calorite",new MoltenCalorite.Flowing());
-
+    public static final FlowableFluid MOLTEN_QUARTZ = registerFluid("molten_quartz",new MoltenQuartz.Still());
+    public static final FlowableFluid FLOWING_MOLTEN_QUARTZ = registerFluid("flowing_molten_quartz",new MoltenQuartz.Flowing());
+    public static final FlowableFluid NETHER_OIL = registerFluid("nether_oil",new NetherOil.Still());
+    public static final FlowableFluid FLOWING_NETHER_OIL = registerFluid("flowing_nether_oil",new NetherOil.Flowing());
 
     public static void register(){
     }
@@ -80,6 +83,7 @@ public class ModFluids {
         registerWaterRender(HEAVY_OIL, FLOWING_HEAVY_OIL, 0x6E2D07);
         registerWaterRender(LIGHT_OIL,FLOWING_LIGHT_OIL,0xF5B110);
         registerRender(CHEESE,FLOWING_CHEESE, Identifier.of(Asplor.MOD_ID,"block/cheese_still"),Identifier.of(Asplor.MOD_ID,"block/cheese_flow"),0xFFF1A0);
+        registerWaterRender(NETHER_OIL,FLOWING_NETHER_OIL,0xF52F10);
 
 
 
@@ -94,6 +98,7 @@ public class ModFluids {
         registerMoltenMetalRender(IMPURE_MOLTEN_DESH,FLOWING_IMPURE_MOLTEN_DESH,0xD44B07);
         registerMoltenMetalRender(MOLTEN_OSTRUM,FLOWING_MOLTEN_OSTRUM,0x6E1A43);
         registerMoltenMetalRender(MOLTEN_CALORITE,FLOWING_MOLTEN_CALORITE,0xAA0943);
+        registerMoltenMetalRender(MOLTEN_QUARTZ,FLOWING_MOLTEN_QUARTZ,0xFFFCFC);
 
 
 

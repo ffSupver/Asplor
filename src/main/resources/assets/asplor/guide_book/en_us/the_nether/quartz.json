@@ -1,0 +1,5 @@
+{
+  "text": "Mixing <item.create.cinder_flour> and <block.asplor.refined_oil> to make <block.asplor.nether_oil>, then mix <block.asplor.nether_oil> and <item.minecraft.quartz> to produce more <item.minecraft.quartz>.",
+  "picture": "the_nether/quartz.png",
+  "offset_y": -40
+}

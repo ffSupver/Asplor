@@ -66,6 +66,8 @@ public class ModItems {
     public  static final Item LIGHT_OIL_BUCKET = registerBucketItem("light_oil_bucket",ModFluids.LIGHT_OIL);
     public  static final Item MOLTEN_OSTRUM_BUCKET = registerBucketItem("molten_ostrum_bucket",ModFluids.MOLTEN_OSTRUM);
     public  static final Item MOLTEN_CALORITE_BUCKET = registerBucketItem("molten_calorite_bucket",ModFluids.MOLTEN_CALORITE);
+    public static final Item MOLTEN_QUARTZ_BUCKET = registerBucketItem("molten_quartz_bucket",ModFluids.MOLTEN_QUARTZ);
+    public static final Item NETHER_OIL_BUCKET = registerBucketItem("nether_oil_bucket",ModFluids.NETHER_OIL);
 
 
 
@@ -170,7 +172,7 @@ public class ModItems {
     public static final Item MOON_STONE_BILLET = registerItems("moon_stone_billet",new Item(new FabricItemSettings()));
     public static final Item TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("uncompleted_tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
-    public static final Item ZOMBIFIED_COSMONAUT_SPAWN_EGG = registerItems("zombified_cosmonaut_spawn_egg",new SpawnEggItem(ModEntities.ZOMBIFIED_COSMONAUT,0x377D68,0xC7DCD0,new FabricItemSettings()));
+    public static final Item ZOMBIFIED_COSMONAUT_SPAWN_EGG = registerItems("zombified_cosmonaut_spawn_egg",new SpawnEggItem(ModEntities.ZOMBIFIED_COSMONAUT,0xC7DCD0,0x377D68,new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

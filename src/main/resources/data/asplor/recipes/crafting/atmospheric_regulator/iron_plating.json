@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A":{
+      "item": "create:fluid_tank"
+    },
+    "C": {
+      "item": "asplor:oxygen_pipe/iron_plating"
+    },
+    "D":{
+      "item": "create:fluid_pipe"
+    }
+  },
+  "pattern": [
+    " A ",
+    "DCD",
+    " D "
+  ],
+  "result": {
+    "item": "asplor:atmospheric_regulator/iron_plating",
+    "count": 1
+  },
+  "show_notification": true
+}

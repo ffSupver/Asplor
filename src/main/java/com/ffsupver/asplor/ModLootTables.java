@@ -75,30 +75,17 @@ public class ModLootTables {
 
 
         if (LOOT_TABLES_TO_ADD_IRON.contains(id)) {
-            NbtCompound chapterNbt = new NbtCompound();
-            chapterNbt.putString("chapter","earth/iron");
-            LootPool.Builder poolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,3))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+            LootPool.Builder poolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/iron",poolBuilder,0,3);
 
             table.pool(poolBuilder);
         }
         if (LootTables.RUINED_PORTAL_CHEST.equals(id)) {
-            NbtCompound netherPortalNbt = new NbtCompound();
-            netherPortalNbt.putString("chapter","earth/nether_portal");
-            NbtCompound locatorNbt = new NbtCompound();
-            locatorNbt.putString("chapter","earth/locator");
 
-
-            LootPool.Builder netherPortalpoolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,3))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(netherPortalNbt)));
-            LootPool.Builder locatorPoolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(locatorNbt)));
+            LootPool.Builder netherPortalpoolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/nether_portal",netherPortalpoolBuilder,0,3);
+            LootPool.Builder locatorPoolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/locator",locatorPoolBuilder);
 
 
             table.pool(netherPortalpoolBuilder);
@@ -107,20 +94,10 @@ public class ModLootTables {
 
 
         if (LOOT_TABLES_TO_ADD_GOGGLES_AND_CHEST.contains(id)) {
-            NbtCompound netherPortalNbt = new NbtCompound();
-            netherPortalNbt.putString("chapter","earth/add_chest");
-            NbtCompound locatorNbt = new NbtCompound();
-            locatorNbt.putString("chapter","earth/add_goggles");
-
-
-            LootPool.Builder netherPortalpoolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(netherPortalNbt)));
-            LootPool.Builder locatorPoolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(locatorNbt)));
+            LootPool.Builder netherPortalpoolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/add_chest",netherPortalpoolBuilder);
+            LootPool.Builder locatorPoolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/add_goggles",locatorPoolBuilder);
 
 
             table.pool(netherPortalpoolBuilder);
@@ -128,13 +105,10 @@ public class ModLootTables {
         }
 
         if (LootTables.VILLAGE_CARTOGRAPHER_CHEST.equals(id)){
-            NbtCompound largeMapNbt = new NbtCompound();
-            largeMapNbt.putString("chapter","earth/large_map");
 
-            LootPool.Builder cartographerBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,2))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(largeMapNbt)));
+            LootPool.Builder cartographerBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/large_map",cartographerBuilder,0,2);
+
             LootPool.Builder emptyLargeMapBuilder = LootPool.builder()
                     .rolls(UniformLootNumberProvider.create(0,1))
                     .with(ItemEntry.builder(ModItems.EMPTY_LARGE_MAP));
@@ -144,37 +118,42 @@ public class ModLootTables {
         }
 
         if (LOOT_TABLES_TO_ADD_LIGHTNING_ABSORBER.contains(id)) {
-            NbtCompound chapterNbt = new NbtCompound();
-            chapterNbt.putString("chapter","earth/lightning_absorber");
-            LootPool.Builder poolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+            LootPool.Builder poolBuilder = LootPool.builder();
+            addMysteryPaperToPool("earth/lightning_absorber",poolBuilder);
 
             table.pool(poolBuilder);
         }
 
         if (NETHER_BRIDGE_CHEST.equals(id)) {
-            NbtCompound chapterNbt = new NbtCompound();
-            chapterNbt.putString("chapter","the_nether/the_nether_altar");
-            LootPool.Builder poolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+            LootPool.Builder poolBuilder = LootPool.builder();
+            addMysteryPaperToPool("the_nether/the_nether_altar",poolBuilder);
+            addMysteryPaperToPool("the_nether/netherrack",poolBuilder,0,3);
+            addMysteryPaperToPool("the_nether/redstone",poolBuilder);
+            addMysteryPaperToPool("the_nether/quartz",poolBuilder);
 
             table.pool(poolBuilder);
         }
 
         if (MOON_VILLAGE_CHEST.equals(id)){
-            NbtCompound chapterNbt = new NbtCompound();
-            chapterNbt.putString("chapter","moon/gold");
-            LootPool.Builder poolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(0,1))
-                    .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
-                            .apply(SetNbtLootFunction.builder(chapterNbt)));
+            LootPool.Builder poolBuilder = LootPool.builder();
+            addMysteryPaperToPool("moon/gold",poolBuilder);
 
             table.pool(poolBuilder);
         }
+    }
+
+    private static LootPool.Builder addMysteryPaperToPool(String chapterId,LootPool.Builder poolBuilder){
+        return addMysteryPaperToPool(chapterId,poolBuilder,0,1);
+    }
+    private static LootPool.Builder addMysteryPaperToPool(String chapterId,LootPool.Builder poolBuilder,int min,int max){
+        NbtCompound altarChapterNbt = new NbtCompound();
+        altarChapterNbt.putString("chapter",chapterId);
+        poolBuilder
+                .rolls(UniformLootNumberProvider.create(min,max))
+                .with(ItemEntry.builder(ModItems.MYSTERIOUS_PAPER)
+                        .apply(SetNbtLootFunction.builder(altarChapterNbt))
+                );
+        return poolBuilder;
     }
 
     private static Identifier getMinecraftEntity(String id){return new Identifier("minecraft","entities/"+id);}

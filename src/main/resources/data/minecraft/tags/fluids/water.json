@@ -16,6 +16,8 @@
     "asplor:light_oil",
     "asplor:flowing_light_oil",
     "asplor:cheese",
-    "asplor:flowing_cheese"
+    "asplor:flowing_cheese",
+    "asplor:nether_oil",
+    "asplor:flowing_nether_oil"
   ]
 }

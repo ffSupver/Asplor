@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "amount": 81000,
+      "fluid": "asplor:nether_oil"
+    },
+    {
+      "item": "minecraft:quartz"
+    }
+  ],
+  "results": [
+    {
+      "amount": 40500,
+      "fluid": "asplor:molten_quartz"
+    }
+  ]
+}

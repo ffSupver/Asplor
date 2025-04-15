@@ -170,6 +170,10 @@ public class SingleItemCellInventory implements StorageCell {
         return count;
     }
 
+    public boolean hasConfigItem(){
+        return !this.configItem.equals(Items.AIR);
+    }
+
     @Override
     public boolean canFitInsideCell() {
         return StorageCell.super.canFitInsideCell();

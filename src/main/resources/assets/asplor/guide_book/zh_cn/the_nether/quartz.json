@@ -1,0 +1,5 @@
+{
+  "text": "把<item.create.cinder_flour>和<block.asplor.refined_oil>混合来制造<block.asplor.nether_oil>, 然后将产出的<block.asplor.nether_oil>和<item.minecraft.quartz>混合来产生更多的<item.minecraft.quartz>",
+  "picture": "the_nether/quartz.png",
+  "offset_y": -40
+}

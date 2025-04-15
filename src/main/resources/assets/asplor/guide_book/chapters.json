@@ -83,6 +83,21 @@
       "description": "{\"translate\":\"guide_book.asplor.the_nether.the_nether_altar\",\"color\":\"white\"}"
     },
     {
+      "name": "the_nether/netherrack",
+      "order": 70,
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.netherrack\",\"color\":\"white\"}"
+    },
+    {
+      "name": "the_nether/redstone",
+      "order": 75,
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.redstone\",\"color\":\"white\"}"
+    },
+    {
+      "name": "the_nether/quartz",
+      "order": 80,
+      "description": "{\"translate\":\"guide_book.asplor.the_nether.quartz\",\"color\":\"white\"}"
+    },
+    {
       "name": "moon/all",
       "order": 100,
       "description": "{\"translate\":\"guide_book.asplor.moon.all\",\"color\":\"gold\"}",

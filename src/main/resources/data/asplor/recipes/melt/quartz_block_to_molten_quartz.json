@@ -1,0 +1,14 @@
+{
+  "type": "asplor:melt",
+  "ingredients": [
+    {
+      "item": "minecraft:quartz_block"
+    }
+  ],
+  "output": {
+    "fluid": "asplor:molten_quartz",
+    "amount": 81050
+  },
+  "process_time": 700,
+  "heat_type": "normal"
+}

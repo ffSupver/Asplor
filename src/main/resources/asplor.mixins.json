@@ -21,6 +21,7 @@
   },
   "client": [
     "ArmorChestRenderMixin",
+    "SkullBlockEntityRendererMixin",
     "cargoRocket.CargoRocketThirdPersonCameraMixin",
     "cargoRocket.SittingModelMixin",
     "moltenMetal.CameraMixin"

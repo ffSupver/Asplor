@@ -119,6 +119,9 @@
   "item.asplor.tier_2_rocket_controlling_chip": "二阶火箭控制芯片",
   "item.asplor.uncompleted_tier_2_rocket_controlling_chip": "未完成的二阶火箭控制芯片",
   "item.asplor.zombified_cosmonaut_spawn_egg": "僵尸宇航员刷怪蛋",
+  "item.asplor.molten_quartz_bucket": "熔融石英桶",
+  "item.asplor.nether_oil_bucket": "下界油桶",
+
 
 
 
@@ -212,6 +215,11 @@
   "block.asplor.outer_space.astra_diabase_stone_brick_slab": "星辉石砖台阶",
   "block.asplor.oxygen_pipe.iron_plating": "铁板氧气管道",
   "block.asplor.atmospheric_regulator.iron_plating": "铁板大气调节器",
+  "block.asplor.zombified_cosmonaut_head": "僵尸宇航员的头",
+  "block.asplor.molten_quartz": "熔融石英",
+  "block.asplor.nether_oil": "下界油",
+
+
 
 
   "enchantment.asplor.strength": "强力",
@@ -327,6 +335,9 @@
   "guide_book.asplor.earth.all": "地球",
   "guide_book.asplor.the_nether.all": "幽冥星",
   "guide_book.asplor.the_nether.the_nether_altar": "幽冥星祭坛",
+  "guide_book.asplor.the_nether.netherrack": "下界岩",
+  "guide_book.asplor.the_nether.redstone": "红石",
+  "guide_book.asplor.the_nether.quartz": "石英",
   "guide_book.asplor.moon.gold": "金",
   "guide_book.asplor.moon.all": "月球",
 

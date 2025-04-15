@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:iron_block"
+    },
+    "D":{
+      "item": "create:fluid_pipe"
+    }
+  },
+  "pattern": [
+    "CDC",
+    "CDC",
+    "CDC"
+  ],
+  "result": {
+    "item": "asplor:oxygen_pipe/iron",
+    "count": 6
+  },
+  "show_notification": true
+}

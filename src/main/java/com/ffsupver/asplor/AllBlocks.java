@@ -64,18 +64,21 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.SkullItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import static com.ffsupver.asplor.Asplor.REGISTRATE;
+import static com.ffsupver.asplor.entity.custom.ZombifiedCosmonaut.SkullType.ZOMBIFIED_COSMONAUT;
 import static com.simibubi.create.AllMovementBehaviours.movementBehaviour;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
@@ -391,6 +394,12 @@ public class AllBlocks {
     public static final Block ASTRA_DIABASE_STONE_BRICK_SLAB = registerBlock("outer_space/astra_diabase_stone_brick_slab",new SlabBlock(FabricBlockSettings.copy(ASTRA_DIABASE_STONE_BRICKS)));
     public static final Block OXYGEN_PIPE_IRON_PLATING = registerBlock("oxygen_pipe/iron_plating",new OxygenPipe(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER)));
 
+    public static final Block ZOMBIFIED_COSMONAUT_WALL_HEAD = registerBlockWithoutItem("zombified_cosmonaut_wall_head",new BaseSkullWallBlock(ZOMBIFIED_COSMONAUT,FabricBlockSettings.copy(ZOMBIE_WALL_HEAD)));
+    public static final Block ZOMBIFIED_COSMONAUT_HEAD = registerBlock("zombified_cosmonaut_head",new BaseSkullBlock(ZOMBIFIED_COSMONAUT,FabricBlockSettings.copy(ZOMBIE_HEAD)),(block,setting)->new SkullItem(block,ZOMBIFIED_COSMONAUT_WALL_HEAD,setting.rarity(Rarity.UNCOMMON)));
+    public static final Block MOLTEN_QUARTZ = registerMoltenMetalFluidBlock("molten_quartz",ModFluids.MOLTEN_QUARTZ,null);
+    public static final Block NETHER_OIL = registerFluidBlock("nether_oil",ModFluids.NETHER_OIL,settings -> settings.mapColor(MapColor.RED));
+
+
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);
         return Registry.register(Registries.BLOCK,new Identifier(Asplor.MOD_ID,name),new MoltenMetalBlock(fluid,setting == null ? baseSetting : setting.apply(baseSetting)));
@@ -423,7 +432,8 @@ public class AllBlocks {
 
 
 
-    public static void register(){}
+    public static void register(){
+    }
 
     public static void registerRender(){
         registerRenderLayer(REFINERY_GLASS,RenderLayer.getCutoutMipped());

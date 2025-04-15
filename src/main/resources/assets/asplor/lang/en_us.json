@@ -120,6 +120,8 @@
   "item.asplor.tier_2_rocket_controlling_chip": "Tier 2 Rocket Controlling Chip",
   "item.asplor.uncompleted_tier_2_rocket_controlling_chip": "Uncompleted Tier 2 Rocket Controlling Chip",
   "item.asplor.zombified_cosmonaut_spawn_egg": "Zombified Cosmonaut Spawn Egg",
+  "item.asplor.molten_quartz_bucket": "Molten Quartz Bucket",
+  "item.asplor.nether_oil_bucket": "Nether Oil Bucket",
 
 
 
@@ -215,6 +217,10 @@
   "block.asplor.outer_space.astra_diabase_stone_brick_slab": "Astra Diabase Stone Brick Slab",
   "block.asplor.oxygen_pipe.iron_plating": "Iron Plating Oxygen Pipe",
   "block.asplor.atmospheric_regulator.iron_plating": "Iron Plating Atmospheric Regulator",
+  "block.asplor.zombified_cosmonaut_head": "Zombified Cosmonaut Head",
+  "block.asplor.molten_quartz": "Molten Quartz",
+  "block.asplor.nether_oil": "Nether Oil",
+
 
 
 
@@ -330,6 +336,9 @@
   "guide_book.asplor.earth.all": "Earth",
   "guide_book.asplor.the_nether.all": "Tartarus",
   "guide_book.asplor.the_nether.the_nether_altar": "The Nether Altar",
+  "guide_book.asplor.the_nether.netherrack": "Netherrack",
+  "guide_book.asplor.the_nether.redstone": "Redstone",
+  "guide_book.asplor.the_nether.quartz": "Quartz",
   "guide_book.asplor.moon.gold": "Gold",
   "guide_book.asplor.moon.all": "Moon",
 

@@ -70,6 +70,7 @@ public class ModItemGroups {
                                 entries.add(CHLORINE_BUCKET);
                                 entries.add(HYDROCHLORIC_ACID_BUCKET);
                                 entries.add(CHEESE_BUCKET);
+                                entries.add(NETHER_OIL_BUCKET);
                                 entries.add(ALLOY_LAVA_BUCKET);
                                 entries.add(MOLTEN_IRON_BUCKET);
                                 entries.add(MOLTEN_GOLD_BUCKET);
@@ -81,6 +82,7 @@ public class ModItemGroups {
                                 entries.add(IMPURE_MOLTEN_DESH_BUCKET);
                                 entries.add(MOLTEN_OSTRUM_BUCKET);
                                 entries.add(MOLTEN_CALORITE_BUCKET);
+                                entries.add(MOLTEN_QUARTZ_BUCKET);
                                 entries.add(ANDESITE_MACHINE);
                                 entries.add(AllOY_CASING);
                                 entries.add(AllOY_MACHINE);
@@ -130,6 +132,7 @@ public class ModItemGroups {
                                 entries.add(METEORITE);
                                 entries.add(GLACIO_ETRUIM_ORE);
                                 entries.add(ZOMBIFIED_COSMONAUT_SPAWN_EGG);
+                                entries.add(ZOMBIFIED_COSMONAUT_HEAD);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,
