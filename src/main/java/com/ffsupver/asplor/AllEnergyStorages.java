@@ -1,6 +1,7 @@
 package com.ffsupver.asplor;
 
 import com.ffsupver.asplor.block.planetLocator.PlanetLocatorEntity;
+import com.ffsupver.asplor.block.smartMechanicalArm.BeltSmartProcessorEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.Direction;
@@ -45,7 +46,10 @@ public class AllEnergyStorages {
                 PlanetLocatorEntity::getEnergyStorage,
                 PLANET_LOCATOR_ENTITY.get()
         );
-
+        registerEnergyStorage(
+                BeltSmartProcessorEntity::getEnergyStorage,
+                BELT_SMART_PROCESSOR_ENTITY.get()
+        );
     }
 
     private static <T extends BlockEntity> void  registerEnergyStorage(BiFunction<? super T, Direction,@Nullable EnergyStorage> provider, BlockEntityType<T> blockEntityType){

@@ -179,6 +179,7 @@ public class ModItemGroups {
                             entries.add(REFINERY_BRICKS);
                             entries.add(REFINERY_GLASS);
                             entries.add(SMART_MECHANICAL_ARM);
+                            entries.add(BELT_SMART_PROCESSOR);
                             entries.add(TOOL_GEAR);
                             entries.add(ALLOY_DEPOT);
                             entries.add(DRILL_TOOL);

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "schematic=false": {
+      "model": "asplor:block/smart_mechanical_arm/belt_smart_processor"
+    },
+    "schematic=true": {
+      "model": "asplor:block/smart_mechanical_arm/belt_smart_processor_with_schematic"
+    }
+  }
+}

@@ -49,6 +49,7 @@
     "asplor:outer_space/astra_diabase_stone_brick_stairs",
     "asplor:outer_space/astra_diabase_stone_brick_slab",
     "asplor:oxygen_pipe/iron_plating",
-    "asplor:atmospheric_regulator/iron_plating"
+    "asplor:atmospheric_regulator/iron_plating",
+    "asplor:belt_smart_processor"
   ]
 }

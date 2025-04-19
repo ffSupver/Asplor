@@ -18,7 +18,7 @@ public class PonderIndex {
 
     public static void register() {
         HELPER.forComponents(TIME_INJECTOR)
-                .addStoryBoard("time_injector/work", TimeInjectorScenes::TimeInjector);
+                .addStoryBoard("time_injector/work", TimeInjectorScenes::timeInjector);
         HELPER.forComponents(PACKER)
                 .addStoryBoard("packer/packer", PackerScenes::Packer);
         HELPER.forComponents(SPACE_TELEPORTER)
@@ -41,6 +41,8 @@ public class PonderIndex {
                 .addStoryBoard("cargo_rocket/use", CargoRocketScenes::use);
         HELPER.forComponents(ATMOSPHERIC_REGULATOR_IRON)
                 .addStoryBoard("atmospheric_regulator/use", AtmosphericRegulatorScenes::use);
+        HELPER.forComponents(BELT_SMART_PROCESSOR)
+                .addStoryBoard("belt_smart_processor/use", BeltSmartProcessorScenes::use);
 
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)
                 .addStoryBoard("mechanical_press/pressing", ProcessingScenes::pressing)

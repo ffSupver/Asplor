@@ -218,6 +218,7 @@
   "block.asplor.zombified_cosmonaut_head": "僵尸宇航员的头",
   "block.asplor.molten_quartz": "熔融石英",
   "block.asplor.nether_oil": "下界油",
+  "block.asplor.belt_smart_processor": "智能传送带加工器",
 
 
 
@@ -447,6 +448,13 @@
   "asplor.ponder.atmospheric_regulator.use.text_1": "大气调节器可以释放氧气并调节温度",
   "asplor.ponder.atmospheric_regulator.use.text_2": "用流体管道像大气调节器加入氧气",
   "asplor.ponder.atmospheric_regulator.use.text_3": "用氧气管道连接大气调节器,连接的大气调节器会自动均摊其中的氧气",
+  "asplor.ponder.belt_smart_processor.use.header": "如何使用智能传送带加工器",
+  "asplor.ponder.belt_smart_processor.use.text_1": "智能传送带加工器可以处理智能动力臂加工配方",
+  "asplor.ponder.belt_smart_processor.use.text_2": "智能传送带加工器需要用电",
+  "asplor.ponder.belt_smart_processor.use.text_3": "用工具右键智能传送带加工器可以放置工具",
+  "asplor.ponder.belt_smart_processor.use.text_4": "智能传送带加工器可以加工传送带上的物品",
+  "asplor.ponder.belt_smart_processor.use.text_5": "用处理蓝图右键智能传送带加工器可以添加蓝图",
+  "asplor.ponder.belt_smart_processor.use.text_6": "可以用漏斗和智能传送带加工器进行交互",
 
 
   "planet.asplor.the_nether": "幽冥星",

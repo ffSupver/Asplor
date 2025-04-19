@@ -26,7 +26,7 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
     private ToolItemStackHandler itemStackHandler;
     public ToolGearEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        itemStackHandler = new ToolItemStackHandler(4);
+        itemStackHandler = new ToolItemStackHandler(4,this::notifyUpdate);
     }
 
     @Override
@@ -113,10 +113,12 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {}
 
-    public class ToolItemStackHandler extends ItemStackHandler{
+    public static class ToolItemStackHandler extends ItemStackHandler{
+        private final Runnable onContentsChanged;
 
-        public ToolItemStackHandler(int slots){
+        public ToolItemStackHandler(int slots,Runnable onContentsChanged){
             super(slots);
+            this.onContentsChanged = onContentsChanged;
         }
         @Override
         public long insert(ItemVariant resource, long maxAmount, TransactionContext transaction) {
@@ -129,7 +131,7 @@ public class ToolGearEntity extends SmartBlockEntity implements SidedStorageBloc
         @Override
         protected void onContentsChanged(int slot) {
             super.onContentsChanged(slot);
-            notifyUpdate();
+            onContentsChanged.run();
         }
     }
 }

@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.Direction;
 
 public class TimeInjectorScenes {
-    public static void TimeInjector(SceneBuilder scene, SceneBuildingUtil util) {
+    public static void timeInjector(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("time_injector", "xxx");
         scene.configureBasePlate(0, 0, 11);
         scene.world.showSection(util.select.layer(0), Direction.UP);

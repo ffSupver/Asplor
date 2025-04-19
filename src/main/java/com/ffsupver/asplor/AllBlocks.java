@@ -32,6 +32,7 @@ import com.ffsupver.asplor.block.refinery.RefineryInput;
 import com.ffsupver.asplor.block.refinery.RefineryOutput;
 import com.ffsupver.asplor.block.rocketCargoLoader.RocketCargoLoader;
 import com.ffsupver.asplor.block.rocketFuelLoader.RocketFuelLoader;
+import com.ffsupver.asplor.block.smartMechanicalArm.BeltSmartProcessor;
 import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArm;
 import com.ffsupver.asplor.block.smartMechanicalArm.SmartMechanicalArmItem;
 import com.ffsupver.asplor.block.smartMechanicalArm.ToolGear;
@@ -319,6 +320,12 @@ public class AllBlocks {
             REGISTRATE.block("atmospheric_regulator/iron_plating", AtmosphericRegulator::new)
                     .properties(p -> AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.COPPER))
                     .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<BeltSmartProcessor> BELT_SMART_PROCESSOR =
+            REGISTRATE.block("belt_smart_processor", BeltSmartProcessor::new)
+                    .properties(p -> FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(4.0f, 10.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool())
+                    .item(AssemblyOperatorBlockItem::new)
                     .build()
                     .register();
 

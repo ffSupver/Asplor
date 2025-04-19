@@ -31,6 +31,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -144,22 +145,51 @@ public class SmartMechanicalArmEntity extends KineticBlockEntity implements IHav
     }
 
     private Optional<SmartProcessingRecipe> getCurrentRecipe(){
-        Inventory test = new SimpleInventory(1);
-        test.setStack(0,getTargetItemStack());
-
-        List<SmartProcessingRecipe> rl = world.getRecipeManager().getAllMatches(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
-        for (SmartProcessingRecipe recipe : rl){
-            if (recipe.requireSchematic() && isAlloyDepot()) {
-                AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
-                if (alloyDepotEntity != null) {
-                    String schematic = alloyDepotEntity.getSchematic();
-                    if (schematic != null && schematic.equals(recipe.getSchematic())) {
-                        return Optional.of(recipe);
-                    }
-                }
+        String schematic = null;
+        if (isAlloyDepot()){
+            AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
+            if (alloyDepotEntity != null) {
+                schematic = alloyDepotEntity.getSchematic();
             }
         }
-        return world.getRecipeManager().getFirstMatch(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
+        return getCurrentRecipe(getTargetItemStack(),world,schematic);
+//        Inventory test = new SimpleInventory(1);
+//        test.setStack(0,getTargetItemStack());
+//
+//        List<SmartProcessingRecipe> rl = world.getRecipeManager().getAllMatches(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
+//        for (SmartProcessingRecipe recipe : rl){
+//            if (recipe.requireSchematic() && isAlloyDepot()) {
+//                AlloyDepotEntity alloyDepotEntity = (AlloyDepotEntity) getTargetEntity();
+//                if (alloyDepotEntity != null) {
+//                    String schematic = alloyDepotEntity.getSchematic();
+//                    if (schematic != null && schematic.equals(recipe.getSchematic())) {
+//                        return Optional.of(recipe);
+//                    }
+//                }
+//            }
+//        }
+//        return world.getRecipeManager().getFirstMatch(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
+    }
+
+    public static Optional<SmartProcessingRecipe> getCurrentRecipe(ItemStack itemStack, World world,String schematic){
+        Inventory test = new SimpleInventory(1);
+        test.setStack(0,itemStack);
+
+        List<SmartProcessingRecipe> rl = world.getRecipeManager().getAllMatches(ModRecipes.SMART_PROCESSING_RECIPETYPE,test,world);
+        Optional<SmartProcessingRecipe> r = Optional.empty();
+        for (SmartProcessingRecipe recipe : rl){
+            if (recipe.canProcess(itemStack,schematic)){
+                if (recipe.requireSchematic()){
+                    return Optional.of(recipe);
+                }else if (r.isEmpty()){
+                    r = Optional.of(recipe);
+                }
+            }
+//            if (recipe.requireSchematic() && schematic != null && schematic.equals(recipe.getSchematic())) {
+//                return Optional.of(recipe);
+//            }
+        }
+        return r;
     }
 
     private ItemStack getTargetItemStack(){

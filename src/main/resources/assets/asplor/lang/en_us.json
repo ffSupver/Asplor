@@ -220,6 +220,7 @@
   "block.asplor.zombified_cosmonaut_head": "Zombified Cosmonaut Head",
   "block.asplor.molten_quartz": "Molten Quartz",
   "block.asplor.nether_oil": "Nether Oil",
+  "block.asplor.belt_smart_processor": "Belt Smart Processor",
 
 
 
@@ -445,6 +446,13 @@
   "asplor.ponder.atmospheric_regulator.use.text_1": "Atmospheric regulator can distributes oxygen and regulates the temperature.",
   "asplor.ponder.atmospheric_regulator.use.text_2": "Add oxygen into atmospheric regulator with fluid pipe",
   "asplor.ponder.atmospheric_regulator.use.text_3": "Connect atmospheric regulator with oxygen pipe. The atmospheric regulators connected will automatically evenly distribute the oxygen to other atmospheric regulators.",
+  "asplor.ponder.belt_smart_processor.use.header": "Using Belt Smart Processor",
+  "asplor.ponder.belt_smart_processor.use.text_1": "Belt smart processor can process with smart processing recipe",
+  "asplor.ponder.belt_smart_processor.use.text_2": "Belt smart processor need energy to work",
+  "asplor.ponder.belt_smart_processor.use.text_3": "Right-click with tool item to add tool to belt smart processor",
+  "asplor.ponder.belt_smart_processor.use.text_4": "Belt smart processor also process item on belt",
+  "asplor.ponder.belt_smart_processor.use.text_5": "Right-click with schematic item to add schematic to belt smart processor",
+  "asplor.ponder.belt_smart_processor.use.text_6": "Hopper can interact with belt smart processor",
 
 
   "asplor.screen.world_adder": "World Adder",

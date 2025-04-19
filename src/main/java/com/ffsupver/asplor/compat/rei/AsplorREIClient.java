@@ -112,6 +112,7 @@ public class AsplorREIClient implements REIClientPlugin {
         registry.addWorkstations(RefineryCategory.REFINERY,EntryStacks.of(AllBlocks.REFINERY_CONTROLLER));
         registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.SMART_MECHANICAL_ARM));
         registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.TOOL_GEAR));
+        registry.addWorkstations(SmartProcessingCategory.SMART_PROCESSING,EntryStacks.of(AllBlocks.BELT_SMART_PROCESSOR));
 
 
 

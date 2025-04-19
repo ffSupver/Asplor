@@ -216,6 +216,11 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("atmospheric_regulator_iron", AtmosphericRegulatorEntity::new)
             .validBlocks(ATMOSPHERIC_REGULATOR_IRON,ATMOSPHERIC_REGULATOR_IRON_PLATING)
             .register();
+    public static final BlockEntityEntry<BeltSmartProcessorEntity> BELT_SMART_PROCESSOR_ENTITY = REGISTRATE
+            .blockEntity("belt_smart_processor", BeltSmartProcessorEntity::new)
+            .validBlocks(BELT_SMART_PROCESSOR)
+            .renderer(()->BeltSmartProcessorRenderer::new)
+            .register();
 
     //注册普通方块实体
     public static final BlockEntityType<AlloyChestEntity> ALLOY_CHEST_BLOCK_ENTITY=

@@ -14,6 +14,7 @@
     "ad_astra:energizer",
     "ad_astra:cryo_freezer",
     "ae2:energy_acceptor",
-    "asplor:planet_locator"
+    "asplor:planet_locator",
+    "asplor:belt_smart_processor"
   ]
 }

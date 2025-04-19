@@ -6,6 +6,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -46,6 +47,23 @@ public class SmartProcessingRecipe implements Recipe<Inventory> {
     @Override
     public ItemStack craft(Inventory inventory, DynamicRegistryManager registryManager) {
         return null;
+    }
+
+    public boolean matches(Inventory inventory) {
+        return input.test(inventory.getStack(0)) || inventory.getStack(0).isOf(processItem);
+    }
+
+    public boolean canProcess(ItemStack itemStack,String schematic){
+        Inventory test = new SimpleInventory(itemStack);
+        if (requireSchematic()) {
+            if (getSchematic().equals(schematic)) {
+                return matches(test);
+            }else {
+                return false;
+            }
+        }else {
+            return matches(test);
+        }
     }
 
     @Override

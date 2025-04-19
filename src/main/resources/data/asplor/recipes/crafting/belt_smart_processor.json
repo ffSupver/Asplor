@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "asplor:alloy_ingot"
+    },
+    "B": {
+      "item": "asplor:battery"
+    },
+    "C": {
+      "item": "asplor:controlling_chip"
+    },
+    "D": {
+      "item": "asplor:copper_wire"
+    },
+    "E": {
+      "item": "asplor:smart_mechanical_arm"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "CBC",
+    "AEA"
+  ],
+  "result": {
+    "item": "asplor:belt_smart_processor"
+  },
+  "show_notification": true
+}
