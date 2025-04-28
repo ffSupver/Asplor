@@ -1,0 +1,5 @@
+{
+  "text": "<block.asplor.unstable_rock> converts into different ores in different environment.\n<planet.ad_astra.moon> -> <block.ad_astra.moon_desh_ore>\n<planet.ad_astra.mars> -> <block.ad_astra.mars_ostrum_ore>\n<planet.ad_astra.venus> -> <block.ad_astra.venus_calorite_ore>\n",
+  "picture": "moon/unstable_rock.png",
+  "offset_y": -80
+}

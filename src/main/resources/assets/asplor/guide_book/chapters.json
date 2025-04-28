@@ -104,6 +104,11 @@
       "display_item": "ad_astra:moon_sand"
     },
     {
+      "name": "moon/unstable_rock",
+      "order": 105,
+      "description": "{\"translate\":\"guide_book.asplor.moon.unstable_rock\",\"color\":\"white\"}"
+    },
+    {
       "name": "moon/gold",
       "order": 110,
       "description": "{\"translate\":\"guide_book.asplor.moon.gold\",\"color\":\"white\"}"

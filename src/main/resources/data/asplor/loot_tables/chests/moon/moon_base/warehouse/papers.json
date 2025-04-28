@@ -106,6 +106,26 @@
           ],
           "name": "asplor:mysterious_paper",
           "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{chapter:'moon/unstable_rock'}"
+            }
+          ],
+          "name": "asplor:mysterious_paper",
+          "weight": 3
         }
       ],
       "rolls": {
