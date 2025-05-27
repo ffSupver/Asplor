@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "energy=0": {
+      "model": "asplor:block/laser_drill_battery/laser_drill_battery_0"
+    },
+    "energy=1": {
+      "model": "asplor:block/laser_drill_battery/laser_drill_battery_1"
+    },
+    "energy=2": {
+      "model": "asplor:block/laser_drill_battery/laser_drill_battery_2"
+    },
+    "energy=3": {
+      "model": "asplor:block/laser_drill_battery/laser_drill_battery_3"
+    },
+    "energy=4": {
+      "model": "asplor:block/laser_drill_battery/laser_drill_battery_4"
+    }
+  }
+}

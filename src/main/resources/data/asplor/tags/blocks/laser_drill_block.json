@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "asplor:laser_drill_battery",
+    "asplor:laser_drill_shell",
+    "asplor:laser_drill_glass",
+    "asplor:laser_drill_item_output",
+    "asplor:laser_drill_len",
+    "asplor:laser_drill"
+  ]
+}

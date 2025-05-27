@@ -121,6 +121,7 @@
   "item.asplor.zombified_cosmonaut_spawn_egg": "僵尸宇航员刷怪蛋",
   "item.asplor.molten_quartz_bucket": "熔融石英桶",
   "item.asplor.nether_oil_bucket": "下界油桶",
+  "item.asplor.glacio_villager_shaman_spawn_egg": "霜原村民萨满刷怪蛋",
 
 
 
@@ -219,7 +220,12 @@
   "block.asplor.molten_quartz": "熔融石英",
   "block.asplor.nether_oil": "下界油",
   "block.asplor.belt_smart_processor": "智能传送带加工器",
-
+  "block.asplor.laser_drill": "镭射钻",
+  "block.asplor.laser_drill_glass": "镭射钻玻璃",
+  "block.asplor.laser_drill_shell": "镭射钻外壳",
+  "block.asplor.laser_drill_len": "镭射钻透镜",
+  "block.asplor.laser_drill_battery": "镭射钻电池",
+  "block.asplor.laser_drill_item_output": "镭射钻物品输出口",
 
 
 
@@ -365,6 +371,7 @@
   "entity.asplor.advance_rocket": "高级火箭",
   "entity.asplor.meteorite": "陨石",
   "entity.asplor.zombified_cosmonaut": "僵尸宇航员",
+  "entity.asplor.glacio_villager_shaman": "霜原村民萨满",
 
 
 

@@ -122,6 +122,7 @@
   "item.asplor.zombified_cosmonaut_spawn_egg": "Zombified Cosmonaut Spawn Egg",
   "item.asplor.molten_quartz_bucket": "Molten Quartz Bucket",
   "item.asplor.nether_oil_bucket": "Nether Oil Bucket",
+  "item.asplor.glacio_villager_shaman_spawn_egg": "Glacio Villager Shaman Spawn Egg",
 
 
 
@@ -221,6 +222,12 @@
   "block.asplor.molten_quartz": "Molten Quartz",
   "block.asplor.nether_oil": "Nether Oil",
   "block.asplor.belt_smart_processor": "Belt Smart Processor",
+  "block.asplor.laser_drill": "Laser Drill",
+  "block.asplor.laser_drill_glass": "Laser Drill Glass",
+  "block.asplor.laser_drill_shell": "Laser Drill Shell",
+  "block.asplor.laser_drill_len": "Laser Drill Len",
+  "block.asplor.laser_drill_battery": "Laser Drill Battery",
+  "block.asplor.laser_drill_item_output": "Laser Drill Item Output",
 
 
 
@@ -363,6 +370,7 @@
   "entity.asplor.advance_rocket": "Advance Rocket",
   "entity.asplor.meteorite": "Meteorite",
   "entity.asplor.zombified_cosmonaut": "Zombified Cosmonaut",
+  "entity.asplor.glacio_villager_shaman": "Glacio Villager Shaman",
 
 
 

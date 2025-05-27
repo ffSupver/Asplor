@@ -173,6 +173,7 @@ public class ModItems {
     public static final Item TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
     public static final Item UNCOMPLETED_TIER_2_ROCKET_CONTROLLING_CHIP = registerItems("uncompleted_tier_2_rocket_controlling_chip",new Item(new FabricItemSettings()));
     public static final Item ZOMBIFIED_COSMONAUT_SPAWN_EGG = registerItems("zombified_cosmonaut_spawn_egg",new SpawnEggItem(ModEntities.ZOMBIFIED_COSMONAUT,0xC7DCD0,0x377D68,new FabricItemSettings()));
+    public static final Item GLACIO_VILLAGER_SHAMAN_SPAWN_EGG = registerItems("glacio_villager_shaman_spawn_egg",new SpawnEggItem(ModEntities.GLACIO_VILLAGER_SHAMAN,0x6FD5D9,0x4E8993,new FabricItemSettings()));
 
     @Environment(EnvType.CLIENT)
     private static void registerRocketItemRender(){

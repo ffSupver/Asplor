@@ -13,10 +13,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.render.LightmapTextureManager;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
@@ -25,9 +22,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
 
 import java.util.Locale;
 
@@ -138,5 +138,62 @@ public final class RenderUtil {
 
     public static String formatFloat(double d) {
         return String.format(Locale.ROOT, "%f", d);
+    }
+    public static void renderVertex(BufferBuilder builder, Matrix4f positionMatrix, Matrix3f normalMatrix,
+                                    float x1, float y1, float z1,
+                                    float x2, float y2, float z2,
+                                    float x3, float y3, float z3,
+                                    float x4, float y4, float z4,
+                                    int red, int green, int blue, int redH, int greenH, int blueH){
+        renderVertex(builder, positionMatrix, normalMatrix,
+         x1,  y1,  z1,
+         x2,  y2,  z2,
+         x3,  y3,  z3,
+         x4,  y4,  z4,
+         red,  green,  blue,  redH,  greenH,  blueH,
+         15728880,0.5f
+        );
+    }
+    public static void renderVertex(BufferBuilder builder, Matrix4f positionMatrix, Matrix3f normalMatrix,
+                                    float x1, float y1, float z1,
+                                    float x2, float y2, float z2,
+                                    float x3, float y3, float z3,
+                                    float x4, float y4, float z4,
+                                    int red, int green, int blue, int redH, int greenH, int blueH,float alpha){
+        renderVertex(builder, positionMatrix, normalMatrix,
+                x1,  y1,  z1,
+                x2,  y2,  z2,
+                x3,  y3,  z3,
+                x4,  y4,  z4,
+                red,  green,  blue,  redH,  greenH,  blueH,
+                15728880,alpha
+        );
+    }
+
+    public static void renderVertex(BufferBuilder builder, Matrix4f positionMatrix, Matrix3f normalMatrix,
+                            float x1, float y1, float z1,
+                            float x2, float y2, float z2,
+                            float x3, float y3, float z3,
+                            float x4, float y4, float z4,
+                            int red, int green, int blue, int redH, int greenH, int blueH,
+                            int light,float alpha
+    ){
+
+
+        builder.vertex(positionMatrix, x1, y1, z1).color(red,green,blue, alpha).texture(1, 0).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix, x2, y2, z2).color(redH,greenH,blueH, alpha).texture(1, 1).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix, x3, y3, z3).color(redH,greenH,blueH, alpha).texture(0, 1).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix, x4, y4, z4).color(red,green,blue, alpha).texture(0, 0).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+
+        builder.vertex(positionMatrix, x3, y3, z3).color(redH,greenH,blueH, alpha).texture(0, 1).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix,  x2, y2, z2).color(redH,greenH,blueH, alpha).texture(1, 1).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix,x1, y1, z1).color(red,green,blue, alpha).texture(1, 0).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+        builder.vertex(positionMatrix, x4, y4, z4).color(red,green,blue, alpha).texture(0, 0).overlay(OverlayTexture.DEFAULT_UV).light(light).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
+    }
+
+    public static void rotationBlockCenter(MatrixStack ms,RotationAxis rotationAxis,float degree){
+        ms.translate(.5f,.5f,.5f);
+        ms.multiply(rotationAxis.rotationDegrees(degree));
+        ms.translate(-.5f,-.5f,-.5f);
     }
 }

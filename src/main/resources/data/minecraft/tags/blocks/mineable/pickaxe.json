@@ -50,6 +50,12 @@
     "asplor:outer_space/astra_diabase_stone_brick_slab",
     "asplor:oxygen_pipe/iron_plating",
     "asplor:atmospheric_regulator/iron_plating",
-    "asplor:belt_smart_processor"
+    "asplor:belt_smart_processor",
+    "asplor:belt_smart_processor",
+    "asplor:laser_drill_battery",
+    "asplor:laser_drill_shell",
+    "asplor:laser_drill_item_output",
+    "asplor:laser_drill_len",
+    "asplor:laser_drill"
   ]
 }

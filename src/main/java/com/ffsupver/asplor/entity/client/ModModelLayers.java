@@ -10,9 +10,11 @@ import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
+import static com.ffsupver.asplor.entity.ModEntities.GLACIO_VILLAGER_SHAMAN;
 import static com.ffsupver.asplor.entity.ModEntities.ZOMBIFIED_COSMONAUT;
 import static com.ffsupver.asplor.entity.client.AdvanceRocketRenderer.ADVANCE_ROCKET_MODEL;
 import static com.ffsupver.asplor.entity.client.CargoRocketRenderer.CARGO_ROCKET_MODEL;
+import static com.ffsupver.asplor.entity.client.GlacioVillagerShamanRenderer.GLACIO_VILLAGER_SHAMAN_LAYER;
 import static com.ffsupver.asplor.entity.client.ZombifiedCosmonautRenderer.ZOMBIFIED_COSMONAUT_SPACE_SUIT;
 
 public class ModModelLayers {
@@ -22,6 +24,7 @@ public class ModModelLayers {
         EntityModelLayerRegistry.registerModelLayer(CARGO_ROCKET_MODEL, CargoRocketModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ADVANCE_ROCKET_MODEL, AdvanceRocketModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ZOMBIFIED_COSMONAUT_SPACE_SUIT, SpaceSuitModel::createSpaceSuitLayer);
+        EntityModelLayerRegistry.registerModelLayer(GLACIO_VILLAGER_SHAMAN_LAYER,GlacioVillagerShamanModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.ALLOY_CHEST,AlloyChestRenderer::new);
         EntityRendererRegistry.register(ModEntities.TIER_0_ROCKET, (c)->new RocketRenderer(c, Tier0RocketModelLayer.TIER_0_ROCKET_MODEL, Tier0RocketModelLayer.TIER_0_ROCKET_TEXTURE));
@@ -34,6 +37,8 @@ public class ModModelLayers {
 
         EntityRendererRegistry.register(ModEntities.ASTRA_MOB, EmptyEntityRenderer::new);
         EntityRendererRegistry.register(ZOMBIFIED_COSMONAUT, ZombifiedCosmonautRenderer::new);
+
+        EntityRendererRegistry.register(GLACIO_VILLAGER_SHAMAN,GlacioVillagerShamanRenderer::new);
     }
 
     public static EntityModelLayer createEntityModelLayer(String id,String name){

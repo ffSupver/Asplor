@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/laser_drill/laser_drill_shell",
+    "side": "asplor:block/laser_drill/laser_drill_item_output",
+    "top": "asplor:block/laser_drill/laser_drill_shell"
+  }
+}

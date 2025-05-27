@@ -19,6 +19,7 @@ import org.joml.Matrix4f;
 
 import static com.ffsupver.asplor.util.MathUtil.cos;
 import static com.ffsupver.asplor.util.MathUtil.sin;
+import static com.ffsupver.asplor.util.RenderUtil.renderVertex;
 
 public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocatorEntity> {
     public PlanetLocatorRenderer(BlockEntityRendererFactory.Context context) {
@@ -91,28 +92,28 @@ public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocato
         int greenH = 120;
         int blueH = 120;
 
-        renderFace(builder,positionMatrix,normalMatrix,
+        renderVertex(builder,positionMatrix,normalMatrix,
                 0.1f, 0.5f, 0.1f,
                 0.2f, 1.3f, 0.2f,
                 0.2f, 1.3f, 0.8f,
                 0.1f, 0.5f, 0.9f,
                 red,green,blue,redH,greenH,blueH
                 );
-        renderFace(builder,positionMatrix,normalMatrix,
+        renderVertex(builder,positionMatrix,normalMatrix,
                 0.1f, 0.5f, 0.9f,
                 0.2f, 1.3f, 0.8f,
                 0.8f, 1.3f, 0.8f,
                 0.9f, 0.5f, 0.9f,
                 red,green,blue,redH,greenH,blueH
         );
-        renderFace(builder,positionMatrix,normalMatrix,
+        renderVertex(builder,positionMatrix,normalMatrix,
                 0.9f, 0.5f, 0.9f,
                 0.8f, 1.3f, 0.8f,
                 0.8f, 1.3f, 0.2f,
                 0.9f, 0.5f, 0.1f,
                 red,green,blue,redH,greenH,blueH
         );
-        renderFace(builder,positionMatrix,normalMatrix,
+        renderVertex(builder,positionMatrix,normalMatrix,
                 0.9f, 0.5f, 0.1f,
                 0.8f, 1.3f, 0.2f,
                 0.2f, 1.3f, 0.2f,
@@ -121,25 +122,6 @@ public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocato
         );
     }
 
-    private void renderFace(BufferBuilder builder, Matrix4f positionMatrix, Matrix3f normalMatrix,
-                            float x1, float y1, float z1,
-                            float x2, float y2, float z2,
-                            float x3, float y3, float z3,
-                            float x4, float y4, float z4,
-                            int red,int green,int blue, int redH,int greenH,int blueH
-    ){
-        float alpha = 0.5f;
-
-        builder.vertex(positionMatrix, x1, y1, z1).color(red,green,blue, alpha).texture(1, 0).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix, x2, y2, z2).color(redH,greenH,blueH, alpha).texture(1, 1).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix, x3, y3, z3).color(redH,greenH,blueH, alpha).texture(0, 1).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix, x4, y4, z4).color(red,green,blue, alpha).texture(0, 0).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-
-        builder.vertex(positionMatrix, x3, y3, z3).color(redH,greenH,blueH, alpha).texture(0, 1).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix,  x2, y2, z2).color(redH,greenH,blueH, alpha).texture(1, 1).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix,x1, y1, z1).color(red,green,blue, alpha).texture(1, 0).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-        builder.vertex(positionMatrix, x4, y4, z4).color(red,green,blue, alpha).texture(0, 0).overlay(OverlayTexture.DEFAULT_UV).light(15728880).normal(normalMatrix, 0.0F, 1.0F, 0.0F).next();
-    }
 
     private void renderPlanet(MatrixStack ms,VertexConsumerProvider bufferSource,float xC,float yC,float zC,float rXDeg,float rYDeg,float rZDeg,float halfWidth) {
         BufferBuilder builder = (BufferBuilder) bufferSource.getBuffer(RenderLayer.getBeaconBeam(new Identifier(Asplor.MOD_ID, "textures/block/planet_locator_planet.png"), false));
@@ -200,42 +182,42 @@ public class PlanetLocatorRenderer extends SmartBlockEntityRenderer<PlanetLocato
         float z8 = zC + halfWidth * (-m20-m21-m22);
 
 
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x1, y1, z1,
                 x3, y3, z3,
                 x4, y4, z4,
                 x2,y2,z2,
                 red, green, blue, red, green, blue
         );
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x6, y6, z6,
                 x5, y5, z5,
                 x1, y1, z1,
                 x2,y2,z2,
                 red, green, blue, red, green, blue
         );
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x5, y5, z5,
                 x6, y6, z6,
                 x8,y8,z8,
                 x7, y7, z7,
                 red, green, blue, red, green, blue
         );
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x1, y1, z1,
                 x5, y5, z5,
                 x7, y7, z7,
                 x3,y3,z3,
                 red, green, blue, red, green, blue
         );
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x3, y3, z3,
                 x7, y7, z7,
                 x8, y8, z8,
                 x4, y4, z4,
                 red, green, blue, red, green, blue
         );
-        renderFace(builder, positionMatrix, normalMatrix,
+        renderVertex(builder, positionMatrix, normalMatrix,
                 x4, y4, z4,
                 x8, y8, z8,
                 x6, y6, z6,

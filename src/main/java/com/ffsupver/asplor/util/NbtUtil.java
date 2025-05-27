@@ -6,6 +6,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public final class NbtUtil {
@@ -30,7 +31,7 @@ public final class NbtUtil {
         return result;
     }
 
-    public static NbtList writeBlockPosListToNbt(ArrayList<BlockPos> blockPosList){
+    public static NbtList writeBlockPosListToNbt(Collection<BlockPos> blockPosList){
         NbtList result = new NbtList();
         for (BlockPos blockPos : blockPosList){
             result.add(NbtUtil.writeBlockPosToNbt(blockPos));

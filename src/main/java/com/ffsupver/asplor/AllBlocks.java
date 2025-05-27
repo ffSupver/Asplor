@@ -17,6 +17,9 @@ import com.ffsupver.asplor.block.divider.Divider;
 import com.ffsupver.asplor.block.electrolyzer.Electrolyzer;
 import com.ffsupver.asplor.block.energyOutputer.EnergyOutput;
 import com.ffsupver.asplor.block.generator.Generator;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillLen;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillBattery;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillItemOutput;
 import com.ffsupver.asplor.block.lightningAbsorber.LightningAbsorber;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurner;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerItem;
@@ -191,8 +194,8 @@ public class AllBlocks {
                     .register();
     public static final BlockEntry<Electrolyzer> ELECTROLYZER =
             REGISTRATE.block("electrolyzer",Electrolyzer::new)
-                    .initialProperties(SharedProperties::netheriteMetal)
-                    .properties(p->p.mapColor(MapColor.GRAY).nonOpaque())
+//                    .initialProperties(SharedProperties::netheriteMetal)
+                    .properties(p->ALLOY_SETTING.apply(p).mapColor(MapColor.GRAY).nonOpaque())
                     .addLayer(() -> RenderLayer::getCutoutMipped)
                     .item(BlockItem::new)
                     .build()
@@ -329,6 +332,27 @@ public class AllBlocks {
                     .build()
                     .register();
 
+    public static final BlockEntry<LaserDrillLen> LASER_DRILL_LEN =
+            REGISTRATE.block("laser_drill_len", LaserDrillLen::new)
+                    .properties(p -> FabricBlockSettings.copy(IRON_BLOCK))
+                    .addLayer(() -> RenderLayer::getTranslucent)
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+    public static final BlockEntry<LaserDrillBattery> LASER_DRILL_BATTERY =
+            REGISTRATE.block("laser_drill_battery", LaserDrillBattery::new)
+                    .properties(p -> FabricBlockSettings.copy(IRON_BLOCK))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+
+    public static final BlockEntry<LaserDrillItemOutput> LASER_DRILL_ITEM_OUTPUT =
+            REGISTRATE.block("laser_drill_item_output", LaserDrillItemOutput::new)
+                    .properties(p -> FabricBlockSettings.copy(IRON_BLOCK))
+                    .item(BlockItem::new)
+                    .build()
+                    .register();
+
 
     //注册普通方块
     public  static final Block ALLOY_BLOCK=registerBlock("alloy_block",new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(8.0f, 20.0f).sounds(ModSounds.ALLOY_BLOCK_SOUND_GROUP).solid().requiresTool()));
@@ -406,6 +430,9 @@ public class AllBlocks {
     public static final Block MOLTEN_QUARTZ = registerMoltenMetalFluidBlock("molten_quartz",ModFluids.MOLTEN_QUARTZ,null);
     public static final Block NETHER_OIL = registerFluidBlock("nether_oil",ModFluids.NETHER_OIL,settings -> settings.mapColor(MapColor.RED));
 
+    public  static final Block LASER_DRILL_SHELL = registerBlock("laser_drill_shell",new WrenchableBlock(FabricBlockSettings.copy(IRON_BLOCK)));
+    public  static final Block LASER_DRILL_GLASS = registerBlock("laser_drill_glass",new WrenchableBlock(FabricBlockSettings.copy(GLASS)));
+    public  static final Block LASER_DRILL = registerBlock("laser_drill",new WrenchableBlock(FabricBlockSettings.copy(IRON_BLOCK)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);
@@ -448,6 +475,7 @@ public class AllBlocks {
         registerRenderLayer(ASTRA_DIABASE_GRASS,RenderLayer.getCutoutMipped());
         registerRenderLayer(ASTRA_DIABASE_SAPLING,RenderLayer.getCutoutMipped());
         registerRenderLayer(ASTRA_DIABASE_LEAVES,RenderLayer.getTranslucent());
+        registerRenderLayer(LASER_DRILL_GLASS,RenderLayer.getTranslucent());
 
 
         registerConnectTexture(AllOY_CASING,"alloy");

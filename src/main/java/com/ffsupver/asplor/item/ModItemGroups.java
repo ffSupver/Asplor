@@ -133,6 +133,7 @@ public class ModItemGroups {
                                 entries.add(GLACIO_ETRUIM_ORE);
                                 entries.add(ZOMBIFIED_COSMONAUT_SPAWN_EGG);
                                 entries.add(ZOMBIFIED_COSMONAUT_HEAD);
+                                entries.add(GLACIO_VILLAGER_SHAMAN_SPAWN_EGG);
                             }).build()
         );
         Registry.register(Registries.ITEM_GROUP,

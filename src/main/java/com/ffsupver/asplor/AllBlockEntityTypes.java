@@ -22,6 +22,10 @@ import com.ffsupver.asplor.block.energyOutputer.EnergyOutputEntity;
 import com.ffsupver.asplor.block.generator.GeneratorEntity;
 import com.ffsupver.asplor.block.generator.GeneratorInstance;
 import com.ffsupver.asplor.block.generator.GeneratorRenderer;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillBatteryEntity;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillLenEntity;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillItemOutputEntity;
+import com.ffsupver.asplor.block.laserDrill.LaserDrillLenRenderer;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerEntity;
 import com.ffsupver.asplor.block.liquid_blaze_burner.LiquidBlazeBurnerRenderer;
 import com.ffsupver.asplor.block.mechanicalPump.MechanicalPumpEntity;
@@ -220,6 +224,19 @@ public static final BlockEntityEntry<BatteryEntity> BATTERY_ENTITY= REGISTRATE
             .blockEntity("belt_smart_processor", BeltSmartProcessorEntity::new)
             .validBlocks(BELT_SMART_PROCESSOR)
             .renderer(()->BeltSmartProcessorRenderer::new)
+            .register();
+    public static final BlockEntityEntry<LaserDrillLenEntity> LASER_DRILL_ENTITY_LEN = REGISTRATE
+            .blockEntity("laser_drill", LaserDrillLenEntity::new)
+            .validBlocks(LASER_DRILL_LEN)
+            .renderer(()-> LaserDrillLenRenderer::new)
+            .register();
+    public static final BlockEntityEntry<LaserDrillBatteryEntity> LASER_DRILL_BATTERY_ENTITY = REGISTRATE
+            .blockEntity("laser_drill_battery", LaserDrillBatteryEntity::new)
+            .validBlocks(LASER_DRILL_BATTERY)
+            .register();
+    public static final BlockEntityEntry<LaserDrillItemOutputEntity> LASER_DRILL_ITEM_OUTPUT_ENTITY = REGISTRATE
+            .blockEntity("laser_drill_item_output", LaserDrillItemOutputEntity::new)
+            .validBlocks(LASER_DRILL_ITEM_OUTPUT)
             .register();
 
     //注册普通方块实体

@@ -2,6 +2,7 @@ package com.ffsupver.asplor.entity.custom;
 
 import com.ffsupver.asplor.AllBlocks;
 import com.ffsupver.asplor.ModDamages;
+import com.ffsupver.asplor.entity.ModEntities;
 import com.ffsupver.asplor.particle.ModParticles;
 import earth.terrarium.adastra.api.planets.Planet;
 import earth.terrarium.adastra.api.systems.GravityApi;
@@ -21,6 +22,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
@@ -35,11 +37,19 @@ public class Meteorite extends Entity implements Ownable {
     private static final TrackedData<Integer> HIT_TIMES;
     private static final int MAX_HIT_TIMES = 3;
     private UUID ownerUuid;
-    public Meteorite(EntityType<?> type, World world) {
+    private final boolean destroyBlock;
+    public Meteorite(World world){
+        this(ModEntities.METEORITE,world);
+    }
+    public Meteorite(EntityType<?> type, World world){
+        this(type,world,true);
+    }
+    public Meteorite(EntityType<?> type, World world,boolean destroyBlock) {
         super(type, world);
         this.noClip = false;
         this.rotationAxis = world.getRandom().nextFloat() * 360f;
         this.rotationSpeed = world.getRandom().nextFloat() * 5f;
+        this.destroyBlock = destroyBlock;
     }
 
     @Override
@@ -128,7 +138,7 @@ public class Meteorite extends Entity implements Ownable {
             Entity owner = getOwner();
             float explosionPowerBonus = - Math.min(0,getHitTimes() + MAX_HIT_TIMES) * 0.5f;
             Explosion explosion = getWorld().createExplosion(owner,
-                    ModDamages.meteoriteExplosion(serverWorld,this,getOwner()), new ExplosionBehavior(),
+                    ModDamages.meteoriteExplosion(serverWorld,this,getOwner()), new MeteoriteExplosionBehavior(destroyBlock),
                     getX(), getY(), getZ(),
                     (float) (getVelocity().length() + 0.5f) * getBlockCount() + explosionPowerBonus, true,
                     World.ExplosionSourceType.MOB
@@ -242,5 +252,16 @@ public class Meteorite extends Entity implements Ownable {
     static {
         ROTATION_ANGLE = DataTracker.registerData(Meteorite.class, TrackedDataHandlerRegistry.FLOAT);
         HIT_TIMES = DataTracker.registerData(Meteorite.class, TrackedDataHandlerRegistry.INTEGER);
+    }
+
+    public class MeteoriteExplosionBehavior extends ExplosionBehavior{
+        private final boolean destroyBlock;
+        public MeteoriteExplosionBehavior(boolean destroyBlock){
+            this.destroyBlock = destroyBlock;
+        }
+        @Override
+        public boolean canDestroyBlock(Explosion explosion, BlockView world, BlockPos pos, BlockState state, float power) {
+            return (destroyBlock || state.isOf(AllBlocks.METEORITE)) && super.canDestroyBlock(explosion, world, pos, state, power);
+        }
     }
 }

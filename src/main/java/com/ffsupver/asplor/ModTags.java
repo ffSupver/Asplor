@@ -19,6 +19,8 @@ public class ModTags {
         public static final TagKey<Block> LARGE_MELTING_FURNACE_BLOCK = createTag("large_melting_furnace_block");
         public static final TagKey<Block> ASTRA_DIABASE_STONE_ORE_REPLACEABLES = createTag("astra_diabase_stone_ore_replaceables");
         public static final TagKey<Block> ASTRA_DIABASE_DIRT = createTag("outer_space/astra_diabase_dirt");
+        public static final TagKey<Block> CAN_LASER_PASS = createTag("can_laser_pass");
+        public static final TagKey<Block> LASER_DRILL_BLOCK = createTag("laser_drill_block");
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK,new Identifier(Asplor.MOD_ID,name));
         }

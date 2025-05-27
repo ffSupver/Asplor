@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "asplor:block/laser_drill/laser_drill_bottom",
+    "side": "asplor:block/laser_drill/laser_drill_shell",
+    "top": "asplor:block/laser_drill/laser_drill_shell"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [-115, 0, 0],
+      "translation": [0, 0.25, 0.75],
+      "scale": [0.2, 0.2, 0.2]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [-115, 0, 0],
+      "translation": [0, 0.25, 0.75],
+      "scale": [0.2, 0.2, 0.2]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 30, -90],
+      "translation": [1.75, 2.25, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 30, -90],
+      "translation": [1.75, 2.25, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "ground": {
+      "rotation": [-90, 0, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.27, 0.27, 0.27]
+    },
+    "gui": {
+      "rotation": [-90, 0, 0],
+      "translation": [0, 0.5, 0],
+      "scale": [0.8, 0.8, 0.8]
+    },
+    "head": {
+      "translation": [0, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "fixed": {
+      "rotation": [90, 0, 0],
+      "scale": [0.6, 0.6, 0.6]
+    }
+  }
+}

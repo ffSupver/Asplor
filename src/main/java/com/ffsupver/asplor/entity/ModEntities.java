@@ -61,6 +61,12 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(0.6F, 1.95F))
                     .build()
     );
+
+    public static final EntityType<GlacioVillagerShaman> GLACIO_VILLAGER_SHAMAN = registerEntity("glacio_villager_shaman",
+            FabricEntityTypeBuilder.<GlacioVillagerShaman>create(SpawnGroup.MISC, GlacioVillagerShaman::new)
+                    .dimensions(EntityDimensions.fixed(0.8f,2.1f))
+                    .build()
+    );
     public static <T extends Entity> EntityType<T> registerEntity(String id, EntityType<T> entityType){
         return Registry.register(Registries.ENTITY_TYPE,new Identifier(Asplor.MOD_ID,id),
                 entityType);
@@ -73,6 +79,7 @@ public class ModEntities {
     private  static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(ASTRA_MOB,AstraMob.createMobAttributes());
         FabricDefaultAttributeRegistry.register(ZOMBIFIED_COSMONAUT, ZombifiedCosmonaut.createZombifiedCosmonautAttributes());
+        FabricDefaultAttributeRegistry.register(GLACIO_VILLAGER_SHAMAN,GlacioVillagerShaman.createAttributes());
     }
 
     public static void register(){
