@@ -1,0 +1,14 @@
+{
+  "type":"asplor:laser_drill",
+  "biome": "minecraft:stony_shore",
+  "output": [
+    {
+      "item": "asplor:alloy_ingot",
+      "count": 3
+    },
+    {
+      "item": "minecraft:diamond_block",
+      "count": 2
+    }
+  ]
+}

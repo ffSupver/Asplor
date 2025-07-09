@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "minecraft:block/bedrock",
+    "side": "minecraft:block/bedrock",
+    "top": "asplor:block/melted_bedrock/melted_bedrock_1"
+  }
+}

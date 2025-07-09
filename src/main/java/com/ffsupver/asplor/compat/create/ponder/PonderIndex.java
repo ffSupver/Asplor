@@ -44,6 +44,7 @@ public class PonderIndex {
         HELPER.forComponents(BELT_SMART_PROCESSOR)
                 .addStoryBoard("belt_smart_processor/use", BeltSmartProcessorScenes::use);
 
+
         CREATE_HELPER.forComponents(AllBlocks.ALLOY_MECHANICAL_PRESS)
                 .addStoryBoard("mechanical_press/pressing", ProcessingScenes::pressing)
                 .addStoryBoard("mechanical_press/compacting", ProcessingScenes::compacting);

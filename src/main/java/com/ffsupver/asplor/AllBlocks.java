@@ -433,6 +433,7 @@ public class AllBlocks {
     public  static final Block LASER_DRILL_SHELL = registerBlock("laser_drill_shell",new WrenchableBlock(FabricBlockSettings.copy(IRON_BLOCK)));
     public  static final Block LASER_DRILL_GLASS = registerBlock("laser_drill_glass",new WrenchableBlock(FabricBlockSettings.copy(GLASS)));
     public  static final Block LASER_DRILL = registerBlock("laser_drill",new WrenchableBlock(FabricBlockSettings.copy(IRON_BLOCK)));
+    public  static final Block MELTED_BEDROCK = registerBlock("melted_bedrock",new MeltedBedrock(FabricBlockSettings.copy(BEDROCK)));
 
     private static Block registerMoltenMetalFluidBlock(String name, FlowableFluid fluid,@Nullable Function<FabricBlockSettings,FabricBlockSettings> setting){
         FabricBlockSettings baseSetting = FabricBlockSettings.create().replaceable().luminance(15).mapColor(MapColor.RED);

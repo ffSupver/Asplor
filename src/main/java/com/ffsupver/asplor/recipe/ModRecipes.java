@@ -1,7 +1,9 @@
 package com.ffsupver.asplor.recipe;
 
 import com.ffsupver.asplor.Asplor;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -20,9 +22,13 @@ public class ModRecipes {
     public static final RecipeType<RefineryRecipe> REFINERY_RECIPETYPE = registerRecipeType(RefineryRecipe.Type.ID,RefineryRecipe.Type.INSTANCE);
 
     public static final RecipeType<SmartProcessingRecipe> SMART_PROCESSING_RECIPETYPE = registerRecipeType(SmartProcessingRecipe.Type.ID,SmartProcessingRecipe.Type.INSTANCE);
+    public static final RecipeType<LaserDrillRecipe> LASER_DRILL_RECIPETYPE = registerRecipeType(LaserDrillRecipe.Type.ID,LaserDrillRecipe.Type.INSTANCE);
 
 private static <T extends Recipe<?>> RecipeType<T>  registerRecipeType(String name, RecipeType<T> recipeType){
     return Registry.register(Registries.RECIPE_TYPE,new Identifier(Asplor.MOD_ID,name),recipeType);
+}
+private static void registerRecipeSerializer(String id, RecipeSerializer<? extends Recipe<? extends Inventory>> serializer){
+    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,id),serializer);
 }
 public static void registerRecipes(){
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,DividerRecipe.Serializer.ID),
@@ -35,12 +41,16 @@ public static void registerRecipes(){
             TimeInjectorRecipe.Serializer.INSTANCE);
     Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,MeltRecipe.Serializer.ID),
             MeltRecipe.Serializer.INSTANCE);
-    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,ElectrolyzerRecipe.Serializer.ID),
-            ElectrolyzerRecipe.Serializer.INSTANCE);
-    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,RefineryRecipe.Serializer.ID),
-            RefineryRecipe.Serializer.INSTANCE);
-    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,SmartProcessingRecipe.Serializer.ID),
-            SmartProcessingRecipe.Serializer.INSTANCE);
+//    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,ElectrolyzerRecipe.Serializer.ID),
+//            ElectrolyzerRecipe.Serializer.INSTANCE);
+//    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,RefineryRecipe.Serializer.ID),
+//            RefineryRecipe.Serializer.INSTANCE);
+//    Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Asplor.MOD_ID,SmartProcessingRecipe.Serializer.ID),
+//            SmartProcessingRecipe.Serializer.INSTANCE);
+    registerRecipeSerializer(ElectrolyzerRecipe.Serializer.ID,ElectrolyzerRecipe.Serializer.INSTANCE);
+    registerRecipeSerializer(RefineryRecipe.Serializer.ID,RefineryRecipe.Serializer.INSTANCE);
+    registerRecipeSerializer(SmartProcessingRecipe.Serializer.ID,SmartProcessingRecipe.Serializer.INSTANCE);
+    registerRecipeSerializer(LaserDrillRecipe.Serializer.ID,LaserDrillRecipe.Serializer.INSTANCE);
 
 
 

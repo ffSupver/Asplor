@@ -1,0 +1,14 @@
+{
+  "type":"asplor:laser_drill",
+  "biome": "minecraft:plains",
+  "output": [
+    {
+      "item": "asplor:alloy_block",
+      "count": 3
+    },
+    {
+      "item": "minecraft:sand",
+      "count": 2
+    }
+  ]
+}

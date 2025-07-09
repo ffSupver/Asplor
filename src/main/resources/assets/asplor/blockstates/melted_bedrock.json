@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "heat=0": {
+      "model": "asplor:block/melted_bedrock/melted_bedrock_0"
+    },
+    "heat=1": {
+      "model": "asplor:block/melted_bedrock/melted_bedrock_1"
+    }
+  }
+}

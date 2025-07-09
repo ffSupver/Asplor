@@ -1,6 +1,8 @@
 package com.ffsupver.asplor.block.laserDrill;
 
 import com.ffsupver.asplor.ModTags;
+import com.ffsupver.asplor.recipe.LaserDrillRecipe;
+import com.ffsupver.asplor.recipe.ModRecipes;
 import com.ffsupver.asplor.util.NbtUtil;
 import com.simibubi.create.content.kinetics.base.BlockBreakingKineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
@@ -11,7 +13,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.math.BlockPos;
@@ -20,6 +21,11 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Optional;
+
+import static com.ffsupver.asplor.AllBlocks.MELTED_BEDROCK;
+import static com.ffsupver.asplor.block.blocks.MeltedBedrock.HEAT;
+import static net.minecraft.block.Blocks.BEDROCK;
 
 public class LaserDrillBehaviour extends BlockEntityBehaviour {
     private int tickToNextBreakByHardness = 10;
@@ -64,10 +70,10 @@ public class LaserDrillBehaviour extends BlockEntityBehaviour {
     }
 
     private void dig(BlockPos digPos,BlockState digState){
-        if (digState.isOf(Blocks.BEDROCK)){
+        if (digState.isOf(BEDROCK) || digState.isOf(MELTED_BEDROCK)){
             if (bedrockMineProcess >= BEDROCK_MINE_PROGRESS) {
                 resetBedrockMineProcess();
-                onBedrockMine(digPos);
+                onBedrockMine(digPos,digState);
             }else if (be.extractEnergy(ENERGY_PER_BEDROCK_MINE)){
                 bedrockMineProcess++;
             }
@@ -112,10 +118,27 @@ public class LaserDrillBehaviour extends BlockEntityBehaviour {
         return checkPos;
     }
 
-    private void onBedrockMine(BlockPos bedrockPos){
-        List<ItemStack> r = List.of(new ItemStack(Items.DIAMOND),new ItemStack(Items.IRON_INGOT,2));
-        for (ItemStack itemStack : r){
-            getNewStack(itemStack, bedrockPos.up());
+    private void onBedrockMine(BlockPos bedrockPos,BlockState bedrockState){
+        if (bedrockState.isOf(BEDROCK)){
+            getWorld().setBlockState(bedrockPos,MELTED_BEDROCK.getDefaultState().with(HEAT,0));
+        }else if (bedrockState.isOf(MELTED_BEDROCK)){
+            int heat = bedrockState.get(HEAT);
+            if (heat != 1){
+                getWorld().setBlockState(bedrockPos,bedrockState.with(HEAT,heat + 1));
+            }else {
+                getWorld().getBiome(bedrockPos).getKey().ifPresent(
+                        biomeKey ->{
+                            Optional<LaserDrillRecipe> recipeO = getWorld().getRecipeManager().getFirstMatch(ModRecipes.LASER_DRILL_RECIPETYPE, LaserDrillRecipe.generatorTestInv(biomeKey),getWorld());
+                            recipeO.ifPresent(recipe -> {
+                                        List<ItemStack> r = recipe.getOutputs();
+                                        for (ItemStack itemStack : r) {
+                                            getNewStack(itemStack, bedrockPos.up());
+                                        }
+                                    }
+                            );
+                        }
+                );
+            }
         }
     }
 

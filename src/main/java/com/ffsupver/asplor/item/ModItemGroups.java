@@ -207,6 +207,12 @@ public class ModItemGroups {
                             entries.add(OXYGEN_PIPE_IRON);
                             entries.add(ATMOSPHERIC_REGULATOR_IRON_PLATING);
                             entries.add(OXYGEN_PIPE_IRON_PLATING);
+                            entries.add(LASER_DRILL);
+                            entries.add(LASER_DRILL_LEN);
+                            entries.add(LASER_DRILL_SHELL);
+                            entries.add(LASER_DRILL_GLASS);
+                            entries.add(LASER_DRILL_ITEM_OUTPUT);
+                            entries.add(LASER_DRILL_BATTERY);
                         }).build());
 
     }

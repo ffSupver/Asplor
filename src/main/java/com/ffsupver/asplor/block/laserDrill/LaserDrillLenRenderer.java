@@ -28,14 +28,18 @@ public class LaserDrillLenRenderer extends SmartBlockEntityRenderer<LaserDrillLe
         int height = blockEntity.getPos().getY() - digPos.getY();
 
         long time = blockEntity.getWorld().getTime();
+
+        if (height != 0){
+            renderLaser(ms, buffer, height, time);
+        }
+    }
+
+    private void renderLaser(MatrixStack ms, VertexConsumerProvider bufferSource,int height,long time){
         float lDegree = (time % (360 / 2)) * 2;
         ms.translate(.5f,0,.5f);
         ms.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(lDegree));
         ms.translate(-.5f,0,-.5f);
-        renderLaser(ms,buffer,height,time);
-    }
 
-    private void renderLaser(MatrixStack ms, VertexConsumerProvider bufferSource,int height,long time){
         Matrix3f normalMatrix = ms.peek().getNormalMatrix();
         Matrix4f positionMatrix = ms.peek().getPositionMatrix();
 
